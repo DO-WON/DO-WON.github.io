@@ -1,6 +1,6 @@
 # Basic Information 
 title: DO WON KIM
-position: Ph.D. Student
+position: PhD Student
 affiliation: UMD iSchool
 email: dowonkim@umd.edu
 
@@ -12,11 +12,12 @@ canonical: https://minimal-light-theme.yliu.me/
 
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
-google_scholar: https://scholar.google.com/
+google_scholar: https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ
 cv_link: assets/files/curriculum_vitae.pdf
-github_link: https://github.com/
-linkedin: https://www.linkedin.com/
-twitter: https://twitter.com/
+github_link: https://github.com/DO-WON
+linkedin: https://www.linkedin.com/in/do-won-kim-336a9a16a/
+twitter: https://twitter.com/DoWonKim13
+researchgate: https://www.researchgate.net/profile/Do_Won_Kim2
 
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
@@ -26,7 +27,7 @@ favicon_dark: ./assets/img/favicon-dark.png
 
 # Footnote
 # You may use the option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
-enable_footnote: true
+enable_footnote: false
 
 # Google Analytics ID
 # Please remove this if you don't use Google Analytics
