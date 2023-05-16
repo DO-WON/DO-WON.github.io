@@ -3,20 +3,15 @@ layout: homepage
 ---
 
 ## About Me
+I am a PhD candidate in Political Science at Seoul National University. Prior to coming to Seoul National University, I earned a MSc in European Studies (Research) from the London School of Economics, as well as a Bachelor of Business Administration and a BSc in Engineering from Sungkyunkwan University, South Korea. I enjoy learning and experimenting with quantitative methods. In the fall of 2023, I will begin my PhD in Information Studies at the University of Maryland's iSchool :) ! 
 
-I am a Ph.D. student at ...
 
 ## Research Interests
-
-- **Computer Vision:** image recognition, image generation, video captioning
-- **Machine Learning:** meta-learning, incremental learning, transfer learning
+My research interests lie at the intersection of computational social science and political behavior. I am particularly interested in how people learn about political issues and form beliefs online (`algorithm-mediated social learning`), as well as the political repercussions of this. I also seek to understand the real-world political behavioral outcomes of what happens on online social media. To that end, I use a variety of quantitative methods, such as survey/field experiments and machine learning, social network analysis, natural language processing, and so on.
 
 ## News
 
-- **[Feb. 2020]** Our paper about incremental learning is accepted to CVPR 2020.
-- **[Feb. 2020]** We will host the ACM Multimedia Asia 2020 conference in Singapore!
-- **[Sept. 2019]** Our paper about few-shot learning is accepted to NeurIPS 2019.
-- **[Mar. 2019]** Our paper about few-shot learning is accepted to CVPR 2019.
+- **[April. 2023]** 
 
 {% include_relative _includes/publications.md %}
 
