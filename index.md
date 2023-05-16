@@ -7,7 +7,7 @@ I am a PhD candidate in Political Science at Seoul National University. Prior to
 
 
 ## Research Interests
-My research interests lie at the intersection of computational social science and political behavior. I am particularly interested in how people learn about political issues and form beliefs online (`algorithm-mediated social learning`), as well as the political repercussions of this. I also seek to understand the real-world political behavioral outcomes of what happens on online social media. To that end, I use a variety of quantitative methods, such as survey/field experiments and machine learning, social network analysis, natural language processing, and so on.
+My research interests lie at the intersection of computational social science and political behavior. I am particularly interested in how people learn about political issues and form beliefs online (algorithm-mediated social learning), as well as the political repercussions of this. I also seek to understand the real-world political behavioral outcomes of what happens on online social media. To that end, I use a variety of quantitative methods, such as survey/field experiments and machine learning, social network analysis, natural language processing, and so on.
 
 ## News
 
