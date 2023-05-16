@@ -26,7 +26,7 @@ body {
   line-height:2.5rem;
   margin-right:1rem}
 
-@media (prefers-color-scheme: dark) { .social-icons a {color: #3eb7f0 !important; }}
+@media (prefers-color-scheme: light) { .social-icons a {color: #3eb7f0 !important; }}
 
 .social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:white;
     color:black;
@@ -47,7 +47,7 @@ body {
       }
      */
 
-@media (prefers-color-scheme: dark) {.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#20212b;
+@media (prefers-color-scheme: light) {.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#20212b;
     color:black;
     transform: scale(1.2)} 
     /*
@@ -170,7 +170,7 @@ papertitle {
     font-size: 100%;
   }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     body {
         background-color: #20212b;
         color: #dadbdf;
@@ -259,7 +259,7 @@ h2 {
   font-size: 157%;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   h1, h3, h4, h5, h6 {
     color:rgb(62, 183, 240);
   }
@@ -290,7 +290,7 @@ a:hover {
   color:#069;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   a {
     color:rgb(62, 183, 240);
   }
@@ -353,7 +353,7 @@ th {
   color:#444;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   th {
     color:rgb(62, 183, 240);
   }
@@ -426,7 +426,7 @@ strong {
   font-weight:500;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   strong {
     color:#eeeff0;
   }
