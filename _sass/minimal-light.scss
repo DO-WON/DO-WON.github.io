@@ -47,7 +47,7 @@ body {
       }
      */
 
-@media (prefers-color-scheme: light) {.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#20212b;
+@media (prefers-color-scheme: light) {.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:white;
     color:black;
     transform: scale(1.2)} 
     /*
@@ -172,16 +172,16 @@ papertitle {
 
 @media (prefers-color-scheme: light) {
     body {
-        background-color: #20212b;
-        color: #dadbdf;
+        background-color: white;
+        color: #3eb7f0;
     }
 
     autocolor{
-      color:#dadbdf;
+      color: #3eb7f0;
     }
 
     lightonly {
-      visibility: hidden;
+      visibility: visible;
     }
 
     darkonly {
