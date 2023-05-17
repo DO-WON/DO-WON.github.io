@@ -147,10 +147,7 @@ email {
 .icon-button .icon-linkedin{
   color:#0077B5}
 
-.icon-button .icon-researchgate{
-    color: #00CCBB}
-    
-.icon-button:hover .icon-twitter,.icon-button:hover .icon-facebook,.icon-button:hover .icon-github,.icon-button:hover .icon-linkedin, .icon-button:hover .icon-researchgate{color:white}
+.icon-button:hover .icon-twitter,.icon-button:hover .icon-facebook,.icon-button:hover .icon-github,.icon-button:hover .icon-linkedin{color:white}
 
 autocolor{
   color:#595959;
@@ -184,7 +181,7 @@ papertitle {
     }
 
     lightonly {
-      visibility: visible;
+      visibility: hidden;
     }
 
     darkonly {
@@ -575,11 +572,11 @@ footer {
       padding:20px;
   }
   #head1o2 {
-    visibility: visible;
+    visibility: hidden;
   }
   
   #head2o2 {
-    visibility: visible;
+    visibility: hidden;
   }
 
 }
