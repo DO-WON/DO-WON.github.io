@@ -15,19 +15,15 @@ Prior to coming to UMD, I was a graduate researcher at the [Center for Political
 ## Teaching Experiences
 I have led TA sessions at KOSSDA (Korea Social Science Data Archive), which is the Korean equivalent of ICPSR, as well as at CPC (Center for Political Communication) at SNU. Course materials are provided below.  
 
-- KOSSDA | [Panel Data Analysis](https://stellar-weaver-46d.notion.site/2022-KOSSDA-Panel-Data-Analysis-1f0a183a7b1440e5a3296f35d9f823a5)
-    - Summer 2023
-    - Fall 2022
-    - Spring 2022
-    - Fall 2021
+**KOSSDA** | [Panel Data Analysis](https://stellar-weaver-46d.notion.site/2022-KOSSDA-Panel-Data-Analysis-1f0a183a7b1440e5a3296f35d9f823a5)
+- Summer 2023; Fall 2022; Spring 2022; Fall 2021
       
-- KOSSDA | [Intermeidate Statistics](https://www.notion.so/KOSSDA-2459d1c5777048ed8b4d2d64268bef14?pvs=4)
-    - Summer 2023
-    - Summer 2022
+**KOSSDA** | [Intermeidate Statistics](https://www.notion.so/KOSSDA-2459d1c5777048ed8b4d2d64268bef14?pvs=4)
+- Summer 2023; Summer 2022
  
-- KOSSDA | [Introduction to R](https://do-won.github.io/bookdown-demo/)
+**KOSSDA** | [Introduction to R](https://do-won.github.io/bookdown-demo/)
 
-- CPC | [Social Network Analysis in R](https://do-won.github.io/Social_Network_Analysis/) 
+**CPC** | [Social Network Analysis in R](https://do-won.github.io/Social_Network_Analysis/) 
 
 
 
