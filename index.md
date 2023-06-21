@@ -3,7 +3,7 @@ layout: homepage
 ---
 
 ## About Me
-As of Fall 2023, I will begin my PhD in Information Studies at the [University of Maryland's iSchool](https://ischool.umd.edu/). I will be advised by [Giovanni Luca Ciampaglia](https://glciampaglia.com/) and [Cody Buuntain](http://cody.bunta.in/). 
+As of Fall 2023, I will begin my PhD in Information Studies at the [University of Maryland's iSchool](https://ischool.umd.edu/). I will be advised by [Giovanni Luca Ciampaglia](https://glciampaglia.com/) and [Cody Buntain](http://cody.bunta.in/). 
 
 Prior to coming to UMD, I was a graduate researcher at the Center for Political Communication and a PhD candidate in Political Science at Seoul National University. Before that, I earned a MSc in European Studies (Research) at LSE, as well as a Bachelor of Business Administration and a BSc in Engineering at Sungkyunkwan University, South Korea. As a multidisciplinary student, I enjoy learning new things and experimenting with diverse methods. 
 
