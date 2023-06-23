@@ -8,7 +8,7 @@
 <div class="pub-row">
 
   <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    <img src="assets/img/teaser_example.png" class="teaser img-fluid z-depth-1">
+    <img src="assets/img/presentation2.png" class="teaser img-fluid z-depth-1">
     <abbr class="badge">APSA</abbr>
   </div>
 
@@ -30,7 +30,7 @@
 <div class="pub-row">
 
   <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
-    <img src="assets/img/teaser_example.png" class="teaser img-fluid z-depth-1">
+    <img src="assets/img/presentation1.png" class="teaser img-fluid z-depth-1">
     <abbr class="badge">PolMeth</abbr>
   </div>
 
