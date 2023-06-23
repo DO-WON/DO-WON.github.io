@@ -12,6 +12,9 @@ Prior to coming to UMD, I was a graduate researcher at the [Center for Political
 <br />
 <br />
 
+{% include_relative _includes/publications.md %}
+
+
 {% include_relative _includes/services.md %}
 
 <br />
