@@ -1,7 +1,7 @@
 
 <h2 id="presentations" style="margin: 2px 0px -15px;">Conference Presentations</h2>
 
-<div class="presentations">
+<div class="publications">
 <ol class="bibliography">
 
 <li>
