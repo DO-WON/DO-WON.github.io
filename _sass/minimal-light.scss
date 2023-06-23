@@ -26,9 +26,9 @@ body {
   line-height:2.5rem;
   margin-right:1rem}
 
-@media (prefers-color-scheme: light) { .social-icons a {color: #af0e0e !important; }}
+@media (prefers-color-scheme: light) { .social-icons a {color: #3eb7f0 !important; }}
 
-.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#af0e0e;
+.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#3eb7f0;
     color:black;
     transform: scale(1.2)}
     /*
@@ -47,7 +47,7 @@ body {
       }
      */
 
-@media (prefers-color-scheme: dark) {.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#af0e0e;
+@media (prefers-color-scheme: dark) {.social-icons a:last-child{margin-right:0}.social-icons a:hover{background-color:#3eb7f0;
     color:black;
     transform: scale(1.2)} 
     /*
@@ -173,11 +173,11 @@ papertitle {
 @media (prefers-color-scheme: light) {
     body {
         background-color: white;
-        color: #af0e0e;
+        color: #3eb7f0;
     }
 
     autocolor{
-      color: #af0e0e;
+      color: #3eb7f0;
     }
 
     lightonly {
@@ -230,9 +230,9 @@ papertitle {
         border-radius: 100%;
         width: 45%;
         padding: 20px;
-        border: 1px solid #ddd;
-        padding: 3px;
-        box-shadow: 0 -1px 5px 1px rgba(200, 200, 200, 0.3);
+        // border: 1px solid #ddd;
+        // padding: 3px;
+        // box-shadow: 0 -1px 5px 1px rgba(200, 200, 200, 0.3);
       }
 
     #header .image.avatar {
@@ -327,9 +327,9 @@ code, pre {
 pre {
   max-width:500px;
   padding:8px 15px;
-  background: #af0e0e;
+  background: #3eb7f0;
   border-radius:5px;
-  border:1px solid #af0e0e;
+  border:1px solid #3eb7f0;
   overflow-x: auto;
 }
 
