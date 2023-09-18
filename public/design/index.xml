@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Design on Pascal Michaillat</title>
+    <link>https://pascalmichaillat.org/design/</link>
+    <description>Recent content in Design on Pascal Michaillat</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://pascalmichaillat.org/design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Minimalist LaTeX Template for Academic Papers</title>
+      <link>https://pascalmichaillat.org/d2/</link>
+      <pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://pascalmichaillat.org/d2/</guid>
+      <description>This template produces a research paper with LaTeX. The paper has a minimalist design and is customized for academics and scientists.</description>
+    </item>
+    
+    <item>
+      <title>Minimalist Hugo Template for Academic Websites</title>
+      <link>https://pascalmichaillat.org/d5/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://pascalmichaillat.org/d5/</guid>
+      <description>This template produces a personal website with Hugo. The website has a minimalist design and is customized for academics, scientists, and researchers.</description>
+    </item>
+    
+    <item>
+      <title>Minimalist LaTeX Template for Academic Presentations</title>
+      <link>https://pascalmichaillat.org/d1/</link>
+      <pubDate>Thu, 07 Sep 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://pascalmichaillat.org/d1/</guid>
+      <description>This template produces a presentation with LaTeX and Beamer. The slides have a minimalist design and are customized for academics and other researchers.</description>
+    </item>
+    
+    <item>
+      <title>Minimalist LaTeX Commands to Write Math</title>
+      <link>https://pascalmichaillat.org/d3/</link>
+      <pubDate>Thu, 24 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://pascalmichaillat.org/d3/</guid>
+      <description>This collection of minimalist commands make it easy to write mathematical expressions with LaTeX.</description>
+    </item>
+    
+  </channel>
+</rss>
