@@ -1,4 +1,4 @@
-baseURL: "http://localhost:1313" 
+baseURL: "http://do-won.github.io"
 title: Do Won Kim
 paginate: 20
 theme: PaperMod
@@ -11,28 +11,31 @@ taxonomies:
 
 menu:
     main:
-        - name: Papers
-          url: /papers/
+        - name: Projects
+          url: /projects/
           weight: 1
+        - name: Publication
+          url: /publication/
+          weight: 2
+        - name: Presentation
+          url: /presentation/
+          weight: 3
         - name: Courses
           url: /courses/
-          weight: 2
-        - name: Design
-          url: /design/
-          weight: 3
-        - name: Tags
-          url: /tags/
-          weight: 5     
-        - name: Newsletter
-          url: https://pmichaillat.substack.com
           weight: 4
+        - name: News
+          url: /news/
+          weight: 5
+        - name: Blog
+          url: /blog/
+          weight: 6
 
 params:
-    description: "I am a PhD student in Information Studies at University of Maryland. My research covers computational social science and political behavior."
+    description: "I am a PhD student in Information Studies at University of Maryland. I study computational social science and political behavior."
     author: Do Won Kim
-    # oogleAnalyticsID: "G-97G4MZ4061"
+    # googleAnalyticsID: ""
     DateFormat: "January 2006"
-    defaultTheme: dark
+    defaultTheme: light
     hideFooter: true
     disableThemeToggle: true
     ShowShareButtons: false
@@ -53,33 +56,45 @@ params:
     profileMode:
           enabled: true
           title: Do Won Kim 
-          subtitle: "I am a PhD student in Information Studies at University of Maryland. My research covers computational social science and political behavior. I study how social media influence the formation of and changes in political beliefs/identities and behavior. Methodologically, I am interested in causal inference and machine learning."
+          subtitle: "I am a 1st year Ph.D. student in Information Studies at [University of Maryland](https://ischool.umd.edu/directory/do-won-kim/). 
+            I am advised by [Giovanni Luca Ciampaglia](https://glciampaglia.com/) and [Cody Buntain](http://cody.bunta.in/).             
+            My research interest is in in the intersection of computational social science and political science. 
+            My work revolves around the relationship between digital media and political behavior, with a particular focus on how the information environment and algorithms shape political beliefs, identities, and behaviors.            
+            I employ a wide range of quantitative methods in my research, including causal inference and machine learning.
+            
+            <br><br>
+            Prior to coming to UMD, I was a graduate researcher at the [Center for Political Communication](https://cpc.snu.ac.kr/) and a PhD candidate in Political Science at Seoul National University (SNU). 
+            Before that, I earned a MSc in European Studies (Research) at LSE, as well as a Bachelor of Business Administration and a BSc in Engineering at Sungkyunkwan University, South Korea."
           imageUrl: "/picture.jpeg"
           imageWidth: 160
           imageHeight: 160
           imageTitle: Do Won Kim
           buttons:
-            - name: Papers
-              url: /papers/
+            - name: Projects
+              url: /projects/
+            - name: Publication
+              url: /publication/
+            - name: Presentation
+              url: /presentation/
             - name: Courses
               url: /courses/
-            - name: Design
-              url: /design/
-            - name: Newsletter
-              url: https://pmichaillat.substack.com
+            - name: News
+              url: /news/
+            - name: Blog
+              url: /blog/
     socialIcons:
         - name: CV
           url: /cv.pdf
         - name: Email
-          url: mailto:dowonkimat@umd.edu
-        #- name: Location
-        #  url: /location/
-        #- name: Office Hours
-        #  url: /officehours/
+          url: mailto:dowonkim@umd.edu
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/do-won-kim-336a9a16a/
+        - name: Twitter
+          url: https://twitter.com/DoWonKim13
         - name: Google Scholar
           url: https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ
-        #- name: YouTube
-        #  url: https://www.youtube.com/@pmichaillat
+        - name: ResearchGate
+          url: https://www.researchgate.net/profile/Do_Won_Kim2
         - name: GitHub
           url: https://github.com/DO-WON
 
@@ -90,7 +105,7 @@ params:
         hiddenInList: true
         hiddenInSingle: true
     label:
-      text: "Pascal Michaillat"
+      text: "Do Won Kim"
       icon: /favicon.ico
       iconHeight: 18
 
