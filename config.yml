@@ -83,19 +83,19 @@ params:
             - name: Blog
               url: /blog/
     socialIcons:
-        - name: CV
+        - name: "cv"
           url: /cv.pdf
-        - name: Email
+        - name: "email"
           url: mailto:dowonkim@umd.edu
-        - name: LinkedIn
+        - name: "linkedin"
           url: https://www.linkedin.com/in/do-won-kim-336a9a16a/
-        - name: Twitter
+        - name: "twitter"
           url: https://twitter.com/DoWonKim13
-        - name: Google Scholar
+        - name: "googlescholar"
           url: https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ
-        - name: ResearchGate
+        - name: "researchgate"
           url: https://www.researchgate.net/profile/Do_Won_Kim2
-        - name: GitHub
+        - name: "github"
           url: https://github.com/DO-WON
 
     assets:
