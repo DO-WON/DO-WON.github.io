@@ -32,7 +32,7 @@ params:
     author: Do Won Kim
     # oogleAnalyticsID: "G-97G4MZ4061"
     DateFormat: "January 2006"
-    defaultTheme: light
+    defaultTheme: dark
     hideFooter: true
     disableThemeToggle: true
     ShowShareButtons: false
