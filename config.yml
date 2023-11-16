@@ -91,10 +91,8 @@ params:
           url: https://www.linkedin.com/in/do-won-kim-336a9a16a/
         - name: "twitter"
           url: https://twitter.com/DoWonKim13
-        - name: "googlescholar"
+        - name: Google Scholar
           url: https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ
-        - name: "researchgate"
-          url: https://www.researchgate.net/profile/Do_Won_Kim2
         - name: "github"
           url: https://github.com/DO-WON
 

@@ -8,7 +8,7 @@
     <loc>http://do-won.github.io/d5/</loc>
     <lastmod>2023-09-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://do-won.github.io/projects/</loc>
+    <loc>http://do-won.github.io/design/</loc>
     <lastmod>2023-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/tags/business-cycles/</loc>
@@ -26,7 +26,7 @@
     <loc>http://do-won.github.io/14/</loc>
     <lastmod>2023-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://do-won.github.io/publication/</loc>
+    <loc>http://do-won.github.io/papers/</loc>
     <lastmod>2023-09-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/tags/state-dependence/</loc>
@@ -82,5 +82,11 @@
   </url><url>
     <loc>http://do-won.github.io/1/</loc>
     <lastmod>2012-06-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/blog/</loc>
+  </url><url>
+    <loc>http://do-won.github.io/news/</loc>
+  </url><url>
+    <loc>http://do-won.github.io/presentation/</loc>
   </url>
 </urlset>
