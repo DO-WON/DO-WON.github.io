@@ -12,10 +12,10 @@ taxonomies:
 menu:
     main:
         - name: Projects
-          url: /projects/
+          url: /design/
           weight: 1
         - name: Publication
-          url: /publication/
+          url: /papers/
           weight: 2
         - name: Presentation
           url: /presentation/
@@ -71,9 +71,9 @@ params:
           imageTitle: Do Won Kim
           buttons:
             - name: Projects
-              url: /projects/
+              url: /design/
             - name: Publication
-              url: /publication/
+              url: /papers/
             - name: Presentation
               url: /presentation/
             - name: Courses
