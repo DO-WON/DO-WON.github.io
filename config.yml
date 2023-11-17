@@ -58,13 +58,10 @@ params:
           title: Do Won Kim 
           subtitle: "I am a 1st year Ph.D. student in Information Studies at University of Maryland. 
             I am advised by [Giovanni Luca Ciampaglia](https://glciampaglia.com/) and [Cody Buntain.](http://cody.bunta.in/)             
+            <br><br>
             My research interest is in in the intersection of computational social science and political science. 
             My work revolves around the relationship between digital media and political behavior, with a particular focus on how the information environment and algorithms shape political beliefs, identities, and behaviors.            
-            I employ a wide range of quantitative methods in my research, including causal inference and machine learning.
-            
-            <br><br>
-            Prior to coming to UMD, I was a graduate researcher at the [Center for Political Communication](https://cpc.snu.ac.kr/) and a PhD candidate in Political Science at Seoul National University (SNU). 
-            Before that, I earned a MSc in European Studies (Research) at LSE, as well as a Bachelor of Business Administration and a BSc in Engineering at Sungkyunkwan University, South Korea."
+            I employ a wide range of quantitative methods in my research, including causal inference and machine learning."
           imageUrl: "/picture.jpeg"
           imageWidth: 160
           imageHeight: 160
