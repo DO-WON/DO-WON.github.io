@@ -57,8 +57,10 @@ params:
           enabled: true
           title: Do Won Kim 
           subtitle: "I am a 1st year Ph.D. student in Information Studies at University of Maryland. 
-            I am advised by [Giovanni Luca Ciampaglia](https://glciampaglia.com/) and [Cody Buntain.](http://cody.bunta.in/)             
-            <br><br>
+            I am advised by [Giovanni Luca Ciampaglia](https://glciampaglia.com/) and [Cody Buntain.](http://cody.bunta.in/)
+            I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
+            and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
+            <br/><br/>
             My research interest is in in the intersection of computational social science and political science. 
             My work revolves around the relationship between digital media and political behavior, with a particular focus on how the information environment and algorithms shape political beliefs, identities, and behaviors.            
             I employ a wide range of quantitative methods in my research, including causal inference and machine learning."
@@ -110,7 +112,7 @@ markup:
             unsafe: true
     highlight:
         guessSyntax: true
-        style: autumn 
+        style: xcode
     tableOfContents:
         endLevel: 2
         ordered: false
