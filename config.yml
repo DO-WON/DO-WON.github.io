@@ -60,8 +60,8 @@ params:
             I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
             <br/><br/>
-            My research interest is in in the intersection of computational social science and political science. 
-            My work revolves around the relationship between digital media and political behavior, with a particular focus on how the information environment and algorithms shape political beliefs, identities, and behaviors.            
+            My research interest is in the intersection of computational social science and political science. 
+            I study relationship between digital media and political behavior, with a particular focus on how the information environment and algorithms shape political beliefs, identities, and behaviors.            
             I employ a wide range of quantitative methods in my research, including causal inference and machine learning."
           imageUrl: "/picture.jpeg"
           imageWidth: 160
@@ -103,7 +103,7 @@ params:
     label:
       text: "Do Won Kim"
       icon: /favicon.ico
-      iconHeight: 18
+      iconHeight: 16
 
 markup:
     goldmark:
@@ -111,7 +111,7 @@ markup:
             unsafe: true
     highlight:
         guessSyntax: true
-        style: xcode
+        style: autumn
     tableOfContents:
         endLevel: 2
         ordered: false
