@@ -1,4 +1,5 @@
 ---
 title: "Blog"
-description: ""
+description: "Everything that I want to log, write, share, and post!"
 ---
+
