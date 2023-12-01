@@ -1,15 +1,15 @@
 ---
 title: "Strategic Allocation of Political Fund and Re-election of Incumbents in South Korea" 
 date: 2022-06-01
-url: /money_politics/
+url: /1/
 tags: ["political behavior","money politics","political fund", "election"]
 author: ["Do Won Kim", "Hyowon Kim"]
 description: "This paper investigates how different patterns of political fund spending are related to the odds of being re-election based on the 19th and 20th legislators' expenditures of political funds." 
 summary: "The more representatives spent, particularly in party competition and election-related categories, the higher was their chance of being re-elected. Furthermore, this effect was more prominent among incumbents whose parties held hegemonic dominance in their districts, yielding lesser between-party electoral race but closer within-party race in primaries." 
 cover:
-    image: "/images/money_politics_1.png"
+    image: "/1.png"
     alt: ""
-    relative: false
+    relative: true
 editPost:
     URL: "https://doi.org/10.35656/JKP.31.2.3"
     Text: "Journal of Korean Politics"
@@ -31,7 +31,7 @@ How does money affect the re-election of politicians in South Korea? Provided th
 
 ##### [Figure 2] Re-elected (pink) vs. Failed (blue): 19th-20th National Assembly Members' Trends in Political Fund Expenditure by Category
 
-![](/images/money_politics_1.png)
+![](/money_politics_1.png)
 
 ---
 
