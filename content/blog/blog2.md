@@ -6,6 +6,13 @@ tags: ["productivity","zettlekasten"]
 author: "Do Won Kim"
 description: "Tutorial for INST800 at UMD iSchool"
 summary: "" 
+cover:
+    image: "obsidian_zotero.png"
+    alt: ""
+    relative: true
+editPost:
+    URL: ""
+    Text: ""
 showToc: true
 disableAnchoredHeadings: false
 
