@@ -1,6 +1,6 @@
 .main {
     position: relative;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    min-height: calc(100vh - var(--header-height));
     max-width: calc(var(--main-width) + var(--gap) * 2);
     margin: auto;
     padding: var(--gap);
@@ -32,12 +32,12 @@
 }
 
 .social-icons a:not(:last-of-type) {
-    margin-inline-end: 12px;
+    margin-inline-end: 16px;
 }
 
 .social-icons a svg {
-    height: 26px;
-    width: 26px;
+    height: 28px;
+    width: 28px;
 }
 
 .social-icons a:hover {
@@ -46,6 +46,13 @@
 
 code {
     direction: ltr;
+}
+
+code {
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 div.highlight,

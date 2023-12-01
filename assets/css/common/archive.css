@@ -8,11 +8,11 @@
 }
 
 .archive-year-header {
-    font-size: var(--h1size);
+    font-size: 20px;
 }
 
 .archive-year:not(:last-of-type) {
-    border-bottom: 2px solid var(--border);
+    border-bottom: 3px solid var(--tertiary);
 }
 
 .archive-month {
@@ -29,7 +29,7 @@
 }
 
 .archive-month:not(:last-of-type) {
-    border-bottom: 2px solid var(--border);
+    border-bottom: 1px solid var(--tertiary);
 }
 
 .archive-entry {
