@@ -7,7 +7,7 @@ author: "Do Won Kim"
 description: "Tutorial for INST800 at UMD iSchool"
 summary: "" 
 cover:
-    image: "images/obsidian_zotero.png"
+    image: "/images/obsidian_zotero.png"
     alt: ""
     relative: true
 editPost:
