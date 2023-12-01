@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>political behavior on Do Won Kim</title>
+    <link>http://do-won.github.io/tags/political-behavior/</link>
+    <description>Recent content in political behavior on Do Won Kim</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://do-won.github.io/tags/political-behavior/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Smile to Win : How do Candidates&#39; Smiles Affect Election Outcomes?</title>
+      <link>http://do-won.github.io/2022_3/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/2022_3/</guid>
+      <description>How do candidates’ appearance affect election outcomes? This study investigates the effect of smiles on vote shares using election posters of candidates running in South Korean local elections.</description>
+    </item>
+    
+    <item>
+      <title>Strategic Allocation of Political Fund and Re-election of Incumbents in South Korea</title>
+      <link>http://do-won.github.io/2022_1/</link>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/2022_1/</guid>
+      <description>This paper investigates how different patterns of political fund spending are related to the odds of being re-election based on the 19th and 20th legislators&amp;#39; expenditures of political funds.</description>
+    </item>
+    
+    <item>
+      <title>Voting against in the 2017 French presidential election</title>
+      <link>http://do-won.github.io/2022_2/</link>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/2022_2/</guid>
+      <description>Do voters vote for the candidate they like or vote against their dislike? This paper aims to broaden the understanding of voting behavior and expand the scope of voting models by incorporating loss aversion, the central concept of the prospect theory, into the traditional proximity model.</description>
+    </item>
+    
+  </channel>
+</rss>

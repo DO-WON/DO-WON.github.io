@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Projects on Do Won Kim</title>
+    <link>http://do-won.github.io/design/</link>
+    <description>Recent content in Projects on Do Won Kim</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="http://do-won.github.io/design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Muting low-quality sources: A field experiment to mitigate the harm of inaccurate health information online</title>
+      <link>http://do-won.github.io/d1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/d1/</guid>
+      <description>Overview The template produces an academic presentation using LaTeX with the Beamer class . The presentation carefully follows typographical best practices and has a minimalist design. The goal is to produce slides that convey information as effectively as possible—complementing the talk, not distracting from it.
+Download LaTeX template for academic presentations Presentation obtained from the template Features The aspect ratio is set to 4:3. There are no frills at the periphery of the slides.</description>
+    </item>
+    
+  </channel>
+</rss>

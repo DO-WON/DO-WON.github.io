@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>voting behavior on Do Won Kim</title>
+    <link>http://do-won.github.io/tags/voting-behavior/</link>
+    <description>Recent content in voting behavior on Do Won Kim</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://do-won.github.io/tags/voting-behavior/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Voting against in the 2017 French presidential election</title>
+      <link>http://do-won.github.io/2022_2/</link>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/2022_2/</guid>
+      <description>Do voters vote for the candidate they like or vote against their dislike? This paper aims to broaden the understanding of voting behavior and expand the scope of voting models by incorporating loss aversion, the central concept of the prospect theory, into the traditional proximity model.</description>
+    </item>
+    
+  </channel>
+</rss>

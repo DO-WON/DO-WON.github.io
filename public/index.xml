@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Do Won Kim</title>
+    <link>http://do-won.github.io/</link>
+    <description>Recent content on Do Won Kim</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 Dec 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://do-won.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Integrating Zotero and Obsidian for Zettelkasten</title>
+      <link>http://do-won.github.io/blog2/</link>
+      <pubDate>Fri, 01 Dec 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/blog2/</guid>
+      <description>Tutorial for INST800 at UMD iSchool</description>
+    </item>
+    
+    <item>
+      <title>Curation of Reading Lists</title>
+      <link>http://do-won.github.io/blog1/</link>
+      <pubDate>Tue, 21 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/blog1/</guid>
+      <description>This is a curation of reading lists that are relevant to my research interests.</description>
+    </item>
+    
+    <item>
+      <title>iSchool Coursework</title>
+      <link>http://do-won.github.io/coursework/</link>
+      <pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/coursework/</guid>
+      <description>iSchool Coursework</description>
+    </item>
+    
+    <item>
+      <title>Smile to Win : How do Candidates&#39; Smiles Affect Election Outcomes?</title>
+      <link>http://do-won.github.io/2022_3/</link>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/2022_3/</guid>
+      <description>How do candidates’ appearance affect election outcomes? This study investigates the effect of smiles on vote shares using election posters of candidates running in South Korean local elections.</description>
+    </item>
+    
+    <item>
+      <title>Strategic Allocation of Political Fund and Re-election of Incumbents in South Korea</title>
+      <link>http://do-won.github.io/2022_1/</link>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/2022_1/</guid>
+      <description>This paper investigates how different patterns of political fund spending are related to the odds of being re-election based on the 19th and 20th legislators&amp;#39; expenditures of political funds.</description>
+    </item>
+    
+    <item>
+      <title>Voting against in the 2017 French presidential election</title>
+      <link>http://do-won.github.io/2022_2/</link>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/2022_2/</guid>
+      <description>Do voters vote for the candidate they like or vote against their dislike? This paper aims to broaden the understanding of voting behavior and expand the scope of voting models by incorporating loss aversion, the central concept of the prospect theory, into the traditional proximity model.</description>
+    </item>
+    
+    <item>
+      <title>Muting low-quality sources: A field experiment to mitigate the harm of inaccurate health information online</title>
+      <link>http://do-won.github.io/d1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://do-won.github.io/d1/</guid>
+      <description>Overview The template produces an academic presentation using LaTeX with the Beamer class . The presentation carefully follows typographical best practices and has a minimalist design. The goal is to produce slides that convey information as effectively as possible—complementing the talk, not distracting from it.
+Download LaTeX template for academic presentations Presentation obtained from the template Features The aspect ratio is set to 4:3. There are no frills at the periphery of the slides.</description>
+    </item>
+    
+  </channel>
+</rss>
