@@ -1,6 +1,6 @@
 baseURL: "http://do-won.github.io"
 title: Do Won Kim
-paginate: 20
+paginate: 10
 theme: PaperMod
 
 enableInlineShortcodes: true
@@ -47,7 +47,7 @@ params:
     ShowCodeCopyButtons: true
     ShowRssButtonInSectionTermList: false
     ShowToc: false
-    disableScrollToTop: true
+    disableScrollToTop: false
     TocOpen: true
     ShowWordCount: false
     UseHugoToc: true
@@ -64,8 +64,8 @@ params:
             I study relationship between digital media and political behavior, with a particular focus on how the information environment and algorithms shape political beliefs, identities, and behaviors.            
             I employ a wide range of quantitative methods in my research, including causal inference and machine learning."
           imageUrl: "/picture.jpeg"
-          imageWidth: 160
-          imageHeight: 160
+          imageWidth: 140
+          imageHeight: 140
           imageTitle: Do Won Kim
           buttons:
             - name: Projects
@@ -103,7 +103,7 @@ params:
     label:
       text: "Do Won Kim"
       icon: /favicon.ico
-      iconHeight: 16
+      iconHeight: 15
 
 markup:
     goldmark:
