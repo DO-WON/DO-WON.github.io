@@ -44,7 +44,7 @@ Below are the features that I found most useful:
 
 **On Zotero:** 
 1. Collect references (e.g. drag and drop PDF file)
-2. Read PDFs (e.g. leave notes, highlight, caputure figures, etc.)
+2. Read PDFs (e.g. leave notes, highlight, capture figures, etc.)
 
 → You want to link this annotated notes to obsidian where you keep things that you read, think, and so on 
 
@@ -67,8 +67,9 @@ Below are the features that I found most useful:
 
 2. [Install](https://retorque.re/zotero-better-bibtex/installation/) Better BibTeX plugin for Zotero 
     <details>
-    <summary>It looks like this on Zotero...</summary>
-        
+    <summary>Click</summary>
+    It looks like this on Zotero...
+   
     ![](/zotero_bibtex.png)
     
     - If you click the button `Open Better BibTeX preferences...`
@@ -114,7 +115,7 @@ Below are the features that I found most useful:
    4) Search for `Zotero Integration` and click `Install`
    ![](/obsidian_5.png)
    5) In this way, install the following community plugins: 
-   `Pandoc Reference List`, `Dataview`, and `admonitions`
+   `Pandoc Plugin`,`Pandoc Reference List`,`Citations`, `Dataview`, and `Admonition`
    <br></br>
    6) Enable installed plugins
    ![](/obsidian_6.png)
@@ -145,18 +146,85 @@ Below are the features that I found most useful:
       </details>
 
 
-#### 🧑‍💻Now we are all set! 👍
+
+### Step 3. Additional settings
+
+#### Zotero 
+
+1. Export `My Library`
+   <details> <summary> Click </summary>
+
+   1) Right-click on `My Library` folder and click `Export Library`
+   2) You will see the following screen: 
+   ![](/zotero_1.png)
+      - Must click `Export Notes` and `Keep updated` >> `OK` >> Select path  
+   </details>
+
+2. Better BibTeX settings
+   <details> <summary> Click </summary>
+
+   1) `Settings` >> `Cite` : You will see the following screen:
+      ![](/zotero_2.png)
+   2) Click `Style Editor` >> choose your CSL(=citation style language) and click `save as`  
+   ![](/zotero_3.png)
+   
+   </details>
+
+
+#### Obsidian 
+
+Community plugin settings: 
+
+- **Pandoc References List** 
+  - Path to bibliography file: folder where you stored `My Library` file exported from Zotero 
+- **Citations** 
+  - Citation database format: BibLaTeX (or other if you choose different one)
+  - Citation database path: the same folder (`My Library` file) 
+  - Literature note folder: `50 Literature Notes/` for me 
+  - Literature note templates (put relevant info from your literature note)
+
+   
+Now we are all set! 👍
+
+### Step 4. Synthesize knowledge (=write!!!) on Obsidian
+
+
+#### Useful to have: header! 
+```markdown
+---
+category: paper
+tags:
+  - 
+status: writing
+---
+```
+#### To cite
+- `[[@citekey]]`: Link to the literature note
+- `[@citekey]`: Inline citation  
+
+
+### Step 5. Export the Draft
+
+To export the draft, you need the following information:
+- Path to the file that you want to export (#1)
+- Path to the csl file (#2)
+- Path where you want to store exported file (#3) 
+- Title and format of your exported file (e.g. `Title.docx`)
+
+In terminal, you should put the following (in a single line) and enter! 
+```markdown
+pandoc "#1" --bibliography "#2" --citeproc --csl "#3" -o "#3/Title.docx"
+```
+
+
 
 ---
-
-## Demo
-- I will show you how it works in class.
+## Note
 - A short video will be uploaded here (after the class) for revisiting! 
-
 <br></br>
 
-#### Additional note
-- Dataview
+#### Dataview  
+
   ```dataview  
    TABLE  
    title as Title,  
@@ -167,9 +235,6 @@ Below are the features that I found most useful:
    Contribution as Contribution  
    FROM "50 Literature Notes"  
    ```
-
-- How to write a paper using this integration? → Will update this later! 
-
 
 
 
