@@ -30,12 +30,12 @@
 <meta property="og:description" content="Tutorial for INST800 at UMD iSchool" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://do-won.github.io/blog2/" />
-<meta property="og:image" content="http://do-won.github.io/blog2/images/obsidian_zotero.png" /><meta property="article:section" content="blog" />
+<meta property="og:image" content="http://do-won.github.io/obsidian_zotero.png" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-12-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2023-12-01T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://do-won.github.io/blog2/images/obsidian_zotero.png" />
+<meta name="twitter:image" content="http://do-won.github.io/obsidian_zotero.png" />
 <meta name="twitter:title" content="Integrating Zotero and Obsidian for Zettelkasten"/>
 <meta name="twitter:description" content="Tutorial for INST800 at UMD iSchool"/>
 
@@ -70,10 +70,10 @@
   "keywords": [
     "productivity", "zettlekasten"
   ],
-  "articleBody": "",
-  "wordCount" : "0",
+  "articleBody": "What does this tutorial cover? Have you ever delved into extensive reading and meticulous note-taking, only to later realize that important details slipped your mind or got misplaced? Have you found yourself captivated by the gathering of valuable resources but faced challenges in effectively incorporating them into a cohesive narrative?\nAcademic work entails the exciting tasks of gathering, reading, and annotating resources, writing well-thought-out manuscripts, and meticulously citing references. There’s also the challenge of synthesizing the wealth of information you’ve gathered, making connections, and expanding on scattered ideas. This tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=Zettelkasten)!\nZotero and Obsidian? Zotero is a free, open-source reference management software designed to help researchers collect, organize, cite, and share their bibliographic references. Below are the features that I found most useful:\nZotero allows users to automatically retrieve metadata of references Zotero has web browser extension, enabling users to save references directly from websites. Zotero allows users to highlight and annotate PDFs directly within the application. Obsidian is a popular note-taking and knowledge management tool that allows users to create and link notes while also formatting content using the markdown system. Below are the features that I found most useful:\nObsidian emphasizes bidirectional linking, meaning that if you link one note to another, the linked note automatically links back to the original. This helps in creating a web of interconnected thoughts and ideas. Obsidian provides a graph view that visually represents the connections between different notes, allowing users to see the relationships in their knowledge base. Workflow On Zotero:\nCollect references (e.g. drag and drop PDF file) Read PDFs (e.g. leave notes, highlight, capture figures, etc.) → You want to link this annotated notes to obsidian where you keep things that you read, think, and so on\nOn Obsidian:\nPress hot key to load note from Zotero Zotero should run in the background to connect Skim through the loaded note and reorganize it Link your note as you write! Use plug-ins such as Dataview to manage literature review Use graph view to visualize the knowledge map How can we build this work flow? Step 1. Set up Zotero Download Zotero and Chrome Connector\nInstall Better BibTeX plugin for Zotero\nClick It looks like this on Zotero... If you click the button Open Better BibTeX preferences... Step 2. Set up Obsidian Download Obsidian\nCreate a new vault\nClick Set your vault name and path Click Create and now you’re in! Create folders\nWe need (1) a separate folder for storing literature notes loaded from Zotero, and (2) another separate folder to store all the meta information such as images and templates. e.g. Folder structure 50 Literature Notes 80 Meta 81 Attachments 82 Templates Create a template file in the folder 82 Templates Download Install community plug-ins\nClick Click settings (gear icon in the bottom left) Community plugins » Turn on community plugins Browse Search for Zotero Integration and click Install In this way, install the following community plugins: Pandoc Plugin,Pandoc Reference List,Citations, Dataview, and Admonition Enable installed plugins Now, scroll down in the left panel (community plugins) and click Zotero Integration ! Set up Zotero Integration\nClick Note import loaction: 50 Literature Notes/ Import Formats: Click Add Import Format and put in information Name: Create Literature Note Output path: 50 Literature Notes/@{{citekey}}.md Image output path: 80 Meta/81 Attachments/{{citekey}}/ Template file: put your template file here Bibliography style: pick one Set up hotkeys for loading notes from Zotero\nClick Press Hotkeys in the left panel » Set hotkeys for Create Literature Note Step 3. Additional settings Zotero Export My Library\nClick Right-click on My Library folder and click Export Library You will see the following screen: Must click Export Notes and Keep updated » OK » Select path Better BibTeX settings\nClick Settings » Cite : You will see the following screen: Click Style Editor » choose your CSL(=citation style language) and click save as\nObsidian Community plugin settings:\nPandoc References List Path to bibliography file: folder where you stored My Library file exported from Zotero Citations Citation database format: BibLaTeX (or other if you choose different one) Citation database path: the same folder (My Library file) Literature note folder: 50 Literature Notes/ for me Literature note templates (put relevant info from your literature note) Now we are all set! 👍\nStep 4. Synthesize knowledge (=write!!!) on Obsidian Useful to have: header! --- category: paper tags: - status: writing --- To cite [[@citekey]]: Link to the literature note [@citekey]: Inline citation Step 5. Export the Draft To export the draft, you need the following information:\nPath to the file that you want to export (#1) Path to the csl file (#2) Path where you want to store exported file (#3) Title and format of your exported file (e.g. Title.docx) In terminal, you should put the following (in a single line) and enter!\npandoc \"#1\" --bibliography \"#2\" --citeproc --csl \"#3\" -o \"#3/Title.docx\" Note A short video will be uploaded here (after the class) for revisiting! Dataview TABLE title as Title, FirstAuthor as \"First Author\", Year as Year, itemType as Item, Citekey as Citekey, Contribution as Contribution FROM \"50 Literature Notes\" References Linking Zotero and Obsidian: An Updated Academic Workflow: Zotero \u0026 Obsidian Literature Reviews using Zotero \u0026 Obsidian Obsidian: How To Create A New Vault In Obsidian ",
+  "wordCount" : "895",
   "inLanguage": "en",
-  "image":"http://do-won.github.io/blog2/images/obsidian_zotero.png","datePublished": "2023-12-01T00:00:00Z",
+  "image":"http://do-won.github.io/obsidian_zotero.png","datePublished": "2023-12-01T00:00:00Z",
   "dateModified": "2023-12-01T00:00:00Z",
   "author":{
     "@type": "Person",
@@ -133,8 +133,8 @@
             <a href="http://do-won.github.io" accesskey="h" title="Do Won Kim">
              
                 <img src="http://do-won.github.io/favicon.ico" alt="" aria-label="logo"
-                    height="16"
-                    width="16">Do Won Kim</a>
+                    height="15"
+                    width="15">Do Won Kim</a>
             <div class="logo-switches">
             </div>
         </div>
@@ -186,8 +186,297 @@
     <div class="post-meta">&lt;span title=&#39;2023-12-01 00:00:00 &#43;0000 UTC&#39;&gt;December 2023&lt;/span&gt;&amp;nbsp;&amp;middot;&amp;nbsp;Do Won Kim
 
 </div>
-  </header> 
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
 
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-does-this-tutorial-cover">What does this tutorial cover?</a></li>
+    <li><a href="#zotero-and-obsidian">Zotero and Obsidian?</a></li>
+    <li><a href="#workflow">Workflow</a></li>
+    <li><a href="#how-can-we-build-this-work-flow">How can we build this work flow?</a></li>
+    <li><a href="#note">Note</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="what-does-this-tutorial-cover">What does this tutorial cover?<a hidden class="anchor" aria-hidden="true" href="#what-does-this-tutorial-cover">#</a></h2>
+<p>Have you ever delved into extensive reading and meticulous note-taking, only to later realize that important details slipped your mind or got misplaced? Have you found yourself captivated by the gathering of valuable resources but faced challenges in effectively incorporating them into a cohesive narrative?</p>
+<p>Academic work entails the exciting tasks of gathering, reading, and annotating resources, writing well-thought-out manuscripts, and meticulously citing references. There&rsquo;s also the challenge of synthesizing the wealth of information you&rsquo;ve gathered, making connections, and expanding on scattered ideas. This tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=<em>Zettelkasten</em>)!</p>
+<hr>
+<h2 id="zotero-and-obsidian">Zotero and Obsidian?<a hidden class="anchor" aria-hidden="true" href="#zotero-and-obsidian">#</a></h2>
+<p><strong><code>Zotero</code></strong> is a free, open-source reference management software designed to help researchers collect, organize, cite, and share their bibliographic references.
+Below are the features that I found most useful:</p>
+<ul>
+<li>Zotero allows users to automatically retrieve <strong>metadata</strong> of references</li>
+<li>Zotero has web <strong>browser extension</strong>, enabling users to save references directly from websites.</li>
+<li>Zotero allows users to highlight and annotate <strong>PDFs</strong> directly within the application.</li>
+</ul>
+<p><strong><code>Obsidian</code></strong> is a popular note-taking and knowledge management tool that allows users to create and link notes while also formatting content using the markdown system.
+Below are the features that I found most useful:</p>
+<ul>
+<li>Obsidian emphasizes <strong>bidirectional linking</strong>, meaning that if you link one note to another, the linked note automatically links back to the original. This helps in creating a web of interconnected thoughts and ideas.</li>
+<li>Obsidian provides a <strong>graph view</strong> that visually represents the connections between different notes, allowing users to see the relationships in their knowledge base.</li>
+</ul>
+<hr>
+<h2 id="workflow">Workflow<a hidden class="anchor" aria-hidden="true" href="#workflow">#</a></h2>
+<p><strong>On Zotero:</strong></p>
+<ol>
+<li>Collect references (e.g. drag and drop PDF file)</li>
+<li>Read PDFs (e.g. leave notes, highlight, capture figures, etc.)</li>
+</ol>
+<p>→ You want to link this annotated notes to obsidian where you keep things that you read, think, and so on</p>
+<p><strong>On Obsidian:</strong></p>
+<ol>
+<li>Press hot key to load note from Zotero
+<ul>
+<li>Zotero should run in the background to connect</li>
+</ul>
+</li>
+<li>Skim through the loaded note and reorganize it</li>
+<li>Link your note as you write!
+<ul>
+<li>Use plug-ins such as Dataview to manage literature review</li>
+<li>Use graph view to visualize the knowledge map</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="how-can-we-build-this-work-flow">How can we build this work flow?<a hidden class="anchor" aria-hidden="true" href="#how-can-we-build-this-work-flow">#</a></h2>
+<h3 id="step-1-set-up-zotero">Step 1. Set up Zotero<a hidden class="anchor" aria-hidden="true" href="#step-1-set-up-zotero">#</a></h3>
+<ol>
+<li>
+<p><a href="https://www.zotero.org/download/" target="_blank">Download</a>
+ Zotero and Chrome Connector</p>
+</li>
+<li>
+<p><a href="https://retorque.re/zotero-better-bibtex/installation/" target="_blank">Install</a>
+ Better BibTeX plugin for Zotero</p>
+ <details>
+ <summary>Click</summary>
+ It looks like this on Zotero...
+<p><img loading="lazy" src="/zotero_bibtex.png" alt=""  />
+</p>
+<ul>
+<li>If you click the button <code>Open Better BibTeX preferences...</code></li>
+</ul>
+<p><img loading="lazy" src="/zotero_bibtex2.png" alt=""  />
+</p>
+ </details>
+</li>
+</ol>
+<h3 id="step-2-set-up-obsidian">Step 2. Set up Obsidian<a hidden class="anchor" aria-hidden="true" href="#step-2-set-up-obsidian">#</a></h3>
+<ol>
+<li>
+<p><a href="https://obsidian.md/" target="_blank">Download</a>
+ Obsidian</p>
+</li>
+<li>
+<p>Create a new vault</p>
+ <details> <summary> Click </summary>
+<ol>
+<li>
+<p>Set your vault name and path
+<img loading="lazy" src="/obsidian_1.png" alt=""  />
+</p>
+</li>
+<li>
+<p>Click <code>Create</code> and now you&rsquo;re in!
+<img loading="lazy" src="/obsidian_2.png" alt=""  />
+</p>
+</li>
+</ol>
+ </details>
+</li>
+<li>
+<p>Create folders</p>
+<ul>
+<li>We need (1) a separate folder for storing <strong>literature notes</strong> loaded from Zotero, and
+(2) another separate folder to store all the <strong>meta information</strong> such as images and templates.</li>
+<li>e.g. Folder structure
+<ul>
+<li><code>50 Literature Notes</code></li>
+<li><code>80 Meta</code>
+<ul>
+<li><code>81 Attachments</code></li>
+<li><code>82 Templates</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Create a template file in the folder <code>82 Templates</code>
+<ul>
+<li><a href="/templates.md">Download</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Install community plug-ins</p>
+<details> <summary> Click </summary>
+<ol>
+<li>Click <code>settings</code> (gear icon in the bottom left)</li>
+<li><code>Community plugins</code> &raquo; <code>Turn on community plugins</code>
+<img loading="lazy" src="/obsidian_3.png" alt=""  />
+</li>
+<li><code>Browse</code>
+<img loading="lazy" src="/obsidian_4.png" alt=""  />
+</li>
+<li>Search for <code>Zotero Integration</code> and click <code>Install</code>
+<img loading="lazy" src="/obsidian_5.png" alt=""  />
+</li>
+<li>In this way, install the following community plugins:
+<code>Pandoc Plugin</code>,<code>Pandoc Reference List</code>,<code>Citations</code>, <code>Dataview</code>, and <code>Admonition</code>
+<br></br></li>
+<li>Enable installed plugins
+<img loading="lazy" src="/obsidian_6.png" alt=""  />
+</li>
+<li>Now, scroll down in the left panel (community plugins) and click <code>Zotero Integration</code> !</li>
+</ol>
+</details>
+</li>
+<li>
+<p>Set up <code>Zotero Integration</code></p>
+<details> <summary> Click </summary>
+<ol>
+<li>Note import loaction: <code>50 Literature Notes/</code></li>
+<li>Import Formats: Click <code>Add Import Format</code> and put in information
+<ul>
+<li>Name: <code>Create Literature Note</code></li>
+<li>Output path: <code>50 Literature Notes/@{{citekey}}.md</code></li>
+<li>Image output path: <code>80 Meta/81 Attachments/{{citekey}}/</code></li>
+<li>Template file: put your template file here</li>
+<li>Bibliography style: pick one
+<img loading="lazy" src="/obsidian_7.png" alt=""  />
+</li>
+</ul>
+</li>
+</ol>
+</details>
+</li>
+<li>
+<p>Set up hotkeys for loading notes from Zotero</p>
+   <details> <summary> Click </summary>
+<ul>
+<li>Press <code>Hotkeys</code> in the left panel &raquo; Set hotkeys for <code>Create Literature Note</code></li>
+</ul>
+<p><img loading="lazy" src="/obsidian_8.png" alt=""  />
+</p>
+   </details>
+</li>
+</ol>
+<h3 id="step-3-additional-settings">Step 3. Additional settings<a hidden class="anchor" aria-hidden="true" href="#step-3-additional-settings">#</a></h3>
+<h4 id="zotero">Zotero<a hidden class="anchor" aria-hidden="true" href="#zotero">#</a></h4>
+<ol>
+<li>
+<p>Export <code>My Library</code></p>
+<details> <summary> Click </summary>
+<ol>
+<li>Right-click on <code>My Library</code> folder and click <code>Export Library</code></li>
+<li>You will see the following screen:
+<img loading="lazy" src="/zotero_1.png" alt=""  />
+
+<ul>
+<li>Must click <code>Export Notes</code> and <code>Keep updated</code> &raquo; <code>OK</code> &raquo; Select path</li>
+</ul>
+</li>
+</ol>
+</details>
+</li>
+<li>
+<p>Better BibTeX settings</p>
+<details> <summary> Click </summary>
+<ol>
+<li><code>Settings</code> &raquo; <code>Cite</code> : You will see the following screen:
+<img loading="lazy" src="/zotero_2.png" alt=""  />
+</li>
+<li>Click <code>Style Editor</code> &raquo; choose your CSL(=citation style language) and click <code>save as</code><br>
+<img loading="lazy" src="/zotero_3.png" alt=""  />
+</li>
+</ol>
+</details>
+</li>
+</ol>
+<h4 id="obsidian">Obsidian<a hidden class="anchor" aria-hidden="true" href="#obsidian">#</a></h4>
+<p>Community plugin settings:</p>
+<ul>
+<li><strong>Pandoc References List</strong>
+<ul>
+<li>Path to bibliography file: folder where you stored <code>My Library</code> file exported from Zotero</li>
+</ul>
+</li>
+<li><strong>Citations</strong>
+<ul>
+<li>Citation database format: BibLaTeX (or other if you choose different one)</li>
+<li>Citation database path: the same folder (<code>My Library</code> file)</li>
+<li>Literature note folder: <code>50 Literature Notes/</code> for me</li>
+<li>Literature note templates (put relevant info from your literature note)</li>
+</ul>
+</li>
+</ul>
+<p>Now we are all set! 👍</p>
+<h3 id="step-4-synthesize-knowledge-write-on-obsidian">Step 4. Synthesize knowledge (=write!!!) on Obsidian<a hidden class="anchor" aria-hidden="true" href="#step-4-synthesize-knowledge-write-on-obsidian">#</a></h3>
+<h4 id="useful-to-have-header">Useful to have: header!<a hidden class="anchor" aria-hidden="true" href="#useful-to-have-header">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span>category: paper
+</span></span><span style="display:flex;"><span>tags:
+</span></span><span style="display:flex;"><span>  - 
+</span></span><span style="display:flex;"><span>status: writing
+</span></span><span style="display:flex;"><span>---
+</span></span></code></pre></div><h4 id="to-cite">To cite<a hidden class="anchor" aria-hidden="true" href="#to-cite">#</a></h4>
+<ul>
+<li><code>[[@citekey]]</code>: Link to the literature note</li>
+<li><code>[@citekey]</code>: Inline citation</li>
+</ul>
+<h3 id="step-5-export-the-draft">Step 5. Export the Draft<a hidden class="anchor" aria-hidden="true" href="#step-5-export-the-draft">#</a></h3>
+<p>To export the draft, you need the following information:</p>
+<ul>
+<li>Path to the file that you want to export (#1)</li>
+<li>Path to the csl file (#2)</li>
+<li>Path where you want to store exported file (#3)</li>
+<li>Title and format of your exported file (e.g. <code>Title.docx</code>)</li>
+</ul>
+<p>In terminal, you should put the following (in a single line) and enter!</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>pandoc &#34;#1&#34; --bibliography &#34;#2&#34; --citeproc --csl &#34;#3&#34; -o &#34;#3/Title.docx&#34;
+</span></span></code></pre></div><hr>
+<h2 id="note">Note<a hidden class="anchor" aria-hidden="true" href="#note">#</a></h2>
+<ul>
+<li>A short video will be uploaded here (after the class) for revisiting!
+<br></br></li>
+</ul>
+<h4 id="dataview">Dataview<a hidden class="anchor" aria-hidden="true" href="#dataview">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span> TABLE  
+</span></span><span style="display:flex;"><span> title as Title,  
+</span></span><span style="display:flex;"><span> FirstAuthor as &#34;First Author&#34;,  
+</span></span><span style="display:flex;"><span> Year as Year,  
+</span></span><span style="display:flex;"><span> itemType as Item,  
+</span></span><span style="display:flex;"><span> Citekey as Citekey,  
+</span></span><span style="display:flex;"><span> Contribution as Contribution  
+</span></span><span style="display:flex;"><span> FROM &#34;50 Literature Notes&#34;  
+</span></span></code></pre></div><hr>
+<h2 id="references">References<a hidden class="anchor" aria-hidden="true" href="#references">#</a></h2>
+<ul>
+<li>Linking Zotero and Obsidian:
+<ul>
+<li><a href="https://medium.com/@alexandraphelan/an-updated-academic-workflow-zotero-obsidian-cffef080addd" target="_blank">An Updated Academic Workflow: Zotero &amp; Obsidian</a>
+</li>
+<li><a href="https://medium.com/@alexandraphelan/literature-reviews-using-zotero-obsidian-66eba1565d78" target="_blank">Literature Reviews using Zotero &amp; Obsidian</a>
+</li>
+</ul>
+</li>
+<li>Obsidian: <a href="https://www.alphr.com/obsidian-how-to-create-a-new-vault/" target="_blank">How To Create A New Vault In Obsidian</a>
+</li>
+</ul>
+
+
+  </div>
 
   <footer class="post-footer">
     <ul class="post-tags">
@@ -198,6 +487,11 @@
 </article>
     </main>
     
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
 
 <script>
     let menu = document.getElementById('menu')
@@ -226,6 +520,19 @@
             }
         });
     });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
 
 </script>
 <script>
