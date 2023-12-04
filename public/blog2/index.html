@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Integrating Zotero and Obsidian for Zettelkasten | Do Won Kim</title>
+<title>Integrating Zotero and Obsidian for Academics | Do Won Kim</title>
 <meta name="keywords" content="productivity, zettlekasten">
 <meta name="description" content="Tutorial for INST800 at UMD iSchool">
 <meta name="author" content="Do Won Kim">
@@ -26,7 +26,7 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Integrating Zotero and Obsidian for Zettelkasten" />
+</noscript><meta property="og:title" content="Integrating Zotero and Obsidian for Academics" />
 <meta property="og:description" content="Tutorial for INST800 at UMD iSchool" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://do-won.github.io/blog2/" />
@@ -36,7 +36,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="http://do-won.github.io/obsidian_zotero.png" />
-<meta name="twitter:title" content="Integrating Zotero and Obsidian for Zettelkasten"/>
+<meta name="twitter:title" content="Integrating Zotero and Obsidian for Academics"/>
 <meta name="twitter:description" content="Tutorial for INST800 at UMD iSchool"/>
 
 
@@ -54,7 +54,7 @@
     {
       "@type": "ListItem",
       "position":  3 ,
-      "name": "Integrating Zotero and Obsidian for Zettelkasten",
+      "name": "Integrating Zotero and Obsidian for Academics",
       "item": "http://do-won.github.io/blog2/"
     }
   ]
@@ -64,14 +64,14 @@
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Integrating Zotero and Obsidian for Zettelkasten",
-  "name": "Integrating Zotero and Obsidian for Zettelkasten",
+  "headline": "Integrating Zotero and Obsidian for Academics",
+  "name": "Integrating Zotero and Obsidian for Academics",
   "description": "Tutorial for INST800 at UMD iSchool",
   "keywords": [
     "productivity", "zettlekasten"
   ],
-  "articleBody": "What does this tutorial cover? Have you ever delved into extensive reading and meticulous note-taking, only to later realize that important details slipped your mind or got misplaced? Have you found yourself captivated by the gathering of valuable resources but faced challenges in effectively incorporating them into a cohesive narrative?\nAcademic work entails the exciting tasks of gathering, reading, and annotating resources, writing well-thought-out manuscripts, and meticulously citing references. There’s also the challenge of synthesizing the wealth of information you’ve gathered, making connections, and expanding on scattered ideas. This tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=Zettelkasten)!\nZotero and Obsidian? Zotero is a free, open-source reference management software designed to help researchers collect, organize, cite, and share their bibliographic references. Below are the features that I found most useful:\nZotero allows users to automatically retrieve metadata of references Zotero has web browser extension, enabling users to save references directly from websites. Zotero allows users to highlight and annotate PDFs directly within the application. Obsidian is a popular note-taking and knowledge management tool that allows users to create and link notes while also formatting content using the markdown system. Below are the features that I found most useful:\nObsidian emphasizes bidirectional linking, meaning that if you link one note to another, the linked note automatically links back to the original. This helps in creating a web of interconnected thoughts and ideas. Obsidian provides a graph view that visually represents the connections between different notes, allowing users to see the relationships in their knowledge base. Workflow On Zotero:\nCollect references (e.g. drag and drop PDF file) Read PDFs (e.g. leave notes, highlight, capture figures, etc.) → You want to link this annotated notes to obsidian where you keep things that you read, think, and so on\nOn Obsidian:\nPress hot key to load note from Zotero Zotero should run in the background to connect Skim through the loaded note and reorganize it Link your note as you write! Use plug-ins such as Dataview to manage literature review Use graph view to visualize the knowledge map How can we build this work flow? Step 1. Set up Zotero Download Zotero and Chrome Connector\nInstall Better BibTeX plugin for Zotero\nClick It looks like this on Zotero... If you click the button Open Better BibTeX preferences... Step 2. Set up Obsidian Download Obsidian\nCreate a new vault\nClick Set your vault name and path Click Create and now you’re in! Create folders\nWe need (1) a separate folder for storing literature notes loaded from Zotero, and (2) another separate folder to store all the meta information such as images and templates. e.g. Folder structure 50 Literature Notes 80 Meta 81 Attachments 82 Templates Create a template file in the folder 82 Templates Download Install community plug-ins\nClick Click settings (gear icon in the bottom left) Community plugins » Turn on community plugins Browse Search for Zotero Integration and click Install In this way, install the following community plugins: Pandoc Plugin,Pandoc Reference List,Citations, Dataview, and Admonition Enable installed plugins Now, scroll down in the left panel (community plugins) and click Zotero Integration ! Set up Zotero Integration\nClick Note import loaction: 50 Literature Notes/ Import Formats: Click Add Import Format and put in information Name: Create Literature Note Output path: 50 Literature Notes/@{{citekey}}.md Image output path: 80 Meta/81 Attachments/{{citekey}}/ Template file: put your template file here Bibliography style: pick one Set up hotkeys for loading notes from Zotero\nClick Press Hotkeys in the left panel » Set hotkeys for Create Literature Note Step 3. Additional settings Zotero Export My Library\nClick Right-click on My Library folder and click Export Library You will see the following screen: Must click Export Notes and Keep updated » OK » Select path Better BibTeX settings\nClick Settings » Cite : You will see the following screen: Click Style Editor » choose your CSL(=citation style language) and click save as\nObsidian Community plugin settings:\nPandoc References List Path to bibliography file: folder where you stored My Library file exported from Zotero Citations Citation database format: BibLaTeX (or other if you choose different one) Citation database path: the same folder (My Library file) Literature note folder: 50 Literature Notes/ for me Literature note templates (put relevant info from your literature note) Now we are all set! 👍\nStep 4. Synthesize knowledge (=write!!!) on Obsidian Useful to have: header! --- category: paper tags: - status: writing --- To cite [[@citekey]]: Link to the literature note [@citekey]: Inline citation Step 5. Export the Draft To export the draft, you need the following information:\nPath to the file that you want to export (#1) Path to the csl file (#2) Path where you want to store exported file (#3) Title and format of your exported file (e.g. Title.docx) In terminal, you should put the following (in a single line) and enter!\npandoc \"#1\" --bibliography \"#2\" --citeproc --csl \"#3\" -o \"#3/Title.docx\" Note A short video will be uploaded here (after the class) for revisiting! Dataview TABLE title as Title, FirstAuthor as \"First Author\", Year as Year, itemType as Item, Citekey as Citekey, Contribution as Contribution FROM \"50 Literature Notes\" References Linking Zotero and Obsidian: An Updated Academic Workflow: Zotero \u0026 Obsidian Literature Reviews using Zotero \u0026 Obsidian Obsidian: How To Create A New Vault In Obsidian ",
-  "wordCount" : "895",
+  "articleBody": "What does this tutorial cover? Academic work entails the tasks of gathering, reading, and annotating resources, writing manuscripts, and citing references.\nSynthesizing the wealth of information you’ve gathered, making connections, and expanding on scattered ideas can be challenging.\nThis tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=Zettelkasten)!\nZotero and Obsidian? Zotero is a free, open-source reference management software. Below are the features that I found most useful:\nZotero allows users to automatically retrieve metadata of references Zotero has web browser extension, enabling users to save references directly from websites. Zotero allows users to highlight and annotate PDFs directly within the application. Obsidian is a popular note-taking and knowledge management tool that allows users to create and link notes while also formatting content using the markdown system. Below are the features that I found most useful:\nObsidian emphasizes bidirectional linking, meaning that if you link one note to another, the linked note automatically links back to the original. This helps in creating a web of interconnected thoughts and ideas. Obsidian provides a graph view that visually represents the connections between different notes, allowing users to see the relationships in their knowledge base. Workflow (A short demo in class; a short video will be uploaded later!)\nOn Zotero:\nCollect references (e.g. drag and drop PDF file, web browser extension) Read PDFs (e.g. leave notes, highlight, capture figures, etc.) → You want to link and synthesize the annotated notes.\nOn Obsidian:\nLoad literature note from Zotero Skim through the loaded note and reorganize it Link your note as you write! How can we build this work flow? Step 1. Set up Zotero Download Zotero and Chrome Connector\nInstall Better BibTeX plugin for Zotero\nClick It looks like this on Zotero... If you click the button Open Better BibTeX preferences... - citation key formula: authors(n=1,etal=EtAl)+year\nStep 2. Set up Obsidian Download Obsidian\nCreate a new vault\nClick Set your vault name and path Click Create and now you’re in! Create folders\nWe need (1) a separate folder for storing literature notes loaded from Zotero, and (2) another separate folder to store all the meta information such as images and templates. e.g. Folder structure 50 Literature Notes 80 Meta 81 Attachments 82 Templates Create a template file in the folder 82 Templates Download Install community plug-ins\nClick Click settings (gear icon in the bottom left) Community plugins » Turn on community plugins Browse Search for Zotero Integration and click Install In this way, install the following community plugins: Pandoc Plugin,Pandoc Reference List,Citations, Dataview, and Admonition Enable installed plugins Now, scroll down in the left panel (community plugins) and click Zotero Integration ! Set up Zotero Integration\nClick Note import loaction: 50 Literature Notes/ Import Formats: Click Add Import Format and put in information Name: Create Literature Note Output path: 50 Literature Notes/@{{citekey}}.md Image output path: 80 Meta/81 Attachments/{{citekey}}/ Template file: put your template file here Bibliography style: pick one Set up hotkeys for loading notes from Zotero\nClick Press Hotkeys in the left panel » Set hotkeys for Create Literature Note Step 3. Additional settings Zotero Export My Library\nClick Right-click on My Library folder and click Export Library You will see the following screen: Must click Export Notes and Keep updated » OK » Select path Better BibTeX settings\nClick Settings » Cite : You will see the following screen: Click Style Editor » choose your CSL(=citation style language) and click save as\nSettings » Open Better BibTeX preferences » Automatic export\nSet path where My Library file is in! Obsidian community plugin settings Zotero Integration\nClick Click Add citation format and add different formats as below Pandoc References List\nClick Fallback path to pandoc: click 🔍 and install if needed.\nPath to bibliography file: folder where you stored My Library file exported from Zotero Citations\nClick Citation database format: BibLaTeX (or other if you choose different one) Citation database path: the same folder (My Library file) Literature note folder: 50 Literature Notes/ Literature note template: Put content of your template (e.g. templates.md ) Now we are all set! 👍\nStep 4. Synthesize knowledge (=write!!!) on Obsidian Useful to have: header! --- category: paper tags: - status: writing --- To cite [[@citekey]]: Link to the literature note [@citekey]: Inline citation Step 5. Export the Draft To export the draft, you need the following information:\nPath to the file that you want to export (#1) Path to the csl file (#2) Path where you want to store exported file (#3) Title and format of your exported file (e.g. Title.docx) In terminal, you should put the following (in a single line) and enter!\npandoc \"#1\" --bibliography \"#2\" --citeproc --csl \"#3\" -o \"#3/Title.docx\" Note A short video will be uploaded here (after the class) for revisiting! Dataview TABLE title as Title, FirstAuthor as \"First Author\", Year as Year, itemType as Item, Citekey as Citekey, Contribution as Contribution FROM \"50 Literature Notes\" References Linking Zotero and Obsidian: An Updated Academic Workflow: Zotero \u0026 Obsidian Literature Reviews using Zotero \u0026 Obsidian Obsidian: How To Create A New Vault In Obsidian ",
+  "wordCount" : "855",
   "inLanguage": "en",
   "image":"http://do-won.github.io/obsidian_zotero.png","datePublished": "2023-12-01T00:00:00Z",
   "dateModified": "2023-12-01T00:00:00Z",
@@ -179,7 +179,7 @@
   <header class="post-header">
     
     <h1 class="post-title">
-      Integrating Zotero and Obsidian for Zettelkasten
+      Integrating Zotero and Obsidian for Academics
     </h1>
 
     
@@ -207,11 +207,12 @@
 </div>
 
   <div class="post-content"><h2 id="what-does-this-tutorial-cover">What does this tutorial cover?<a hidden class="anchor" aria-hidden="true" href="#what-does-this-tutorial-cover">#</a></h2>
-<p>Have you ever delved into extensive reading and meticulous note-taking, only to later realize that important details slipped your mind or got misplaced? Have you found yourself captivated by the gathering of valuable resources but faced challenges in effectively incorporating them into a cohesive narrative?</p>
-<p>Academic work entails the exciting tasks of gathering, reading, and annotating resources, writing well-thought-out manuscripts, and meticulously citing references. There&rsquo;s also the challenge of synthesizing the wealth of information you&rsquo;ve gathered, making connections, and expanding on scattered ideas. This tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=<em>Zettelkasten</em>)!</p>
+<p>Academic work entails the tasks of gathering, reading, and annotating resources, writing manuscripts, and citing references.</p>
+<p>Synthesizing the wealth of information you&rsquo;ve gathered, making connections, and expanding on scattered ideas can be challenging.</p>
+<p>This tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=<em>Zettelkasten</em>)!</p>
 <hr>
 <h2 id="zotero-and-obsidian">Zotero and Obsidian?<a hidden class="anchor" aria-hidden="true" href="#zotero-and-obsidian">#</a></h2>
-<p><strong><code>Zotero</code></strong> is a free, open-source reference management software designed to help researchers collect, organize, cite, and share their bibliographic references.
+<p><strong><code>Zotero</code></strong> is a free, open-source reference management software.
 Below are the features that I found most useful:</p>
 <ul>
 <li>Zotero allows users to automatically retrieve <strong>metadata</strong> of references</li>
@@ -226,26 +227,18 @@ Below are the features that I found most useful:</p>
 </ul>
 <hr>
 <h2 id="workflow">Workflow<a hidden class="anchor" aria-hidden="true" href="#workflow">#</a></h2>
+<p>(A short demo in class; a short video will be uploaded later!)</p>
 <p><strong>On Zotero:</strong></p>
 <ol>
-<li>Collect references (e.g. drag and drop PDF file)</li>
+<li>Collect references (e.g. drag and drop PDF file, web browser extension)</li>
 <li>Read PDFs (e.g. leave notes, highlight, capture figures, etc.)</li>
 </ol>
-<p>→ You want to link this annotated notes to obsidian where you keep things that you read, think, and so on</p>
+<p>→ You want to link and synthesize the annotated notes.</p>
 <p><strong>On Obsidian:</strong></p>
 <ol>
-<li>Press hot key to load note from Zotero
-<ul>
-<li>Zotero should run in the background to connect</li>
-</ul>
-</li>
+<li>Load literature note from Zotero</li>
 <li>Skim through the loaded note and reorganize it</li>
-<li>Link your note as you write!
-<ul>
-<li>Use plug-ins such as Dataview to manage literature review</li>
-<li>Use graph view to visualize the knowledge map</li>
-</ul>
-</li>
+<li>Link your note as you write!</li>
 </ol>
 <hr>
 <h2 id="how-can-we-build-this-work-flow">How can we build this work flow?<a hidden class="anchor" aria-hidden="true" href="#how-can-we-build-this-work-flow">#</a></h2>
@@ -267,7 +260,8 @@ Below are the features that I found most useful:</p>
 <li>If you click the button <code>Open Better BibTeX preferences...</code></li>
 </ul>
 <p><img loading="lazy" src="/zotero_bibtex2.png" alt=""  />
-</p>
+
+- citation key formula: <code>authors(n=1,etal=EtAl)+year</code></p>
  </details>
 </li>
 </ol>
@@ -394,31 +388,71 @@ Below are the features that I found most useful:</p>
 <p>Better BibTeX settings</p>
 <details> <summary> Click </summary>
 <ol>
-<li><code>Settings</code> &raquo; <code>Cite</code> : You will see the following screen:
+<li>
+<p><code>Settings</code> &raquo; <code>Cite</code> : You will see the following screen:
 <img loading="lazy" src="/zotero_2.png" alt=""  />
+</p>
 </li>
-<li>Click <code>Style Editor</code> &raquo; choose your CSL(=citation style language) and click <code>save as</code><br>
+<li>
+<p>Click <code>Style Editor</code> &raquo; choose your CSL(=citation style language) and click <code>save as</code><br>
 <img loading="lazy" src="/zotero_3.png" alt=""  />
+</p>
+</li>
+<li>
+<p><code>Settings</code> &raquo; <code>Open Better BibTeX preferences</code> &raquo; <code>Automatic export</code></p>
 </li>
 </ol>
+<ul>
+<li>Set path where <code>My Library</code> file is in!
+<img loading="lazy" src="/zotero_4.png" alt=""  />
+</li>
+</ul>
 </details>
 </li>
 </ol>
-<h4 id="obsidian">Obsidian<a hidden class="anchor" aria-hidden="true" href="#obsidian">#</a></h4>
-<p>Community plugin settings:</p>
+<h4 id="obsidian-community-plugin-settings">Obsidian community plugin settings<a hidden class="anchor" aria-hidden="true" href="#obsidian-community-plugin-settings">#</a></h4>
 <ul>
-<li><strong>Pandoc References List</strong>
+<li>
+<p><strong>Zotero Integration</strong></p>
+<details> <summary> Click </summary> 
 <ul>
-<li>Path to bibliography file: folder where you stored <code>My Library</code> file exported from Zotero</li>
-</ul>
+<li>Click <code>Add citation format</code> and add different formats as below
+<img loading="lazy" src="/obsidian_9.png" alt=""  />
 </li>
-<li><strong>Citations</strong>
+</ul>
+</details>
+</li>
+<li>
+<p><strong>Pandoc References List</strong></p>
+<details> <summary> Click </summary> 
+<ul>
+<li>
+<p>Fallback path to pandoc: click 🔍 and <a href="https://pandoc.org/installing.html" target="_blank">install</a>
+ if needed.</p>
+</li>
+<li>
+<p>Path to bibliography file: folder where you stored <code>My Library</code> file exported from Zotero
+<img loading="lazy" src="/obsidian_10.png" alt=""  />
+</p>
+</li>
+</ul>
+</details>
+</li>
+<li>
+<p><strong>Citations</strong></p>
+  <details> <summary> Click </summary> 
 <ul>
 <li>Citation database format: BibLaTeX (or other if you choose different one)</li>
 <li>Citation database path: the same folder (<code>My Library</code> file)</li>
-<li>Literature note folder: <code>50 Literature Notes/</code> for me</li>
-<li>Literature note templates (put relevant info from your literature note)</li>
+<li>Literature note folder: <code>50 Literature Notes/</code>
+<img loading="lazy" src="/obsidian_11.png" alt=""  />
+</li>
+<li>Literature note template: Put content of your template (e.g. <a href="/templates.md">templates.md</a>
+)
+<img loading="lazy" src="/obsidian_12.png" alt=""  />
+</li>
 </ul>
+   </details>
 </li>
 </ul>
 <p>Now we are all set! 👍</p>
