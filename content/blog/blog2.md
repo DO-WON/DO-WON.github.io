@@ -1,11 +1,11 @@
 ---
-title: "Integrating Zotero and Obsidian for Zettelkasten" 
+title: "Integrating Zotero and Obsidian for Academics" 
 date: 2023-12-01
 url: /blog2/
 tags: ["productivity","zettlekasten"]
 author: "Do Won Kim"
 description: "Tutorial for INST800 at UMD iSchool"
-summary: "Integrating Zotero and Obsidian" 
+summary: "Tutorial for INST800 at UMD iSchool: Integrating Zotero and Obsidian for Academics" 
 image: "/obsidian_zotero.png"
 cover:
     image: "/obsidian_zotero.png"
@@ -18,15 +18,18 @@ showToc: true
 disableAnchoredHeadings: false
 ---
 ## What does this tutorial cover?
-Have you ever delved into extensive reading and meticulous note-taking, only to later realize that important details slipped your mind or got misplaced? Have you found yourself captivated by the gathering of valuable resources but faced challenges in effectively incorporating them into a cohesive narrative?
 
-Academic work entails the exciting tasks of gathering, reading, and annotating resources, writing well-thought-out manuscripts, and meticulously citing references. There's also the challenge of synthesizing the wealth of information you've gathered, making connections, and expanding on scattered ideas. This tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=*Zettelkasten*)!
+Academic work entails the tasks of gathering, reading, and annotating resources, writing manuscripts, and citing references. 
+
+Synthesizing the wealth of information you've gathered, making connections, and expanding on scattered ideas can be challenging. 
+
+This tutorial will walk you through the process of integrating Obsidian and Zotero, allowing you to create a personalized knowledge management flow (=*Zettelkasten*)!
 
 ---
 
 ## Zotero and Obsidian? 
 
-**`Zotero`** is a free, open-source reference management software designed to help researchers collect, organize, cite, and share their bibliographic references. 
+**`Zotero`** is a free, open-source reference management software. 
 Below are the features that I found most useful:
 - Zotero allows users to automatically retrieve **metadata** of references 
 - Zotero has web **browser extension**, enabling users to save references directly from websites.
@@ -41,21 +44,18 @@ Below are the features that I found most useful:
 ---
 
 ## Workflow
+(A short demo in class; a short video will be uploaded later!)   
 
 **On Zotero:** 
-1. Collect references (e.g. drag and drop PDF file)
+1. Collect references (e.g. drag and drop PDF file, web browser extension)
 2. Read PDFs (e.g. leave notes, highlight, capture figures, etc.)
 
-→ You want to link this annotated notes to obsidian where you keep things that you read, think, and so on 
+→ You want to link and synthesize the annotated notes. 
 
 **On Obsidian:**
-1. Press hot key to load note from Zotero 
-   - Zotero should run in the background to connect 
+1. Load literature note from Zotero  
 2. Skim through the loaded note and reorganize it
 3. Link your note as you write! 
-   + Use plug-ins such as Dataview to manage literature review  
-   + Use graph view to visualize the knowledge map
-
 
 ---
 
@@ -75,7 +75,7 @@ Below are the features that I found most useful:
     - If you click the button `Open Better BibTeX preferences...`
           
     ![](/zotero_bibtex2.png)
-        
+        - citation key formula: `authors(n=1,etal=EtAl)+year`
     </details>
 
 
@@ -168,21 +168,44 @@ Below are the features that I found most useful:
    2) Click `Style Editor` >> choose your CSL(=citation style language) and click `save as`  
    ![](/zotero_3.png)
    
+   3) `Settings` >> `Open Better BibTeX preferences` >> `Automatic export`
+   - Set path where `My Library` file is in!
+   ![](/zotero_4.png)
+   
    </details>
 
 
-#### Obsidian 
+#### Obsidian community plugin settings 
+- **Zotero Integration**
+  <details> <summary> Click </summary> 
+    
+    - Click `Add citation format` and add different formats as below
+    ![](/obsidian_9.png)
+  </details>
 
-Community plugin settings: 
 
 - **Pandoc References List** 
-  - Path to bibliography file: folder where you stored `My Library` file exported from Zotero 
-- **Citations** 
-  - Citation database format: BibLaTeX (or other if you choose different one)
-  - Citation database path: the same folder (`My Library` file) 
-  - Literature note folder: `50 Literature Notes/` for me 
-  - Literature note templates (put relevant info from your literature note)
+  <details> <summary> Click </summary> 
+     
+    - Fallback path to pandoc: click 🔍 and [install](https://pandoc.org/installing.html) if needed. 
 
+    - Path to bibliography file: folder where you stored `My Library` file exported from Zotero
+  ![](/obsidian_10.png)
+    
+  </details>
+  
+
+ - **Citations**
+     <details> <summary> Click </summary> 
+    
+      - Citation database format: BibLaTeX (or other if you choose different one)
+      - Citation database path: the same folder (`My Library` file)
+      - Literature note folder: `50 Literature Notes/`
+      ![](/obsidian_11.png)
+      - Literature note template: Put content of your template (e.g. [templates.md](/templates.md))
+      ![](/obsidian_12.png)
+      </details>
+ 
    
 Now we are all set! 👍
 
