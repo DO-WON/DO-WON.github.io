@@ -2,13 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://do-won.github.io/blog/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/blog3/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/productivity/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/website/</loc>
+    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>http://do-won.github.io/courses/</loc>
     <lastmod>2024-01-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/tags/coursework/</loc>
-    <lastmod>2024-01-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://do-won.github.io/</loc>
     <lastmod>2024-01-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/tags/ischool/</loc>
@@ -17,16 +32,7 @@
     <loc>http://do-won.github.io/coursework/</loc>
     <lastmod>2024-01-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://do-won.github.io/tags/</loc>
-    <lastmod>2024-01-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://do-won.github.io/blog/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://do-won.github.io/blog2/</loc>
-    <lastmod>2023-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://do-won.github.io/tags/productivity/</loc>
     <lastmod>2023-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/tags/zettlekasten/</loc>
