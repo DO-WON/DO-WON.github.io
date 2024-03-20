@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Making a GitHub Website for Academics | Do Won Kim</title>
+<meta name="keywords" content="productivity, website">
+<meta name="description" content="Making a GitHub Website for Academics">
+<meta name="author" content="Do Won Kim">
+<link rel="canonical" href="http://do-won.github.io/blog3/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.0d726ccf153b1859fbf55b963c77f6c28e974238413f8e82222394fb468c04d4.css" integrity="sha256-DXJszxU7GFn79VuWPHf2wo6XQjhBP46CIiOU&#43;0aMBNQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://do-won.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://do-won.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://do-won.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://do-won.github.io/apple-touch-icon.png">
+
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript><meta property="og:title" content="Making a GitHub Website for Academics" />
+<meta property="og:description" content="Making a GitHub Website for Academics" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://do-won.github.io/blog3/" />
+<meta property="og:image" content="http://do-won.github.io/github_frontpage.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2024-03-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2024-03-20T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://do-won.github.io/github_frontpage.png" />
+<meta name="twitter:title" content="Making a GitHub Website for Academics"/>
+<meta name="twitter:description" content="Making a GitHub Website for Academics"/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Blog",
+      "item": "http://do-won.github.io/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  3 ,
+      "name": "Making a GitHub Website for Academics",
+      "item": "http://do-won.github.io/blog3/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Making a GitHub Website for Academics",
+  "name": "Making a GitHub Website for Academics",
+  "description": "Making a GitHub Website for Academics",
+  "keywords": [
+    "productivity", "website"
+  ],
+  "articleBody": "How to build an academic website This is a step-by-step tutorial of how to build an academic website hosted on GitHub pages (or step-by-step demonstrations of how I did it).\nStep 0. Prerequisties You must have a GitHub account. Download GitHub Desktop in your local machine (laptop or desktop). You must have a template, or specifically, a template repository in mind. I used this as my template. All credits to amazing Pascal Michaillat ! Now, let’s start building your website!\nStep 2. Fork the template First step is to fork the template repository.\nHow to fork?\nGo to the template repository Click Use this template button (the green one!) on the top right Then, click Create a new repository Now, you will see the following page: In the Repository name section, you must put in .github.io. For example, in my case, it’s DO-WON.github.io. Then, click the green Create repository button below. Step 2. Clone the forked repository to the local machine It is good to work from your local machine and then commit and push changes to your GitHub repository.\nGo to the forked repository Click the green button on the top right \u003c\u003e Code You will see Local as follows: Click Open with GitHub Desktop Choose local path (on your laptop/desktop) Click the Clone button in the bottom right Step 3. Install Hugo Install Hugo . If you use Mac, you can install Hugo by running the following code in your terminal:\nbrew install hugo Step 4. Setting up config.yml Next step is to make changes in your local machine. The first thing you need to change is the config.yml file.\nOpen the repository on your local IDE (e.g., VS Code, PyCharm, etc.) You can open it using GitHub Desktop (please refer to this link ) On your IDE, open config.yml file Change the baseURL. For me, I put do-won.github.io as the baseURL. You should put your own GitHub username instead of do-won. Step 5. Update your website! Since you have made some changes on your local machine, now it’s time to update your website.\nDevelopment stage While you develop (make changes, testing those changes, make further changes … ), you could check how the changes you made look like on your local environment. In the terminal of your IDE (whereever you are working on), try running the following code:\nhugo server Then, click the http://localhost:1313/ to check how your website looks like. This is very useful since it takes some time to compile, render, and deploy all the changes on GitHub. In the development stage, use Hugo to automatically reflect changes made locally and rebuild the website.\nIf you want to stop running hugo server, enter contorl+C on your terminal.\nCompiling and deploying After you checked how the changes made look like with Hugo server, and finished making all the changes you needed, you are now ready to deploy those changes on your website.\nFirst, run hugo in your IDE terminal of your repository.\nhugo This command compiles everything that needed to deploy the changes to your website.\nThen, using your IDE or GitHub Desktop, commit and push changes to your online repository.\nWait till the deployment is completed and visit your website!\nNext steps Now you know how things work, you can make further changes in your local machine and deploy them.\nPlease refer to this page for further customization!\n",
+  "wordCount" : "566",
+  "inLanguage": "en",
+  "image":"http://do-won.github.io/github_frontpage.png","datePublished": "2024-03-20T00:00:00Z",
+  "dateModified": "2024-03-20T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Do Won Kim"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://do-won.github.io/blog3/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Do Won Kim",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://do-won.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: "\\begin{equation}", right: "\\end{equation}", display: true},
+            {left: "\\begin{equation*}", right: "\\end{equation*}", display: true},
+            {left: "\\begin{align}", right: "\\end{align}", display: true},
+            {left: "\\begin{align*}", right: "\\end{align*}", display: true},
+            {left: "\\begin{alignat}", right: "\\end{alignat}", display: true},
+            {left: "\\begin{gather}", right: "\\end{gather}", display: true},
+            {left: "\\begin{CD}", right: "\\end{CD}", display: true},
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+ 
+
+
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://do-won.github.io" accesskey="h" title="Do Won Kim">
+             
+                <img src="http://do-won.github.io/favicon.ico" alt="" aria-label="logo"
+                    height="15"
+                    width="15">Do Won Kim</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://do-won.github.io/design/" title="Projects">
+                    <span>Projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://do-won.github.io/papers/" title="Publication">
+                    <span>Publication</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://do-won.github.io/presentation/" title="Presentation">
+                    <span>Presentation</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://do-won.github.io/courses/" title="Courses">
+                    <span>Courses</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://do-won.github.io/news/" title="News">
+                    <span>News</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://do-won.github.io/blog/" title="Blog">
+                    <span>Blog</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Making a GitHub Website for Academics
+    </h1>
+
+    
+    <div class="post-meta">&lt;span title=&#39;2024-03-20 00:00:00 &#43;0000 UTC&#39;&gt;March 2024&lt;/span&gt;&amp;nbsp;&amp;middot;&amp;nbsp;Do Won Kim
+
+</div>
+  </header> <div class="toc">
+    <details  open>
+        <summary accesskey="c">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#step-0-prerequisties">Step 0. Prerequisties</a></li>
+    <li><a href="#step-2-fork-the-template">Step 2. Fork the template</a></li>
+    <li><a href="#step-2-clone-the-forked-repository-to-the-local-machine">Step 2. Clone the forked repository to the local machine</a></li>
+    <li><a href="#step-3-install-hugo">Step 3. Install Hugo</a></li>
+    <li><a href="#step-4-setting-up-configyml">Step 4. Setting up config.yml</a></li>
+    <li><a href="#step-5-update-your-website">Step 5. Update your website!</a></li>
+    <li><a href="#next-steps">Next steps</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h1 id="how-to-build-an-academic-website">How to build an academic website<a hidden class="anchor" aria-hidden="true" href="#how-to-build-an-academic-website">#</a></h1>
+<p>This is a step-by-step tutorial of how to build an academic website hosted on GitHub pages (or step-by-step
+demonstrations of how I did it).</p>
+<h2 id="step-0-prerequisties">Step 0. Prerequisties<a hidden class="anchor" aria-hidden="true" href="#step-0-prerequisties">#</a></h2>
+<ol>
+<li>You must have a GitHub account.</li>
+<li>Download <a href="https://desktop.github.com/" target="_blank">GitHub Desktop</a>
+ in your local machine (laptop or desktop).</li>
+<li>You must have a template, or specifically, a template repository in mind. I used <a href="https://github.com/pmichaillat/hugo-website?tab=readme-ov-file" target="_blank">this</a>
+ as my template. All credits to amazing <a href="https://pascalmichaillat.org/" target="_blank">Pascal Michaillat</a>
+!</li>
+</ol>
+<p>Now, let&rsquo;s start building your website!</p>
+<h2 id="step-2-fork-the-template">Step 2. Fork the template<a hidden class="anchor" aria-hidden="true" href="#step-2-fork-the-template">#</a></h2>
+<p>First step is to fork the template repository.</p>
+<p>How to fork?</p>
+<ul>
+<li>Go to the template repository</li>
+<li>Click <code>Use this template</code> button (the green one!) on the top right</li>
+<li>Then, click <code>Create a new repository</code></li>
+</ul>
+<p>Now, you will see the following page:
+<img loading="lazy" src="/forking.png" alt=""  />
+</p>
+<ul>
+<li>In the <code>Repository name</code> section, you must put in <code>&lt;your GitHub owner name&gt;.github.io</code>. For example, in my case, it&rsquo;s <code>DO-WON.github.io</code>.</li>
+<li>Then, click the green <code>Create repository</code> button below.</li>
+</ul>
+<h2 id="step-2-clone-the-forked-repository-to-the-local-machine">Step 2. Clone the forked repository to the local machine<a hidden class="anchor" aria-hidden="true" href="#step-2-clone-the-forked-repository-to-the-local-machine">#</a></h2>
+<p>It is good to work from your local machine and then commit and push changes to your GitHub repository.</p>
+<ul>
+<li>Go to the forked repository</li>
+<li>Click the green button on the top right <code>&lt;&gt; Code</code></li>
+<li>You will see <code>Local</code> as follows:
+<img loading="lazy" src="/forking2.png" alt=""  />
+</li>
+<li>Click <code>Open with GitHub Desktop</code></li>
+<li>Choose local path (on your laptop/desktop)</li>
+<li>Click the <code>Clone</code> button in the bottom right</li>
+</ul>
+<h2 id="step-3-install-hugo">Step 3. Install Hugo<a hidden class="anchor" aria-hidden="true" href="#step-3-install-hugo">#</a></h2>
+<p>Install <a href="https://gohugo.io/installation/" target="_blank">Hugo</a>
+. If you use Mac, you can install Hugo by running the following code in your terminal:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install hugo
+</span></span></code></pre></div><h2 id="step-4-setting-up-configyml">Step 4. Setting up config.yml<a hidden class="anchor" aria-hidden="true" href="#step-4-setting-up-configyml">#</a></h2>
+<p>Next step is to make changes in your local machine. The first thing you need to change is the <code>config.yml</code> file.</p>
+<ul>
+<li>Open the repository on your local IDE (e.g., VS Code, PyCharm, etc.)
+<ul>
+<li>You can open it using GitHub Desktop (please refer to this <a href="https://collectionbuilder.github.io/cb-docs/docs/repository/open/#use-github-desktop-to-open-your-repository" target="_blank">link</a>
+)</li>
+</ul>
+</li>
+<li>On your IDE, open <code>config.yml</code> file</li>
+<li>Change the <code>baseURL</code>. For me, I put <code>do-won.github.io</code> as the <code>baseURL</code>. You should put your own GitHub username instead of <code>do-won</code>.</li>
+</ul>
+<h2 id="step-5-update-your-website">Step 5. Update your website!<a hidden class="anchor" aria-hidden="true" href="#step-5-update-your-website">#</a></h2>
+<p>Since you have made some changes on your local machine, now it&rsquo;s time to update your website.</p>
+<h3 id="development-stage">Development stage<a hidden class="anchor" aria-hidden="true" href="#development-stage">#</a></h3>
+<p>While you develop (make changes, testing those changes, make further changes &hellip; ), you could check how the changes you made look like on your local environment. In the terminal of your IDE (whereever you are working on), try running the following code:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo server
+</span></span></code></pre></div><p><img loading="lazy" src="/localhost.png" alt=""  />
+
+Then, click the <code>http://localhost:1313/</code> to check how your website looks like. This is very useful since it takes some time to compile, render, and deploy all the changes on GitHub. In the development stage, use Hugo to automatically reflect changes made locally and rebuild the website.</p>
+<p>If you want to stop running hugo server, enter <code>contorl+C</code> on your terminal.</p>
+<h3 id="compiling-and-deploying">Compiling and deploying<a hidden class="anchor" aria-hidden="true" href="#compiling-and-deploying">#</a></h3>
+<p>After you checked how the changes made look like with Hugo server, and finished making all the changes you needed, you are now ready to deploy those changes on your website.</p>
+<p>First, run <code>hugo</code> in your IDE terminal of your repository.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div><p>This command compiles everything that needed to deploy the changes to your website.</p>
+<p>Then, using your IDE or GitHub Desktop, commit and push changes to your online repository.</p>
+<p>Wait till the deployment is completed and visit your website!</p>
+<h2 id="next-steps">Next steps<a hidden class="anchor" aria-hidden="true" href="#next-steps">#</a></h2>
+<p>Now you know how things work, you can make further changes in your local machine and deploy them.</p>
+<p>Please refer to <a href="https://pascalmichaillat.org/d5/" target="_blank">this page</a>
+ for further customization!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://do-won.github.io/tags/productivity/">productivity</a></li>
+      <li><a href="http://do-won.github.io/tags/website/">website</a></li>
+    </ul>
+  </footer>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+</html>

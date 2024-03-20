@@ -6,7 +6,7 @@ tags: ["productivity","website"]
 author: "Do Won Kim"
 description: "Making a GitHub Website for Academics"
 summary: "Step-by-step tutorial on how I made my github website!" 
-image: "/obsidian_zotero.png"
+image: "/academicwebsite.png"
 cover:
     image: "/github_frontpage.png"
     alt: "Building a GitHub webste"
