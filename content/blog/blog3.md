@@ -38,9 +38,8 @@ How to fork?
 - Click `Use this template` button (the green one!) on the top right 
 - Then, click `Create a new repository`
 
-Now, you will see the following page: 
-
-![](/.png)
+Now, you will see the following page:
+![](/forking.png)
 
 - In the `Repository name` section, you must put in `<your GitHub owner name>.github.io`. For example, in my case, it's `DO-WON.github.io`. 
 - Then, click the green `Create repository` button below. 
@@ -52,9 +51,8 @@ It is good to work from your local machine and then commit and push changes to y
 - Go to the forked repository
 - Click the green button on the top right `<> Code`
 - You will see `Local` as follows:
-![](/.png)
-
-- If you have GitHub Desktop installed, click `Open with GitHub Desktop`
+![](/forking2.png)
+- Click `Open with GitHub Desktop`
 - Choose local path (on your laptop/desktop)
 - Click the `Clone` button in the bottom right
 
@@ -82,11 +80,12 @@ While you develop (make changes, testing those changes, make further changes ...
 ```shell
 hugo server
 ```
+![](/localhost.png)
 Then, click the `http://localhost:1313/` to check how your website looks like. This is very useful since it takes some time to compile, render, and deploy all the changes on GitHub. In the development stage, use Hugo to automatically reflect changes made locally and rebuild the website.  
 
 If you want to stop running hugo server, enter `contorl+C` on your terminal.
 
-#### Compiling and deploying 
+### Compiling and deploying 
 After you checked how the changes made look like with Hugo server, and finished making all the changes you needed, you are now ready to deploy those changes on your website.   
 
 First, run `hugo` in your IDE terminal of your repository. 
@@ -96,3 +95,11 @@ hugo
 This command compiles everything that needed to deploy the changes to your website. 
 
 Then, using your IDE or GitHub Desktop, commit and push changes to your online repository. 
+
+Wait till the deployment is completed and visit your website! 
+
+## Next steps
+Now you know how things work, you can make further changes in your local machine and deploy them.
+
+Please refer to [this page](https://pascalmichaillat.org/d5/) for further customization! 
+
