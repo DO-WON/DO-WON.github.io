@@ -8,7 +8,7 @@ description: "Making a GitHub Website for Academics"
 summary: "Step-by-step tutorial on how I made my github website!" 
 image: "/academicwebsite.png"
 cover:
-    image: "/github_frontpage.png"
+    image: "/academicwebsite.png"
     alt: "Building a GitHub webste"
     relative: false
 editPost:
