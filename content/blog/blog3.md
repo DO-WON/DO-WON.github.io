@@ -30,7 +30,7 @@ demonstrations of how I did it).
 
 Now, let's start building your website!
 
-## Step 2. Fork the template 
+## Step 1. Fork the template 
 First step is to fork the template repository. 
 
 How to fork? 
