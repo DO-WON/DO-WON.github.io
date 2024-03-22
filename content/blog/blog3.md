@@ -26,7 +26,7 @@ demonstrations of how I did it).
 ## Step 0. Prerequisties 
 1. You must have a GitHub account.
 2. Download [GitHub Desktop](https://desktop.github.com/) in your local machine (laptop or desktop). 
-3. You must have a template, or specifically, a template repository in mind. I used [this](https://github.com/pmichaillat/hugo-website?tab=readme-ov-file) as my template. All credits to amazing [Pascal Michaillat](https://pascalmichaillat.org/)!
+3. You must have a template repository in mind. I used [this](https://github.com/pmichaillat/hugo-website?tab=readme-ov-file) as my template. All credits to amazing [Pascal Michaillat](https://pascalmichaillat.org/)!
 
 Now, let's start building your website!
 
