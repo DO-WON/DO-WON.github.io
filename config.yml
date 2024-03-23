@@ -1,7 +1,7 @@
 baseURL: "http://do-won.github.io"
 title: Do Won Kim
 paginate: 10
-theme: PaperMod
+theme: ["PaperMod"]
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -35,7 +35,7 @@ params:
     author: Do Won Kim
     # googleAnalyticsID: ""
     DateFormat: "January 2006"
-    defaultTheme: dark
+    defaultTheme: auto
     hideFooter: true
     disableThemeToggle: false
     ShowShareButtons: false
@@ -55,7 +55,7 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Do Won Kim 
+          title: Do Won Kim
           subtitle: "I am a 1st year Ph.D. student in Information Studies at University of Maryland. 
             I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
@@ -110,9 +110,17 @@ markup:
         renderer:
             unsafe: true
     highlight:
-        guessSyntax: true
-        style: autumn
+      noClasses: false
+      # codeFences: true
+      # guessSyntax: true
+      # style: monokai
     tableOfContents:
         endLevel: 2
         ordered: false
         startLevel: 2
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search

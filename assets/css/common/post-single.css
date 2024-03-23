@@ -54,11 +54,11 @@
 }
 
 .post-content h3 {
-    font-size: 19px;    
+    font-size: 19px;
 }
 
 .post-content h4 {
-    font-size: 15px;    
+    font-size: 15px;
     font-weight: var(--semibold);
     text-transform: uppercase;
     color: var(--gray);
@@ -80,7 +80,7 @@
 .post-meta a,
 .toc a:hover {
     box-shadow: 0 2px 0 var(--darkpurple);
-    color: currentColor; 
+    color: currentColor;
 }
 
 
@@ -106,7 +106,7 @@
 .post-content ol,
 .post-content ul {
     padding-inline-start: 20px;
-    margin-left: var(--marginleft); 
+    margin-left: var(--marginleft);
 }
 
 .post-content li {
