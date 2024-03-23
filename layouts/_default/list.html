@@ -70,7 +70,7 @@
     <div style="width:40%">
       <img src="{{ with .Params.image }}{{ . }}{{ end }}" />
     </div>
-    <div style="width:50%">
+    <div style="width:80%">
       <p>{{ .Summary | plainify | htmlUnescape}}{{ if .Truncated }}...{{ end }}</p>
     </div>
   </div>
