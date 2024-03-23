@@ -8,6 +8,7 @@
 
 .page-header h1 {
     font-size: var(--h1size);
+    display: none;
 }
 
 .pagination {

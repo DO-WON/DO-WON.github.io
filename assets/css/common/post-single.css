@@ -83,7 +83,6 @@
     color: currentColor;
 }
 
-
 .post-content a code {
     margin: auto 0;
     border-radius: 0;
@@ -218,7 +217,7 @@
     display: block;
     margin: auto 0;
     padding: 10px;
-    color: var(--secondary);
+    color: var(--gray);
     border-radius: var(--radius);
     overflow-x: auto;
     word-break: break-all;
@@ -314,13 +313,13 @@
 }
 
 .post-footer {
-    margin-top: 60px;
+    margin-top: 56px;
 }
 
 .post-tags li {
     display: inline-block;
-    margin-inline-end: 5px;
-    margin-bottom: 10px;
+    margin-inline-end: 3px;
+    margin-bottom: 5px;
 }
 
 .post-tags a,
@@ -333,11 +332,11 @@
 
 .post-tags a {
     display: block;
-    padding-inline-start: 10px;
-    padding-inline-end: 10px;
+    padding-inline-start: 15px;
+    padding-inline-end: 15px;
     color: var(--secondary);
     font-size: 16px;
-    line-height: 32px;
+    line-height: 30px;
     background: var(--code-bg);
 }
 
@@ -377,15 +376,6 @@ h6:hover .anchor {
     font-weight: 700;
     user-select: none;
     box-shadow: 0 0px 0 var(--darkpurple);
-}
-
-
-a[href^="#fn:"], a[href^="#fnref:"] {
-     box-shadow: 0 0 0 var(--darkpurple);
-}
-
-a[href^="#fn:"]:hover, a[href^="#fnref:"]:hover {
-    color: var(--darkpurple);
 }
 
 .paginav {
