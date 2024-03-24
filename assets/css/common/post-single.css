@@ -17,6 +17,8 @@
 .breadcrumbs {
     color: var(--secondary);
     font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .post-meta .i18n_list li {
@@ -27,7 +29,7 @@
 }
 
 .breadcrumbs a {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .post-content {
@@ -80,7 +82,9 @@
 .post-meta a,
 .toc a:hover {
     box-shadow: 0 2px 0 var(--darkpurple);
+    box-decoration-break: clone;
     color: currentColor;
+    -webkit-box-decoration-break: clone;
 }
 
 .post-content a code {
@@ -143,7 +147,7 @@
 }
 
 .post-content table {
-    margin-bottom: 32px;
+    margin-bottom: var(--content-gap);
 }
 
 .post-content table th,
@@ -169,7 +173,7 @@
 
 .post-content .highlight:not(table) {
     margin: 10px auto;
-    background: var(--hljs-bg) !important;
+    background: var(--code-block-bg) !important;
     border-radius: var(--radius);
     direction: ltr;
 }
@@ -214,10 +218,11 @@
 }
 
 .post-content pre code {
-    display: block;
+    display: grid;
     margin: auto 0;
     padding: 10px;
     color: var(--secondary);
+    background: var(--code-block-bg) !important;
     border-radius: var(--radius);
     overflow-x: auto;
     word-break: break-all;

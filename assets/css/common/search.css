@@ -11,9 +11,9 @@
 }
 
 
-/*#searchbox input:focus {
+#searchbox input:focus {
     border-color: var(--darkpurple);
-}*/
+}
 
 #searchResults li {
     list-style: none;

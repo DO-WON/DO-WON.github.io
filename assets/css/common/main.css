@@ -1,14 +1,13 @@
 .main {
     position: relative;
-    min-height: calc(100vh - var(--header-height));
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
     max-width: calc(var(--main-width) + var(--gap) * 2);
     margin: auto;
     padding: var(--gap);
 }
 
 .page-header h1 {
-    font-size: var(--h1size);
-    display: none;
+    font-size: 40px;
 }
 
 .pagination {
@@ -28,32 +27,19 @@
     margin-inline-start: auto;
 }
 
-.social-icons {
-    padding: 12px 0;
-}
 
-.social-icons a:not(:last-of-type) {
-    margin-inline-end: 16px;
+.social-icons a {
+    display: inline-flex;
+    padding: 10px;
 }
 
 .social-icons a svg {
-    height: 28px;
-    width: 28px;
-}
-
-.social-icons a:hover {
-    color: var(--darkpurple);
+    height: 26px;
+    width: 26px;
 }
 
 code {
     direction: ltr;
-}
-
-code {
-    text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
 }
 
 div.highlight,

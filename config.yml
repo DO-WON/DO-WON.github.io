@@ -29,6 +29,12 @@ menu:
         - name: Blog
           url: /blog/
           weight: 6
+        - name: Keywords
+          url: /tags/
+          weight: 7
+        - name: Search
+          url: /search/
+          weight: 8
 
 params:
     description: "I am a PhD student in Information Studies at University of Maryland. I study computational social science and political behavior."
@@ -111,16 +117,17 @@ markup:
             unsafe: true
     highlight:
       noClasses: false
-      # codeFences: true
-      # guessSyntax: true
-      # style: monokai
+      codeFences: true
+      guessSyntax: true
+      # lineNos: true
+      style: monokai
     tableOfContents:
         endLevel: 2
         ordered: false
         startLevel: 2
 
 outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON # necessary for search
+     home:
+         - HTML
+         - RSS
+         - JSON

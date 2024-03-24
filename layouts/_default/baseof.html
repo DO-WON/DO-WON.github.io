@@ -1,3 +1,7 @@
+{{- if lt hugo.Version "0.112.4" }}
+{{- errorf "=> hugo v0.112.4 or greater is required for hugo-PaperMod to build " }}
+{{- end -}}
+
 <!DOCTYPE html>
 <html lang="{{ site.Language }}" dir="{{ .Language.LanguageDirection | default "auto" }}">
 
@@ -13,12 +17,11 @@
 {{- print " dark" }}
 {{- end -}}
 " id="top">
-    {{- if not .IsHome  }}
     {{- partialCached "header.html" . .Page -}}
-    {{- end }}
     <main class="main">
         {{- block "main" . }}{{ end }}
     </main>
     {{ partialCached "footer.html" . .Layout .Kind (.Param "hideFooter") (.Param "ShowCodeCopyButtons") -}}
 </body>
+
 </html>
