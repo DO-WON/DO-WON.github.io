@@ -2,7 +2,7 @@
 title: "Curation of Reading Lists" 
 date: 2023-11-21
 url: /blog1/
-tags: ["reading lists"]
+tags: ["readings"]
 author: "Do Won Kim"
 description: "This is a curation of reading lists that are relevant to my research interests."
 summary: "Reading lists of my research interests" 

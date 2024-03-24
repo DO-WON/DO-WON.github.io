@@ -2,7 +2,7 @@
 title: "Integrating Zotero and Obsidian for Academics" 
 date: 2023-12-01
 url: /blog2/
-tags: ["productivity","zettlekasten"]
+tags: ["productivity"]
 author: "Do Won Kim"
 description: "Tutorial for INST800 at UMD iSchool"
 summary: "Tutorial for INST800 at UMD iSchool: Integrating Zotero and Obsidian for Academics" 

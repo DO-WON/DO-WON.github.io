@@ -2,7 +2,7 @@
 title: "Making a GitHub Website for Academics" 
 date: 2024-03-20
 url: /blog3/
-tags: ["productivity","website"]
+tags: ["productivity"]
 author: "Do Won Kim"
 description: "Making a GitHub Website for Academics"
 summary: "Step-by-step tutorial on how I made my github website!" 
