@@ -52,7 +52,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowRssButtonInSectionTermList: false
-    ShowToc: false
+    ShowToc: true
     disableScrollToTop: false
     TocOpen: true
     ShowWordCount: false
@@ -63,15 +63,26 @@ params:
           enabled: true
           title: Do Won Kim
           subtitle: "I am a 1st year Ph.D. student in Information Studies at University of Maryland. 
+            <br/>
             I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
             <br/><br/>
-            My research interest is in the intersection of computational social science and political science. 
-            I study relationship between digital media and political behavior, with a particular focus on how the information environment and algorithms shape political beliefs, identities, and behaviors.            
-            I employ a wide range of quantitative methods in my research, including causal inference and machine learning."
+            My research interests lie at the intersection of computational social science and political science, 
+            with a focus on understanding the complex interplay between human-algorithm feedback loops. </br>
+            I investigate how social media algorithms shape users' exposure to diverse political content and how this, 
+            in turn, influences their political attitudes and behaviors. 
+            By leveraging computational methods and causal inference techniques, I aim to disentagle this reciprocal relationship. 
+            </br></br>
+            Through a deeper understanding of these feedback loops, my research sheds light on 
+            how algorithmic curation and digital media consumption contribute to collective outcomes 
+            such as political polarization, civic engagement, and the overall health of democratic processes.
+            
+            Ultimately, through my research, I seek to contribute to the development of platform design and 
+            evidence-based policies that promote a healthy, inclusive, and democratically resilient online public sphere. </br></br>
+          "
           imageUrl: "/picture.jpeg"
-          imageWidth: 140
-          imageHeight: 140
+          imageWidth: 160
+          imageHeight: 160
           imageTitle: Do Won Kim
           buttons:
             - name: Projects
@@ -102,7 +113,7 @@ params:
 
     assets:
         disableHLJS: true
-        disableScrollBarStyle: true
+        disableScrollBarStyle: false
     cover:
         hiddenInList: true
         hiddenInSingle: true
@@ -124,7 +135,7 @@ markup:
     tableOfContents:
         endLevel: 2
         ordered: false
-        startLevel: 2
+        startLevel: 1
 
 outputs:
      home:
