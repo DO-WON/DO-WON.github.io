@@ -2,6 +2,8 @@
 title: "News"
 description: ""
 ---
+<span style="color: gray;">[April. 2024]</span> 🥳 Accepted a poster presentation for [IC2S2 2024](https://ic2s2-2024.org/)! 
+
 <span style="color: gray;">[April. 2024]</span> 🤩 I am honored to serve as a Program Committee member for the International Workshop on Cyber Social Threats ([CySoc 2024](https://cy-soc.github.io/2024/)) at the 2024 International Conference on Web and Social Media ([ICWSM](https://www.icwsm.org/2024/index.html/index.html)).
 
 <span style="color: gray;">[April. 2024]</span> 🙌 I am excited to announce that I have become an affiliated PhD student at the Institute for Trustworthy AI in Law and Society ([TRAILS](https://www.trails.umd.edu/)).
