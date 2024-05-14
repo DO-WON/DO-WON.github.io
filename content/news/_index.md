@@ -3,7 +3,7 @@ title: "News"
 description: ""
 ---
 
-<span style="color: gray;">[May. 2024]</span> 🥳Our team was selected as one of nine finalists of the [Prosocial Ranking Challenge](https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial), a worldwide crowdsourcing challenge organized by the Center for Human-Compatible AI at UC Berkeley! 
+<span style="color: gray;">[May. 2024]</span> 🥳 Our team was selected as one of nine finalists of the [Prosocial Ranking Challenge](https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial), a worldwide crowdsourcing challenge organized by the Center for Human-Compatible AI at UC Berkeley! 
 
 <span style="color: gray;">[April. 2024]</span> 🥳 Accepted a poster presentation for [IC2S2 2024](https://ic2s2-2024.org/)! 
 
