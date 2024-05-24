@@ -11,30 +11,30 @@ taxonomies:
 
 menu:
     main:
-        - name: Projects
-          url: /design/
-          weight: 1
-        - name: Publication
-          url: /papers/
-          weight: 2
-        - name: Presentation
-          url: /presentation/
-          weight: 3
-        - name: Courses
-          url: /courses/
-          weight: 4
-        - name: News
-          url: /news/
-          weight: 5
-        - name: Blog
-          url: /blog/
-          weight: 6
+        #- name: Projects
+        #  url: /design/
+        #  weight: 1
+        #- name: Publication
+        #  url: /papers/
+        #  weight: 2
+        #- name: Presentation
+        #  url: /presentation/
+        #  weight: 3
+        #- name: Courses
+        #  url: /courses/
+        #  weight: 4
+        #- name: News
+        #  url: /news/
+        #  weight: 5
+        #- name: Blog
+        #  url: /blog/
+        #  weight: 6
         - name: Keywords
           url: /tags/
-          weight: 7
+          weight: 10
         - name: Search
           url: /search/
-          weight: 8
+          weight: 20
 
 params:
     description: "I am a PhD student in Information Studies at University of Maryland. I study computational social science and political behavior."
@@ -42,23 +42,26 @@ params:
     # googleAnalyticsID: ""
     DateFormat: "January 2006"
     defaultTheme: auto
-    hideFooter: true
+    hideFooter: false
     disableThemeToggle: false
     ShowShareButtons: false
     ShowReadingTime: false
     disableSpecial1stPost: true
     disableAnchoredHeadings: true
-    ShowPostNavLinks: false
+    ShowPostNavLinks: true
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowRssButtonInSectionTermList: false
-    ShowToc: true
+    ShowToc: false
     disableScrollToTop: false
     TocOpen: true
     ShowWordCount: false
     UseHugoToc: true
     comments: false
     math: true
+    homeInfoParams:
+      Title: Do Won Kim
+      Content: Test
     profileMode:
           enabled: true
           title: Do Won Kim
@@ -125,7 +128,7 @@ markup:
       codeFences: true
       guessSyntax: true
       # lineNos: true
-      style: monokai
+      style: catppuccin-macchiato
     tableOfContents:
         endLevel: 2
         ordered: false
