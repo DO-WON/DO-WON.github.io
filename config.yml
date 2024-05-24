@@ -90,8 +90,6 @@ params:
               url: /presentation/
             - name: Courses
               url: /courses/
-            - name: News
-              url: /news/
             - name: Blog
               url: /blog/
     socialIcons:
