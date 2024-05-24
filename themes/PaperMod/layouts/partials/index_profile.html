@@ -78,12 +78,24 @@
         font-size: 15px;
     }
 
+    .buttons {
+        margin-bottom: 18px;
+    }
+
     .news-content a {
-    color: #8e7bd0;
+        color: #8e7bd0;
     }
     .news-content a:hover {
-    color: #c0b5e5;
+        color: #c0b5e5;
     }
 
+    /* 모바일 화면에 대한 스타일 */
+    @media (max-width: 600px) {
+        .buttons {
+            width: 100%; /* 버튼의 너비를 화면 너비에 맞춤 */
+            margin-bottom: 10px; /* 마진을 줄임 */
+            padding: 10px; /* 패딩을 줄임 */
+            box-sizing: border-box; /* 패딩과 보더를 포함한 너비 계산 */
+        }
+    }
 </style>
-
