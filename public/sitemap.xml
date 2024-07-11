@@ -50,6 +50,10 @@
     <loc>http://do-won.github.io/vote_against/</loc>
     <lastmod>2022-06-01T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>http://do-won.github.io/design/mercury/</loc>
+  </url><url>
+    <loc>http://do-won.github.io/tags/field-experiment/</loc>
+  </url><url>
     <loc>http://do-won.github.io/news/</loc>
   </url><url>
     <loc>http://do-won.github.io/presentation/</loc>
@@ -57,5 +61,7 @@
     <loc>http://do-won.github.io/design/</loc>
   </url><url>
     <loc>http://do-won.github.io/search/</loc>
+  </url><url>
+    <loc>http://do-won.github.io/tags/social-media/</loc>
   </url>
 </urlset>
