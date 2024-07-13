@@ -65,7 +65,7 @@ an offer would have to exceed for you to mute these accounts.**
 > If the offer the computer generated is above the amount you give, 
 > we will mute the accounts for four weeks and pay you the offer amount as long as you keep these accounts muted. 
 If the offer is equal to or below that amount, we will not mute the accounts and you will not receive an additional payment.
-(...) Please consider your answer carefully and then indicate the dollar amount that an offer would have to exceed for you to mute these accounts for four weeks. 
+(...) Please consider your answer carefully and then indicate the dollar amount that an offer would have to exceed for you to mute these accounts for four weeks."
 
 The compute generated amount of offer was $15. We dropped participants with WTA >= $15 and randomized those with WTA < $15.  
 
@@ -86,6 +86,27 @@ Among those with WTA < $15,
 
 #### **Intervention 1. Muting**
 Once participants are randomized to the muting condition, we did the muting on behalf of them (100% compliance!).
+<details>
+<summary>List of low-quality accounts to mute:</summary>
+
+<ul>
+<li>We combined the list of untrustworthy news sources from <strong>NewsGuard</strong> and <strong>Top FIBers</strong> superspreaders list.
+  <ul>
+    <li><strong>NewsGuard</strong> list filtering criteria: Rating &lt; 60, US-based, English, active X accounts</li>
+    <li><strong>Top FIBers</strong> criteria: FIB index &gt; 10</li>
+  </ul>
+</li>
+
+<li>Combined list: 1,441 accounts after manual reviewing/filtering, which were sorted in descending order by follower count.</li>
+
+<li>We then kept accounts comprising ~95% of total follower sum (due to power law distribution).</li>
+
+<li>Then, we randomly selected 70% (7 out of 10) from each stratum of 10.</li>
+</ul>
+
+<p>Thus, for the pilot study, <strong>219 accounts were muted per participant</strong>.</p>
+
+</details>
 
 #### **Intervention 2. Media Literacy** 
 We used media literacy tips from _Guess et al. PNAS (2020)_. 
