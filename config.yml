@@ -65,17 +65,16 @@ params:
     profileMode:
           enabled: true
           title: Do Won Kim
-          subtitle: "I am a 1st year Ph.D. student in Information Studies at University of Maryland. 
-            <br/>
-            I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
+          subtitle: "I am a Ph.D. student at the iSchool, University of Maryland, advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
             <br/><br/>
-            My research interests lie at the intersection of computational social science and political science, 
-            with a focus on understanding the complex interplay between human-algorithm feedback loops. </br>
-            I investigate how social media algorithms shape users' exposure to diverse political content and how this, 
-            in turn, influences their political attitudes and behaviors. 
-            By leveraging computational methods and causal inference techniques, I aim to disentagle this reciprocal relationship. 
-            </br></br>
+            My research interests lie at the intersection of computational social science and political science. <br/>
+            I investigate how social media algorithms shape users’ exposure to different types of content and how this, in turn, influences their political attitudes and behaviors.
+            In my research, I develop and test various interventions to mitigate potential negative effects and enhance positive outcomes in digital media environments. 
+            Methodologically, I am interested in online experiments (including field experiments on real social media platforms and controlled studies using simulated social media platforms),  
+            causal inference, and leveraging computational methods (e.g., NLP, large-scale data collection through APIs, and ML techniques).
+            Through my research, I aim to contribute to our understanding of digital media effects and informs policy discussions on platform governance and the promotion of a healthy information ecosystem.
+            <br/><br/>
             "
           imageUrl: "/picture.jpeg"
           imageWidth: 160
