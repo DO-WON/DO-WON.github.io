@@ -70,10 +70,11 @@ params:
             <br/><br/>
             My research interests lie at the intersection of computational social science and political science. <br/>
             I investigate how social media algorithms shape users’ exposure to different types of content and how this, in turn, influences their political attitudes and behaviors.
-            In my research, I develop and test various interventions to mitigate potential negative effects and enhance positive outcomes in digital media environments. 
-            Methodologically, I am interested in online experiments (including field experiments on real social media platforms and controlled studies using simulated social media platforms),  
-            causal inference, and leveraging computational methods (e.g., NLP, large-scale data collection through APIs, and ML techniques).
-            Through my research, I aim to contribute to our understanding of digital media effects and informs policy discussions on platform governance and the promotion of a healthy information ecosystem.
+            In my research, I develop and test various interventions to improve digital media environments. 
+            Methodologically, I am interested in online experiments (including field experiments on real and simulated social media platforms),  
+            causal inference, and leveraging computational methods (e.g., LLM, NLP, large-scale data collection through APIs, and ML techniques).
+            Through my research, I aim to contribute to our understanding of digital media effects on political processes and democracy and 
+            inform policy discussions on platform governance for a healthy information ecosystem.
             <br/><br/>
             "
           imageUrl: "/picture.jpeg"

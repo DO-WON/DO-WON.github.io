@@ -4,6 +4,9 @@ description: "Conference presentations, invited talks and seminars"
 ---
 
 ## Conference Presentations
+### 2024
+7. Nyhan, Brendan J., **Do Won Kim**, Giovanni Luca Ciampaglia, Ro'ee Levy, Maria Elizabeth Grabe, and Filippo Menczer. 2024. Muting low-quality sources: A field experiment to mitigate the harm of inaccurate information online. Poster: International Conference on Computational Social Science, Philadelphia, USA.
+   - [Poster](/IC2S2_Poster.pdf)
 
 ### 2022
 6. **Kim, D.W.**, and Shang E. Ha. 2022. Narcissistic Personality and Political Behavior of Korean Voters. Paper: Annual Conference of Korean Political Science Association, Seoul, South Korea. 
