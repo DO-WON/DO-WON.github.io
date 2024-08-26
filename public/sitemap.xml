@@ -52,6 +52,8 @@
   </url><url>
     <loc>http://do-won.github.io/design/mercury/</loc>
   </url><url>
+    <loc>http://do-won.github.io/tags/algorithm/</loc>
+  </url><url>
     <loc>http://do-won.github.io/tags/field-experiment/</loc>
   </url><url>
     <loc>http://do-won.github.io/news/</loc>
@@ -63,5 +65,7 @@
     <loc>http://do-won.github.io/search/</loc>
   </url><url>
     <loc>http://do-won.github.io/tags/social-media/</loc>
+  </url><url>
+    <loc>http://do-won.github.io/design/ip_project/</loc>
   </url>
 </urlset>
