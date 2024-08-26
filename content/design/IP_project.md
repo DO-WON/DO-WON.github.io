@@ -1,5 +1,6 @@
 ---
 title: "Value-aligned social media algorithm"
+date: 2024-08-26
 description: "IP Project"
 tags: ["Algorithm", "Social Media"]
 summary: "I am seeking an undergrad/MA student for an hourly Research Assistant position for a social media study!" 

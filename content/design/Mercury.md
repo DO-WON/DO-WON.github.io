@@ -1,5 +1,6 @@
 ---
 title: "A field experiment to mitigate the harm of inaccurate health information online"
+date: 2024-08-20
 description: "Mercury Project"
 tags: ["Field Experiment", "Social Media"]
 summary: "Muting low-quality sources vs. Receiving media literacy tips" 
