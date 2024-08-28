@@ -26,6 +26,10 @@ description: ""
 
 <div class="news-container">
     <div class="news-item">
+        <div class="news-date">[Aug. 2024]</div>
+        <div class="news-content">🙌 Awarded the Doctoral Students Research Awards ($1,500)! </div>
+    </div>
+    <div class="news-item">
         <div class="news-date">[July. 2024]</div>
         <div class="news-content">🙌 Awarded the Jacob K. Goldhaber Travel Grant! Can't wait to connect at IC2S2 in Philadelphia!</div>
     </div>
