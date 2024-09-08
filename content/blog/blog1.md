@@ -32,7 +32,5 @@ disableAnchoredHeadings: false
 
 
 ---
-
-## Interpreatable ML 
-1. [Interpretable Machine Learning: Fundamental Principles and 10 Grand Challenges](https://arxiv.org/abs/2103.11251)
-2. [Interpretable algorithmic forensics](https://doi.org/10.1073/pnas.2301842120)
+## Resources
+1. [Social media research toolkits](https://socialmedialab.ca/apps/social-media-research-toolkit-2/)
