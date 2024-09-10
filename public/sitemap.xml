@@ -3,18 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>http://do-won.github.io/blog/</loc>
-    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/design/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/</loc>
-    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/online_field_experiment/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/blog4/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/</loc>
+    <lastmod>2024-09-10T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/design/mercury/</loc>
+    <lastmod>2024-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/field-experiment/</loc>
+    <lastmod>2024-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/design/</loc>
+    <lastmod>2024-08-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://do-won.github.io/tags/social-media/</loc>
+    <lastmod>2024-08-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/blog3/</loc>
     <lastmod>2024-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/tags/productivity/</loc>
-    <lastmod>2024-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://do-won.github.io/tags/</loc>
     <lastmod>2024-03-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://do-won.github.io/courses/</loc>
@@ -50,22 +71,10 @@
     <loc>http://do-won.github.io/vote_against/</loc>
     <lastmod>2022-06-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://do-won.github.io/design/mercury/</loc>
-  </url><url>
-    <loc>http://do-won.github.io/tags/algorithm/</loc>
-  </url><url>
-    <loc>http://do-won.github.io/tags/field-experiment/</loc>
-  </url><url>
     <loc>http://do-won.github.io/news/</loc>
   </url><url>
     <loc>http://do-won.github.io/presentation/</loc>
   </url><url>
-    <loc>http://do-won.github.io/design/</loc>
-  </url><url>
     <loc>http://do-won.github.io/search/</loc>
-  </url><url>
-    <loc>http://do-won.github.io/tags/social-media/</loc>
-  </url><url>
-    <loc>http://do-won.github.io/design/ip_project/</loc>
   </url>
 </urlset>
