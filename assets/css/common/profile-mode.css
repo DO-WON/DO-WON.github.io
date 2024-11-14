@@ -1,14 +1,14 @@
 .buttons,
 .main .profile {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .main .profile {
-    align-items: left;
-    min-height: calc(100vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
+    align-items: center;
+    min-height: calc(90-vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
     font-size: var(--homesize);
     line-height: var(--lineheight);
-    text-align: left;
+    text-align: justify-all;
 }
 
 .profile .profile_inner h1 {
@@ -16,11 +16,11 @@
     flex-direction: column;
     align-items: left;
     padding: 12px 0;
-    font-size: 40px;
+    font-size: 48px;
 }
 
 .profile img {
-    display: inline-table;
+    display: -webkit-flex;
     border-radius: 50%;
 }
 
@@ -33,7 +33,7 @@
     background: var(--tertiary);
     border-radius: var(--radius);
     margin: 8px 16px 8px 0px;
-    padding: 6px;
+    padding: 7px;
     transition: transform 0.1s;
 }
 

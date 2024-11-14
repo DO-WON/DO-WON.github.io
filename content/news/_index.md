@@ -5,10 +5,10 @@ description: ""
 
 <style>
 .news-container {
-    max-height: 250px;  
+    max-height: 200px;  
     overflow-y: auto;
-    border: 0px solid gray; 
-    padding: 10px;
+    border: 0.5px solid lightgray; 
+    padding: 15px;
 }
 .news-item {
     display: flex;
@@ -26,12 +26,16 @@ description: ""
 
 <div class="news-container">
     <div class="news-item">
+        <div class="news-date">[Sept. 2024]</div>
+        <div class="news-content">🙌 Awarded the Humane Studies Fellowship from the Institute for Humane Studies ($4,000)! </div>
+    </div>
+    <div class="news-item">
         <div class="news-date">[Aug. 2024]</div>
         <div class="news-content">🙌 Awarded the Doctoral Students Research Awards ($1,500)! </div>
     </div>
     <div class="news-item">
         <div class="news-date">[July. 2024]</div>
-        <div class="news-content">🙌 Awarded the Jacob K. Goldhaber Travel Grant! Can't wait to connect at IC2S2 in Philadelphia!</div>
+        <div class="news-content">🙌 Awarded the Jacob K. Goldhaber Travel Grant ($250) for IC2S2!</div>
     </div>
     <div class="news-item">
         <div class="news-date">[June. 2024]</div>

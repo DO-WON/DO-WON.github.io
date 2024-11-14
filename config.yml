@@ -65,21 +65,19 @@ params:
     profileMode:
           enabled: true
           title: Do Won Kim
-          subtitle: "I am a Ph.D. student at the iSchool, University of Maryland, advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
+          subtitle: "I am a 2nd year Ph.D. student studying Computational Social Science at the College of Information, University of Maryland.  
+            I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
             <br/><br/>
-            My research interests lie at the intersection of computational social science and political science. <br/>
-            I investigate how social media algorithms shape users’ exposure to different types of content and how this, in turn, influences their political attitudes and behaviors.
-            In my research, I develop and test various interventions to improve digital media environments. 
-            Methodologically, I am interested in online experiments (including field experiments on real and simulated social media platforms),  
-            causal inference, and leveraging computational methods (e.g., LLM, NLP, large-scale data collection through APIs, and ML techniques).
-            Through my research, I aim to contribute to our understanding of digital media effects on political processes and democracy and 
-            inform policy discussions on platform governance for a healthy information ecosystem.
-            <br/><br/>
-            "
+           My research combines Political Science and Human-Computer Interaction (HCI) to 
+           explore the role of digital media in democratic processes. 
+           Specifically, I investigate how digital media impacts public informedness, prosocial behavior, and individual well-being, 
+           and how platforms can be designed to better support democratic values. 
+           My work focuses on combining computational methods with (online) field experiments 
+           to design, implement, and evaluate interventions that enhance online information environments."
           imageUrl: "/picture.jpeg"
-          imageWidth: 160
-          imageHeight: 160
+          imageWidth: 150
+          imageHeight: 150
           imageTitle: Do Won Kim
           buttons:
             - name: Projects
