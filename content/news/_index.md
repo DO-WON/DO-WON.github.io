@@ -26,20 +26,28 @@ description: ""
 
 <div class="news-container">
     <div class="news-item">
+        <div class="news-date">[Dec. 2024]</div>
+        <div class="news-content"> Passed the milestone and will advance to PhD candidacy! </div>
+    </div>
+    <div class="news-item">
+        <div class="news-date">[Nov. 2024]</div>
+        <div class="news-content"> Awarded the College Infirmation Studies Alumni Chapter Scholarship ($1,000). </div>
+    </div>
+    <div class="news-item">
         <div class="news-date">[Sept. 2024]</div>
-        <div class="news-content">🙌 Awarded the Humane Studies Fellowship from the Institute for Humane Studies ($4,000)! </div>
+        <div class="news-content"> Awarded the Humane Studies Fellowship from the Institute for Humane Studies ($4,000) </div>
     </div>
     <div class="news-item">
         <div class="news-date">[Aug. 2024]</div>
-        <div class="news-content">🙌 Awarded the Doctoral Students Research Awards ($1,500)! </div>
+        <div class="news-content"> Awarded the Doctoral Students Research Awards ($1,500) </div>
     </div>
     <div class="news-item">
         <div class="news-date">[July. 2024]</div>
-        <div class="news-content">🙌 Awarded the Jacob K. Goldhaber Travel Grant ($250) for IC2S2!</div>
+        <div class="news-content"> Awarded the Jacob K. Goldhaber Travel Grant ($250) for IC2S2!</div>
     </div>
     <div class="news-item">
         <div class="news-date">[June. 2024]</div>
-        <div class="news-content">🤩 Had fun participating in <a href="https://sites.google.com/view/netsci-course/home?authuser=0">A Short First Course in Network Science</a></div>
+        <div class="news-content"> Had fun participating in <a href="https://sites.google.com/view/netsci-course/home?authuser=0">A Short First Course in Network Science</a></div>
     </div>
     <div class="news-item">
         <div class="news-date">[May. 2024]</div>
@@ -47,23 +55,23 @@ description: ""
     </div>
     <div class="news-item">
         <div class="news-date">[April. 2024]</div>
-        <div class="news-content">🥳 Accepted a poster presentation for <a href="https://ic2s2-2024.org/">IC2S2 2024</a>!</div>
+        <div class="news-content"> Accepted a poster presentation for <a href="https://ic2s2-2024.org/">IC2S2 2024</a>!</div>
     </div>
     <div class="news-item">
         <div class="news-date">[April. 2024]</div>
-        <div class="news-content">🤩 I am honored to serve as a Program Committee member for the International Workshop on Cyber Social Threats <a href="https://cy-soc.github.io/2024/">(CySoc 2024)</a> at the 2024 International Conference on Web and Social Media <a href="https://www.icwsm.org/2024/index.html/index.html">(ICWSM)</a>.</div>
+        <div class="news-content"> Served as a Program Committee member for the International Workshop on Cyber Social Threats <a href="https://cy-soc.github.io/2024/">(CySoc 2024)</a> at the 2024 International Conference on Web and Social Media <a href="https://www.icwsm.org/2024/index.html/index.html">(ICWSM)</a>.</div>
     </div>
     <div class="news-item">
         <div class="news-date">[April. 2024]</div>
-        <div class="news-content">🙌 I am excited to announce that I have become an affiliated PhD student at the Institute for Trustworthy AI in Law and Society <a href="https://www.trails.umd.edu/">(TRAILS)</a>.</div>
+        <div class="news-content"> Became an affiliated PhD student at the Institute for Trustworthy AI in Law and Society <a href="https://www.trails.umd.edu/">(TRAILS)</a>.</div>
     </div>
     <div class="news-item">
         <div class="news-date">[Mar. 2024]</div>
-        <div class="news-content">📖 Reviewed a paper (Behaviour & Information Technology).</div>
+        <div class="news-content"> Reviewed a paper (Behaviour & Information Technology).</div>
     </div>
     <div class="news-item">
         <div class="news-date">[Feb. 2024]</div>
-        <div class="news-content">📖 Reviewed ICWSM 2024 papers.</div>
+        <div class="news-content"> Reviewed ICWSM 2024 papers.</div>
     </div>
     <div class="news-item">
         <div class="news-date">[May. 2023]</div>
