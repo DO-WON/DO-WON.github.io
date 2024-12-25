@@ -27,16 +27,27 @@
     margin-inline-start: auto;
 }
 
-.social-icons a {
-    display: inline-flex;
-    padding: 10px;
-}
 
 .social-icons a svg {
     height: 30px;
     width: 30px;
 }
+.social-icons {
+  /* 컨테이너 자체의 기본 마진·패딩 제거 */
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
 
+.social-icons a {
+  display: inline-list-item;
+  margin-right: 4px;
+  padding: 15px;
+}
+
+.social-icons a:first-child {
+  margin-left: -16px;
+}
 .social-icons a:hover {
     color: var(--midpurple);
 }
@@ -44,12 +55,14 @@
 code {
     direction: ltr;
 }
+
 code {
     text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
+
 div.highlight,
 pre {
     position: relative;
