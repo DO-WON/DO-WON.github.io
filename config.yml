@@ -65,16 +65,16 @@ params:
     profileMode:
           enabled: true
           title: Do Won Kim
-          subtitle: "I am a 2nd year Ph.D. student studying Computational Social Science at the College of Information, University of Maryland.  
+          subtitle: "I am a Ph.D. student at the College of Information, University of Maryland.  
             I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
             <br/><br/>
-           My research combines Political Science and Human-Computer Interaction (HCI) to 
+           My research combines Computational Social Science and Human-Computer Interaction (HCI) to 
            explore the role of digital media in democratic processes. 
-           Specifically, I investigate how digital media impacts public informedness, prosocial behavior, and individual well-being, 
+           Specifically, I investigate how digital media impacts public informedness and prosocial behavior, 
            and how platforms can be designed to better support democratic values. 
-           My work focuses on combining computational methods with (online) field experiments 
-           to design, implement, and evaluate interventions that enhance online information environments.
+           I employ computational methods and online field experiments 
+           to design, implement, and evaluate interventions that foster more informed and inclusive online information environments.
             <br/>"
           imageUrl: "/picture.jpeg"
           imageWidth: 150
