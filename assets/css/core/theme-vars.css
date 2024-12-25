@@ -41,6 +41,9 @@
     --code-block-bg: rgb(46, 46, 51);
     --code-bg: rgb(55, 56, 62);
     --border: rgb(51, 51, 51);
+    --darkpurple: #8e7bd0;
+    --midpurple:#c0b5e5;
+    --lightpurple: #e5e1f4;
 }
 
 .list {

@@ -1,11 +1,11 @@
 .buttons,
 .main .profile {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: left;
 }
 .main .profile {
     align-items: center;
-    min-height: calc(90-vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
+    min-height: calc(100-vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
     font-size: var(--homesize);
     line-height: var(--lineheight);
     text-align: justify-all;
@@ -14,9 +14,9 @@
 .profile .profile_inner h1 {
     display: flex;
     flex-direction: column;
-    align-items: left;
+    align-items: flex-start;
     padding: 12px 0;
-    font-size: 48px;
+    font-size: 45px;
 }
 
 .profile img {
@@ -33,7 +33,7 @@
     background: var(--tertiary);
     border-radius: var(--radius);
     margin: 8px 16px 8px 0px;
-    padding: 7px;
+    padding: 6px;
     transition: transform 0.1s;
 }
 

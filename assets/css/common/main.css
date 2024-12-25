@@ -7,7 +7,7 @@
 }
 
 .page-header h1 {
-    font-size: 40px;
+    font-size: var(--h1size);
 }
 
 .pagination {
@@ -27,13 +27,8 @@
     margin-inline-start: auto;
 }
 
-.social-icons {
-    display: flex;
-    justify-content: center;
-}
-
 .social-icons a {
-    display: inline-flex;
+    display: inline-block;
     padding: 10px;
 }
 
@@ -42,10 +37,19 @@
     width: 30px;
 }
 
+.social-icons a:hover {
+    color: var(--midpurple);
+}
+
 code {
     direction: ltr;
 }
-
+code {
+    text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
 div.highlight,
 pre {
     position: relative;
@@ -67,4 +71,20 @@ pre {
 div.highlight:hover .copy-code,
 pre:hover .copy-code {
     display: block;
+}
+
+
+/* Style for links only within <main> tags */
+main span a,
+main span a:link,
+main span a:visited {
+    text-decoration: none;
+    background-color: var(--theme);
+    padding: 1px 5px;
+    border-radius: 3px;
+    transition: background-color 0.2s ease;
+}
+
+main span a:hover {
+    background-color: var(--lightpurple);
 }

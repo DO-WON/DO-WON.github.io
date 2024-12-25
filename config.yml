@@ -26,9 +26,9 @@ menu:
         #- name: News
         #  url: /news/
         #  weight: 5
-        #- name: Blog
-        #  url: /blog/
-        #  weight: 6
+        - name: Blog
+          url: /blog/
+          weight: 6
         - name: Keywords
           url: /tags/
           weight: 10
@@ -80,16 +80,16 @@ params:
           imageHeight: 150
           imageTitle: Do Won Kim
           buttons:
-            - name: Projects
-              url: /design/
-            - name: Publication
-              url: /papers/
-            - name: Presentation
-              url: /presentation/
-            - name: Courses
-              url: /courses/
-            - name: Blog
-              url: /blog/
+            #- name: Projects
+            #  url: /design/
+            #- name: Publication
+            #  url: /papers/
+            #- name: Presentation
+            #  url: /presentation/
+            #- name: Courses
+            #  url: /courses/
+            #- name: Blog
+            #  url: /blog/
     socialIcons:
         - name: "cv"
           url: /cv.pdf
@@ -99,7 +99,7 @@ params:
           url: https://www.linkedin.com/in/do-won-kim-336a9a16a/
         - name: "twitter"
           url: https://twitter.com/DoWonKim13
-        - name: Google Scholar
+        - name: "Google Scholar"
           url: https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ
         - name: "github"
           url: https://github.com/DO-WON
