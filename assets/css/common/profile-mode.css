@@ -1,14 +1,14 @@
 .buttons,
 .main .profile {
     display: flex;
-    justify-content: left;
+    justify-content: center;
 }
 .main .profile {
-    align-items: center;
+    align-items: flex-start;
     min-height: calc(100-vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
     font-size: var(--homesize);
     line-height: var(--lineheight);
-    text-align: justify-all;
+    text-align: -moz-left;
 }
 
 .profile .profile_inner h1 {
