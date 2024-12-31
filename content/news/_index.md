@@ -31,7 +31,7 @@ description: ""
     </div>
     <div class="news-item">
         <div class="news-date">[Nov. 2024]</div>
-        <div class="news-content"> Awarded the College Infirmation Studies Alumni Chapter Scholarship ($1,000). </div>
+        <div class="news-content"> Awarded the College Information Studies Alumni Chapter Scholarship ($1,000). </div>
     </div>
     <div class="news-item">
         <div class="news-date">[Sept. 2024]</div>
