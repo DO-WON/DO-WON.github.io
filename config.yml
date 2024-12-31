@@ -69,13 +69,15 @@ params:
             I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
             <br/><br/>
-           My research combines Computational Social Science and Human-Computer Interaction (HCI) to 
-           explore the role of digital media in democratic processes. 
-           Specifically, I investigate how digital media impacts public informedness and prosocial behavior, 
-           and how platforms can be designed to better support democratic values. 
-           I employ computational methods and online field experiments 
-           to design, implement, and evaluate interventions that foster more informed and inclusive online information environments.
-            <br/>"
+            My research combines Computational Social Science and Human-Centered AI 
+            to study how digital media shapes democratic processes at both societal 
+            (e.g., civic participation, public deliberation, dissemination of reliable information) and 
+            individual levels (e.g., informed decision-making, political engagement, attitudes toward outgroups). 
+            I investigate how platform architectures affect these dynamics and how they can be designed 
+            to promote trust, inclusivity, and constructive public discourse. 
+            Using computational methods and digital field experiments, 
+            I design and test interventions aimed at creating healthier online information environments.  
+                      <br/>"
           imageUrl: "/picture.jpeg"
           imageWidth: 150
           imageHeight: 150
