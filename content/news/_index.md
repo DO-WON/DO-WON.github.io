@@ -26,8 +26,12 @@ description: ""
 
 <div class="news-container">
     <div class="news-item">
+        <div class="news-date">[Jan. 2025]</div>
+        <div class="news-content"> Our paper, `Two Spheres of Korean Politics: Knowledge Production and Dissemination across Linguistic Divides,' was accepted for the IPSA World Congress of Political Science! </div>
+    </div>
+    <div class="news-item">
         <div class="news-date">[Dec. 2024]</div>
-        <div class="news-content"> Passed the milestone and will advance to PhD candidacy! </div>
+        <div class="news-content"> Passed the milestone and advanced to PhD candidacy! </div>
     </div>
     <div class="news-item">
         <div class="news-date">[Nov. 2024]</div>
