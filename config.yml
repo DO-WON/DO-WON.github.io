@@ -2,7 +2,7 @@ baseURL: "http://do-won.github.io"
 title: Do Won Kim
 pagination:
   pagerSize:: 10
-theme: ["PaperMod"]
+theme: "PaperMod"
 
 enableInlineShortcodes: true
 enableRobotsTXT: true
