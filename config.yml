@@ -1,6 +1,7 @@
 baseURL: "http://do-won.github.io"
 title: Do Won Kim
-paginate: 10
+pagination:
+  pagerSize:: 10
 theme: ["PaperMod"]
 
 enableInlineShortcodes: true
@@ -93,7 +94,7 @@ params:
             #  url: /courses/
             #- name: Blog
             #  url: /blog/
-    socialIcons:
+    Social:
         - name: "cv"
           url: /cv.pdf
         - name: "email"
