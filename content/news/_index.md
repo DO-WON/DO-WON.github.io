@@ -8,7 +8,7 @@ description: ""
     max-height: 200px;  
     overflow-y: auto;
     border: 0.5px solid lightgray; 
-    padding: 15px;
+    padding: 20px;
 }
 .news-item {
     display: flex;
@@ -22,6 +22,7 @@ description: ""
 .news-content {
     flex-grow: 1;
 }
+
 </style>
 
 <div class="news-container">

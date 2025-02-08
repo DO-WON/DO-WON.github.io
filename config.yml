@@ -1,11 +1,9 @@
 baseURL: "http://do-won.github.io"
 title: Do Won Kim
-pagination:
-  pagerSize:: 10
-theme: "PaperMod"
-
+theme: PaperMod
 enableInlineShortcodes: true
 enableRobotsTXT: true
+paginate: 20
 
 taxonomies:
     tag: tags
@@ -21,9 +19,9 @@ menu:
         #- name: Presentation
         #  url: /presentation/
         #  weight: 3
-        #- name: Courses
-        #  url: /courses/
-        #  weight: 4
+        - name: Courses
+          url: /courses/
+          weight: 4
         #- name: News
         #  url: /news/
         #  weight: 5
@@ -43,7 +41,7 @@ params:
     # googleAnalyticsID: ""
     DateFormat: "January 2006"
     defaultTheme: auto
-    hideFooter: false
+    hideFooter: true
     disableThemeToggle: false
     ShowShareButtons: false
     ShowReadingTime: false
@@ -60,25 +58,15 @@ params:
     UseHugoToc: true
     comments: false
     math: true
-    homeInfoParams:
-      Title: Do Won Kim
-      Content: Test
     profileMode:
           enabled: true
           title: Do Won Kim
-          subtitle: "I am a Ph.D. student in Information at the University of Maryland.  
-            I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#785EC4\">Giovanni Luca Ciampaglia</a> 
-            and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #785EC4\">Cody Buntain</a>.
+          subtitle: "I am a Ph.D. Candidate in Information at the University of Maryland.  
+            I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#e21833\">Giovanni Luca Ciampaglia</a> 
+            and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #e21833\">Cody Buntain</a>.
             <br/><br/>
-            My research combines Computational Social Science and Human-Centered AI 
-            to study how digital media shapes democratic processes at both societal 
-            (e.g., civic participation, public deliberation, dissemination of reliable information) and 
-            individual levels (e.g., informed decision-making, political engagement, attitudes toward outgroups). 
-            I investigate how platform architectures affect these dynamics and how they can be designed 
-            to promote trust, inclusivity, and constructive public discourse. 
-            Using computational methods and digital field experiments, 
-            I design and test interventions aimed at creating healthier online information environments.  
-                      <br/>"
+            My research explores how digital media influences democratic processes at both societal (e.g., civic participation, public discourse) and individual (e.g., decision-making, political engagement) levels. I examine how platform architectures shape these dynamics and how they can be designed to foster trust, inclusivity, and constructive public discourse. Using computational methods and digital field experiments, I develop and test interventions to create healthier online information environments. 
+            <br/>"
           imageUrl: "/picture.jpeg"
           imageWidth: 150
           imageHeight: 150
@@ -94,7 +82,7 @@ params:
             #  url: /courses/
             #- name: Blog
             #  url: /blog/
-    Social:
+    socialIcons:
         - name: "cv"
           url: /cv.pdf
         - name: "email"
@@ -109,8 +97,7 @@ params:
           url: https://github.com/DO-WON
 
     assets:
-        disableHLJS: true
-        disableScrollBarStyle: false
+        disableScrollBarStyle: true
     cover:
         hiddenInList: true
         hiddenInSingle: true
@@ -127,8 +114,7 @@ markup:
       noClasses: false
       codeFences: true
       guessSyntax: true
-      # lineNos: true
-      style: catppuccin-macchiato
+      style: xcode
     tableOfContents:
         endLevel: 2
         ordered: false

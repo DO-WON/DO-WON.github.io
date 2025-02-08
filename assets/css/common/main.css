@@ -49,7 +49,7 @@
   margin-left: -16px;
 }
 .social-icons a:hover {
-    color: var(--midpurple);
+    color: var(--highlight);
 }
 
 code {
@@ -99,5 +99,5 @@ main span a:visited {
 }
 
 main span a:hover {
-    background-color: var(--lightpurple);
+    background-color: var(--theme);
 }

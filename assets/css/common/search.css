@@ -12,7 +12,7 @@
 
 
 #searchbox input:focus {
-    border-color: var(--darkpurple);
+    border-color: var(--highlight);
 }
 
 #searchResults li {
@@ -45,5 +45,5 @@
 
 #searchResults .focus {
 /*    transform: scale(0.98);*/
-    border: 1px solid var(--midpurple);
+    border: 1px solid var(--highlight);
 }

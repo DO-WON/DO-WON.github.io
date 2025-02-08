@@ -6,6 +6,8 @@
     --header-height: 44px;
     --footer-height: 70px;
     --radius: 8px;
+
+    /* 색상 조정 */
     --theme: rgb(255, 255, 255);
     --entry: rgb(255, 255, 255);
     --primary: rgb(30, 30, 30);
@@ -16,9 +18,18 @@
     --code-block-bg: rgb(28, 29, 33);
     --code-bg: rgb(245, 245, 245);
     --border: rgb(238, 238, 238);
-    --darkpurple: #8e7bd0;
-    --midpurple:#c0b5e5;
-    --lightpurple: #e5e1f4;
+
+    /* 포인트 컬러 추가 */
+    --highlight: #e21833;  /* 학교 포인트 컬러 */
+    --highlight-light: #f8c2c6; /* 연한 버전 */
+    --highlight-dark: #a81022; /* 어두운 버전 */
+
+    /* 기존 purple 색상을 대체 */
+    --darkpurple: var(--highlight-dark);
+    --midpurple: var(--highlight);
+    --lightpurple: var(--highlight-light);
+
+    /* 폰트 및 크기 */
     --semibold: 500;
     --homesize: 16px;
     --textsize: 18px;
@@ -41,9 +52,11 @@
     --code-block-bg: rgb(46, 46, 51);
     --code-bg: rgb(55, 56, 62);
     --border: rgb(51, 51, 51);
-    --darkpurple: #8e7bd0;
-    --midpurple:#c0b5e5;
-    --lightpurple: #e5e1f4;
+
+    /* 다크 모드에서도 자연스럽게 포인트 컬러 적용 */
+    --darkpurple: var(--highlight-dark);
+    --midpurple: var(--highlight);
+    --lightpurple: var(--highlight-light);
 }
 
 .list {

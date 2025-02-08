@@ -42,7 +42,7 @@
 }
 
 .button:hover {
-    background: var(--midpurple);
+    background: var(--highlight-light);
 }
 
 .gray-line {
