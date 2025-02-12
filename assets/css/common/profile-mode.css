@@ -41,10 +41,6 @@
     padding: 0 8px;
 }
 
-.button:hover {
-    background: var(--highlight-light);
-}
-
 .gray-line {
     border: 4px solid;
     color: var(--tertiary);
