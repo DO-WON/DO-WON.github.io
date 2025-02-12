@@ -6,6 +6,7 @@
     margin-inline-end: auto;
     line-height: var(--header-height);
     background: var(--code-bg);
+    color: var(--primary);
 }
 
 .nav a {

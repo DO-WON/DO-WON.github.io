@@ -4,7 +4,6 @@
     max-width: calc(var(--main-width) + var(--gap) * 2);
     margin: auto;
     padding: var(--gap);
-    background: inherit; /* body와 같은 배경색을 유지 */
 }
 
 .page-header h1 {
