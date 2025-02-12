@@ -39,7 +39,7 @@ params:
     description: "I am a PhD student in Information Studies at University of Maryland. I study computational social science and political behavior."
     author: Do Won Kim
     # googleAnalyticsID: ""
-    DateFormat: "January 2006"
+    DateFormat: ""
     defaultTheme: auto
     hideFooter: true
     disableThemeToggle: false
@@ -55,6 +55,8 @@ params:
     disableScrollToTop: false
     TocOpen: true
     ShowWordCount: false
+    ShowAuthor: false
+    ShowDate: false
     UseHugoToc: true
     comments: false
     math: true
@@ -114,7 +116,7 @@ markup:
       noClasses: false
       codeFences: true
       guessSyntax: true
-      style: friendly
+      style: tango
     tableOfContents:
         endLevel: 2
         ordered: false
