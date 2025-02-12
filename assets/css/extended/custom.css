@@ -1,3 +1,12 @@
+/* 일반 모드 - 코드 블록 */
+.chroma {
+    background: var(--code-bg);
+}
+
+/* 다크 모드 - 코드 블록 */
+.dark .chroma {
+    background: var(--code-block-bg);
+}
 
 .news-container a {
     color: #e21833 !important; /* 포인트 컬러 적용 */

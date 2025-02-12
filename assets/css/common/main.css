@@ -109,3 +109,15 @@ main span a:hover {
     background: var(--entry) !important;
     color: var(--primary);
 }
+
+/* 일반 모드 - 코드 블록 배경 */
+pre, code, div.highlight {
+    background: var(--code-bg);
+    color: var(--primary);
+}
+
+/* 다크 모드 - 코드 블록 배경 */
+.dark pre, .dark code, .dark div.highlight {
+    background: var(--code-block-bg);
+    color: var(--primary);
+}
