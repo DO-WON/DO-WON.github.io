@@ -102,14 +102,10 @@ main span a:hover {
     background-color: var(--theme);
 }
 
-/* 일반 모드 배경색 적용 */
-body {
-    background: var(--theme);
-    color: var(--content);
-}
 
-/* 다크 모드 배경색 적용 */
+
+/* 다크 모드 */
 .dark body {
-    background: var(--entry);
+    background: var(--entry) !important;
     color: var(--primary);
 }
