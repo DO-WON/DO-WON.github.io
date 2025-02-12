@@ -114,7 +114,7 @@ markup:
       noClasses: false
       codeFences: true
       guessSyntax: true
-      style: xcode
+      style: friendly
     tableOfContents:
         endLevel: 2
         ordered: false
