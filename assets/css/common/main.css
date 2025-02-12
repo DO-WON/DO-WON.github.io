@@ -4,6 +4,7 @@
     max-width: calc(var(--main-width) + var(--gap) * 2);
     margin: auto;
     padding: var(--gap);
+    background: inherit; /* body와 같은 배경색을 유지 */
 }
 
 .page-header h1 {
@@ -100,4 +101,16 @@ main span a:visited {
 
 main span a:hover {
     background-color: var(--theme);
+}
+
+/* 일반 모드 배경색 적용 */
+body {
+    background: var(--theme);
+    color: var(--content);
+}
+
+/* 다크 모드 배경색 적용 */
+.dark body {
+    background: var(--entry);
+    color: var(--primary);
 }
