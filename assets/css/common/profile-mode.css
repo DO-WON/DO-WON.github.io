@@ -4,23 +4,30 @@
     justify-content: center;
 }
 .main .profile {
-    align-items: flex-start;
+    align-items: center;
     min-height: calc(100-vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
     font-size: var(--homesize);
     line-height: var(--lineheight);
-    text-align: -moz-left;
+    text-align: left;
 }
 
 .profile .profile_inner h1 {
-    display: flex;
+    display: inline-block;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: flex-start;
     padding: 12px 0;
-    font-size: 45px;
+    font-size: 40px;            /* ✅ 약간 줄임 */
+    font-weight: 600;           /* ✅ 너무 bold하지 않게 */
+    line-height: 1.4;           /* ✅ 충분한 줄 간격 */
+    letter-spacing: -0.2px;     /* ✅ 살짝만 자간 줄임 */
+    max-width: 720px;           /* ✅ 한 줄이 너무 길지 않게 */
+    color: var(--primary-text); /* ✅ 충분한 대비 색상 사용 */
+    text-align: left;
 }
 
 .profile img {
-    display: -webkit-flex;
+    display: inline-flex;
     border-radius: 50%;
 }
 
@@ -47,3 +54,14 @@
 /*    height: 1px;*/
 /*    padding: 18px 18px;*/
   }
+
+.social-icons a {
+    display: inline-block;
+    align-items: left;
+    justify-content: left;
+    transition: transform 0.2s;
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}

@@ -63,18 +63,17 @@ params:
     profileMode:
           enabled: true
           title: Do Won Kim
-          subtitle: "I am a second-year PhD student in the College of Information at the University of Maryland, 
+          subtitle: "I am a Ph.D. candidate in Information at the University of Maryland, 
             advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#e21833\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #e21833\">Cody Buntain</a>.
             I am also a student affiliate at <a href=\"https://www.trails.umd.edu/\" target=\"_blank\" style=\"color:#e21833\">TRAILS</a> (The Institute for Trustworthy AI in Law and Society).
             <br/><br/>
              
-            I am a computational social scientist studying how to design digital platform architectures—particularly 
-            recommendation systems—as institutions that
-            govern how attention is distributed, which voices are amplified, and 
-            how people engage with one another online.
+            I view platform architectures—particularly 
+            recommendation systems—as institutions that govern 
+            how attention is distributed, which voices are amplified, and how people interact online.
             Using computational and experimental methods, I intervene in these systems 
-            to understand how they influence users’ information diets, behaviors, and attitudes.
+            to understand how they influence users’ information exposure, behaviors, and attitudes.
 
             <br/><br/>
             My dissertation addresses the gap between what users say they prefer (stated preferences) and what their behaviors suggest they prefer (revealed preferences). 
@@ -93,10 +92,16 @@ params:
             I was also part of a finalist team in the <a href=\"https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial\" 
             target=\"_blank\" style=\"color: #e21833\">Prosocial Ranking Challenge</a>, where we designed a recommendation algorithm aimed at fostering constructive, cross-partisan dialogue online. 
             In another collaborative project, I study how real-time political conversations can reduce affective polarization using LLM-embedded experiments.
-            <br/>"
-          imageUrl: "/picture.jpeg"
-          imageWidth: 150
-          imageHeight: 150
+          
+            <br/><br/>
+            Building on these lines of work, I am expanding my research into the domain of human-AI interaction with a focus on civic applications. 
+            I explore how AI can be leveraged to support more prosocial and pro-democratic engagement online, such as by supporting constructive political dialogue or helping bridge partisan divides. 
+            Methodologically, I am also interested in integrating AI into social science experiments, 
+            including AI-augmented survey designs that simulate dynamic conversations or deliberative settings at scale. 
+            <br/><br/>"
+          imageUrl: #"/picture.jpeg"
+          imageWidth: 120
+          imageHeight: 120
           imageTitle: Do Won Kim
           buttons:
             #- name: Projects
@@ -124,14 +129,14 @@ params:
           url: https://github.com/DO-WON
 
     assets:
-        disableScrollBarStyle: true
+        disableScrollBarStyle: false
     cover:
         hiddenInList: true
         hiddenInSingle: true
     label:
       text: "Do Won Kim"
       icon: /favicon.ico
-      iconHeight: 15
+      iconHeight: 20
 
 markup:
     goldmark:

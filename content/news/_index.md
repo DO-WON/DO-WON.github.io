@@ -7,7 +7,7 @@ description: ""
 .news-container {
     max-height: 200px;  
     overflow-y: auto;
-    border: 0.5px solid lightgray; 
+    border: 1px solid lightgray; 
     padding: 20px;
 }
 .news-item {
@@ -20,7 +20,7 @@ description: ""
     color: gray;
 }
 .news-content {
-    flex-grow: 1;
+    flex-grow: 2;
 }
 
 </style>
