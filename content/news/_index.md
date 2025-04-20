@@ -27,6 +27,10 @@ description: ""
 
 <div class="news-container">
     <div class="news-item">
+        <div class="news-date">[April. 2025]</div>
+        <div class="news-content"> 1 talk + 2 posters accepted for <a href="https://ic2s2-2025.org/">IC2S2 2025</a>!</div>
+    </div>
+    <div class="news-item">
         <div class="news-date">[Jan. 2025]</div>
         <div class="news-content"> Paper accepted for the IPSA World Congress of Political Science! </div>
     </div>

@@ -63,23 +63,36 @@ params:
     profileMode:
           enabled: true
           title: Do Won Kim
-          subtitle: "I am a Ph.D. Candidate in Information at the University of Maryland.  
-            I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#e21833\">Giovanni Luca Ciampaglia</a> 
+          subtitle: "I am a second-year PhD student in the College of Information at the University of Maryland, 
+            advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#e21833\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #e21833\">Cody Buntain</a>.
+            I am also a student affiliate at <a href=\"https://www.trails.umd.edu/\" target=\"_blank\" style=\"color:#e21833\">TRAILS</a> (The Institute for Trustworthy AI in Law and Society).
+            <br/><br/>
+             
+            I am a computational social scientist studying how to design digital platform architectures—particularly 
+            recommendation systems—as institutions that
+            govern how attention is distributed, which voices are amplified, and 
+            how people engage with one another online.
+            Using computational and experimental methods, I intervene in these systems 
+            to understand how they influence users’ information diets, behaviors, and attitudes.
+
+            <br/><br/>
+            My dissertation addresses the gap between what users say they prefer (stated preferences) and what their behaviors suggest they prefer (revealed preferences). 
+            Social media algorithms infer user preferences from engagement behaviors, 
+            even when those behaviors don’t reflect what users actually value, 
+            often amplifying content that is attention-grabbing but misaligned with users’ true values.
+
+            How can we design social media feed algorithms that better align with what users consciously value? And what effects might such value-aligned systems have on individuals and society? 
+            To address these questions, I develop a stated preference-based recommendation algorithm that leverages LLMs to re-rank content based on users’ explicitly expressed values, 
+            and test its effects on both individual- and system-level outcomes through RCTs and large-scale simulations.
             <br/><br/>
             
-
-I am a computational social scientist using digital experiments and computational methods to design and test interventions for healthier, more democratic online information environments. I approach digital platforms—especially recommendation algorithms—as institutions that govern how attention is distributed, which voices are amplified, and how people engage with one another online. 
-
-<br/><br/>
-My dissertation addresses a core challenge in today’s information environment: the gap between what users say they value (stated preferences) and what their engagement behaviors suggest they value (revealed preferences). This gap matters because users often engage with low-quality, attention-grabbing content they don’t truly value. Engagement-based algorithms then amplify this content, distorting users’ information environments.
-
-<br/><br/>
-To address this, I develop a stated preference-based recommendation algorithm that leverages large language models (LLMs) to re-rank content based on users’ explicitly expressed values and test its effects on both individual and system-level outcomes through RCTs and large-scale simulations.
-
-<br/><br/>
-Beyond the dissertation, I have worked on a digital field experiment on Twitter/X to examine how muting low-quality accounts influences users’ information consumption and downstream political attitudes. I was also part of a finalist team in the Prosocial Ranking Challenge, where we designed and tested a recommendation algorithm aimed at fostering constructive, cross-partisan dialogue. In another collaborative project, I study how real-time political conversations can reduce affective polarization, using LLM-embedded experiments. 
-
+            Beyond the dissertation, I have conducted a digital field experiment on Twitter/X to examine 
+            how <a href=\"https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/\" 
+            target=\"_blank\" style=\"color: #e21833\">muting low-quality sources</a> influences users’ information consumption and downstream political attitudes. 
+            I was also part of a finalist team in the <a href=\"https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial\" 
+            target=\"_blank\" style=\"color: #e21833\">Prosocial Ranking Challenge</a>, where we designed a recommendation algorithm aimed at fostering constructive, cross-partisan dialogue online. 
+            In another collaborative project, I study how real-time political conversations can reduce affective polarization using LLM-embedded experiments.
             <br/>"
           imageUrl: "/picture.jpeg"
           imageWidth: 150
