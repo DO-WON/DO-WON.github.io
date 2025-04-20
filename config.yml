@@ -67,7 +67,19 @@ params:
             I am advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#e21833\">Giovanni Luca Ciampaglia</a> 
             and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #e21833\">Cody Buntain</a>.
             <br/><br/>
-            My research explores how digital media influences democratic processes at both societal (e.g., civic participation, public discourse) and individual (e.g., decision-making, political engagement) levels. I examine how platform architectures shape these dynamics and how they can be designed to foster trust, inclusivity, and constructive public discourse. Using computational methods and digital field experiments, I develop and test interventions to create healthier online information environments. 
+            
+
+I am a computational social scientist using digital experiments and computational methods to design and test interventions for healthier, more democratic online information environments. I approach digital platforms—especially recommendation algorithms—as institutions that govern how attention is distributed, which voices are amplified, and how people engage with one another online. 
+
+<br/><br/>
+My dissertation addresses a core challenge in today’s information environment: the gap between what users say they value (stated preferences) and what their engagement behaviors suggest they value (revealed preferences). This gap matters because users often engage with low-quality, attention-grabbing content they don’t truly value. Engagement-based algorithms then amplify this content, distorting users’ information environments.
+
+<br/><br/>
+To address this, I develop a stated preference-based recommendation algorithm that leverages large language models (LLMs) to re-rank content based on users’ explicitly expressed values and test its effects on both individual and system-level outcomes through RCTs and large-scale simulations.
+
+<br/><br/>
+Beyond the dissertation, I have worked on a digital field experiment on Twitter/X to examine how muting low-quality accounts influences users’ information consumption and downstream political attitudes. I was also part of a finalist team in the Prosocial Ranking Challenge, where we designed and tested a recommendation algorithm aimed at fostering constructive, cross-partisan dialogue. In another collaborative project, I study how real-time political conversations can reduce affective polarization, using LLM-embedded experiments. 
+
             <br/>"
           imageUrl: "/picture.jpeg"
           imageWidth: 150
