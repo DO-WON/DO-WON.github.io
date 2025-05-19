@@ -29,6 +29,13 @@ description: ""
     <div class="news-item">
         <div class="news-date">[May. 2025]</div>
         <div class="news-content">
+            A paper accepted and will be presented at the 
+            <a href="https://sites.google.com/view/confpolinetworks/">PolNet-PaCSS</a> 😆
+        </div>
+    </div>
+    <div class="news-item">
+        <div class="news-date">[May. 2025]</div>
+        <div class="news-content">
             A workshop paper accepted and will be presented at the 
             <a href="http://geis.institute/websci2025/">Global Election and Information Security Workshop</a>
                 , co-located with <a href="https://websci25.webscience.org/">ACM WebSci 2025</a>!
