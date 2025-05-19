@@ -28,7 +28,7 @@ description: ""
 <div class="news-container">
     <div class="news-item">
         <div class="news-date">[May. 2025]</div>
-        <div class="news-content">
+        <div class="news-content"> 
             A paper accepted and will be presented at the 
             <a href="https://sites.google.com/view/confpolinetworks/">PolNet-PaCSS</a> 😆
         </div>
