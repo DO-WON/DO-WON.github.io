@@ -29,6 +29,12 @@ description: ""
     <div class="news-item">
         <div class="news-date">[May. 2025]</div>
         <div class="news-content"> 
+            Awarded the Dean's Fellowship! 🎉
+        </div>
+    </div>
+    <div class="news-item">
+        <div class="news-date">[May. 2025]</div>
+        <div class="news-content"> 
             A paper accepted and will be presented at the 
             <a href="https://sites.google.com/view/confpolinetworks/">PolNet-PaCSS</a> 😆
         </div>
