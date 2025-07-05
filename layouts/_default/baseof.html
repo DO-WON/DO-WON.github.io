@@ -7,16 +7,16 @@
 
 <head>
     {{- partial "head.html" . }}
+    <link rel="stylesheet" href="/css/profile-mode.css">
 </head>
 
-<body class="
-{{- if (or (ne .Kind `page` ) (eq .Layout `archives`) (eq .Layout `search`)) -}}
-{{- print "list" -}}
-{{- end -}}
-{{- if eq site.Params.defaultTheme `dark` -}}
-{{- print " dark" }}
-{{- end -}}
-" id="top">
+<body
+  id="top"
+  class="
+    {{ if (or (ne .Kind "page") (eq .Layout "archives") (eq .Layout "search")) }}list{{ end }}
+    {{ if eq site.Params.defaultTheme "dark" }} dark{{ end }}
+  "
+>
     {{- partialCached "header.html" . .Page -}}
     <main class="main">
         {{- block "main" . }}{{ end }}

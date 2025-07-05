@@ -98,9 +98,9 @@ params:
             <br/><br/>
             "
           imageUrl: #"/picture.jpeg"
-          imageWidth: 120
-          imageHeight: 120
-          imageTitle: Do Won Kim
+          imageWidth: 100
+          imageHeight: 100
+          imageTitle:
           buttons:
             #- name: Projects
             #  url: /design/
