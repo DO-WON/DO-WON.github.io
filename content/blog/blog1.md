@@ -1,36 +1,27 @@
 ---
-title: "Curation of Reading Lists" 
-date: 2023-11-21
+title: "PhD tips and resources" 
+date: 2025-07-05
 url: /blog1/
-tags: ["readings"]
+tags: ["tips"]
 author: "Do Won Kim"
-description: "This is a curation of reading lists that are relevant to my research interests."
-summary: "Reading lists of my research interests" 
+description: "This is a curation of tips and resources for PhD students."
+summary: "PhD tips and resources" 
 showToc: true
 disableAnchoredHeadings: false
 
 ---
 
-## Algorithm, Amplification, Soical Media 
-#### Blog Posts
-1. [Making Amplification Measurable](https://medium.com/understanding-recommenders/making-amplification-measurable-2be548e5986c)
-2. [How Platform Recommenders Work](https://medium.com/understanding-recommenders/how-platform-recommenders-work-15e260d9a15a)
-3. [How to Measure the Effects of Recommenders](https://medium.com/understanding-recommenders/how-to-measure-the-causal-effects-of-recommenders-5e89b7363d57)
-4. [The Algorithmic Management of Polarization and Violence on Social Media](https://knightcolumbia.org/content/the-algorithmic-management-of-polarization-and-violence-on-social-media)
+# PhD Syllabus
 
-#### Research Articles 
-1. [Algorithmic amplification of politics on Twitter](https://www.pnas.org/doi/10.1073/pnas.2025334119)
-
----
-
-## Simulations, Generative Agents, LLMs
-1. [Demonstrations of the Potential of AI-based Political Issue Polling](https://hdsr.mitpress.mit.edu/pub/dm2hrtx0/release/1?readingCollection=04d84e0d)
-2. [Generative Agents: Interactive Simulacra of Human Behavior](https://arxiv.org/abs/2304.03442v1)
-
----
-## Onlne Field Experiment, Social Media Welfare 
+Turns out, there’s a syllabus for PhD students too—just like in class, it helps set expectations and keep us on track!
 
 
----
-## Resources
-1. [Social media research toolkits](https://socialmedialab.ca/apps/social-media-research-toolkit-2/)
+[Eric Gilbert's Syllabus for PhD students](https://docs.google.com/document/d/11D3kHElzS2HQxTwPqcaTnU5HCJ8WGE5brTXI4KLf4dM/edit?tab=t.0)
+
+[Mor Naaman's Lab PhD Syllabus](https://s.tech.cornell.edu/phd-syllabus/)
+
+
+# Job Market Resources
+[Julia Mendelsohn's Job Market Resources](https://juliamendelsohn.github.io/resources/)
+- Check out Julia Mendelsohn’s Job Market Resources! She also links to great materials from Maarten Sap and Anjalie Field.
+
