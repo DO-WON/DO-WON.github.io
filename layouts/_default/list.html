@@ -62,7 +62,7 @@
   <header class="entry-header">
     <h2>
       {{- .Title }}
-      {{- if .Draft }}<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>{{- end }}
+      {{- if .Draft }}<sup><span class="entry-isdraft">[draft]</span></sup>{{- end }}
     </h2>
   </header>
   {{- if (ne (.Param "hideSummary") true) }}
@@ -78,7 +78,7 @@
 
   {{- if not (.Param "hideMeta") }}
   <footer class="entry-footer">
-    {{- partial "post_meta.html" . -}}
+    <time datetime="{{ .Date }}">{{ .Date.Format "January 2, 2006" }}</time>&nbsp;&middot;&nbsp;{{ .Params.author }}
   </footer>
   {{- end }}
   <a class="entry-link" aria-label="post link to {{ .Title | plainify }}" href="{{ .Permalink }}"></a>
