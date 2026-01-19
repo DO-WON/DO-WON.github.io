@@ -3,6 +3,9 @@ title: "Courses"
 description: "Courses that I took"
 ---
 
+## Tutorial
+
+[**Korea University**] [Using LLMs in Social Science Research](https://docs.google.com/presentation/d/1kcgkYVs6-nu7plrwullV5hsJM00hqyHPqixaUshJTis/edit?usp=sharing) (Jan 21, 2026)
 
 
 ## Teaching Experiences
