@@ -22,7 +22,7 @@ description: ""
 .news-content {
     flex-grow: 2;
 }
-
+  
 </style>
 
 <div class="news-container">
