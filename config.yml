@@ -63,61 +63,74 @@ params:
     profileMode:
           enabled: true
           title: Do Won Kim
-          subtitle: "I am a Ph.D. candidate in Information at the University of Maryland, 
-            advised by <a href=\"https://glciampaglia.com/\" target=\"_blank\" style=\"color:#e21833\">Giovanni Luca Ciampaglia</a> 
-            and <a href=\"http://cody.bunta.in/\" target=\"_blank\" style=\"color: #e21833\">Cody Buntain</a>.
-            I am also a student affiliate at <a href=\"https://www.trails.umd.edu/\" target=\"_blank\" style=\"color:#e21833\">TRAILS</a> (The Institute for Trustworthy AI in Law and Society).
+          subtitle: |-
+            I am a Ph.D. candidate in Information at the University of Maryland,
+            advised by <a href="https://glciampaglia.com/" target="_blank" class="redlink">Giovanni Luca Ciampaglia</a>
+            and <a href="http://cody.bunta.in/" target="_blank" class="redlink">Cody Buntain</a>.
+            I am also a student affiliate at <a href="https://www.trails.umd.edu/" target="_blank" class="redlink">TRAILS</a>
+            (The Institute for Trustworthy AI in Law and Society).
             <br/><br/>
-            My work lies in the intersection of Computational Social Science and human-AI interaction.  
+            My work lies in the intersection of Computational Social Science and human-AI interaction.
             Specifically, I study how AI-driven information systems, such as platform algorithms and AI chatbots, mediate access to political information and influence how people learn about politics, discuss political issues, and engage with others online.
             Using computational and experimental methods, I examine how these systems can be designed or intervened upon to better support democratic processes.
-
-            <br/><br/>
+            
+            <br/>
+            <p>
             My dissertation includes three intervention studies on how AI systems that people use every day (such as social media feeds and chatbots) affect how they get political information and participate in democracy.
+            </p>
+            <br/>
+            <details class="dissertation-toggle">
+              <summary class="dissertation-summary">Dissertation Projects (click to expand)</summary>
+              <br/>
             
-            <a href=\"https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/\" 
-            target=\"_blank\" style=\"color: #e21833\">Study 1</a> uses a digital field experiment on X (formerly Twitter) 
-            to test an intervention that targets the information diets of vulnerable groups. Can reducing exposure to untrustworthy sources change the beliefs and behavior of people who seek out such content? 
-            To answer this research question, we randomly reduced exposure to untrustworthy sources by muting a subset among X users who engage with them. 
-            Our results indicate that the muting intervention produces lasting reductions in engagement with targeted untrustworthy sources, 
-            with no evidence of substitution toward other unmuted untrustworthy or trustworthy sources. 
-            These effects persist even when participants had the option to reverse the intervention (i.e., unmute), 
-            implying that a one-time, opt-in change to the information environment can produce durable changes in engagement behaviors without continued incentives or enforcement. 
-            By contrast, a media literacy intervention briefly improved discernment (unlike muting) but had no effect on online engagement. 
-            These findings suggest that structural changes that limit exposure to low-quality sources may be more effective at changing behavior than cognitive interventions.
+              <p>
+                <a href="https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/" target="_blank" class="redlink">Study 1</a>
+                uses a digital field experiment on X (formerly Twitter) to test an intervention that targets the information diets of vulnerable groups.
+                Can reducing exposure to untrustworthy sources change the beliefs and behavior of people who seek out such content?
+                To answer this research question, we randomly reduced exposure to untrustworthy sources by muting a subset among X users who engage with them.
+                Our results indicate that the muting intervention produces lasting reductions in engagement with targeted untrustworthy sources,
+                with no evidence of substitution toward other unmuted untrustworthy or trustworthy sources.
+                These effects persist even when participants had the option to reverse the intervention (i.e., unmute),
+                implying that a one-time, opt-in change to the information environment can produce durable changes in engagement behaviors without continued incentives or enforcement.
+                By contrast, a media literacy intervention briefly improved discernment (unlike muting) but had no effect on online engagement.
+                These findings suggest that structural changes that limit exposure to low-quality sources may be more effective at changing behavior than cognitive interventions.
+              </p>
+                        <br/> 
 
-            <br/><br/>
-            Study 2 examines how structured political converstaions with AI chatbots could reduce political polarization. 
-            AI-driven information systems like platform algorithms often reinforce the belief that people in one's own political group mostly think alike, while the other side is extreme and fundamentally different, fueling political poalrization. 
-            Can exposure to unexpected agreement with outgroup partisans or disagreement with ingroup partisans during political conversations change these perceptions? 
-            To answer this question, we embed large language models (LLMs) into a survey experiment that lets recruited partisans engage in brief political conversations with AI chatbots, 
-            using a 2×2 design that varies agreement (agree vs. disagree) and partisan membership (ingroup vs. outgroup).
-            We found that disagreement with someone from one’s own political group and agreement with someone from the opposing group reduced political polarization.  
-            Importantly, these effects do not arise because participants are persuaded by the AI chatbots or change their own political views. 
-            Instead, participants come to see their own political group as more internally diverse and the opposing group as less extreme than they previously assumed. 
-            These findings suggest that AI chatbots can help reduce political polarization by reshaping how people perceive partisan boundaries.
+              <p>
+                Study 2 examines how structured political converstaions with AI chatbots could reduce political polarization.
+                AI-driven information systems like platform algorithms often reinforce the belief that people in one's own political group mostly think alike,
+                while the other side is extreme and fundamentally different, fueling political poalrization.
+                Can exposure to unexpected agreement with outgroup partisans or disagreement with ingroup partisans during political conversations change these perceptions?
+                To answer this question, we embed large language models (LLMs) into a survey experiment that lets recruited partisans engage in brief political conversations with AI chatbots,
+                using a 2×2 design that varies agreement (agree vs. disagree) and partisan membership (ingroup vs. outgroup).
+                We found that disagreement with someone from one’s own political group and agreement with someone from the opposing group reduced political polarization.
+                Importantly, these effects do not arise because participants are persuaded by the AI chatbots or change their own political views.
+                Instead, participants come to see their own political group as more internally diverse and the opposing group as less extreme than they previously assumed.
+                These findings suggest that AI chatbots can help reduce political polarization by reshaping how people perceive partisan boundaries.
+              </p>
+                        <br/> 
 
-            <br/><br/>
-            Study 3 (planned) examines whether a civic-oriented AI chatbot can help restore trust in elections by improving how voters access and understand official election information.
-            Free and fair elections depend not only on institutional integrity, but also on whether citizens can easily find accurate information about how elections work and trust that their votes are counted as intended. Yet during elections, voters often face information overload, confusion about procedures, and difficulty identifying reliable sources—especially at the state and local level.
-            To address this challenge, I will test the effects of talking with an AI-powered election information chatbot grounded exclusively in official local election sources.
-            To evaluate its impact, I plan to conduct a three-arm RCT during the November 2026 U.S. midterm elections with residents of Montgomery County, Maryland. 
-            We will test whether access to the chatbot improves voters’ understanding of election procedures, reduces false beliefs about elections, increases trust in election officials and democratic institutions, and encourages civic engagement. 
-
-            <br/><br/>
-            Beyond my dissertation, I also work on related projects that use AI-based interventions to study a range of other civic outcomes, 
+              <p>
+                Study 3 (planned) examines whether a civic-oriented AI chatbot can help restore trust in elections by improving how voters access and understand official election information.
+                Free and fair elections depend not only on institutional integrity, but also on whether citizens can easily find accurate information about how elections work and trust that their votes are counted as intended.
+                Yet during elections, voters often face information overload, confusion about procedures, and difficulty identifying reliable sources—especially at the state and local level.
+                To address this challenge, I will test the effects of talking with an AI-powered election information chatbot grounded exclusively in official local election sources.
+                To evaluate its impact, I plan to conduct a three-arm RCT during the November 2026 U.S. midterm elections with residents of Montgomery County, Maryland.
+                We will test whether access to the chatbot improves voters’ understanding of election procedures, reduces false beliefs about elections, increases trust in election officials and democratic institutions, and encourages civic engagement.
+              </p>
+            </details>
+            
+            <br/>
+            Beyond my dissertation, I also work on related projects that use AI-based interventions to study a range of other civic outcomes,
             including attitudes toward immigrants and how people learn and understand politics.
-            I also work on algorithm-focused projects that examine how recommendation systems can be designed to promote more constructive online interactions, 
-            including work from the <a href=\"https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial\" 
-            target=\"_blank\" style=\"color: #e21833\">Prosocial Ranking Challenge</a> and 
-            research on using LLMs to better align news feed recommendations with stated values of users.
-
-            <br/><br/>
-            Together, my research advances a broader agenda on AI for democracy by 
-            bridging human–AI interaction and computational social science to design AI systems that support democratic processes.
+            I also work on algorithm-focused projects that examine how recommendation systems can be designed to promote more constructive online interactions,
+            including work from the <a href="https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial" target="_blank" class="redlink">Prosocial Ranking Challenge</a>
+            and research on using LLMs to better align news feed recommendations with stated values of users.
             
-            <br/><br/>
-            "
+            <br/>
+            Together, my research advances a broader agenda on AI for democracy by bridging human–AI interaction and computational social science to design AI systems that support democratic processes.
+
           imageUrl: #"/picture.jpeg"
           imageWidth: 100
           imageHeight: 100

@@ -13,3 +13,22 @@
     text-decoration: none;
 }
 
+/* profile subtitle 안의 모든 링크 (토글 밖 + 토글 안 전부) */
+.profile .profile_inner a {
+  color: #e21833 !important;
+}
+
+.profile .profile_inner a:hover {
+  color: #b51529 !important;
+}
+
+/* 2) 소셜 아이콘 링크만 테마 기본색으로 복구 */
+.profile .profile_inner .social-icons a,
+.profile .profile_inner .social_icons a {
+  color: var(--primary) !important;
+}
+
+.profile .profile_inner .social-icons a:hover,
+.profile .profile_inner .social_icons a:hover {
+  color: var(--primary) !important;
+}
