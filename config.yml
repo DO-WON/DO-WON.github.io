@@ -98,9 +98,9 @@ params:
                         <br/> 
 
               <p>
-                Study 2 examines how structured political converstaions with AI chatbots could reduce political polarization.
+                Study 2 examines how structured political conversations with AI chatbots could reduce political polarization.
                 AI-driven information systems like platform algorithms often reinforce the belief that people in one's own political group mostly think alike,
-                while the other side is extreme and fundamentally different, fueling political poalrization.
+                while the other side is extreme and fundamentally different, fueling political polarization.
                 Can exposure to unexpected agreement with outgroup partisans or disagreement with ingroup partisans during political conversations change these perceptions?
                 To answer this question, we embed large language models (LLMs) into a survey experiment that lets recruited partisans engage in brief political conversations with AI chatbots,
                 using a 2×2 design that varies agreement (agree vs. disagree) and partisan membership (ingroup vs. outgroup).
