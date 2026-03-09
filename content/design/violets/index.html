@@ -1,13 +1,10 @@
----
-layout: "raw"
----
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>VIOLETS Architecture</title>
 <style>
+html, body { color-scheme: dark !important; }
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -449,7 +446,9 @@ body {
 .step-2 .p-num { background: #0f1e35; color: var(--blue); border: 1.5px solid #2a4a80; }
 .step-2 .p-line { background: linear-gradient(to bottom, #2a4a80, #1a3a20); }
 .step-3 .p-num { background: #0f2018; color: var(--teal); border: 1.5px solid #1a5040; }
-.step-3 .p-line { background: linear-gradient(to bottom, #1a5040, transparent); }
+.step-3 .p-line { background: linear-gradient(to bottom, #1a5040, #1a3520); }
+.step-4 .p-num { background: #091510; color: #40b070; border: 1.5px solid #1a4030; }
+.step-4 .p-line { display: none; }
 
 .p-content {
   flex: 1;
@@ -465,6 +464,7 @@ body {
 .step-1 .p-title { color: #c090ff; }
 .step-2 .p-title { color: #80b0ff; }
 .step-3 .p-title { color: #60d0b0; }
+.step-4 .p-title { color: #60c880; }
 
 .p-desc {
   font-size: 11px;
@@ -484,6 +484,26 @@ body {
 .tag-purple { background: #1e0f35; color: #9b5de5; border: 1px solid #3a1f60; }
 .tag-blue   { background: #0f1830; color: #60a0e0; border: 1px solid #1a3060; }
 .tag-teal   { background: #0a1f18; color: #40b898; border: 1px solid #1a4035; }
+.tag-green  { background: #091510; color: #40b070; border: 1px solid #1a4030; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .canvas { width: 100%; padding: 0 12px; }
+  .layout { grid-template-columns: 1fr; gap: 20px; }
+  .col-left  { padding-right: 0; }
+  .col-center { padding: 0; }
+  .col-right { padding-left: 0; }
+  .backend-shell { height: auto; }
+  .arrows-svg { display: none; }
+  .flow-track { flex-wrap: wrap; gap: 4px; }
+}
+
+@media (max-width: 600px) {
+  .header-title { font-size: 15px; }
+  .safety-grid { grid-template-columns: 1fr 1fr; }
+  .backend-header { flex-wrap: wrap; gap: 8px; }
+  .backend-header .api-badge { margin-left: 0; }
+}
 
 /* Request–Response flow */
 .flow-box {
@@ -1062,7 +1082,7 @@ body {
                 </div>
               </div>
 
-              <div class="p-step step-3 has-tip" data-tip-color="#1fb89a" data-tip-title="Step 3 — Generate Response" data-tip='["<strong>System message</strong>: safety rules, neutrality constraints, citation requirements","<strong>Context block</strong>: retrieved chunks with source labels and URLs","<strong>User query</strong>: question + minimal conversation history","sep","Model: <strong>GPT-5-nano</strong> via OpenAI Enterprise · stateless"]'>
+              <div class="p-step step-3 has-tip" data-tip-color="#1fb89a" data-tip-title="Step 3 — Generate Response" data-tip='["<strong>System message</strong>: safety rules, neutrality constraints, citation requirements","<strong>Context block</strong>: retrieved chunks with source labels and URLs","<strong>User query</strong>: question + minimal conversation history","sep","Model: <strong>GPT-5-nano</strong> via OpenAI Enterprise API"]'>
                 <div class="p-step-left">
                   <div class="p-num">3</div>
                   <div class="p-line"></div>
@@ -1070,32 +1090,26 @@ body {
                 <div class="p-content">
                   <div class="p-title">Generate Response</div>
                   <div class="p-desc">System prompt + context chunks + user query → cited answer</div>
-                  <span class="p-tag tag-teal">GPT-5-nano · stateless</span>
+                  <span class="p-tag tag-teal">GPT-5-nano · OpenAI Enterprise</span>
+                </div>
+              </div>
+
+              <div class="p-step step-4 has-tip" data-tip-color="#40b070" data-tip-title="Step 4 — Safety Guards (Middleware)" data-tip='["<strong>Citation guard</strong>: removes/masks URLs not on allow-list","<strong>Hallucination guard</strong>: substitutes standard message if context insufficient","<strong>No PII to LLM</strong>: participant ID handled by backend only","<strong>Candidate neutrality</strong>: enforced at prompt + middleware level","<strong>Interaction logging</strong>: question, retrieved chunks, response metadata"]'>
+                <div class="p-step-left">
+                  <div class="p-num">4</div>
+                  <div class="p-line"></div>
+                </div>
+                <div class="p-content">
+                  <div class="p-title">Safety Guards</div>
+                  <div class="p-desc">Citation guard · hallucination guard · no PII · candidate neutral</div>
+                  <span class="p-tag tag-green">middleware · post-processing</span>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Request–Response flow -->
-          <div class="flow-box">
-            <div class="flow-title">Request – Response Flow</div>
-            <div class="flow-track">
-              <div class="f-node active">Input</div>
-              <div class="f-arr">→</div>
-              <div class="f-node">Embed</div>
-              <div class="f-arr">→</div>
-              <div class="f-node">Retrieve</div>
-              <div class="f-arr">→</div>
-              <div class="f-node">LLM call</div>
-              <div class="f-arr">→</div>
-              <div class="f-node">Safety check</div>
-              <div class="f-arr">→</div>
-              <div class="f-node active">Response</div>
-            </div>
-          </div>
-
-          <!-- Safety guards -->
+          <!-- Safety chips -->
           <div class="safety-box">
             <div class="safety-title">Post-Processing Safety Guards</div>
             <div class="safety-grid">
@@ -1104,7 +1118,7 @@ body {
               <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Allow-list Filter" data-tip='["Only MD SBE + Montgomery County BoE sources indexed","Exclusion-based: removes pre-2026 pages, campaign finance, historical data"]'>allow-list filter</div>
               <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="No PII to LLM" data-tip='["Participant ID and condition handled by backend only","LLM receives only query text + retrieved KB chunks","No demographic or identifying info sent to OpenAI"]'>no PII to LLM</div>
               <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Candidate Neutrality" data-tip='["VIOLETS prohibited from endorsing candidates or parties","No policy position characterization or electoral speculation","Enforced at prompt level + middleware filtering"]'>candidate neutral</div>
-              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Interaction Logging" data-tip='["Logs: participant question, retrieved source chunks, response metadata","Used for quality monitoring and post-hoc fact-checking (100-dialogue sample)","Retained under institutional research + IRB protocols"]'>interaction log</div>
+              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Interaction Logging" data-tip='["Logs: participant question, retrieved source chunks, response metadata","Retained under institutional research + IRB protocols"]'>interaction log</div>
             </div>
           </div>
 

@@ -200,25 +200,6 @@
   </footer>
   <a class="entry-link" aria-label="post link to A field experiment to mitigate the harm of inaccurate health information online" href="http://do-won.github.io/design/mercury/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>
-    </h2>
-  </header>
-  <div class="entry-content" style="display:flex;gap:10px">
-    <div style="width:60%">
-      <img src="" />
-    </div>
-    <div style="width:80%">
-      <p>&lt;!DOCTYPE html&gt; VIOLETS Architecture VIOLETS System Architecture — Treatment Condition (Chat) ① Qualtrics Frontend VIOLETS — Election Info Chat When is the registration deadline for the 2026 election? 🤖 For the 2026 Maryland general election (Nov 3), the voter registration deadline is Tuesday, Oct 13, 2026. 📎 elections.maryland.gov Ask about voting in Montgomery County… ➤ JS → Backend (HTTPS) // Send message to Flask API fetch(&#34;/chat&#34;, {   body: JSON.stringify({     msg, pid, condition   }) }) ② Python &#43; Flask Backend (VIOLETS Engine) 🤖 VIOLETS Voter Information from Official Local Election Trusted Sources LangChain &#43; OpenAI Enterprise Retrieval-Augmented Generation Pipeline 1 Embed Query User input → high-dimensional vector text-embedding-3-small 2 Retrieve Chunks Cosine similarity search → top-k=7 official chunks Pinecone · allow-list only 3 Generate Response System prompt &#43; context chunks &#43; user query → cited answer GPT-5-nano · stateless Request – Response Flow Input → Embed → Retrieve → LLM call → Safety check → Response Post-Processing Safety Guards citation guard hallucination guard allow-list filter no PII to LLM candidate neutral interaction log ③ Knowledge Base 🗄️ Pinecone Vector DB chunk_1 chunk_2 chunk_3 chunk_n 512 tokens/chunk k=7 top retrieved cos similarity Offline KB Construction 1 Collect Crawl allow-listed official sources 2 Chunk &#43; Metadata Split into ~512-token windows; attach source URL, title 3 Embed &amp; Index Encode → store vectors &#43; text in Pinecone SBE — elections....</p>
-    </div>
-  </div>
-  <footer class="entry-footer">
-    <time datetime="0001-01-01 00:00:00 &#43;0000 UTC">January 1, 0001</time>&nbsp;&middot;&nbsp;
-  </footer>
-  <a class="entry-link" aria-label="post link to " href="http://do-won.github.io/design/violets/"></a>
-</article>
     </main>
     
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">

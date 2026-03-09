@@ -79,15 +79,6 @@
       <description>Do voters vote for the candidate they like or vote against their dislike? This paper aims to broaden the understanding of voting behavior and expand the scope of voting models by incorporating loss aversion, the central concept of the prospect theory, into the traditional proximity model.</description>
     </item>
     
-    <item>
-      <title></title>
-      <link>http://do-won.github.io/design/violets/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>http://do-won.github.io/design/violets/</guid>
-      <description>&lt;!DOCTYPE html&gt; VIOLETS Architecture VIOLETS System Architecture — Treatment Condition (Chat) ① Qualtrics Frontend VIOLETS — Election Info Chat When is the registration deadline for the 2026 election? 🤖 For the 2026 Maryland general election (Nov 3), the voter registration deadline is Tuesday, Oct 13, 2026. 📎 elections.maryland.gov Ask about voting in Montgomery County… ➤ JS → Backend (HTTPS) // Send message to Flask API fetch(&#34;/chat&#34;, { &amp;nbsp;&amp;nbsp;body: JSON.stringify({ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;msg, pid, condition &amp;nbsp;&amp;nbsp;}) }) ② Python + Flask Backend (VIOLETS Engine) 🤖 VIOLETS Voter Information from Official Local Election Trusted Sources LangChain + OpenAI Enterprise Retrieval-Augmented Generation Pipeline 1 Embed Query User input → high-dimensional vector text-embedding-3-small 2 Retrieve Chunks Cosine similarity search → top-k=7 official chunks Pinecone · allow-list only 3 Generate Response System prompt + context chunks + user query → cited answer GPT-5-nano · stateless Request – Response Flow Input → Embed → Retrieve → LLM call → Safety check → Response Post-Processing Safety Guards citation guard hallucination guard allow-list filter no PII to LLM candidate neutral interaction log ③ Knowledge Base 🗄️ Pinecone Vector DB chunk_1 chunk_2 chunk_3 chunk_n 512 tokens/chunk k=7 top retrieved cos similarity Offline KB Construction 1 Collect Crawl allow-listed official sources 2 Chunk + Metadata Split into ~512-token windows; attach source URL, title 3 Embed &amp; Index Encode → store vectors + text in Pinecone SBE — elections.</description>
-    </item>
-    
     
   </channel>
 </rss>
