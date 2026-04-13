@@ -64,20 +64,16 @@ params:
           enabled: true
           title: Do Won Kim
           subtitle: |-
-            I am a Ph.D. candidate in Information at the University of Maryland,
+            I am a PhD candidate in Information at the University of Maryland,
             advised by <a href="https://glciampaglia.com/" target="_blank" class="redlink">Giovanni Luca Ciampaglia</a>
             and <a href="http://cody.bunta.in/" target="_blank" class="redlink">Cody Buntain</a>.
             I am also a student affiliate at <a href="https://www.trails.umd.edu/" target="_blank" class="redlink">TRAILS</a>
             (The Institute for Trustworthy AI in Law and Society).
             <br/><br/>
-            My work lies in the intersection of Computational Social Science and human-AI interaction.
-            Specifically, I study how AI-driven information systems, such as platform algorithms and AI chatbots, mediate access to political information and influence how people learn about politics, discuss political issues, and engage with others online.
+            My work lies in the intersection of computational social science and human-AI interaction.
+            I study how AI-driven information systems, such as platform algorithms and AI chatbots, mediate access to political information and influence how people learn about politics, discuss political issues, and engage with others online.
             Using computational and experimental methods, I examine how these systems can be designed or intervened upon to better support democratic processes.
             
-            <br/>
-            <p>
-            My dissertation includes three intervention studies on how AI systems that people use every day (such as social media feeds and chatbots) affect how they get political information and participate in democracy.
-            </p>
             <br/>
             <details class="dissertation-toggle">
               <summary class="dissertation-summary">Dissertation Projects (click to expand)</summary>
@@ -122,12 +118,11 @@ params:
             </details>
             
             <br/>
-            Beyond my dissertation, I also work on related projects that use AI-based interventions to study a range of other civic outcomes,
-            including attitudes toward immigrants and how people learn and understand politics.
-            I also work on algorithm-focused projects that examine how recommendation systems can be designed to promote more constructive online interactions,
-            including work from the <a href="https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial" target="_blank" class="redlink">Prosocial Ranking Challenge</a>
-            and research on using LLMs to better align news feed recommendations with stated values of users.
-            
+            Beyond my dissertation, I explore how emerging information technologies reshape the ways people learn about 
+            the world—and how these systems can be designed to foster healthier information environments, 
+            including work from the <a href="https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial" target="_blank" class="redlink">Prosocial Ranking Challenge</a> 
+            and research on using LLMs to better align news feed recommendations with users' stated values. 
+            Separately, I am interested in how AI is reshaping the production of scientific knowledge itself.
             <br/> <br/>  
 
           imageUrl: #"/picture.jpeg"

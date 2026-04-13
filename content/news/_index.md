@@ -26,6 +26,7 @@ flex-grow: 2;
 </style>
 
 <div class="news-container">
+<div>
 <div class="news-item">
     <div class="news-date">[Apr. 2026]</div>
     <div class="news-content"> 
@@ -43,13 +44,11 @@ flex-grow: 2;
     <div class="news-content"> 
     Accepted a paper presentation for APSA!</div>
 </div>
-</div>
  <div class="news-item">
     <div class="news-date">[Jan. 2026]</div>
     <div class="news-content"> 
         Had fun giving a tutorial on LLM applications for political science research at Korea University's Graduate Methods Workshop!
     </div>
-</div>
 </div>
  <div class="news-item">
     <div class="news-date">[Nov. 2025]</div>
@@ -137,4 +136,5 @@ flex-grow: 2;
 <div class="news-item">
     <div class="news-date">[May. 2023]</div>
     <div class="news-content">🥳 I am thrilled to have received the Dean's Fellowship during my first year of doctoral studies at UMD!</div>
+</div>
 </div>
