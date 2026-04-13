@@ -153,6 +153,8 @@ params:
           url: https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ
         - name: "github"
           url: https://github.com/DO-WON
+        - name: "orcid"
+          url: https://orcid.org/0000-0001-7011-2911
 
     assets:
         disableScrollBarStyle: false
