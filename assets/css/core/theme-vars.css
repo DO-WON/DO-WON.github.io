@@ -26,7 +26,7 @@
     --midpurple: var(--highlight);
     --lightpurple: var(--highlight-light);
 
-    --font-body: 'Inter', sans-serif;
+    --font-body: 'Roboto', sans-serif;
     --font-heading: 'Roboto Slab', serif;
 
     --semibold: 500;
