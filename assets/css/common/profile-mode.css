@@ -5,6 +5,7 @@
 }
 .main .profile {
     align-items: center;
+    flex-direction: column;
     min-height: calc(100vh - var(--header-height) - var(--footer-height) - (var(--gap) * 2));
     font-size: var(--homesize);
     line-height: var(--lineheight);
@@ -12,22 +13,21 @@
 }
 
 .profile .profile_inner h1 {
-    display: inline-block;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
+    display: block;
+    margin: 0 auto;
     padding: 12px 0;
-    font-size: 40px;            /* ✅ 약간 줄임 */
-    font-weight: 600;           /* ✅ 너무 bold하지 않게 */
-    line-height: 1.4;           /* ✅ 충분한 줄 간격 */
-    letter-spacing: -0.2px;     /* ✅ 살짝만 자간 줄임 */
-    max-width: 720px;           /* ✅ 한 줄이 너무 길지 않게 */
-    color: var(--primary); /* ✅ 충분한 대비 색상 사용 */
-    text-align: left;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+    max-width: 720px;
+    color: var(--primary);
+    text-align: center;
 }
 
 .profile img {
-    display: inline-flex;
+    display: block;
+    margin: 0 auto;
     border-radius: 50%;
 }
 
@@ -64,6 +64,7 @@
 .social-icons a:hover {
     transform: scale(1.2);
 }
+
 
 .main .page-header h2 {
   margin-top: 3rem;

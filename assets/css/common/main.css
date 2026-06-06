@@ -1,7 +1,7 @@
 .main {
     position: relative;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
-    max-width: 850px;
+    max-width: 700px;
     margin: auto;
     padding: var(--gap);
 }
@@ -33,12 +33,13 @@
     width: 30px;
 }
 .social-icons {
-  /* 컨테이너 자체의 기본 마진·패딩 제거 */
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
+
 
 .social-icons a {
   display: inline-block;
@@ -104,7 +105,6 @@ main span a:hover {
 }
 
 
-/* 다크 모드 */
 .dark body {
     background: var(--entry) !important;
     color: var(--primary);

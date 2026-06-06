@@ -1,10 +1,8 @@
-/* 일반 모드 - 코드 블록 */
 .chroma {
     background-color: var(--code-bg) !important;
     color: var(--primary) !important;
 }
 
-/* 다크 모드 - 코드 블록 */
 .dark .chroma {
     background-color: var(--code-block-bg) !important;
     color: var(--primary) !important;

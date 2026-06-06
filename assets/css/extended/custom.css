@@ -1,28 +1,44 @@
-/* 일반 모드 - 코드 블록 */
+body {
+    font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+}
+
 .chroma {
     background: var(--code-bg);
 }
 
-/* 다크 모드 - 코드 블록 */
 .dark .chroma {
     background: var(--code-block-bg);
 }
 
 .news-container a {
-    color: #e21833 !important; /* 포인트 컬러 적용 */
+    color: #1F7A7A !important;
     text-decoration: none;
 }
 
-/* profile subtitle 안의 모든 링크 (토글 밖 + 토글 안 전부) */
 .profile .profile_inner a {
-  color: #e21833 !important;
+  color: #1F7A7A !important;
 }
 
 .profile .profile_inner a:hover {
-  color: #b51529 !important;
+  color: #145454 !important;
 }
 
-/* 2) 소셜 아이콘 링크만 테마 기본색으로 복구 */
+.dark .news-container a {
+  color: #3AACAC !important;
+}
+
+.dark .profile .profile_inner a {
+  color: #3AACAC !important;
+}
+
+.dark .profile .profile_inner a:hover {
+  color: #1F7A7A !important;
+}
+
 .profile .profile_inner .social-icons a,
 .profile .profile_inner .social_icons a {
   color: var(--primary) !important;

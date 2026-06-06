@@ -1,5 +1,5 @@
 baseURL: "http://do-won.github.io"
-title: Do Won Kim
+title:  "Home"
 theme: PaperMod
 enableInlineShortcodes: true
 enableRobotsTXT: true
@@ -62,7 +62,7 @@ params:
     math: true
     profileMode:
           enabled: true
-          title: Do Won Kim
+          title:  "Do Won Kim"
           subtitle: |-
             I am a PhD candidate in Information at the University of Maryland,
             advised by <a href="https://glciampaglia.com/" target="_blank" class="redlink">Giovanni Luca Ciampaglia</a>
@@ -77,9 +77,9 @@ params:
             Beyond my dissertation's focus on political information and democratic processes, I study how emerging information technologies shape broader online information environments. This includes work from the <a href="https://rankingchallenge.substack.com/p/announcing-the-finalists-of-the-prosocial" target="_blank" class="redlink">Prosocial Ranking Challenge</a> and research on using LLMs to better align news feed recommendations with users' stated values. I am also interested in how AI is reshaping the production of scientific knowledge itself.
             <br/> <br/>  
 
-          imageUrl: #"/picture.jpeg"
-          imageWidth: 100
-          imageHeight: 100
+          imageUrl: "/picture.jpeg"
+          imageWidth: 150
+          imageHeight: 150
           imageTitle:
           buttons:
             #- name: Projects
@@ -114,8 +114,8 @@ params:
         hiddenInList: true
         hiddenInSingle: true
     label:
-      text: "Do Won Kim"
-      icon: /favicon.ico
+      text:
+      icon:
       iconHeight: 20
 
 markup:
