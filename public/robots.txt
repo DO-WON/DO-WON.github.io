@@ -1,3 +1,0 @@
-User-agent: *
-Disallow:
-Sitemap: http://do-won.github.io/sitemap.xml
