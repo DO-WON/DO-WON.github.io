@@ -28,6 +28,42 @@ flex-grow: 2;
 <div class="news-container">
 <div>
 <div class="news-item">
+    <div class="news-date">[Jun. 2026]</div>
+    <div class="news-content">
+        Awarded the MPower Early Scholars Investment Fund 🎉
+    </div>
+</div>
+<div class="news-item">
+    <div class="news-date">[Jun. 2026]</div>
+    <div class="news-content">
+        Presented our poster,
+        <i>AI Can Reduce Political Polarization by Challenging Partisan Expectations</i>,
+        at the
+        <a href="https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/">
+            AI and Social Research: Empathic AI, Metascience, and Methodology
+        </a>
+        Conference at Penn State University. 
+    </div>
+</div>
+<div class="news-item">
+    <div class="news-date">[May. 2026]</div>
+    <div class="news-content">
+        Awarded the Humane Studies Fellowship from the Institute for Humane Studies 🥳
+    </div>
+</div>
+<div class="news-item">
+    <div class="news-date">[May. 2026]</div>
+    <div class="news-content">
+        Awarded the Doctoral Students Research Awards! 
+    </div>
+</div>
+<div class="news-item">
+    <div class="news-date">[May. 2026]</div>
+    <div class="news-content">
+        Awarded the Dean's Fellowship! 
+    </div>
+</div>
+<div class="news-item">
     <div class="news-date">[Apr. 2026]</div>
     <div class="news-content"> 
         Awarded the Graduate Student Summer Research Fellowship! 🎉
