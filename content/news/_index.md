@@ -36,6 +36,12 @@ flex-grow: 2;
 <div class="news-item">
     <div class="news-date">[Jun. 2026]</div>
     <div class="news-content">
+        Awarded the TRAILS mini-grant! 🤩
+    </div>
+</div>
+<div class="news-item">
+    <div class="news-date">[Jun. 2026]</div>
+    <div class="news-content">
         Presented our poster,
         <i>AI Can Reduce Political Polarization by Challenging Partisan Expectations</i>,
         at the
