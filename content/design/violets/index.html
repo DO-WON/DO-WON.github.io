@@ -932,6 +932,52 @@ body {
   line-height: 1.45;
 }
 
+.kb-sub-list {
+  list-style: none;
+  margin: 2px 0 6px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.kb-sub-list li {
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
+  line-height: 1.45;
+  padding-left: 13px;
+  position: relative;
+  cursor: pointer;
+}
+
+.kb-sub-list li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--text-faint);
+}
+
+.kb-sub-list li strong { color: var(--text); }
+
+.kb-sub-list li a {
+  color: var(--blue);
+  text-decoration: none;
+}
+.kb-sub-list li a:hover { text-decoration: underline; }
+
+.kb-resume-note {
+  margin: 2px 0 14px;
+  padding: 10px 12px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+.kb-resume-note strong { color: var(--text); }
+
 /* Sources */
 .source-chips {
   display: flex;
@@ -960,6 +1006,14 @@ body {
 }
 
 .source-chip strong { color: var(--text); }
+
+.source-chip a {
+  color: var(--blue);
+  text-decoration: none;
+}
+.source-chip a:hover {
+  text-decoration: underline;
+}
 
 /* ══════════════════════════════
    FLOW ARROWS between columns
@@ -1381,53 +1435,53 @@ html.dark .has-tip:hover { filter: brightness(1.15); }
       </div>
 
       <!-- Offline KB Construction -->
-      <div class="kb-box has-tip" data-tip-color="#7bacdc" data-tip-title="Offline KB Construction (maryland_rag + box_ingest)" data-tip='["<strong>Pass 1 — Crawl</strong>: BFS over allowlisted paths, classify each page (faq, prose, table_data, form, press_release, document, …)","<strong>Pass 2 — Chunk</strong>: strategy picked per classification (qa_pairs, semantic_with_overlap, table_rows, simple_split, ingest_as_single, PDF/DOCX/XLS extraction)","<strong>Box Ingest</strong>: curated Box documents (handbooks, admin reports) chunked the same way, via url_manifest.json","<strong>Pass 3 — Embed + Upsert</strong>: text-embedding-3-small in batches of 100 → ON CONFLICT (chunk_id) DO UPDATE","sep","<code>python -m maryland_rag all</code> re-runs the whole thing; --resume/--changed make reruns cheap"]'>
+      <div class="kb-box has-tip" data-tip-color="#7bacdc" data-tip-title="Knowledge Base Construction" data-tip='["<strong>Pass 1 — Corpus Discovery</strong>: BFS web crawl (SBE + MoCo) runs in parallel with automated Box Hub acquisition","<strong>Pass 2 — Extraction &amp; Chunking</strong>: web pages and Box documents are each split per type into one unified chunk schema","<strong>Pass 3 — Embedding &amp; Upload</strong>: text-embedding-3-small vectors upserted into a single Postgres + pgvector table","sep","Every stage is incremental and resumable — see the note below the pipeline steps"]'>
         <div class="kb-header">Offline KB Construction</div>
 
-        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Pass 1 — Crawl" data-tip='["BFS crawl from seed URLs, depth ≤ 6, gated by an allowlist (prefixes + exact URLs) plus regex exclusions","robots.txt honored per domain · rate-limited to 1 request / 0.75s","Every page classified (rules.py): faq, prose, table_data, form, press_release, location_list, nav_hub, document, junk","sep","Fully resumable — every discovered URL is written as ‘pending’ before fetching"]'>
+        <div class="kb-step">
           <div class="kb-step-num">1</div>
           <div class="kb-step-content">
-            <div class="kb-step-title">Crawl (Pass 1)</div>
-            <div class="kb-step-desc">BFS over elections.maryland.gov + mcg.montgomerycountymd.gov, allowlist-gated, classified into manifest.db</div>
+            <div class="kb-step-title">Discovery (Pass 1)</div>
+            <ul class="kb-sub-list">
+              <li class="has-tip" data-tip-color="#7bacdc" data-tip-title="Web Crawl — Pass 1" data-tip='["BFS from seed URLs, depth ≤ 6, gated by a manually curated allowlist (not a full-site crawl)","SBE allowlist: voting, voter registration, 2026 election materials · MoCo allowlist: polling locations, election judges, vote-by-mail, FAQs","Exclusion rules drop historical results, pre-2026 archives, presidential/special-election archives, campaign finance, prior press releases","robots.txt honored per domain · 0.75s delay between requests","Trafilatura extracts main content, falling back to BeautifulSoup below 50 words","sep","A rule-based classifier assigns each page a type (FAQ, prose, table, press release, form, document, nav hub, short static, location list) and a chunking strategy → one row per URL in a SQLite manifest"]'><strong>Web Crawl</strong> — allowlisted BFS over SBE + MoCo, exclusion-filtered, rule-classified into a SQLite manifest</li>
+              <li class="has-tip" data-tip-color="#7bacdc" data-tip-title="Box Hub Acquisition — Pass 1" data-tip='["Election documents live on the SBE’s public Box Hub, which conventional web crawlers cannot index","Playwright loads the Box Hub landing page and discovers its folder IDs; the Box API then traverses the folder tree, restricted to 2026 folders","Rule-based filename filters classify each file: <strong>include</strong> (election-related), <strong>exclude</strong> (non-voter-facing admin docs), or <strong>flag for manual review</strong> when neither rule matches","Included files are downloaded via the Box file content API","sep","A manifest maps every downloaded file to its Box share URL, so retrieved chunks can still cite a working link"]'><strong>Box Hub</strong> — Playwright + Box API discover &amp; download 2026-folder files, filename-filtered into include / exclude / manual-review</li>
+            </ul>
+            <div class="kb-step-desc">Both run in parallel to build the corpus before extraction</div>
           </div>
         </div>
 
-        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Pass 2 — Chunk" data-tip='["Re-fetches full content from a disk cache, then splits per the page’s chunking_strategy","Q&A pages → one chunk per question · tables → one chunk per row · long prose → ~300-word sentence-aware chunks with 20% overlap","Identical content under different URLs is deduped, keeping all source URLs","sep","Output: data/chunks.jsonl, one JSON record per chunk"]'>
+        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Extraction &amp; Chunking — Pass 2" data-tip='["Web pages are re-fetched through a disk URL-hash cache, so interrupted runs resume without re-fetching","Pages with identical content hashes are extracted and chunked once, keeping all source URLs for provenance","Chunking strategy by type: FAQ → one chunk per Q&amp;A · prose ≥500w → ~300-word sentence-boundary chunks, 20% overlap, 500w max · tables → one chunk per row · press/forms → ~250-word paragraph-boundary chunks · short pages (nav hubs, location lists, short static) → single chunk","Box documents: PDF via pdfplumber → PyMuPDF → OCR (Tesseract) for scans · DOCX keeps its heading hierarchy · spreadsheets extracted row by row · TXT read directly","sep","Every chunk carries source URL, title, section hierarchy, classification, chunking strategy, and word count — same schema for web and Box"]'>
           <div class="kb-step-num">2</div>
           <div class="kb-step-content">
-            <div class="kb-step-title">Chunk (Pass 2)</div>
-            <div class="kb-step-desc">Strategy per page type — FAQ pairs, table rows, semantic prose splits, PDFs/DOCX/XLS</div>
+            <div class="kb-step-title">Extraction &amp; Chunking (Pass 2)</div>
+            <div class="kb-step-desc">Type-specific splitting (FAQ pairs, ~300w prose, table rows, ~250w paragraphs, single-chunk pages) for both web and Box content, into one unified schema</div>
           </div>
         </div>
 
-        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Box Ingest" data-tip='["Hand-curated documents (election worker manuals, monthly admin reports) live in needtochunk/, not crawlable","url_manifest.json maps each file → its Box share URL, so retrieved chunks can still cite a working link","Same schema as web chunks: page_classification=\\"document\\", chunking_strategy=\\"box_ingest\\"","sep","Files missing a manifest entry are skipped with a warning, not silently dropped"]'>
+        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Embedding &amp; Upload — Pass 3" data-tip='["Chunks from both the web and Box pipelines are embedded with text-embedding-3-small → 1,536-dimensional vectors","Embedded in batches of 100, upserted into a single unified PostgreSQL + pgvector table","sep","Cosine-similarity retrieval at query time spans web pages and curated Box documents identically"]'>
           <div class="kb-step-num">3</div>
           <div class="kb-step-content">
-            <div class="kb-step-title">Box Ingest</div>
-            <div class="kb-step-desc">Curated Box docs (manuals, admin reports) chunked into the same schema, cited via url_manifest.json</div>
+            <div class="kb-step-title">Embedding &amp; Upload (Pass 3)</div>
+            <div class="kb-step-desc">text-embedding-3-small → unified Postgres + pgvector table, retrieved by cosine similarity across all sources</div>
           </div>
         </div>
 
-        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Pass 3 — Embed + Upsert" data-tip='["Embeds both chunks.jsonl and box_chunks.jsonl with text-embedding-3-small (1536-dim), batches of 100","Upserts into Postgres: ON CONFLICT (chunk_id) DO UPDATE — reruns update rather than duplicate","--resume skips chunk_ids already present; each row is wrapped in its own savepoint","sep","3 retries with backoff on embedding failures"]'>
-          <div class="kb-step-num">4</div>
-          <div class="kb-step-content">
-            <div class="kb-step-title">Embed & Upsert (Pass 3)</div>
-            <div class="kb-step-desc">text-embedding-3-small → upsert vectors + text + metadata into Postgres</div>
-          </div>
+        <div class="kb-resume-note has-tip" data-tip-color="#9aa3b5" data-tip-title="Incremental &amp; Resumable" data-tip='["<strong>Web crawl</strong>: resumes from pending URLs after an interruption","<strong>Box acquisition</strong>: skips files already downloaded","<strong>Chunking</strong>: only reprocesses web pages whose content hash changed, or Box files whose fingerprint (size + modified time) changed","<strong>Embedding</strong>: skips chunk IDs already present in Postgres — only new or updated chunks are inserted"]'>
+          <strong>↻ Incremental &amp; resumable</strong> at every stage — reruns only touch what actually changed.
         </div>
 
         <div class="source-chips">
           <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="MD State Board of Elections" data-tip='["Seed: elections.maryland.gov","Includes: voter registration, rumor control hub, press room, 2026 election pages, voting systems","Excludes: pre-2026 election years, petitions, campaign finance, election data (regex exclusions)"]'>
             <div class="src-dot"></div>
-            <div><strong>SBE</strong> — elections.maryland.gov</div>
+            <div><strong>SBE</strong> — <a href="https://elections.maryland.gov" target="_blank" rel="noopener noreferrer">elections.maryland.gov</a></div>
           </div>
-          <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="Montgomery County Board of Elections" data-tip='["Domain: mcg.montgomerycountymd.gov","Exact pages only — drop boxes, election judges, vote-by-mail, FAQs, early voting centers, accessibility","Child links discovered here are not followed unless they independently match the allowlist"]'>
+          <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="Montgomery County Board of Elections" data-tip='["Domain: montgomerycountymd.gov/elections","Selected pages only — polling locations, election judges, vote-by-mail guidance, FAQs","Child links discovered here are not followed unless they independently match the allowlist"]'>
             <div class="src-dot"></div>
-            <div><strong>MoCo BoE</strong> — mcg.montgomerycountymd.gov</div>
+            <div><strong>MoCo BoE</strong> — <a href="https://www.montgomerycountymd.gov/elections" target="_blank" rel="noopener noreferrer">montgomerycountymd.gov/elections</a></div>
           </div>
-          <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="Box Curated Documents" data-tip='["needtochunk/ — hand-picked election worker manuals, monthly State Administrator reports, etc.","Not discoverable by crawling; mirrored manually and mapped to a Box share URL for citation","Ingested by the separate box_ingest pipeline into the same chunk schema"]'>
+          <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="SBE Box Hub" data-tip='["mdsbe.app.box.com/hubs/263564910 — newly established by SBE election administrators","Playwright discovers folder IDs; Box API traverses the tree, restricted to 2026 folders","Filename rules sort files into include / exclude / manual-review — not a blanket mirror of the hub"]'>
             <div class="src-dot"></div>
-            <div><strong>Box</strong> — curated manuals &amp; reports</div>
+            <div><strong>Box Hub</strong> — <a href="https://mdsbe.app.box.com/hubs/263564910?s=ly67mqf875239kr4otek9phuueqzxw3r" target="_blank" rel="noopener noreferrer">mdsbe.app.box.com/hubs/263564910</a></div>
           </div>
         </div>
       </div>
