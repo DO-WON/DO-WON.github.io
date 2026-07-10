@@ -7,28 +7,93 @@ layout: "raw"
 <meta charset="UTF-8">
 <title>VIOLETS Architecture</title>
 <style>
-html, body { color-scheme: dark !important; }
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --red:    #7c3aed;
-  --red-dim: #4c1d95;
-  --blue:   #2a7fc1;
-  --blue-dim: #1a4a7a;
-  --teal:   #1fb89a;
-  --purple: #9b5de5;
-  --gold:   #e8a020;
-  --bg:     #080c14;
-  --bg2:    #0d1220;
-  --bg3:    #111826;
-  --border: rgba(255,255,255,0.07);
-  --text:   #c8d4e8;
-  --text-dim: #4a5a70;
-  --mono:   'IBM Plex Mono', monospace;
-  --sans:   'IBM Plex Sans', sans-serif;
+  /* brand accent: violet, kept muted so it reads as a tint, not a neon */
+  --accent:            #6d4fc9;
+  --accent-soft-bg:     #f1ecfb;
+  --accent-soft-border: #dccffa;
+
+  --blue:            #3d78b0;
+  --blue-soft-bg:     #eaf2f9;
+  --blue-soft-border: #cfe0ee;
+
+  --teal:            #2f8f7a;
+  --teal-soft-bg:     #e9f5f1;
+  --teal-soft-border: #c9e6dc;
+
+  --green:            #3f9d5d;
+  --green-soft-bg:     #eaf6ed;
+  --green-soft-border: #cbe8d2;
+
+  --gold:            #a8721e;
+  --gold-soft-bg:     #faf1e0;
+  --gold-soft-border: #f0dcb0;
+
+  --slate:            #51708f;
+  --slate-soft-bg:     #edf2f6;
+  --slate-soft-border: #d2dde7;
+
+  --bg:       #ffffff;
+  --bg2:      #f7f7f9;
+  --bg3:      #eef0f4;
+  --border:   rgba(20,20,30,0.12);
+  --text:     #1e1e24;
+  --text-dim: #64686f;
+  --text-faint: #96999f;
+  --shadow:   rgba(20,20,40,0.10);
+
+  --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --sans: 'Roboto', -apple-system, sans-serif;
+
+  --fs-2xs: 11px;
+  --fs-xs:  12px;
+  --fs-sm:  13px;
+  --fs-base: 14.5px;
+  --fs-md:  16px;
+  --fs-lg:  19px;
+  --fs-xl:  27px;
 }
+
+html.dark {
+  --accent:            #a690ea;
+  --accent-soft-bg:     #241f38;
+  --accent-soft-border: #3c3260;
+
+  --blue:            #7bacdc;
+  --blue-soft-bg:     #182432;
+  --blue-soft-border: #26405a;
+
+  --teal:            #5cc0a6;
+  --teal-soft-bg:     #16241f;
+  --teal-soft-border: #244d3f;
+
+  --green:            #6fca8b;
+  --green-soft-bg:     #14201a;
+  --green-soft-border: #234a30;
+
+  --gold:            #e0aa53;
+  --gold-soft-bg:     #2a2114;
+  --gold-soft-border: #4d3c1e;
+
+  --slate:            #8fadc9;
+  --slate-soft-bg:     #182028;
+  --slate-soft-border: #2a3a4a;
+
+  --bg:       #16171c;
+  --bg2:      #1d1f26;
+  --bg3:      #24262e;
+  --border:   rgba(255,255,255,0.10);
+  --text:     #e4e4e7;
+  --text-dim: #a0a3ac;
+  --text-faint: #6c6f78;
+  --shadow:   rgba(0,0,0,0.35);
+}
+
+html { background: var(--bg); }
 
 body {
   font-family: var(--sans);
@@ -38,13 +103,34 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 32px 16px;
+  padding: 40px 16px;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .canvas {
-  width: 1100px;
+  width: 1320px;
+  max-width: 100%;
   position: relative;
 }
+
+/* ══════════════════════════════
+   THEME TOGGLE
+══════════════════════════════ */
+#theme-toggle {
+  font-family: var(--mono);
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 6px 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+#theme-toggle:hover { color: var(--text); border-color: var(--accent-soft-border); }
 
 /* ══════════════════════════════
    HEADER
@@ -52,45 +138,86 @@ body {
 .header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 16px;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .header-badge {
-  background: var(--red);
+  background: var(--accent);
   color: #fff;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   letter-spacing: 0.15em;
-  padding: 5px 14px;
+  padding: 6px 15px;
   border-radius: 3px;
   text-transform: uppercase;
 }
 
 .header-title {
-  font-size: 20px;
+  font-size: var(--fs-xl);
   font-weight: 600;
-  color: #fff;
-  letter-spacing: -0.02em;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
-.header-title em { color: var(--red); font-style: normal; }
+.header-title em { color: var(--accent); font-style: normal; }
 
 .header-sub {
-  margin-left: auto;
   font-family: var(--mono);
-  font-size: 10px;
+  font-size: var(--fs-xs);
   color: var(--text-dim);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
+
+.header-toggle-slot { margin-left: auto; }
+
+/* ══════════════════════════════
+   INTRO / EXPLAINER
+══════════════════════════════ */
+.intro-box {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin-bottom: 28px;
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.intro-box strong { color: var(--text); font-weight: 700; }
+
+.intro-flow {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: var(--fs-2xs);
+  color: var(--text-dim);
+}
+
+.intro-flow .i-node {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 5px 11px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.intro-flow .i-arr { color: var(--text-faint); }
 
 /* ══════════════════════════════
    MAIN THREE-COLUMN LAYOUT
 ══════════════════════════════ */
 .layout {
   display: grid;
-  grid-template-columns: 260px 1fr 240px;
+  grid-template-columns: 340px 1fr 300px;
   gap: 0;
   align-items: stretch;
   position: relative;
@@ -99,9 +226,9 @@ body {
 /* ── COLUMN LABELS ── */
 .col-label {
   font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
+  font-size: var(--fs-2xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 12px;
   padding: 0 2px;
@@ -111,37 +238,37 @@ body {
    LEFT — QUALTRICS FRONTEND
 ══════════════════════════════ */
 .col-left {
-  padding-right: 20px;
+  padding-right: 24px;
 }
 
-.col-left .col-label { color: #8a9ab8; }
+.col-left .col-label { color: var(--text-dim); }
 
 .qualtrics-window {
-  background: #111418;
-  border: 1px solid #2a3040;
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 24px var(--shadow);
 }
 
 .qwindow-bar {
-  background: #1a1e28;
-  padding: 10px 16px;
+  background: var(--bg3);
+  padding: 11px 16px;
   display: flex;
   align-items: center;
   gap: 8px;
-  border-bottom: 1px solid #252d3d;
+  border-bottom: 1px solid var(--border);
 }
 
 .qwindow-dots { display: flex; gap: 5px; }
-.dot-r { width: 8px; height: 8px; border-radius: 50%; background: #ff5f57; }
-.dot-y { width: 8px; height: 8px; border-radius: 50%; background: #febc2e; }
-.dot-g { width: 8px; height: 8px; border-radius: 50%; background: #28c840; }
+.dot-r { width: 9px; height: 9px; border-radius: 50%; background: #ff5f57; }
+.dot-y { width: 9px; height: 9px; border-radius: 50%; background: #febc2e; }
+.dot-g { width: 9px; height: 9px; border-radius: 50%; background: #28c840; }
 
 .qwindow-title {
   font-family: var(--mono);
-  font-size: 10px;
-  color: #5a6880;
+  font-size: var(--fs-xs);
+  color: var(--text-dim);
   margin-left: 6px;
 }
 
@@ -156,27 +283,28 @@ body {
 /* Chat bubbles */
 .bubble {
   max-width: 85%;
-  padding: 9px 13px;
+  padding: 10px 14px;
   border-radius: 10px;
-  font-size: 11.5px;
-  line-height: 1.5;
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  overflow-wrap: break-word;
   position: relative;
 }
 
-/* User bubble → grey */
+/* User bubble → neutral */
 .bubble-user {
-  background: #1e2530;
-  border: 1px solid #2e3a4e;
-  color: #8a9ab8;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
   align-self: flex-end;
   border-bottom-right-radius: 3px;
 }
 
 /* Bot bubble → violet */
 .bubble-bot {
-  background: #1a1430;
-  border: 1px solid #3a2860;
-  color: #c0a8f0;
+  background: var(--accent-soft-bg);
+  border: 1px solid var(--accent-soft-border);
+  color: var(--text);
   align-self: flex-start;
   border-bottom-left-radius: 3px;
 }
@@ -184,38 +312,38 @@ body {
 .bubble-bot .source-tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 9px;
-  color: #7a5ac0;
-  background: #110e20;
-  border: 1px solid #2a1a50;
-  padding: 1px 7px;
+  font-size: var(--fs-2xs);
+  color: var(--accent);
+  background: var(--bg2);
+  border: 1px solid var(--accent-soft-border);
+  padding: 2px 8px;
   border-radius: 3px;
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 .bubble-bot .bot-icon {
   position: absolute;
-  left: -26px;
+  left: 2px;
   top: 4px;
-  width: 20px; height: 20px;
-  background: var(--red);
+  width: 22px; height: 22px;
+  background: var(--accent);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 10px;
+  font-size: var(--fs-xs);
 }
 
 .bubble-wrapper {
   position: relative;
-  padding-left: 30px;
+  padding-left: 32px;
 }
 
 .typing-indicator {
   display: flex;
   gap: 4px;
   align-items: center;
-  padding: 8px 13px;
-  background: #1a1430;
-  border: 1px solid #3a2860;
+  padding: 9px 14px;
+  background: var(--accent-soft-bg);
+  border: 1px solid var(--accent-soft-border);
   border-radius: 10px;
   border-bottom-left-radius: 3px;
   width: fit-content;
@@ -223,22 +351,22 @@ body {
 
 .typing-dot {
   width: 5px; height: 5px;
-  background: #7a5ac0;
+  background: var(--accent);
   border-radius: 50%;
   animation: typing 1.2s infinite;
 }
 
 /* User typing indicator */
 .typing-indicator-user {
-  background: #1e2530;
-  border: 1px solid #2e3a4e;
+  background: var(--bg3);
+  border: 1px solid var(--border);
   border-radius: 10px;
   border-bottom-right-radius: 3px;
 }
 
 .typing-dot-user {
   width: 5px; height: 5px;
-  background: #5a6880;
+  background: var(--text-faint);
   border-radius: 50%;
   animation: typing 1.2s infinite;
 }
@@ -253,7 +381,7 @@ body {
 }
 
 .chat-input-row {
-  border-top: 1px solid #252d3d;
+  border-top: 1px solid var(--border);
   padding: 10px 14px;
   display: flex;
   gap: 8px;
@@ -262,21 +390,22 @@ body {
 
 .chat-input-box {
   flex: 1;
-  background: #161c28;
-  border: 1px solid #2a3040;
+  background: var(--bg3);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 7px 11px;
-  font-size: 11px;
+  padding: 8px 12px;
+  font-size: var(--fs-sm);
   font-family: var(--sans);
-  color: #5a6880;
+  color: var(--text-faint);
 }
 
 .chat-send-btn {
-  width: 28px; height: 28px;
-  background: var(--red);
+  width: 30px; height: 30px;
+  background: var(--accent);
   border-radius: 6px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 12px;
+  font-size: var(--fs-sm);
+  color: #fff;
   cursor: pointer;
   transition: background 0.2s;
   flex-shrink: 0;
@@ -285,122 +414,122 @@ body {
 /* JS annotation */
 .js-annotation {
   margin-top: 10px;
-  background: #111620;
-  border: 1px solid #1e2a3a;
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 10px 12px;
+  padding: 12px 14px;
 }
 
 .js-annotation-title {
   font-family: var(--mono);
-  font-size: 9px;
-  color: #5a6880;
-  letter-spacing: 0.12em;
-  margin-bottom: 6px;
+  font-size: var(--fs-2xs);
+  color: var(--text-dim);
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
 .js-line {
   font-family: var(--mono);
-  font-size: 10px;
-  color: #4a5a70;
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
   line-height: 1.7;
+  overflow-wrap: break-word;
 }
 
-.js-line .kw { color: #7a8aaa; }
-.js-line .fn { color: #6a8aaa; }
-.js-line .str { color: #7a9070; }
-.js-line .cm { color: #3a4a5a; }
+.js-line .kw { color: var(--blue); }
+.js-line .fn { color: var(--teal); }
+.js-line .str { color: var(--green); }
+.js-line .cm { color: var(--text-faint); }
 
 /* ══════════════════════════════
    CENTER — BACKEND ENGINE
 ══════════════════════════════ */
 .col-center {
-  padding: 0 16px;
+  padding: 0 20px;
   position: relative;
 }
 
-.col-center .col-label { color: var(--red); }
+.col-center .col-label { color: var(--accent); }
 
 .backend-shell {
   background: var(--bg2);
-  border: 1.5px solid var(--red-dim);
+  border: 1.5px solid var(--accent-soft-border);
   border-radius: 14px;
   overflow: hidden;
   height: calc(100% - 25px);
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 60px rgba(192, 41, 62, 0.08);
+  box-shadow: 0 4px 24px var(--shadow);
 }
 
 .backend-header {
-  background: linear-gradient(135deg, #130a2a 0%, #1e0f3a 100%);
-  border-bottom: 1px solid var(--red-dim);
-  padding: 14px 20px;
+  background: linear-gradient(135deg, var(--accent-soft-bg) 0%, var(--bg2) 100%);
+  border-bottom: 1px solid var(--accent-soft-border);
+  padding: 16px 20px;
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
 .backend-header .robot-icon {
-  width: 36px; height: 36px;
-  background: var(--red);
+  width: 38px; height: 38px;
+  background: var(--accent);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
-  font-size: 18px;
-  box-shadow: 0 0 16px rgba(192, 41, 62, 0.5);
+  font-size: 19px;
 }
 
 .backend-header .name {
-  color: #fff;
-  font-size: 16px;
+  color: var(--text);
+  font-size: var(--fs-lg);
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .backend-header .desc {
-  color: #6b4fa0;
+  color: var(--accent);
   font-family: var(--mono);
-  font-size: 10px;
-  margin-top: 1px;
+  font-size: var(--fs-xs);
+  margin-top: 2px;
 }
 
 .backend-header .api-badge {
   margin-left: auto;
   font-family: var(--mono);
-  font-size: 9px;
-  color: #60c0a0;
-  background: #0a1e18;
-  border: 1px solid #1a4030;
-  padding: 4px 10px;
+  font-size: var(--fs-2xs);
+  color: var(--green);
+  background: var(--green-soft-bg);
+  border: 1px solid var(--green-soft-border);
+  padding: 5px 11px;
   border-radius: 3px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
 }
 
 .backend-body {
-  padding: 18px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   flex: 1;
 }
 
-/* RAG Pipeline */
+/* Request pipeline */
 .pipeline-box {
-  background: #0f0a18;
-  border: 1px solid #2a1845;
+  background: var(--bg3);
+  border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 14px 16px;
+  padding: 16px 18px;
 }
 
 .pipeline-title {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-2xs);
   font-weight: 600;
-  color: #9b5de5;
-  letter-spacing: 0.16em;
+  color: var(--accent);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
 .pipeline-steps {
@@ -420,16 +549,16 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 32px;
+  width: 34px;
   flex-shrink: 0;
 }
 
 .p-num {
-  width: 24px; height: 24px;
+  width: 26px; height: 26px;
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   font-family: var(--mono);
-  font-size: 11px;
+  font-size: var(--fs-xs);
   font-weight: 600;
   flex-shrink: 0;
   z-index: 1;
@@ -438,56 +567,55 @@ body {
 .p-line {
   width: 1px;
   flex: 1;
-  min-height: 8px;
+  min-height: 10px;
   margin: 2px 0;
+  background: var(--border);
 }
 
 .p-step:last-child .p-line { display: none; }
 
-.step-1 .p-num { background: #1e0f35; color: #9b5de5; border: 1.5px solid #4a2a80; }
-.step-1 .p-line { background: linear-gradient(to bottom, #4a2a80, #1a3060); }
-.step-2 .p-num { background: #0f1e35; color: var(--blue); border: 1.5px solid #2a4a80; }
-.step-2 .p-line { background: linear-gradient(to bottom, #2a4a80, #1a3a20); }
-.step-3 .p-num { background: #0f2018; color: var(--teal); border: 1.5px solid #1a5040; }
-.step-3 .p-line { background: linear-gradient(to bottom, #1a5040, #1a3520); }
-.step-4 .p-num { background: #091510; color: #40b070; border: 1.5px solid #1a4030; }
-.step-4 .p-line { display: none; }
+.step-1 .p-num { background: var(--accent-soft-bg); color: var(--accent); border: 1.5px solid var(--accent-soft-border); }
+.step-2 .p-num { background: var(--blue-soft-bg); color: var(--blue); border: 1.5px solid var(--blue-soft-border); }
+.step-3 .p-num { background: var(--teal-soft-bg); color: var(--teal); border: 1.5px solid var(--teal-soft-border); }
+.step-4 .p-num { background: var(--green-soft-bg); color: var(--green); border: 1.5px solid var(--green-soft-border); }
 
 .p-content {
   flex: 1;
-  padding: 2px 0 12px 12px;
+  padding: 3px 0 16px 14px;
 }
 
 .p-title {
-  font-size: 12px;
+  font-size: var(--fs-md);
   font-weight: 600;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
+  color: var(--text);
 }
 
-.step-1 .p-title { color: #c090ff; }
-.step-2 .p-title { color: #80b0ff; }
-.step-3 .p-title { color: #60d0b0; }
-.step-4 .p-title { color: #60c880; }
-
 .p-desc {
-  font-size: 11px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 .p-tag {
   display: inline-block;
   font-family: var(--mono);
-  font-size: 9px;
-  padding: 2px 8px;
+  font-size: var(--fs-2xs);
+  padding: 3px 9px;
   border-radius: 3px;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 
-.tag-purple { background: #1e0f35; color: #9b5de5; border: 1px solid #3a1f60; }
-.tag-blue   { background: #0f1830; color: #60a0e0; border: 1px solid #1a3060; }
-.tag-teal   { background: #0a1f18; color: #40b898; border: 1px solid #1a4035; }
-.tag-green  { background: #091510; color: #40b070; border: 1px solid #1a4030; }
+.tag-purple { background: var(--accent-soft-bg); color: var(--accent); border: 1px solid var(--accent-soft-border); }
+.tag-blue   { background: var(--blue-soft-bg); color: var(--blue); border: 1px solid var(--blue-soft-border); }
+.tag-teal   { background: var(--teal-soft-bg); color: var(--teal); border: 1px solid var(--teal-soft-border); }
+.tag-green  { background: var(--green-soft-bg); color: var(--green); border: 1px solid var(--green-soft-border); }
+.tag-gold   { background: var(--gold-soft-bg); color: var(--gold); border: 1px solid var(--gold-soft-border); }
+.tag-slate  { background: var(--slate-soft-bg); color: var(--slate); border: 1px solid var(--slate-soft-border); }
+
+.step-5 .p-num { background: var(--gold-soft-bg); color: var(--gold); border: 1.5px solid var(--gold-soft-border); }
+.step-6 .p-num { background: var(--slate-soft-bg); color: var(--slate); border: 1.5px solid var(--slate-soft-border); }
+.step-6 .p-line { display: none; }
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
@@ -502,25 +630,25 @@ body {
 }
 
 @media (max-width: 600px) {
-  .header-title { font-size: 15px; }
+  .header-title { font-size: var(--fs-lg); }
   .safety-grid { grid-template-columns: 1fr 1fr; }
   .backend-header { flex-wrap: wrap; gap: 8px; }
   .backend-header .api-badge { margin-left: 0; }
 }
 
-/* Request–Response flow */
+/* Request–Response flow (legacy, unused but kept theme-consistent) */
 .flow-box {
-  background: #0a1018;
-  border: 1px solid #1a2a3a;
+  background: var(--bg3);
+  border: 1px solid var(--border);
   border-radius: 10px;
   padding: 12px 16px;
 }
 
 .flow-title {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-2xs);
   color: var(--blue);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   margin-bottom: 10px;
 }
@@ -533,27 +661,26 @@ body {
 }
 
 .f-node {
-  background: #0f1e2a;
-  border: 1px solid #1a3048;
+  background: var(--blue-soft-bg);
+  border: 1px solid var(--blue-soft-border);
   border-radius: 5px;
   padding: 5px 9px;
   font-family: var(--mono);
-  font-size: 9.5px;
-  color: #6a9ab8;
+  font-size: var(--fs-2xs);
+  color: var(--blue);
   white-space: nowrap;
   position: relative;
 }
 
 .f-node.active {
   border-color: var(--blue);
-  color: #a0c8e8;
-  background: #0f2035;
-  box-shadow: 0 0 8px rgba(42, 127, 193, 0.25);
+  color: var(--blue);
+  background: var(--blue-soft-bg);
 }
 
 .f-arr {
   flex-shrink: 0;
-  color: #1a3a50;
+  color: var(--text-faint);
   font-size: 14px;
   padding: 0 2px;
   position: relative;
@@ -577,112 +704,112 @@ body {
   50% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
 
-/* Safety chips */
+/* Guardrail chips */
 .safety-box {
-  background: #091510;
-  border: 1px solid #1a3520;
+  background: var(--green-soft-bg);
+  border: 1px solid var(--green-soft-border);
   border-radius: 10px;
-  padding: 12px 16px;
+  padding: 14px 16px;
 }
 
 .safety-title {
   font-family: var(--mono);
-  font-size: 9px;
-  color: #40b070;
-  letter-spacing: 0.16em;
+  font-size: var(--fs-2xs);
+  color: var(--green);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .safety-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 5px;
+  gap: 6px;
 }
 
 .s-chip {
-  background: #0d1e12;
-  border: 1px solid #1e3f22;
+  background: var(--bg2);
+  border: 1px solid var(--green-soft-border);
   border-radius: 5px;
-  padding: 5px 8px;
+  padding: 6px 9px;
   font-family: var(--mono);
-  font-size: 9px;
-  color: #50a068;
+  font-size: var(--fs-2xs);
+  color: var(--green);
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .s-chip::before {
   content: '';
   width: 5px; height: 5px;
   border-radius: 50%;
-  background: #30a050;
+  background: var(--green);
   flex-shrink: 0;
-  animation: blink 2.5s infinite;
+  animation: blink 3s infinite;
 }
 
 @keyframes blink {
   0%, 90%, 100% { opacity: 1; }
-  95% { opacity: 0.3; }
+  95% { opacity: 0.5; }
 }
 
 /* ══════════════════════════════
    RIGHT — KNOWLEDGE BASE
 ══════════════════════════════ */
 .col-right {
-  padding-left: 20px;
+  padding-left: 24px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .col-right .col-label { color: var(--blue); }
 
 /* Vector DB */
 .vdb-box {
-  background: #080f1e;
-  border: 1px solid #1a3060;
+  background: var(--bg2);
+  border: 1px solid var(--blue-soft-border);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(42, 127, 193, 0.08);
+  box-shadow: 0 4px 20px var(--shadow);
 }
 
 .vdb-header {
-  background: #0d1a30;
-  border-bottom: 1px solid #1a3060;
-  padding: 10px 14px;
+  background: var(--blue-soft-bg);
+  border-bottom: 1px solid var(--blue-soft-border);
+  padding: 11px 14px;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
 .vdb-icon {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .vdb-name {
-  font-size: 12px;
+  font-size: var(--fs-md);
   font-weight: 600;
-  color: #5aaeee;
+  color: var(--blue);
 }
 
 .vdb-badge {
   margin-left: auto;
   font-family: var(--mono);
-  font-size: 8px;
-  color: #2a6090;
-  background: #050f1a;
-  border: 1px solid #1a3050;
-  padding: 2px 7px;
+  font-size: var(--fs-2xs);
+  color: var(--blue);
+  background: var(--bg2);
+  border: 1px solid var(--blue-soft-border);
+  padding: 3px 8px;
   border-radius: 2px;
 }
 
 .vdb-body {
-  padding: 12px 14px;
+  padding: 14px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
 /* animated vector rows */
@@ -698,15 +825,15 @@ body {
 .vec-row:nth-child(4) { animation-delay: 1.5s; }
 
 @keyframes vec-shimmer {
-  0%, 100% { opacity: 0.4; }
+  0%, 100% { opacity: 0.5; }
   50% { opacity: 0.9; }
 }
 
 .vec-label {
   font-family: var(--mono);
-  font-size: 8px;
-  color: #2a6090;
-  width: 28px;
+  font-size: var(--fs-2xs);
+  color: var(--blue);
+  width: 34px;
   flex-shrink: 0;
 }
 
@@ -719,18 +846,18 @@ body {
 
 .vec-bar {
   border-radius: 1px;
-  background: var(--blue-dim);
+  background: var(--blue-soft-border);
   height: 8px;
   flex: 1;
 }
 
-.vec-bar.hi { background: #2a7fc1; height: 12px; }
+.vec-bar.hi { background: var(--blue); height: 12px; }
 .vec-bar.md { height: 9px; }
 
 .vdb-stats {
-  margin-top: 6px;
-  padding-top: 8px;
-  border-top: 1px solid #1a2a40;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
   display: flex;
   justify-content: space-between;
 }
@@ -741,51 +868,51 @@ body {
 
 .vdb-stat-val {
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: var(--fs-md);
   font-weight: 600;
-  color: #4a9ed4;
+  color: var(--blue);
 }
 
 .vdb-stat-lbl {
-  font-size: 8.5px;
+  font-size: var(--fs-2xs);
   color: var(--text-dim);
-  margin-top: 1px;
+  margin-top: 2px;
 }
 
 /* KB Construction */
 .kb-box {
-  background: #080e18;
-  border: 1px solid #1a3550;
+  background: var(--bg2);
+  border: 1px solid var(--blue-soft-border);
   border-radius: 10px;
-  padding: 14px;
+  padding: 16px;
   flex: 1;
 }
 
 .kb-header {
   font-family: var(--mono);
-  font-size: 9px;
-  color: #4a9ece;
-  letter-spacing: 0.14em;
+  font-size: var(--fs-2xs);
+  color: var(--blue);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
 .kb-step {
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 11px;
+  margin-bottom: 12px;
   align-items: flex-start;
 }
 
 .kb-step-num {
-  width: 18px; height: 18px;
+  width: 20px; height: 20px;
   border-radius: 50%;
-  background: #0f1e30;
-  border: 1.5px solid #2a4a6a;
+  background: var(--blue-soft-bg);
+  border: 1.5px solid var(--blue-soft-border);
   display: flex; align-items: center; justify-content: center;
   font-family: var(--mono);
-  font-size: 9px;
-  color: #5a90c0;
+  font-size: var(--fs-2xs);
+  color: var(--blue);
   flex-shrink: 0;
   margin-top: 1px;
 }
@@ -793,36 +920,36 @@ body {
 .kb-step-content {}
 
 .kb-step-title {
-  font-size: 11px;
+  font-size: var(--fs-base);
   font-weight: 600;
-  color: #80aad0;
+  color: var(--text);
   margin-bottom: 2px;
 }
 
 .kb-step-desc {
-  font-size: 10px;
+  font-size: var(--fs-sm);
   color: var(--text-dim);
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 /* Sources */
 .source-chips {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
   margin-top: 10px;
 }
 
 .source-chip {
-  background: #0a1520;
-  border: 1px solid #1a3040;
+  background: var(--bg3);
+  border: 1px solid var(--border);
   border-radius: 5px;
-  padding: 5px 10px;
-  font-size: 10px;
-  color: #4a7090;
+  padding: 6px 11px;
+  font-size: var(--fs-sm);
+  color: var(--text-dim);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
 }
 
 .source-chip .src-dot {
@@ -832,7 +959,7 @@ body {
   flex-shrink: 0;
 }
 
-.source-chip strong { color: #6a9ab8; }
+.source-chip strong { color: var(--text); }
 
 /* ══════════════════════════════
    FLOW ARROWS between columns
@@ -853,39 +980,41 @@ body {
   margin-top: 28px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 9px;
   flex-wrap: wrap;
-  padding: 14px 20px;
-  background: #0d1220;
-  border: 1px solid #1a2030;
+  padding: 16px 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
   border-radius: 10px;
 }
 
 .techbar-label {
   font-family: var(--mono);
-  font-size: 9px;
+  font-size: var(--fs-2xs);
   color: var(--text-dim);
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-right: 4px;
 }
 
 .t-pill {
   font-family: var(--mono);
-  font-size: 10px;
-  padding: 4px 12px;
+  font-size: var(--fs-xs);
+  padding: 5px 13px;
   border-radius: 20px;
   font-weight: 500;
 }
 
-.t-lc  { background: #0d1a30; color: #60a0e0; border: 1px solid #1a3a60; }
-.t-oa  { background: #0a1818; color: #50c0a0; border: 1px solid #1a4038; }
-.t-pc  { background: #130d25; color: #9070d0; border: 1px solid #2a1a50; }
-.t-fl  { background: #1a150a; color: #d09040; border: 1px solid #503a18; }
-.t-qt  { background: #180d20; color: #c060b0; border: 1px solid #4a1a50; }
-.t-gpt { background: #0a1a18; color: #40b090; border: 1px solid #1a4a38; }
+.t-fa  { background: var(--blue-soft-bg);   color: var(--blue);   border: 1px solid var(--blue-soft-border); }
+.t-lc  { background: var(--slate-soft-bg);  color: var(--slate);  border: 1px solid var(--slate-soft-border); }
+.t-oa  { background: var(--green-soft-bg);  color: var(--green);  border: 1px solid var(--green-soft-border); }
+.t-gpt { background: var(--accent-soft-bg); color: var(--accent); border: 1px solid var(--accent-soft-border); }
+.t-qt  { background: var(--green-soft-bg);  color: var(--green);  border: 1px solid var(--green-soft-border); }
+.t-pc  { background: var(--blue-soft-bg);   color: var(--blue);   border: 1px solid var(--blue-soft-border); }
+.t-pr  { background: var(--gold-soft-bg);   color: var(--gold);   border: 1px solid var(--gold-soft-border); }
+.t-fl  { background: var(--slate-soft-bg);  color: var(--slate);  border: 1px solid var(--slate-soft-border); }
 
-.techbar-sep { width: 1px; height: 14px; background: #1a2030; margin: 0 2px; }
+.techbar-sep { width: 1px; height: 15px; background: var(--border); margin: 0 3px; }
 
 /* ══════════════════════════════
    ANIMATED FLOW PARTICLES
@@ -905,8 +1034,10 @@ body {
    TOOLTIP SYSTEM
 ══════════════════════════════ */
 .has-tip { cursor: pointer; }
-.has-tip:hover { filter: brightness(1.12); transition: filter 0.15s; }
+.has-tip:hover { filter: brightness(1.05); transition: filter 0.15s; }
+html.dark .has-tip:hover { filter: brightness(1.15); }
 
+/* Tooltip is a fixed elevated dark card in both themes, like a popover */
 #tooltip {
   position: fixed;
   z-index: 9999;
@@ -914,33 +1045,33 @@ body {
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.15s ease, transform 0.15s ease;
-  max-width: 290px;
-  min-width: 200px;
+  max-width: 320px;
+  min-width: 220px;
 }
 #tooltip.show {
   opacity: 1;
   transform: translateY(0);
 }
 .tip-inner {
-  background: #111927;
+  background: #1c1e26;
   border-radius: 9px;
-  padding: 13px 15px;
-  box-shadow: 0 12px 40px rgba(0,0,0,0.85), 0 0 0 1px rgba(255,255,255,0.07);
+  padding: 14px 16px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08);
 }
 .tip-border-top {
   height: 2px;
   border-radius: 9px 9px 0 0;
-  margin: -13px -15px 10px;
+  margin: -14px -16px 11px;
   border-top-left-radius: 9px;
   border-top-right-radius: 9px;
 }
 .tip-head {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 10px;
+  font-size: var(--fs-xs);
   font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -950,32 +1081,42 @@ body {
   border-radius: 50%;
   flex-shrink: 0;
 }
-.tip-rows { display: flex; flex-direction: column; gap: 4px; }
+.tip-rows { display: flex; flex-direction: column; gap: 5px; }
 .tip-row {
   display: flex;
   gap: 7px;
-  font-size: 11px;
-  color: #8a9ab8;
+  font-size: var(--fs-sm);
+  color: #b7bfd4;
   line-height: 1.5;
   align-items: flex-start;
 }
 .tip-row::before {
   content: '›';
-  color: #3a4a60;
-  font-size: 13px;
+  color: #5a637a;
+  font-size: 14px;
   flex-shrink: 0;
   line-height: 1.3;
 }
-.tip-row strong { color: #c8d8ee; font-weight: 600; }
-.tip-sep { height: 1px; background: #1e2d44; margin: 6px 0; }
+.tip-row strong { color: #eef1fa; font-weight: 600; }
+.tip-sep { height: 1px; background: #33374a; margin: 7px 0; }
 .tip-tag-row { margin-top: 4px; display: flex; gap: 5px; flex-wrap: wrap; }
 .tip-tag {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 9px;
+  font-size: var(--fs-2xs);
   padding: 2px 8px;
   border-radius: 3px;
 }
 </style>
+<script>
+// Set initial theme before first paint — reuses the same "pref-theme" key
+// the rest of the site's toggle uses, so preference stays in sync across pages.
+(function() {
+  var pref = localStorage.getItem('pref-theme');
+  if (pref === 'dark' || (!pref && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+  }
+})();
+</script>
 </head>
 <body>
 <div class="canvas">
@@ -984,7 +1125,29 @@ body {
   <div class="header">
     <span class="header-badge">VIOLETS</span>
     <span class="header-title">System <em>Architecture</em> — Treatment Condition (Chat)</span>
+    <span class="header-sub">Voter Info from Official Local Election Trusted Sources</span>
+    <div class="header-toggle-slot">
+      <button id="theme-toggle" type="button"><span id="theme-toggle-icon">🌙</span><span id="theme-toggle-label">Dark</span></button>
+    </div>
+  </div>
 
+  <!-- EXPLAINER -->
+  <div class="intro-box">
+    <strong>What this is:</strong> VIOLETS is a RAG (retrieval-augmented generation) chatbot that answers Maryland voters'
+    questions using text pulled from official state and county election sources. 
+    It's embedded as the chat widget inside a Qualtrics survey. Offline, a Python pipeline
+    crawls and chunks official web pages plus a curated set of Box-hosted documents, embeds every chunk, and stores the
+    vectors in Postgres. Online, a guarded FastAPI service turns each question into a search over those vectors and asks
+    an LLM to answer from what it retrieved, citing sources — with guardrails that block PII,
+    reroute sensitive question types to official pages, and re-check every answer for partisan endorsement before it's sent back.
+    <div class="intro-flow">
+      <span class="i-node">crawl official sites + Box docs</span><span class="i-arr">→</span>
+      <span class="i-node">chunk</span><span class="i-arr">→</span>
+      <span class="i-node">embed</span><span class="i-arr">→</span>
+      <span class="i-node">Postgres + pgvector</span><span class="i-arr">→</span>
+      <span class="i-node">FastAPI + guardrails</span><span class="i-arr">→</span>
+      <span class="i-node">cited answer in chat</span>
+    </div>
   </div>
 
   <!-- MAIN LAYOUT -->
@@ -994,7 +1157,7 @@ body {
     <div class="col-left">
       <div class="col-label">① Qualtrics Frontend</div>
 
-      <div class="qualtrics-window has-tip" data-tip-color="#6a7a98" data-tip-title="Qualtrics Chat Interface" data-tip='["Embedded as treatment condition in Qualtrics survey flow","JS captures input in real time; sends msg + PID + condition to Flask via HTTPS POST","Displays chatbot responses; logs all interactions for analysis","sep","Min 3 exchanges · Max 10 exchanges per session"]'>
+      <div class="qualtrics-window has-tip" data-tip-color="#9aa3b5" data-tip-title="Qualtrics Chat Interface" data-tip='["Embedded as treatment condition in Qualtrics survey flow (CORS restricted to umdsurvey.umd.edu)","JS captures input, sends <strong>user_id</strong> + <strong>query</strong> to the FastAPI /chat endpoint over HTTPS","Displays chatbot response + clickable source links; logs all interactions for analysis","sep","Session remembers up to 20 turns per user_id, expires after 30 min idle"]'>
         <div class="qwindow-bar">
           <div class="qwindow-dots">
             <div class="dot-r"></div>
@@ -1029,12 +1192,13 @@ body {
       </div>
 
       <!-- JS annotation -->
-      <div class="js-annotation has-tip" data-tip-color="#6a7a98" data-tip-title="HTTPS Request Payload" data-tip='["<strong>msg</strong> — raw text input from participant","<strong>pid</strong> — anonymized participant ID (no PII sent to LLM)","<strong>condition</strong> — treatment arm for interaction logging","sep","POST /chat → Flask endpoint → JSON response"]'>
+      <div class="js-annotation has-tip" data-tip-color="#9aa3b5" data-tip-title="HTTPS Request Payload" data-tip='["<strong>user_id</strong> — anonymized participant ID, ^[a-zA-Z0-9_-]+$, 1–128 chars","<strong>query</strong> — raw text input from participant, 1–2000 chars","<strong>X-API-Key</strong> header — required on every request, checked with constant-time compare","sep","POST /chat → FastAPI → JSON {response, sources[]}"]'>
         <div class="js-annotation-title">JS → Backend (HTTPS)</div>
-        <div class="js-line"><span class="cm">// Send message to Flask API</span></div>
+        <div class="js-line"><span class="cm">// Send message to FastAPI</span></div>
         <div class="js-line"><span class="kw">fetch</span>(<span class="str">"/chat"</span>, {</div>
+        <div class="js-line">&nbsp;&nbsp;headers: { <span class="str">"X-API-Key"</span>: apiKey },</div>
         <div class="js-line">&nbsp;&nbsp;body: <span class="fn">JSON.stringify</span>({</div>
-        <div class="js-line">&nbsp;&nbsp;&nbsp;&nbsp;msg, pid, condition</div>
+        <div class="js-line">&nbsp;&nbsp;&nbsp;&nbsp;user_id, query</div>
         <div class="js-line">&nbsp;&nbsp;})</div>
         <div class="js-line">})</div>
       </div>
@@ -1042,86 +1206,112 @@ body {
 
     <!-- ══ CENTER: BACKEND ENGINE ══ -->
     <div class="col-center">
-      <div class="col-label">② Python + Flask Backend (VIOLETS Engine)</div>
+      <div class="col-label">② Python + FastAPI Backend (VIOLETS Engine)</div>
 
-      <div class="backend-shell has-tip" data-tip-color="#7c3aed" data-tip-title="VIOLETS Backend Engine" data-tip='["<strong>Python + Flask</strong> REST API server","<strong>LangChain</strong> orchestrates RAG pipeline end-to-end","Stateless per request — no session memory stored server-side","All LLM calls via <strong>OpenAI Enterprise API</strong>","sep","Participant data never forwarded to LLM"]'>
+      <div class="backend-shell has-tip" data-tip-color="#a690ea" data-tip-title="VIOLETS Backend Engine" data-tip='["<strong>Python + FastAPI</strong> REST API, single worker (in-memory rate limiter + session store)","<strong>LangChain</strong> runnable chain: contextualize → retrieve → answer, branches on query category","Conversation history kept per user_id in-memory (TTL 30 min, 20-turn cap)","All LLM calls via the <strong>OpenAI API</strong> (gpt-5-nano)","sep","On RAG failure → HTTP 502; guardrail LLM failures fail open"]'>
         <div class="backend-header">
           <div class="robot-icon">🤖</div>
           <div>
             <div class="name">VIOLETS</div>
             <div class="desc">Voter Information from Official Local Election Trusted Sources</div>
           </div>
-          <div class="api-badge">LangChain + OpenAI Enterprise</div>
+          <div class="api-badge">FastAPI + LangChain + OpenAI</div>
         </div>
 
         <div class="backend-body">
 
-          <!-- RAG Pipeline -->
+          <!-- Request Pipeline -->
           <div class="pipeline-box">
-            <div class="pipeline-title">Retrieval-Augmented Generation Pipeline</div>
+            <div class="pipeline-title">/chat Request Pipeline</div>
             <div class="pipeline-steps">
 
-              <div class="p-step step-1 has-tip" data-tip-color="#9b5de5" data-tip-title="Step 1 — Embed Query" data-tip='["User input text → <strong>text-embedding-3-small</strong>","Converts query into a high-dimensional numeric vector","Same model encodes all KB chunks → shared vector space","sep","OpenAI Embedding API · stateless call"]'>
+              <div class="p-step step-1 has-tip" data-tip-color="#a690ea" data-tip-title="Step 1 — Auth + Rate Limit" data-tip='["<strong>X-API-Key</strong> header checked with hmac.compare_digest (constant-time) → 401 if missing/wrong","In-memory sliding-window limiter, keyed by user_id: <strong>20 requests/min</strong> → 429 if exceeded","Runs before any PII/LLM work so a runaway client can’t drain OpenAI credits","sep","Only /health is unauthenticated (load-balancer probe)"]'>
                 <div class="p-step-left">
                   <div class="p-num">1</div>
                   <div class="p-line"></div>
                 </div>
                 <div class="p-content">
-                  <div class="p-title">Embed Query</div>
-                  <div class="p-desc">User input → high-dimensional vector</div>
-                  <span class="p-tag tag-purple">text-embedding-3-small</span>
+                  <div class="p-title">Auth + Rate Limit</div>
+                  <div class="p-desc">X-API-Key check → 20 req/min per user_id</div>
+                  <span class="p-tag tag-purple">hmac compare · sliding window</span>
                 </div>
               </div>
 
-              <div class="p-step step-2 has-tip" data-tip-color="#2a7fc1" data-tip-title="Step 2 — Retrieve Chunks" data-tip='["Query vector compared to Pinecone index via <strong>cosine similarity</strong>","Returns top <strong>k=7</strong> most semantically relevant chunks","All chunks drawn exclusively from allow-listed official sources","Each chunk carries: source URL, title, section metadata","sep","512 tokens/chunk · Pinecone managed index"]'>
+              <div class="p-step step-2 has-tip" data-tip-color="#7bacdc" data-tip-title="Step 2 — PII Guard" data-tip='["<strong>Presidio</strong> (spaCy en_core_web_lg backend) scans the raw query","Detects: SSN, credit card, email, phone, IP address, passport, driver’s license","Any hit at score ≥ 0.5 → hard block, canned PII-safety message returned, no LLM call made","sep","There is no output-side scrub — only input queries are checked"]'>
                 <div class="p-step-left">
                   <div class="p-num">2</div>
                   <div class="p-line"></div>
                 </div>
                 <div class="p-content">
-                  <div class="p-title">Retrieve Chunks</div>
-                  <div class="p-desc">Cosine similarity search → top-<em>k</em>=7 official chunks</div>
-                  <span class="p-tag tag-blue">Pinecone · allow-list only</span>
+                  <div class="p-title">PII Guard</div>
+                  <div class="p-desc">Presidio scan → hard block on SSN/card/email/phone/IP/ID</div>
+                  <span class="p-tag tag-blue">Presidio · score ≥ 0.5</span>
                 </div>
               </div>
 
-              <div class="p-step step-3 has-tip" data-tip-color="#1fb89a" data-tip-title="Step 3 — Generate Response" data-tip='["<strong>System message</strong>: safety rules, neutrality constraints, citation requirements","<strong>Context block</strong>: retrieved chunks with source labels and URLs","<strong>User query</strong>: question + minimal conversation history","sep","Model: <strong>GPT-5-nano</strong> via OpenAI Enterprise API"]'>
+              <div class="p-step step-3 has-tip" data-tip-color="#5cc0a6" data-tip-title="Step 3 — Query Classification" data-tip='["gpt-5-nano returns a structured <strong>ClassificationResult</strong> — 8 categories","<strong>polling_location / voter_lookup / voter_update / candidates</strong> → hardcoded official URL, no RAG call","<strong>partisan</strong> → refusal message, no RAG call","<strong>normal / conversational / concerns</strong> → continue to RAG chain","sep","Survey tag “__User concerns:__” short-circuits straight to ‘concerns’ · fails open on LLM error"]'>
                 <div class="p-step-left">
                   <div class="p-num">3</div>
                   <div class="p-line"></div>
                 </div>
                 <div class="p-content">
-                  <div class="p-title">Generate Response</div>
-                  <div class="p-desc">System prompt + context chunks + user query → cited answer</div>
-                  <span class="p-tag tag-teal">GPT-5-nano · OpenAI Enterprise</span>
+                  <div class="p-title">Classify Query</div>
+                  <div class="p-desc">8 categories · 5 exit early with a hardcoded response</div>
+                  <span class="p-tag tag-teal">gpt-5-nano · structured output</span>
                 </div>
               </div>
 
-              <div class="p-step step-4 has-tip" data-tip-color="#40b070" data-tip-title="Step 4 — Safety Guards (Middleware)" data-tip='["<strong>Citation guard</strong>: removes/masks URLs not on allow-list","<strong>Hallucination guard</strong>: substitutes standard message if context insufficient","<strong>No PII to LLM</strong>: participant ID handled by backend only","<strong>Candidate neutrality</strong>: enforced at prompt + middleware level","<strong>Interaction logging</strong>: question, retrieved chunks, response metadata"]'>
+              <div class="p-step step-4 has-tip" data-tip-color="#6fca8b" data-tip-title="Step 4 — Retrieve" data-tip='["Follow-up questions are rephrased into a standalone query first (skipped if chat_history is empty)","Standalone query embedded with <strong>text-embedding-3-small</strong>","<strong>PgVectorRetriever</strong> runs cosine search (<code>embedding <=> vector</code>) directly against Postgres","Returns top <strong>k=5</strong> chunks — skipped entirely for the ‘conversational’ category"]'>
                 <div class="p-step-left">
                   <div class="p-num">4</div>
                   <div class="p-line"></div>
                 </div>
                 <div class="p-content">
-                  <div class="p-title">Safety Guards</div>
-                  <div class="p-desc">Citation guard · hallucination guard · no PII · candidate neutral</div>
-                  <span class="p-tag tag-green">middleware · post-processing</span>
+                  <div class="p-title">Retrieve</div>
+                  <div class="p-desc">Embed query → pgvector cosine search → top-<em>k</em>=5 chunks</div>
+                  <span class="p-tag tag-green">text-embedding-3-small · pgvector</span>
+                </div>
+              </div>
+
+              <div class="p-step step-5 has-tip" data-tip-color="#e0aa53" data-tip-title="Step 5 — Generate Response" data-tip='["<strong>conversational</strong> → answered from chat history alone, no retrieved context","<strong>normal</strong> → QA_PROMPT with retrieved chunks + [Source N] citation contract","<strong>concerns</strong> → CONCERNS_PROMPT (Rumor Control) — always opens by linking the official rumor-control page","sep","[Source N] markers are replaced with real markdown links from the retrieved source list"]'>
+                <div class="p-step-left">
+                  <div class="p-num">5</div>
+                  <div class="p-line"></div>
+                </div>
+                <div class="p-content">
+                  <div class="p-title">Generate Response</div>
+                  <div class="p-desc">gpt-5-nano · prompt varies by category (QA / Concerns / Conversational)</div>
+                  <span class="p-tag tag-gold">gpt-5-nano · cited answer</span>
+                </div>
+              </div>
+
+              <div class="p-step step-6 has-tip" data-tip-color="#8fadc9" data-tip-title="Step 6 — Partisan Check &amp; Respond" data-tip='["gpt-5-nano re-checks the generated answer for partisan/political lean (structured PartisanCheckResult)","If flagged: re-invokes the chain with a stricter nonpartisan retry prompt, up to <strong>2 retries</strong>","Fails open after retries exhausted → returns the last generated response rather than blocking","sep","log_request() records tokens/cost/timing; exchange is stored in the user’s session and returned as JSON"]'>
+                <div class="p-step-left">
+                  <div class="p-num">6</div>
+                  <div class="p-line"></div>
+                </div>
+                <div class="p-content">
+                  <div class="p-title">Partisan Check & Respond</div>
+                  <div class="p-desc">Retry up to 2× if flagged (fail-open) → log → return response + sources</div>
+                  <span class="p-tag tag-slate">gpt-5-nano · fail-open</span>
                 </div>
               </div>
 
             </div>
           </div>
 
-          <!-- Safety chips -->
+          <!-- Guardrails & Ops -->
           <div class="safety-box">
-            <div class="safety-title">Post-Processing Safety Guards</div>
+            <div class="safety-title">Guardrails &amp; Operating Limits</div>
             <div class="safety-grid">
-              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Citation Guard" data-tip='["Removes/masks any URLs not on the official allow-list","Ensures responses only cite SBE or County BoE sources"]'>citation guard</div>
-              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Hallucination Guard" data-tip='["Detects when retrieved context is insufficient to answer","Substitutes a standard message and routes query to human review"]'>hallucination guard</div>
-              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Allow-list Filter" data-tip='["Only MD SBE + Montgomery County BoE sources indexed","Exclusion-based: removes pre-2026 pages, campaign finance, historical data"]'>allow-list filter</div>
-              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="No PII to LLM" data-tip='["Participant ID and condition handled by backend only","LLM receives only query text + retrieved KB chunks","No demographic or identifying info sent to OpenAI"]'>no PII to LLM</div>
-              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Candidate Neutrality" data-tip='["VIOLETS prohibited from endorsing candidates or parties","No policy position characterization or electoral speculation","Enforced at prompt level + middleware filtering"]'>candidate neutral</div>
-              <div class="s-chip has-tip" data-tip-color="#30a050" data-tip-title="Interaction Logging" data-tip='["Logs: participant question, retrieved source chunks, response metadata","Retained under institutional research + IRB protocols"]'>interaction log</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="Auth" data-tip='["Every /chat and /reset request must send X-API-Key","Compared with hmac.compare_digest (constant-time) → 401 on mismatch"]'>X-API-Key auth</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="Rate Limit" data-tip='["In-memory sliding window, per user_id","20 requests / 60s → 429 if exceeded, before any LLM call"]'>20 req/min limit</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="PII Detection" data-tip='["Presidio scans every query for SSN, credit card, email, phone, IP, passport, driver’s license","Hard block at score ≥ 0.5 — input side only, no output scrub"]'>PII detection</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="Query Classification" data-tip='["gpt-5-nano sorts every query into 8 categories","4 return a hardcoded official URL; 1 (partisan) returns a refusal"]'>8-way classify</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="Partisan Retry" data-tip='["Generated answers are re-checked for partisan lean","Up to 2 stricter-prompt retries, then fails open (returns last answer)"]'>partisan retry ×2</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="Session Limits" data-tip='["Per-user_id conversation history, in-memory","TTL 30 min idle · capped at 20 turns"]'>30min / 20-turn TTL</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="CORS Allowlist" data-tip='["Only origins in CORS_ORIGINS are allowed (default https://umdsurvey.umd.edu)","Methods: GET, POST · Headers: Content-Type, X-API-Key"]'>CORS allowlist</div>
+              <div class="s-chip has-tip" data-tip-color="#6fca8b" data-tip-title="Fail Open" data-tip='["If a guardrail LLM call (classify or partisan check) errors out, the query is allowed through rather than blocked","Prevents a guardrail outage from taking down the whole chatbot"]'>fail-open on guard error</div>
             </div>
           </div>
 
@@ -1134,10 +1324,10 @@ body {
       <div class="col-label">③ Knowledge Base</div>
 
       <!-- Vector DB -->
-      <div class="vdb-box has-tip" data-tip-color="#2a7fc1" data-tip-title="Pinecone Vector Database" data-tip='["Managed vector DB for low-latency semantic retrieval","Stores: embedding vectors + original text + metadata per chunk","Index loaded at server startup for fast query-time retrieval","sep","Chunk size: ~512 tokens · Metric: cosine · Top-k: 7"]'>
+      <div class="vdb-box has-tip" data-tip-color="#7bacdc" data-tip-title="PostgreSQL + pgvector" data-tip='["One table: chunk_id (PK) · embedding vector(1536) · text · source_url · title · metadata JSONB","Pass 3 upserts with ON CONFLICT (chunk_id) DO UPDATE — safe to re-run","Query-time: PgVectorRetriever runs <code>embedding <=> query</code> (cosine) directly in SQL","sep","No ANN index yet (sequential scan) — fine at current corpus size; add ivfflat/hnsw if it grows"]'>
         <div class="vdb-header">
-          <span class="vdb-icon">🗄️</span>
-          <span class="vdb-name">Pinecone</span>
+          <span class="vdb-icon">🐘</span>
+          <span class="vdb-name">Postgres + pgvector</span>
           <span class="vdb-badge">Vector DB</span>
         </div>
         <div class="vdb-body">
@@ -1175,11 +1365,11 @@ body {
           </div>
           <div class="vdb-stats">
             <div class="vdb-stat">
-              <div class="vdb-stat-val">512</div>
-              <div class="vdb-stat-lbl">tokens/chunk</div>
+              <div class="vdb-stat-val">1536</div>
+              <div class="vdb-stat-lbl">dims/vector</div>
             </div>
             <div class="vdb-stat">
-              <div class="vdb-stat-val">k=7</div>
+              <div class="vdb-stat-val">k=5</div>
               <div class="vdb-stat-lbl">top retrieved</div>
             </div>
             <div class="vdb-stat">
@@ -1191,41 +1381,53 @@ body {
       </div>
 
       <!-- Offline KB Construction -->
-      <div class="kb-box has-tip" data-tip-color="#4a9ece" data-tip-title="Offline KB Construction" data-tip='["<strong>Collect</strong>: crawl SBE + County BoE + child links","<strong>Filter</strong>: remove pre-2026 results, campaign finance, historical data","<strong>Chunk</strong>: ~512-token windows + source URL/title metadata","<strong>Embed</strong>: text-embedding-3-small","<strong>Index</strong>: store in Pinecone at server startup","sep","Re-scrape required after filing deadline (Feb 24, 2026)"]'>
+      <div class="kb-box has-tip" data-tip-color="#7bacdc" data-tip-title="Offline KB Construction (maryland_rag + box_ingest)" data-tip='["<strong>Pass 1 — Crawl</strong>: BFS over allowlisted paths, classify each page (faq, prose, table_data, form, press_release, document, …)","<strong>Pass 2 — Chunk</strong>: strategy picked per classification (qa_pairs, semantic_with_overlap, table_rows, simple_split, ingest_as_single, PDF/DOCX/XLS extraction)","<strong>Box Ingest</strong>: curated Box documents (handbooks, admin reports) chunked the same way, via url_manifest.json","<strong>Pass 3 — Embed + Upsert</strong>: text-embedding-3-small in batches of 100 → ON CONFLICT (chunk_id) DO UPDATE","sep","<code>python -m maryland_rag all</code> re-runs the whole thing; --resume/--changed make reruns cheap"]'>
         <div class="kb-header">Offline KB Construction</div>
 
-        <div class="kb-step">
+        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Pass 1 — Crawl" data-tip='["BFS crawl from seed URLs, depth ≤ 6, gated by an allowlist (prefixes + exact URLs) plus regex exclusions","robots.txt honored per domain · rate-limited to 1 request / 0.75s","Every page classified (rules.py): faq, prose, table_data, form, press_release, location_list, nav_hub, document, junk","sep","Fully resumable — every discovered URL is written as ‘pending’ before fetching"]'>
           <div class="kb-step-num">1</div>
           <div class="kb-step-content">
-            <div class="kb-step-title">Collect</div>
-            <div class="kb-step-desc">Crawl allow-listed official sources</div>
+            <div class="kb-step-title">Crawl (Pass 1)</div>
+            <div class="kb-step-desc">BFS over elections.maryland.gov + mcg.montgomerycountymd.gov, allowlist-gated, classified into manifest.db</div>
           </div>
         </div>
 
-        <div class="kb-step">
+        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Pass 2 — Chunk" data-tip='["Re-fetches full content from a disk cache, then splits per the page’s chunking_strategy","Q&A pages → one chunk per question · tables → one chunk per row · long prose → ~300-word sentence-aware chunks with 20% overlap","Identical content under different URLs is deduped, keeping all source URLs","sep","Output: data/chunks.jsonl, one JSON record per chunk"]'>
           <div class="kb-step-num">2</div>
           <div class="kb-step-content">
-            <div class="kb-step-title">Chunk + Metadata</div>
-            <div class="kb-step-desc">Split into ~512-token windows; attach source URL, title</div>
+            <div class="kb-step-title">Chunk (Pass 2)</div>
+            <div class="kb-step-desc">Strategy per page type — FAQ pairs, table rows, semantic prose splits, PDFs/DOCX/XLS</div>
           </div>
         </div>
 
-        <div class="kb-step">
+        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Box Ingest" data-tip='["Hand-curated documents (election worker manuals, monthly admin reports) live in needtochunk/, not crawlable","url_manifest.json maps each file → its Box share URL, so retrieved chunks can still cite a working link","Same schema as web chunks: page_classification=\\"document\\", chunking_strategy=\\"box_ingest\\"","sep","Files missing a manifest entry are skipped with a warning, not silently dropped"]'>
           <div class="kb-step-num">3</div>
           <div class="kb-step-content">
-            <div class="kb-step-title">Embed & Index</div>
-            <div class="kb-step-desc">Encode → store vectors + text in Pinecone</div>
+            <div class="kb-step-title">Box Ingest</div>
+            <div class="kb-step-desc">Curated Box docs (manuals, admin reports) chunked into the same schema, cited via url_manifest.json</div>
+          </div>
+        </div>
+
+        <div class="kb-step has-tip" data-tip-color="#7bacdc" data-tip-title="Pass 3 — Embed + Upsert" data-tip='["Embeds both chunks.jsonl and box_chunks.jsonl with text-embedding-3-small (1536-dim), batches of 100","Upserts into Postgres: ON CONFLICT (chunk_id) DO UPDATE — reruns update rather than duplicate","--resume skips chunk_ids already present; each row is wrapped in its own savepoint","sep","3 retries with backoff on embedding failures"]'>
+          <div class="kb-step-num">4</div>
+          <div class="kb-step-content">
+            <div class="kb-step-title">Embed & Upsert (Pass 3)</div>
+            <div class="kb-step-desc">text-embedding-3-small → upsert vectors + text + metadata into Postgres</div>
           </div>
         </div>
 
         <div class="source-chips">
-          <div class="source-chip has-tip" data-tip-color="#2a7fc1" data-tip-title="MD State Board of Elections" data-tip='["Mother URL: elections.maryland.gov","Includes: voter registration, rumor control hub, press room, candidate list, voting systems","Excludes: pre-2026 results, presidential history, campaign finance, petitions"]'>
+          <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="MD State Board of Elections" data-tip='["Seed: elections.maryland.gov","Includes: voter registration, rumor control hub, press room, 2026 election pages, voting systems","Excludes: pre-2026 election years, petitions, campaign finance, election data (regex exclusions)"]'>
             <div class="src-dot"></div>
             <div><strong>SBE</strong> — elections.maryland.gov</div>
           </div>
-          <div class="source-chip has-tip" data-tip-color="#2a7fc1" data-tip-title="Montgomery County Board of Elections" data-tip='["Mother URL: montgomerycountymd.gov/elections","Includes: early voting, mail-in voting, ballot drop-off, precinct maps, election workers","Also: Maryland Voter Services Portal (voterservices.elections.maryland.gov)"]'>
+          <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="Montgomery County Board of Elections" data-tip='["Domain: mcg.montgomerycountymd.gov","Exact pages only — drop boxes, election judges, vote-by-mail, FAQs, early voting centers, accessibility","Child links discovered here are not followed unless they independently match the allowlist"]'>
             <div class="src-dot"></div>
-            <div><strong>County BoE</strong> — montgomerycountymd.gov/elections</div>
+            <div><strong>MoCo BoE</strong> — mcg.montgomerycountymd.gov</div>
+          </div>
+          <div class="source-chip has-tip" data-tip-color="#7bacdc" data-tip-title="Box Curated Documents" data-tip='["needtochunk/ — hand-picked election worker manuals, monthly State Administrator reports, etc.","Not discoverable by crawling; mirrored manually and mapped to a Box share URL for citation","Ingested by the separate box_ingest pipeline into the same chunk schema"]'>
+            <div class="src-dot"></div>
+            <div><strong>Box</strong> — curated manuals &amp; reports</div>
           </div>
         </div>
       </div>
@@ -1233,6 +1435,22 @@ body {
     </div>
 
   </div><!-- end layout -->
+
+  <!-- TECH STACK -->
+  <div class="techbar">
+    <span class="techbar-label">Stack</span>
+    <span class="t-pill t-fa">FastAPI</span>
+    <span class="t-pill t-lc">LangChain</span>
+    <span class="t-pill t-oa">OpenAI API</span>
+    <span class="techbar-sep"></span>
+    <span class="t-pill t-gpt">gpt-5-nano</span>
+    <span class="t-pill t-qt">text-embedding-3-small</span>
+    <span class="techbar-sep"></span>
+    <span class="t-pill t-pc">PostgreSQL + pgvector</span>
+    <span class="t-pill t-pr">Presidio + spaCy</span>
+    <span class="techbar-sep"></span>
+    <span class="t-pill t-fl">trafilatura · pdfplumber · PyMuPDF</span>
+  </div>
 
   <!-- ANIMATED FLOW ARROWS via SVG -->
   <svg class="arrows-svg" id="arrowSvg" xmlns="http://www.w3.org/2000/svg">
@@ -1286,6 +1504,25 @@ body {
 </div>
 
 <script>
+// ── Theme toggle (shares "pref-theme" localStorage key with the rest of the site) ──
+const themeToggle = document.getElementById('theme-toggle');
+const themeIcon   = document.getElementById('theme-toggle-icon');
+const themeLabel  = document.getElementById('theme-toggle-label');
+
+function syncToggleLabel() {
+  const isDark = document.documentElement.classList.contains('dark');
+  themeIcon.textContent  = isDark ? '☀️' : '🌙';
+  themeLabel.textContent = isDark ? 'Light' : 'Dark';
+}
+syncToggleLabel();
+
+themeToggle.addEventListener('click', () => {
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.setItem('pref-theme', isDark ? 'dark' : 'light');
+  syncToggleLabel();
+  if (window.renderArrows) window.renderArrows();
+});
+
 // ── Tooltip engine ──
 const tooltip  = document.getElementById('tooltip');
 const tipTitle = document.getElementById('tip-title');
@@ -1296,7 +1533,7 @@ let hideTimer  = null;
 
 function showTip(el, e) {
   clearTimeout(hideTimer);
-  const color = el.dataset.tipColor || '#7c3aed';
+  const color = el.dataset.tipColor || '#a690ea';
   const title = el.dataset.tipTitle || '';
   let rows = [];
   try { rows = JSON.parse(el.dataset.tip || '[]'); } catch(err) {}
@@ -1341,13 +1578,28 @@ document.querySelectorAll('.has-tip').forEach(el => {
 });
 
 // ── Animated arrows ──
-window.addEventListener('load', () => {
+window.renderArrows = function renderArrows() {
   const svg    = document.getElementById('arrowSvg');
   const canvas = document.querySelector('.canvas');
   const layout = document.getElementById('mainLayout');
   const colLeft   = layout.children[0];
   const colCenter = layout.children[1];
   const colRight  = layout.children[2];
+
+  // re-read current theme's accent colors so arrows match light/dark mode
+  const rootStyle = getComputedStyle(document.documentElement);
+  const cAccent = rootStyle.getPropertyValue('--accent').trim();
+  const cBlue   = rootStyle.getPropertyValue('--blue').trim();
+  const cFaint  = rootStyle.getPropertyValue('--text-faint').trim();
+
+  // clear previously drawn paths/circles/text (keep <defs>)
+  svg.querySelectorAll('path, circle, text').forEach(n => n.remove());
+  const markerRed    = svg.querySelector('#arr-red path');
+  const markerPurple = svg.querySelector('#arr-purple path');
+  const markerBlue   = svg.querySelector('#arr-blue path');
+  if (markerRed)    markerRed.setAttribute('fill', cAccent);
+  if (markerPurple) markerPurple.setAttribute('fill', cAccent);
+  if (markerBlue)   markerBlue.setAttribute('fill', cBlue);
 
   function getBounds(el) {
     const cr = el.getBoundingClientRect();
@@ -1371,8 +1623,8 @@ window.addEventListener('load', () => {
     if (label) {
       const txt = document.createElementNS('http://www.w3.org/2000/svg','text');
       txt.setAttribute('x',midX); txt.setAttribute('y', Math.min(y1,y2)+(labelDy||0));
-      txt.setAttribute('text-anchor','middle'); txt.setAttribute('fill','#4a5570');
-      txt.setAttribute('font-size','9'); txt.setAttribute('font-family','IBM Plex Mono, monospace');
+      txt.setAttribute('text-anchor','middle'); txt.setAttribute('fill',cFaint);
+      txt.setAttribute('font-size','10.5'); txt.setAttribute('font-family','IBM Plex Mono, monospace');
       txt.textContent = label; svg.appendChild(txt);
     }
   }
@@ -1406,21 +1658,24 @@ window.addEventListener('load', () => {
   const lB = getBounds(colLeft), cB = getBounds(colCenter), rB = getBounds(colRight);
 
   const qy1=lB.top+160, qy2=cB.top+160;
-  makePath(lB.right,qy1,cB.left,qy2,'#7c3aed','arr-red','','HTTPS query',-10);
-  makeParticles(lB.right,qy1,cB.left,qy2,'#a855f7',3,['1.8s','1.8s','1.8s'],['0s','0.6s','1.2s']);
+  makePath(lB.right,qy1,cB.left,qy2,cAccent,'arr-red','','HTTPS + X-API-Key',-10);
+  makeParticles(lB.right,qy1,cB.left,qy2,cAccent,3,['1.8s','1.8s','1.8s'],['0s','0.6s','1.2s']);
 
   const ry1=cB.top+210, ry2=lB.top+210;
-  makePath(cB.left,ry1,lB.right,ry2,'#9b5de5','arr-purple','4,3','response',18);
-  makeParticles(cB.left,ry1,lB.right,ry2,'#b880ff',3,['2s','2s','2s'],['0s','0.7s','1.4s']);
+  makePath(cB.left,ry1,lB.right,ry2,cAccent,'arr-purple','4,3','cited response',18);
+  makeParticles(cB.left,ry1,lB.right,ry2,cAccent,3,['2s','2s','2s'],['0s','0.7s','1.4s']);
 
   const vy1=rB.top+100, vy2=cB.top+180;
-  makePath(rB.left,vy1,cB.right,vy2,'#2a7fc1','arr-blue','','vector retrieval',-10);
-  makeParticles(rB.left,vy1,cB.right,vy2,'#50a0e0',3,['1.6s','1.6s','1.6s'],['0s','0.55s','1.1s']);
+  makePath(rB.left,vy1,cB.right,vy2,cBlue,'arr-blue','','top-k=5 chunks',-10);
+  makeParticles(rB.left,vy1,cB.right,vy2,cBlue,3,['1.6s','1.6s','1.6s'],['0s','0.55s','1.1s']);
 
   const eq1=cB.top+140, eq2=rB.top+60;
-  makePath(cB.right,eq1,rB.left,eq2,'#9b5de5','arr-purple','4,3','embed query',-10);
-  makeParticles(cB.right,eq1,rB.left,eq2,'#b880ff',2,['1.5s','1.5s'],['0.3s','1.0s']);
-});
+  makePath(cB.right,eq1,rB.left,eq2,cAccent,'arr-purple','4,3','embed query',-10);
+  makeParticles(cB.right,eq1,rB.left,eq2,cAccent,2,['1.5s','1.5s'],['0.3s','1.0s']);
+};
+
+window.addEventListener('load', () => window.renderArrows());
+window.addEventListener('resize', () => window.renderArrows());
 </script>
 </body>
 </html>
