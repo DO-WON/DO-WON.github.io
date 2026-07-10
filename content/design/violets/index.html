@@ -1099,8 +1099,8 @@ html.dark .has-tip:hover { filter: brightness(1.15); }
   opacity: 0;
   transform: translateY(6px);
   transition: opacity 0.15s ease, transform 0.15s ease;
-  max-width: 320px;
-  min-width: 220px;
+  max-width: min(420px, calc(100vw - 32px));
+  min-width: 260px;
 }
 #tooltip.show {
   opacity: 1;
@@ -1130,6 +1130,10 @@ html.dark .has-tip:hover { filter: brightness(1.15); }
   align-items: center;
   gap: 7px;
 }
+.tip-head span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
 .tip-dot {
   width: 7px; height: 7px;
   border-radius: 50%;
@@ -1143,6 +1147,8 @@ html.dark .has-tip:hover { filter: brightness(1.15); }
   color: #b7bfd4;
   line-height: 1.5;
   align-items: flex-start;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .tip-row::before {
   content: '›';
@@ -1262,7 +1268,7 @@ html.dark .has-tip:hover { filter: brightness(1.15); }
     <div class="col-center">
       <div class="col-label">② Python + FastAPI Backend (VIOLETS Engine)</div>
 
-      <div class="backend-shell has-tip" data-tip-color="#a690ea" data-tip-title="VIOLETS Backend Engine" data-tip='["<strong>Python + FastAPI</strong> REST API, single worker (in-memory rate limiter + session store)","<strong>LangChain</strong> runnable chain: contextualize → retrieve → answer, branches on query category","Conversation history kept per user_id in-memory (TTL 30 min, 20-turn cap)","All LLM calls via the <strong>OpenAI API</strong> (gpt-5-nano)","sep","On RAG failure → HTTP 502; guardrail LLM failures fail open"]'>
+      <div class="backend-shell has-tip" data-tip-color="#a690ea" data-tip-title="VIOLETS Backend Engine" data-tip='["<strong>Python + FastAPI</strong> REST API, single worker (in-memory rate limiter + session store)","<strong>LangChain</strong> runnable chain: contextualize → retrieve → answer, branches on query category","Conversation history kept per user_id in-memory (TTL 30 min, 20-turn cap)","All LLM calls via the <strong>OpenAI API</strong> (gpt-5-nano)","sep","On RAG failure → HTTP 502"]'>
         <div class="backend-header">
           <div class="robot-icon">🤖</div>
           <div>
