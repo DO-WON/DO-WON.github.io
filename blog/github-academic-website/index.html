@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Making a GitHub Website for Academics — Do Won Kim</title>
+  <meta name="description" content="Step-by-step tutorial on building an academic website on GitHub Pages with Hugo." />
+  <script src="../../js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-name" href="../../index.html#top">Do Won Kim</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
+    </nav>
+  </header>
+
+  <main class="post">
+    <a class="back-link" href="../../blog.html">&larr; Back to Blog</a>
+
+    <div class="post-header">
+      <h1>Making a GitHub Website for Academics</h1>
+      <p class="post-meta">March 20, 2024 &middot; productivity</p>
+    </div>
+
+    <article class="post-body">
+      <img src="../../assets/images/academicwebsite.png" alt="Building a GitHub website" />
+
+      <h2>How to build an academic website</h2>
+      <p>This is a step-by-step tutorial of how to build an academic website hosted on GitHub Pages (or step-by-step demonstrations of how I did it).</p>
+
+      <h2>Step 0. Prerequisites</h2>
+      <ol>
+        <li>You must have a GitHub account.</li>
+        <li>Download <a href="https://desktop.github.com/" target="_blank" rel="noopener">GitHub Desktop</a> on your local machine (laptop or desktop).</li>
+        <li>You must have a template repository in mind. I used <a href="https://github.com/pmichaillat/hugo-website?tab=readme-ov-file" target="_blank" rel="noopener">this one</a> as my template. All credit to the amazing <a href="https://pascalmichaillat.org/" target="_blank" rel="noopener">Pascal Michaillat</a>!</li>
+      </ol>
+      <p>Now, let's start building your website!</p>
+
+      <h2>Step 1. Fork the template</h2>
+      <p>First step is to fork the template repository.</p>
+      <p>How to fork?</p>
+      <ul>
+        <li>Go to the template repository</li>
+        <li>Click the <code>Use this template</code> button (the green one!) on the top right</li>
+        <li>Then, click <code>Create a new repository</code></li>
+      </ul>
+      <p>Now, you will see the following page:</p>
+      <img src="../../assets/images/forking.png" alt="Forking the template repository" />
+      <ul>
+        <li>In the <code>Repository name</code> section, you must put in <code>&lt;your GitHub owner name&gt;.github.io</code>. For example, in my case, it's <code>DO-WON.github.io</code>.</li>
+        <li>Then, click the green <code>Create repository</code> button below.</li>
+      </ul>
+
+      <h2>Step 2. Clone the forked repository to the local machine</h2>
+      <p>It is good to work from your local machine and then commit and push changes to your GitHub repository.</p>
+      <ul>
+        <li>Go to the forked repository</li>
+        <li>Click the green button on the top right <code>&lt;&gt; Code</code></li>
+        <li>You will see <code>Local</code> as follows:</li>
+      </ul>
+      <img src="../../assets/images/forking2.png" alt="Cloning the repository locally" />
+      <ul>
+        <li>Click <code>Open with GitHub Desktop</code></li>
+        <li>Choose a local path (on your laptop/desktop)</li>
+        <li>Click the <code>Clone</code> button in the bottom right</li>
+      </ul>
+
+      <h2>Step 3. Install Hugo</h2>
+      <p>Install <a href="https://gohugo.io/installation/" target="_blank" rel="noopener">Hugo</a>. If you use a Mac, you can install Hugo by running the following in your terminal:</p>
+      <pre><code>brew install hugo</code></pre>
+
+      <h2>Step 4. Setting up config.yml</h2>
+      <p>Next step is to make changes on your local machine. The first thing you need to change is the <code>config.yml</code> file.</p>
+      <ul>
+        <li>Open the repository in your local IDE (e.g., VS Code, PyCharm, etc.)
+          <ul><li>You can open it using GitHub Desktop (see this <a href="https://collectionbuilder.github.io/cb-docs/docs/repository/open/#use-github-desktop-to-open-your-repository" target="_blank" rel="noopener">link</a>)</li></ul>
+        </li>
+        <li>In your IDE, open the <code>config.yml</code> file</li>
+        <li>Change the <code>baseURL</code>. For me, I put <code>do-won.github.io</code> as the <code>baseURL</code>. You should put your own GitHub username instead of <code>do-won</code>.</li>
+      </ul>
+
+      <h2>Step 5. Update your website!</h2>
+      <p>Since you have made some changes on your local machine, now it's time to update your website.</p>
+
+      <h3>Development stage</h3>
+      <p>While you develop (make changes, test those changes, make further changes ...), you can check what the changes look like on your local environment. In the terminal of your IDE (wherever you are working), try running:</p>
+      <pre><code>hugo server</code></pre>
+      <img src="../../assets/images/localhost.png" alt="Hugo local development server" />
+      <p>Then, click <code>http://localhost:1313/</code> to check how your website looks. This is very useful since it takes some time to compile, render, and deploy all the changes on GitHub. In the development stage, use Hugo to automatically reflect changes made locally and rebuild the website.</p>
+      <p>If you want to stop running the Hugo server, enter <code>control+C</code> in your terminal.</p>
+
+      <h3>Compiling and deploying</h3>
+      <p>After you've checked how the changes look with the Hugo server, and finished making all the changes you needed, you're ready to deploy those changes to your website.</p>
+      <p>First, run <code>hugo</code> in your IDE terminal, in your repository.</p>
+      <pre><code>hugo</code></pre>
+      <p>This command compiles everything needed to deploy the changes to your website.</p>
+      <p>Then, using your IDE or GitHub Desktop, commit and push changes to your online repository.</p>
+      <p>Wait until the deployment is completed and visit your website!</p>
+
+      <h2>Next steps</h2>
+      <p>Now that you know how things work, you can make further changes on your local machine and deploy them.</p>
+      <p>Please refer to <a href="https://pascalmichaillat.org/d5/" target="_blank" rel="noopener">this page</a> for further customization!</p>
+
+      <p><em>Note: this post documents the site's earlier Hugo-based setup. The site now runs on a no-build, vanilla HTML/CSS/JS architecture maintained via Claude Code (see the <a href="https://github.com/mr-devs/cc-academic-website" target="_blank" rel="noopener">cc-academic-website</a> template) &mdash; the general GitHub Pages hosting steps above (Steps 0&ndash;2) still apply either way.</em></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Do Won Kim</p>
+  </footer>
+</body>
+</html>

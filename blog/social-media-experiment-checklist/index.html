@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Media Experiment Design Checklist — Do Won Kim</title>
+  <meta name="description" content="A 10-section checklist for designing social media field experiments." />
+  <script src="../../js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-name" href="../../index.html#top">Do Won Kim</a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
+    </nav>
+  </header>
+
+  <main class="post">
+    <a class="back-link" href="../../blog.html">&larr; Back to Blog</a>
+
+    <div class="post-header">
+      <h1>Social Media Experiment Design Checklist</h1>
+      <p class="post-meta">September 10, 2024 &middot; online_field_experiment, design</p>
+    </div>
+
+    <article class="post-body">
+      <p><strong>Note:</strong> Summarized by Claude 3.5 Sonnet based on my notes from reading the paper. For more details, please refer to the original paper. Highly recommended.</p>
+      <p><strong>Paper:</strong> Aridor, G., Jiménez Durán, R., Levy, R., &amp; Song, L. (2024). Experiments on Social Media. <a href="https://doi.org/10.2139/ssrn.4893781" target="_blank" rel="noopener">https://doi.org/10.2139/ssrn.4893781</a>.</p>
+
+      <h2>1. Sample and Recruitment</h2>
+      <ul class="checklist">
+        <li>Consider using social media platform's targeting capabilities for recruitment</li>
+        <li>Evaluate the need for quota sampling or post-stratification</li>
+        <li>Be cautious about claiming full representativeness of the sample</li>
+        <li>Implement measures to prevent or detect link sharing</li>
+      </ul>
+
+      <h2>2. Intervention Design</h2>
+      <ul class="checklist">
+        <li>Choose appropriate intervention type &mdash; my favorites are:
+          <ul class="checklist">
+            <li>Encourage change in on-platform behavior</li>
+            <li>Manipulate participants' experience through platform features</li>
+            <li>Provide exposure to content off-platform (but consider trade-offs between control and ecological validity)</li>
+          </ul>
+        </li>
+        <li>If using advertisements, account for potential low attention from users</li>
+      </ul>
+
+      <h2>3. Data Collection</h2>
+      <ul class="checklist">
+        <li>Evaluate options for data collection (e.g., browser extensions, data donation)</li>
+        <li>Consider scalability and potential experimenter demand effects of chosen method</li>
+        <li>Plan for longitudinal data collection if possible</li>
+      </ul>
+
+      <h2>4. Statistical Power and Effect Sizes</h2>
+      <ul class="checklist">
+        <li>Anticipate potentially small effect sizes</li>
+        <li>Plan for large sample sizes or exploit within-participant variation</li>
+        <li>Consider using repeated-measure designs to increase power</li>
+      </ul>
+
+      <h2>5. Attrition and Compliance</h2>
+      <ul class="checklist">
+        <li>Develop strategies to minimize attrition</li>
+        <li>Plan for potential non-compliance (e.g., reactivation in deactivation studies)</li>
+        <li>Consider incentivizing compliance, but be aware of potential effects on results</li>
+      </ul>
+
+      <h2>6. SUTVA (Stable Unit Treatment Value Assumption) Violations</h2>
+      <ul class="checklist">
+        <li>Assess potential for interference between units</li>
+        <li>If relevant, use cluster-randomized design or two-stage randomization</li>
+        <li>Plan to measure or account for spillover effects</li>
+      </ul>
+
+      <h2>7. Platform Dynamics</h2>
+      <ul class="checklist">
+        <li>Consider potential unobservable actions by the platform</li>
+        <li>Account for algorithmic responses to interventions</li>
+        <li>Plan for potential equilibrium and long-run responses</li>
+      </ul>
+
+      <h2>8. Interpretation of Results</h2>
+      <ul class="checklist">
+        <li>Be cautious about generalizing results (partial vs. general equilibrium effects)</li>
+        <li>Consider complementing experimental evidence with observational studies</li>
+        <li>Plan for measuring long-term effects (e.g., using surrogate indices)</li>
+      </ul>
+
+      <h2>9. Ethical Considerations</h2>
+      <ul class="checklist">
+        <li>Ensure proper informed consent procedures</li>
+        <li>Address privacy concerns in data collection and storage</li>
+        <li>Consider potential negative impacts on participants' well-being</li>
+      </ul>
+
+      <h2>10. Replicability and Transparency</h2>
+      <ul class="checklist">
+        <li>Document all aspects of the experimental design and analysis</li>
+        <li>Consider pre-registration of the study</li>
+        <li>Plan for sharing data and code (within ethical and legal constraints)</li>
+      </ul>
+
+      <p>Remember to review and adjust this checklist based on the specific context and requirements of your social media experiment.</p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Do Won Kim</p>
+  </footer>
+</body>
+</html>

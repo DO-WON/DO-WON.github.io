@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- The page title is also set from data/profile.json at load time -->
+  <title>Do Won Kim</title>
+  <meta name="description" content="Do Won Kim — PhD Candidate in Information, University of Maryland" />
+  <script src="./js/theme.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+      <a class="nav-name" href="#top" id="nav-name"></a>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#working-papers">Working Papers</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#talks">Talks</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#software">Software</a></li>
+        <li><a href="./blog.html">Blog</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"></button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Every section below is rendered from a data/*.json file by its js/*.js module.
+         Do not hardcode content here: edit the JSON files instead.
+         A section with no data (missing/empty JSON) hides itself automatically. -->
+
+    <section id="about" class="section profile-section">
+      <div id="profile-container"></div>
+    </section>
+
+    <section id="news" class="section" hidden>
+      <h2>News</h2>
+      <div id="news-container" data-limit="5" data-see-all="./news.html" data-see-all-label="See all news →"></div>
+    </section>
+
+    <section id="publications" class="section" hidden>
+      <h2>Featured Publications</h2>
+      <div id="publications-container" data-limit="2" data-see-all="./publications.html" data-see-all-label="See all publications →"></div>
+    </section>
+
+    <section id="working-papers" class="section" hidden>
+      <h2>Circulated Working Papers</h2>
+      <div id="working-papers-container" data-limit="2" data-see-all="./working-papers.html" data-see-all-label="See all working papers →"></div>
+    </section>
+
+    <section id="projects" class="section" hidden>
+      <h2>Ongoing Projects</h2>
+      <div id="projects-container" data-limit="3" data-see-all="./projects.html" data-see-all-label="See all projects →"></div>
+    </section>
+
+    <section id="talks" class="section" hidden>
+      <h2>Talks</h2>
+      <div id="talks-container" data-limit="3" data-see-all="./talks.html" data-see-all-label="See all talks →"></div>
+    </section>
+
+    <section id="teaching" class="section" hidden>
+      <h2>Teaching</h2>
+      <div id="teaching-container" data-limit="3" data-see-all="./teaching.html" data-see-all-label="See all teaching →"></div>
+    </section>
+
+    <section id="software" class="section" hidden>
+      <h2>Software</h2>
+      <div id="software-container" data-limit="3" data-see-all="./software.html" data-see-all-label="See all software →"></div>
+    </section>
+
+    <section id="contact" class="section" hidden>
+      <h2>Contact</h2>
+      <div id="contact-container"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p id="footer-text"></p>
+  </footer>
+
+  <script src="./js/utils.js"></script>
+  <script src="./js/profile.js"></script>
+  <script src="./js/news.js"></script>
+  <script src="./js/publications.js"></script>
+  <script src="./js/working_papers.js"></script>
+  <script src="./js/ongoing_projects.js"></script>
+  <script src="./js/talks.js"></script>
+  <script src="./js/teaching.js"></script>
+  <script src="./js/software.js"></script>
+  <script src="./js/contact.js"></script>
+</body>
+</html>

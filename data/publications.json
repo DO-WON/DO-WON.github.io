@@ -1,0 +1,34 @@
+[
+  {
+    "title": "Understanding the Gap Between Stated and Revealed Preferences in News Curation: A Study of Young Adult Social Media Users",
+    "authors": "Do Won Kim, Cody Buntain, Giovanni Luca Ciampaglia",
+    "publication": "ACM Conference on Computer-Supported Cooperative Work and Social Computing (CSCW '26), To appear",
+    "year": "2026"
+  },
+  {
+    "title": "Smile to Win: How Do Candidates’ Smiles Affect Election Results?",
+    "authors": "Woo Chang Kang, Do Won Kim, Joonmo Kang",
+    "publication": "Korean Political Science Review",
+    "year": "2022",
+    "url": "https://doi.org/10.18854/kpsr.2022.56.4.003",
+    "pdfPath": "./docs/publications/2022_Kang_SmileToWin/2022_Kang_SmileToWin.pdf",
+    "bibPath": "./docs/publications/2022_Kang_SmileToWin/cite.bib"
+  },
+  {
+    "title": "Voting against in the 2017 French presidential election",
+    "authors": "Do Won Kim",
+    "publication": "French Politics",
+    "year": "2022",
+    "url": "https://doi.org/10.1057/s41253-021-00165-7",
+    "bibPath": "./docs/publications/2022_Kim_VoteAgainst/cite.bib"
+  },
+  {
+    "title": "Strategic Allocation of Political Fund and Re-election of Incumbents in South Korea",
+    "authors": "Do Won Kim, Hyowon Kim",
+    "publication": "Journal of Korean Politics",
+    "year": "2022",
+    "url": "https://doi.org/10.35656/JKP.31.2.3",
+    "pdfPath": "./docs/publications/2022_Kim_MoneyPolitics/2022_Kim_MoneyPolitics.pdf",
+    "bibPath": "./docs/publications/2022_Kim_MoneyPolitics/cite.bib"
+  }
+]

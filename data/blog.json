@@ -1,0 +1,30 @@
+[
+  {
+    "title": "PhD tips and resources",
+    "date": "2025-07-05",
+    "url": "./blog/phd-tips-and-resources/index.html",
+    "summary": "A curation of tips and resources for PhD students.",
+    "tags": ["tips"]
+  },
+  {
+    "title": "Social Media Experiment Design Checklist",
+    "date": "2024-09-10",
+    "url": "./blog/social-media-experiment-checklist/index.html",
+    "summary": "A 10-section checklist for designing social media field experiments, summarized from Aridor, Jiménez Durán, Levy & Song (2024) \"Experiments on Social Media.\"",
+    "tags": ["online_field_experiment", "design"]
+  },
+  {
+    "title": "Making a GitHub Website for Academics",
+    "date": "2024-03-20",
+    "url": "./blog/github-academic-website/index.html",
+    "summary": "Step-by-step tutorial on building an academic website on GitHub Pages with Hugo.",
+    "tags": ["productivity"]
+  },
+  {
+    "title": "Integrating Zotero and Obsidian for Academics",
+    "date": "2023-12-01",
+    "url": "./blog/zotero-obsidian/index.html",
+    "summary": "Tutorial for INST800 at the UMD iSchool on building a personal knowledge-management workflow with Zotero and Obsidian.",
+    "tags": ["productivity"]
+  }
+]
