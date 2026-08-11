@@ -1,0 +1,20 @@
+{
+  "name": "Do Won Kim",
+  "title": "PhD Candidate in Information",
+  "affiliation": "University of Maryland",
+  "photoPath": "./assets/images/picture.jpeg",
+  "bio": [
+    "I am a PhD candidate in Information at the University of Maryland, advised by Giovanni Luca Ciampaglia and Cody Buntain. I am also a student affiliate at TRAILS (The Institute for Trustworthy AI in Law and Society).",
+    "My research lies at the intersection of computational social science and human-AI interaction. I examine how AI-driven information systems shape political behavior and democratic outcomes. Using computational and experimental methods, I study how interventions in digital information environments can reduce misinformation, mitigate political polarization, and strengthen democratic trust. For more details, see my <a href=\"./dissertation.html\">dissertation</a>.",
+    "Beyond my dissertation's focus on political information and democratic processes, I study how emerging information technologies shape broader online information environments. This includes work from the Prosocial Ranking Challenge and research on using LLMs to better align news feed recommendations with users' stated values. I am also interested in how AI is reshaping the production of scientific knowledge itself."
+  ],
+  "links": [
+    { "label": "CV", "url": "./docs/cv.pdf" },
+    { "label": "Email", "url": "mailto:dowonkim@umd.edu" },
+    { "label": "Google Scholar", "url": "https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ" },
+    { "label": "GitHub", "url": "https://github.com/DO-WON" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/do-won-kim-336a9a16a/" },
+    { "label": "Twitter", "url": "https://twitter.com/DoWonKim13" },
+    { "label": "ORCID", "url": "https://orcid.org/0000-0001-7011-2911" }
+  ]
+}

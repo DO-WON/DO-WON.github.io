@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Using LLMs in Social Science Research",
+    "role": "Tutorial Instructor",
+    "institution": "Korea University, Graduate Methods Workshop",
+    "term": "January 2026",
+    "link": "https://docs.google.com/presentation/d/1kcgkYVs6-nu7plrwullV5hsJM00hqyHPqixaUshJTis/edit?usp=sharing"
+  },
+  {
+    "title": "Civic AI Project Mentoring (VIOLETS)",
+    "role": "Mentor, Undergraduate Research Opportunities Program (UROP)",
+    "institution": "University of Maryland",
+    "term": "Spring 2026",
+    "description": "Mentored five undergraduate students on a civic AI project, my third dissertation paper.",
+    "link": "https://geis.ischool.umd.edu/violets/"
+  },
+  {
+    "title": "INST408G: Quantitative Research Methods",
+    "role": "Instructor, Undergraduate Research Opportunities Program (UROP)",
+    "institution": "University of Maryland",
+    "term": "Fall 2025",
+    "description": "Focused on using large language models in social science and HCI research.",
+    "link": "./docs/teaching/UROP_syllabus.pdf"
+  },
+  {
+    "title": "Panel Data Analysis",
+    "role": "Teaching Assistant",
+    "institution": "KOSSDA (Korea Social Science Data Archive)",
+    "term": "Summer 2023; Fall 2022; Spring 2022; Fall 2021",
+    "link": "https://stellar-weaver-46d.notion.site/2023-KOSSDA-96bcab94fa0549d6ae43e2a229a220bf?pvs=4"
+  },
+  {
+    "title": "Intermediate Statistics",
+    "role": "Teaching Assistant",
+    "institution": "KOSSDA (Korea Social Science Data Archive)",
+    "term": "Summer 2023; Summer 2022",
+    "link": "https://www.notion.so/KOSSDA-2459d1c5777048ed8b4d2d64268bef14?pvs=4"
+  },
+  {
+    "title": "Introduction to R",
+    "role": "Teaching Assistant",
+    "institution": "KOSSDA (Korea Social Science Data Archive)",
+    "link": "https://do-won.github.io/bookdown-demo/"
+  },
+  {
+    "title": "Social Network Analysis in R",
+    "role": "Teaching Assistant",
+    "institution": "Center for Political Communication (CPC), Seoul National University",
+    "link": "https://do-won.github.io/Social_Network_Analysis/"
+  }
+]

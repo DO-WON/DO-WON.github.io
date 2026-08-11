@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Muting Durably Reduces Engagement with Untrustworthy Online Sources; Media Literacy Doesn't",
+    "authors": "Do Won Kim, Brendan Nyhan, Ro'ee Levy, Filippo Menczer, Maria Elizabeth (Betsi) Grabe, Giovanni Luca Ciampaglia",
+    "status": "Dissertation Chapter 1 — field experiment on X (Twitter)",
+    "summary": "A digital field experiment testing whether muting untrustworthy accounts changes engagement more durably than a media-literacy intervention. Muting produced substantial, lasting reductions in engagement with targeted sources with no compensatory shift elsewhere; media literacy only temporarily improved discernment without changing behavior.",
+    "url": "https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/"
+  },
+  {
+    "title": "Challenging Partisan Expectations Reduces Political Polarization",
+    "authors": "Do Won Kim, Ozgur Can Seckin, Saumya Bhadani, Alessandro Flammini, Giovanni Luca Ciampaglia, Bao Tran Truong",
+    "status": "Dissertation Chapter 2 — survey experiment with LLM-powered chatbots",
+    "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity and conversational stance. Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views."
+  },
+  {
+    "title": "Can AI Strengthen Democracy? Improving Public Trust in Elections with a Civic Chatbot",
+    "authors": "Do Won Kim, Giovanni Luca Ciampaglia, Cody Buntain, Riley Lankes, Patrick Wu",
+    "status": "Dissertation Chapter 3 — planned 3-arm RCT, Nov. 2026 midterms, Montgomery County, MD",
+    "summary": "VIOLETS, a RAG chatbot grounded exclusively in official election information, tested for its effect on voter knowledge, trust in election administration, and civic engagement.",
+    "url": "./design/violets/index.html"
+  }
+]

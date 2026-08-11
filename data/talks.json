@@ -1,0 +1,100 @@
+[
+  {
+    "title": "Learning Politics with AI: Political Knowledge, Institutional Trust, and Attitudes Toward Interbranch Conflict",
+    "location": "Paper, American Political Science Association (APSA) Annual Meeting, Boston, USA",
+    "date": "September 2026"
+  },
+  {
+    "title": "Can AI Strengthen Democracy? Improving Public Trust in Elections with a Civic Chatbot",
+    "location": "Poster, International Conference on Computational Social Science (IC2S²), Burlington, VT, USA",
+    "date": "July 2026"
+  },
+  {
+    "title": "AI Can Reduce Political Polarization by Challenging Partisan Expectations",
+    "location": "Poster, AI and Social Research: Empathic AI, Metascience, and Methodology, University Park, PA, USA",
+    "date": "June 2026",
+    "link": "https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/"
+  },
+  {
+    "title": "Tutorial on Large Language Model (LLM) Applications for Political Science Research",
+    "location": "Invited talk, Graduate Methods Workshop, Department of Political Science & International Relations, Korea University",
+    "date": "January 2026"
+  },
+  {
+    "title": "The Effects of Outgroup Agreement and Ingroup Dissent on Political Polarization",
+    "location": "Paper, PolNet-PaCSS, Boston, USA",
+    "date": "August 2025"
+  },
+  {
+    "title": "The Effects of Outgroup Agreement and Ingroup Dissent on Political Polarization",
+    "location": "Paper, International Conference on Computational Social Science (IC2S²), Norrköping, Sweden",
+    "date": "July 2025"
+  },
+  {
+    "title": "Two Spheres of Korean Politics: Knowledge Production and Dissemination across Linguistic Divides",
+    "location": "Paper, IPSA World Congress of Political Science, Seoul, South Korea",
+    "date": "July 2025"
+  },
+  {
+    "title": "Two Spheres of Korean Politics: Knowledge Production and Dissemination across Linguistic Divides",
+    "location": "Invited talk, Brown Bag Seminar, Computational Social Science Group, KAIST",
+    "date": "July 2025",
+    "link": "https://knowdem.github.io/css-group/css-brown-bag.html"
+  },
+  {
+    "title": "Testing Alternative Algorithms for Social Media News Feeds: Audience Diversity and Stated Preferences-Based Recommender Systems",
+    "location": "Poster, International Conference on Computational Social Science (IC2S²), Norrköping, Sweden",
+    "date": "July 2025"
+  },
+  {
+    "title": "Predicting Constructive Conflict in Social Media Discussions",
+    "location": "Poster, International Conference on Computational Social Science (IC2S²), Norrköping, Sweden",
+    "date": "July 2025"
+  },
+  {
+    "title": "Emotional Appeals in the 2020 #SaveTheChildren Campaign: A Multi-Platform Study of Online Engagement in QAnon Messaging",
+    "location": "Paper, Global Election and Information Security Workshop, part of the 17th ACM Web Science Conference (WebSci '25), New Brunswick, NJ, USA",
+    "date": "May 2025"
+  },
+  {
+    "title": "Muting low-quality sources: A field experiment to mitigate the harm of inaccurate information online",
+    "location": "Poster, International Conference on Computational Social Science (IC2S²), Philadelphia, PA, USA",
+    "date": "July 2024",
+    "link": "./docs/talks/IC2S2_Poster.pdf"
+  },
+  {
+    "title": "Narcissistic Personality and Political Behavior of Korean Voters",
+    "location": "Paper, Annual Conference of the Korean Political Science Association, Seoul, South Korea",
+    "date": "December 2022",
+    "link": "https://www.dropbox.com/s/858xcb0evbahfvx/%EC%9E%90%EA%B8%B0%EC%95%A0%EC%A0%81_%EC%84%B1%EA%B2%A9_254.pdf?dl=0"
+  },
+  {
+    "title": "Individual Conditional Effect of Sex-Typicality and Trait Assessment of Politicians",
+    "location": "Paper, Annual Conference of the Korean Political Science Association, Seoul, South Korea",
+    "date": "December 2022",
+    "link": "https://www.dropbox.com/s/8gbrnnt44cgmgi6/%EC%A0%A0%EB%8D%94%EC%A0%84%ED%98%95%EC%84%B1_598.pdf?dl=0"
+  },
+  {
+    "title": "Emotion in Presidential TV Debate: Real-time Responses and Political Information Processing",
+    "location": "Poster, 39th Annual Meeting of the Society for Political Methodology (PolMeth XXXIX), St. Louis, MO, USA",
+    "date": "July 2022",
+    "link": "https://www.dropbox.com/s/z264abs2rdr7j6e/PolMeth_Poster.pdf?dl=0"
+  },
+  {
+    "title": "Strategic allocation of political funds: How does spending money help reelection?",
+    "location": "Paper, Fall Conference of the Korean Association of Party Studies, Seoul, South Korea",
+    "date": "November 2021",
+    "link": "https://www.dropbox.com/s/3e79u9tmyfr7r0r/%EB%B9%84%EB%8C%80%EB%A9%B4_%ED%8C%A8%EB%84%90_839.pdf?dl=0"
+  },
+  {
+    "title": "The Effect of the Government's Response to COVID-19 on Voting Behavior in the 2020 South Korean Legislative Election",
+    "location": "ECPR Virtual Joint Sessions",
+    "date": "May 2021",
+    "link": "https://ecpr.eu/Events/Event/PaperDetails/57721"
+  },
+  {
+    "title": "Unpacking Ideology using Decision Tree: Divided Left versus Unified Right",
+    "location": "Paper, Annual Conference of the Korean Association for Survey Research, Seoul, South Korea",
+    "date": "2020"
+  }
+]

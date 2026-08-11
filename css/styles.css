@@ -1,0 +1,467 @@
+/* ==========================================================================
+   Design tokens: a warm cream page with a flat, minimal editorial layout
+   (hairline dividers instead of card boxes) and a teal accent. Restyle via
+   /setup-site if you want a different direction later.
+   ========================================================================== */
+
+:root {
+  --color-text: #1e1e1e;
+  --color-text-muted: #767676;
+  --color-accent: #1f7a7a;
+  --color-accent-light: #a8d4d4;
+  --color-bg: #fafaf7;
+  --color-bg-subtle: #f3f1e9;
+  --color-border: #e2ddd0;
+  --max-width: 60rem;
+  --font-body: "Red Hat Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas,
+    "Liberation Mono", monospace;
+}
+
+/* Explicit dark theme, toggled by js/theme.js (adds/removes .dark on <html>,
+   persisted via the "pref-theme" localStorage key). Falls back to the OS
+   preference on first visit, before any manual choice is made. */
+html.dark {
+  --color-text: #e6edf3;
+  --color-text-muted: #9198a1;
+  --color-accent: #3aacac;
+  --color-accent-light: #1f7a7a;
+  --color-bg: #0d1117;
+  --color-bg-subtle: #161b22;
+  --color-border: #30363d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.35rem;
+  margin: 0 0 1rem;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* --- Header / nav ------------------------------------------------------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+
+.site-nav {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.nav-name {
+  font-weight: 700;
+  color: var(--color-text);
+  margin-right: auto;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+.theme-toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.theme-toggle:hover {
+  border-color: var(--color-accent);
+}
+
+@media (max-width: 700px) {
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 0.5rem 0;
+  }
+
+  .site-nav.nav-open .nav-links {
+    display: flex;
+  }
+}
+
+/* --- Layout ------------------------------------------------------------- */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.section {
+  margin-bottom: 2.5rem;
+  scroll-margin-top: 4rem;
+}
+
+/* --- Profile ------------------------------------------------------------ */
+
+.profile {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.profile-photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.profile-body {
+  flex: 1;
+  min-width: 15rem;
+}
+
+.profile-body h1 {
+  margin: 0 0 0.2rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.profile-role {
+  color: var(--color-text-muted);
+  margin: 0 0 0.75rem;
+}
+
+.profile-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.icon-badge {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.icon-badge:hover {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+.icon-badge svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  display: block;
+}
+
+.icon-badge .monogram {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* --- News ---------------------------------------------------------------- */
+
+.news-year h3 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+}
+
+.news-year:first-child h3 {
+  margin-top: 0;
+}
+
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news-list li {
+  margin-bottom: 0.6rem;
+  padding-left: 0.25rem;
+}
+
+.news-type {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0.05rem 0.55rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+}
+
+/* --- Papers (publications, working papers, dissertation) ----------------- */
+
+.paper {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.paper:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.paper-title {
+  font-weight: 600;
+  margin: 0 0 0.3rem;
+}
+
+.paper-authors {
+  margin: 0 0 0.15rem;
+  font-size: 0.95rem;
+}
+
+.self-name {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+.paper-venue {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.paper-links {
+  margin: 0.4rem 0 0;
+  font-size: 0.9rem;
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+/* --- Generic item lists (talks, software, projects, teaching, blog) ------ */
+
+.item {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.see-all {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.item-title {
+  font-weight: 600;
+  margin: 0;
+}
+
+.item-meta {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.item-description {
+  margin: 0.2rem 0 0;
+  font-size: 0.95rem;
+}
+
+/* --- Standalone blog posts (blog/<slug>/index.html, not JSON-rendered) --- */
+
+.back-link {
+  display: inline-block;
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+}
+
+.post {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0.5rem 1rem 3rem;
+}
+
+.post-header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 1rem;
+}
+
+.post-header h1 {
+  margin: 0 0 0.3rem;
+  font-size: 1.9rem;
+}
+
+/* Standalone "See all <section>" listing pages (news.html, blog.html, etc.) */
+.page-title {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.post-meta {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.post-body h2 {
+  margin-top: 2rem;
+  font-size: 1.25rem;
+}
+
+.post-body h3 {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.post-body img {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  margin: 0.75rem 0;
+}
+
+.post-body pre {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+}
+
+.post-body code {
+  background: var(--color-bg-subtle);
+  padding: 0.1rem 0.3rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.post-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.post-body details {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 0.5rem 0.85rem;
+  margin: 0.75rem 0;
+}
+
+.post-body summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.post-body ul.checklist {
+  list-style: none;
+  padding-left: 0.25rem;
+}
+
+.post-body ul.checklist li::before {
+  content: "\2610\0020";
+}
+
+/* --- Footer --------------------------------------------------------------- */
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
