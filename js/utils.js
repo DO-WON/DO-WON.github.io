@@ -104,8 +104,8 @@ const Site = {
     if (venue) card.appendChild(this.el("p", "paper-venue", venue));
 
     const links = this.el("p", "paper-links");
-    if (paper.pdfPath) links.appendChild(this.link(paper.pdfPath, "PDF"));
-    if (paper.bibPath) links.appendChild(this.link(paper.bibPath, "BibTeX"));
+    if (paper.pdfPath) links.appendChild(this.link(paper.pdfPath, "[pdf]"));
+    if (paper.bibPath) links.appendChild(this.link(paper.bibPath, "[bib]"));
     if (links.childNodes.length) card.appendChild(links);
 
     return card;

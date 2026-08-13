@@ -28,7 +28,7 @@ Object. Rendered by `js/profile.js` (also sets the page title, nav name, and foo
 ```
 
 - `bio` is an array of paragraphs. Each paragraph is rendered via `innerHTML` (trusted site-owner content, same convention as `news.json`'s `htmltext`), so it may contain inline HTML like `<a href="...">links</a>` — e.g. linking out to `./dissertation.html`.
-- Optional: `photoPath` (omit to render without a photo).
+- Optional: `photoPath` (omit to render without a photo), `title`/`affiliation` (rendered as a byline under the name — omit both if that line would just repeat what the first bio paragraph already says).
 
 ## data/publications.json — published papers
 
