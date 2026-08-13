@@ -1,12 +1,11 @@
 {
   "name": "Do Won Kim",
-  "title": "PhD Candidate in Information",
-  "affiliation": "University of Maryland",
   "photoPath": "./assets/images/picture.jpeg",
   "bio": [
-    "I am a PhD candidate in Information at the University of Maryland, advised by Giovanni Luca Ciampaglia and Cody Buntain. I am also a student affiliate at TRAILS (The Institute for Trustworthy AI in Law and Society).",
-    "My research lies at the intersection of computational social science and human-AI interaction. I examine how AI-driven information systems shape political behavior and democratic outcomes. Using computational and experimental methods, I study how interventions in digital information environments can reduce misinformation, mitigate political polarization, and strengthen democratic trust. For more details, see my <a href=\"./dissertation.html\">dissertation</a>.",
-    "Beyond my dissertation's focus on political information and democratic processes, I study how emerging information technologies shape broader online information environments. This includes work from the Prosocial Ranking Challenge and research on using LLMs to better align news feed recommendations with users' stated values. I am also interested in how AI is reshaping the production of scientific knowledge itself."
+    "I am a PhD candidate in Information at the University of Maryland, advised by <a href=\"https://glciampaglia.com/\">Giovanni Luca Ciampaglia</a> and <a href=\"https://cody.bunta.in\">Cody Buntain</a>. I am also a student affiliate at <a href=\"https://www.trails.umd.edu/\">TRAILS</a> (The Institute for Trustworthy AI in Law and Society).",
+    "I study how information environments can be redesigned to support decision-making and behavior. My work spans computational social science and human-AI interaction.",
+    "In my <a href=\"./dissertation.html\">dissertation</a>, I test interventions in digital information environments to strengthen democracy—from reducing harmful behavior and bridging partisan divides to building trust.",
+    "My broader research agenda includes work on the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using LLMs to better align news feed recommendations with users' stated values. I am also interested in how AI is reshaping the production of scientific knowledge itself."
   ],
   "links": [
     { "label": "CV", "url": "./docs/cv.pdf" },
