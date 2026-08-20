@@ -353,6 +353,14 @@
   .dist-means .tabular{ color:var(--ink); }
   .dist-dot{ width:.6rem; height:.6rem; border-radius:50%; display:inline-block; margin-right:.4rem; flex-shrink:0; }
 
+  .attn-grid{ display:flex; flex-direction:column; gap:.5rem; margin-top:.3rem; }
+  .attn-cond-name{ font-size:.66rem; font-weight:600; margin-bottom:.25rem; display:inline-flex; align-items:center; }
+  .attn-list{ display:flex; flex-wrap:wrap; align-items:center; gap:.35rem .65rem; }
+  .attn-chip{ display:inline-flex; align-items:center; gap:.3rem; font-size:.66rem; }
+  .attn-id{ font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--ink); }
+  .attn-count{ font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; color:var(--ink-muted); }
+  .attn-empty{ font-size:.66rem; color:var(--ink-muted); font-style:italic; }
+
   [hidden]{ display:none !important; }
 
   @media (prefers-reduced-motion: reduce){ *{ animation-duration:.001ms !important; transition-duration:.001ms !important; } }
@@ -454,7 +462,7 @@
           <ul>
             <li><b>Likes &amp; follows / Dislikes &amp; unfollows / Responses</b> &mdash; each card splits into two small side-by-side charts, cross-party and within-party, each comparing the three conditions the normal way (solid/dashed/dotted by color). Worth knowing going in: LIKE is essentially <i>always</i> same-party across every committed run (a real ceiling effect, not a rendering issue &mdash; the within-party mini-chart moves, the cross-party one barely does), while RESPOND skews the opposite way &mdash; agents mostly reply to rebut people they disagree with, not to agree with people they don't.</li>
             <li><b>Cross-party edge ratio</b> &mdash; the share of <i>all</i> current ties (follow and interaction combined, regardless of which the toggle above the network panel is currently showing) that connect a Democrat to a Republican. A raw count-based ratio, not adjusted for how many D vs. R nodes exist to connect to.</li>
-            <li><b>Engagement homophily: first vs. final round</b> &mdash; one dumbbell per condition: an open circle at round 1's same-party share of the <i>interaction</i> graph (replies/likes/dislikes, not follow ties), a filled circle at round 6's, joined by a line. Reads directly as where each condition's engagement started and where it ended up. Deliberately built on the interaction graph rather than follow ties: the round-0 follow network is seeded once and barely moves afterward (zero FOLLOW events and only three UNFOLLOW events across every committed run), so a follow-only before/after comparison would sit flat at the same value in almost every condition &mdash; the interaction graph is where actual round-to-round movement happens. Bad actors and organic agents both count as D/R nodes; only the bridger (party &ldquo;Neutral&rdquo;) is excluded, so none of the bridger's own interactions register here, only how the D/R agents around it engaged each other.</li>
+            <li><b>Most attention received</b> &mdash; per condition, the top 3 agents by incoming <code>RESPOND</code>/<code>LIKE</code>/<code>DISLIKE</code>/<code>FOLLOW</code>/<code>UNFOLLOW</code> count (every action with a real target, i.e. every event type except <code>POST</code> and <code>DO_NOTHING</code>), tallied cumulatively from round 1 through whichever round the scrubber is on. Tracks the scrubber like everything else here, so the ranking can reshuffle as a run plays out. Not available on the Pooled tab &mdash; there's no single timeline to attribute credit to once seeds are combined (see the Pooled tab note below).</li>
           </ul>
           <p>The bar chart here is <b>in-group engagement rate</b>, also tracking the round scrubber: each organic agent's share of LIKE/FOLLOW/RESPOND actions so far (not DISLIKE/UNFOLLOW &mdash; a different signal) that landed on their own party, meaned per condition with the same 95%-CI treatment as the survey-based bars.</p>
 
@@ -479,7 +487,7 @@
       <details class="guide-section">
         <summary>The Pooled tab</summary>
         <div class="guide-content">
-          <p>No discussion panel and no network graph &mdash; there's no single conversation to replay once you combine seeds whose actual discussions differed. Instead, every organic agent from all three matched runs (0001, 0002, 0003) is pooled together at each round index, giving the same outcomes-strip and distributions views as Replay, just over roughly 3&times; the sample (24&ndash;30 organic agents per party per condition instead of 4&ndash;5) &mdash; which is where the 95%-CI bars start to mean more.</p>
+          <p>No discussion panel and no network graph &mdash; there's no single conversation to replay once you combine seeds whose actual discussions differed. Instead, every organic agent from all three matched runs (0001, 0002, 0003) is pooled together at each round index, giving the same outcomes-strip and distributions views as Replay, just over roughly 3&times; the sample (24&ndash;30 organic agents per party per condition instead of 4&ndash;5) &mdash; which is where the 95%-CI bars start to mean more. Same reason <b>Most attention received</b> is blank here: it's read off the raw event timeline, which only exists per matched run, not pooled.</p>
           <p>Pooling works even though each seed randomizes its own topic order independently: on-topic values are pooled at the <i>value</i> level (this round's reading, whatever issue it happened to be, from whichever seed), not by matching topics across seeds &mdash; see the on-topic issue distance/polarization entries above. The round scrubber is shared with the Replay tab, so switching tabs keeps your position.</p>
         </div>
       </details>
@@ -595,6 +603,7 @@
   const svgNS = 'http://www.w3.org/2000/svg';
   const DATA = JSON.parse(document.getElementById('sim-data').textContent);
   const CONDITIONS = ['control','bad_actor','bridger'];
+  const ATTENTION_TYPES = new Set(['RESPOND','LIKE','DISLIKE','FOLLOW','UNFOLLOW']);
   const COND_META = {
     control:  { label:'Control',   sub:'No intervention — organic population only' },
     bad_actor:{ label:'Bad Actor', sub:'2 polarizing agents seeded (1 D, 1 R)' },
@@ -936,7 +945,7 @@
     { id:'dislike_unfollow', group:'behavior', chartType:'dual', title:'Dislikes & unfollows', sub:'Cross- vs. within-party, cumulative', sameKey:'dislike_unfollow_same', diffKey:'dislike_unfollow_diff' },
     { id:'respond', group:'behavior', chartType:'dual', title:'Responses', sub:'Cross- vs. within-party, cumulative', sameKey:'respond_same', diffKey:'respond_diff' },
     { id:'cross_party', key:'cross_party_ratio', group:'behavior', chartType:'line', title:'Cross-party edge ratio', sub:'Share of ties joining different parties' },
-    { id:'same_party_arc', key:'same_party_share', group:'behavior', chartType:'dumbbell', title:'Engagement homophily: first vs. final round', sub:'Same-party share of interaction ties, round 1 → round 6', fromRound:1, toRound:6 },
+    { id:'top_attention', group:'behavior', chartType:'toplist', title:'Most attention received', sub:'Cumulative RESPOND/LIKE/DISLIKE/FOLLOW/UNFOLLOW received, top 3 per condition' },
     { id:'homophily_bar', group:'behavior', chartType:'bar', title:'In-group engagement rate', subPrefix:'share of LIKE/FOLLOW/RESPOND at own party, 95% CI', ciType:'ratio', fmt:v=>(v*100).toFixed(0)+'%' },
   ];
 
@@ -1078,56 +1087,6 @@
     });
   }
 
-  // One horizontal lane per condition: an open circle at the "from" round's
-  // value, a filled circle at the "to" round's value, joined by a line --
-  // reads directly as "here's where it started, here's where it ended,"
-  // without needing an expected/null baseline the way a deviation metric
-  // would (see homophily_deviation's removal: the follow graph barely moves
-  // round to round, so a from-the-seed baseline had nothing to compare
-  // against; this instead compares the interaction graph, which does).
-  function dumbbellChart(svg, items){
-    const w = 240, h = 110, padL = 10, padR = 10, padT = 14, padB = 18;
-    svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
-    svg.innerHTML = '';
-    const present = items.filter(it => it.from != null && it.to != null);
-    if (!present.length) return;
-    const px = v => padL + v * (w - padL - padR);
-    const laneH = (h - padT - padB) / items.length;
-    const axisY = h - padB + 6;
-    const axis = document.createElementNS(svgNS, 'line');
-    axis.setAttribute('x1', padL); axis.setAttribute('x2', w - padR);
-    axis.setAttribute('y1', axisY); axis.setAttribute('y2', axisY);
-    axis.setAttribute('stroke', 'var(--border)'); axis.setAttribute('stroke-width', '1');
-    svg.appendChild(axis);
-    [['0%', padL, 'start'], ['100%', w - padR, 'end']].forEach(([t, x, anchor]) => {
-      const txt = document.createElementNS(svgNS, 'text');
-      txt.setAttribute('x', x); txt.setAttribute('y', axisY + 9);
-      txt.setAttribute('text-anchor', anchor);
-      txt.setAttribute('font-size', '6');
-      txt.setAttribute('fill', 'var(--ink-muted)');
-      txt.textContent = t;
-      svg.appendChild(txt);
-    });
-    items.forEach((it, i) => {
-      if (it.from == null || it.to == null) return;
-      const y = padT + laneH * (i + 0.5);
-      const x0 = px(it.from), x1 = px(it.to);
-      const line = document.createElementNS(svgNS, 'line');
-      line.setAttribute('x1', x0); line.setAttribute('x2', x1);
-      line.setAttribute('y1', y); line.setAttribute('y2', y);
-      line.setAttribute('stroke', it.color); line.setAttribute('stroke-width', '2');
-      svg.appendChild(line);
-      const openC = document.createElementNS(svgNS, 'circle');
-      openC.setAttribute('cx', x0); openC.setAttribute('cy', y); openC.setAttribute('r', '3.5');
-      openC.setAttribute('fill', 'var(--surface)'); openC.setAttribute('stroke', it.color); openC.setAttribute('stroke-width', '1.6');
-      svg.appendChild(openC);
-      const closedC = document.createElementNS(svgNS, 'circle');
-      closedC.setAttribute('cx', x1); closedC.setAttribute('cy', y); closedC.setAttribute('r', '3.5');
-      closedC.setAttribute('fill', it.color);
-      svg.appendChild(closedC);
-    });
-  }
-
   function renderChartsInto(wrapSurveyId, wrapBehaviorId, idPrefix, getMetrics, getAgentsRounds){
     const wrapSurvey = document.getElementById(wrapSurveyId);
     const wrapBehavior = document.getElementById(wrapBehaviorId);
@@ -1141,6 +1100,13 @@
             <div class="dual-grid">
               <div class="dual-cell"><div class="dual-cell-label">Cross-party</div><svg></svg><div class="chart-legend"></div></div>
               <div class="dual-cell"><div class="dual-cell-label">Within-party</div><svg></svg><div class="chart-legend"></div></div>
+            </div>`;
+        } else if (m.chartType === 'toplist'){
+          card.innerHTML = `<h3>${m.title}</h3><div class="metric-sub">${m.sub}</div>
+            <div class="attn-grid">
+              <div class="cond-control"><div class="attn-cond-name"><span class="cond-dot"></span>Control</div><div class="attn-list" data-cond="control"></div></div>
+              <div class="cond-bad_actor"><div class="attn-cond-name"><span class="cond-dot"></span>Bad Actor</div><div class="attn-list" data-cond="bad_actor"></div></div>
+              <div class="cond-bridger"><div class="attn-cond-name"><span class="cond-dot"></span>Bridger</div><div class="attn-list" data-cond="bridger"></div></div>
             </div>`;
         } else {
           card.innerHTML = `<h3>${m.title}</h3><div class="metric-sub">${m.sub || m.subPrefix}</div><svg></svg><div class="chart-legend"></div>`;
@@ -1207,13 +1173,41 @@
           lineChart(cellSvg, series);
           cellLegend.innerHTML = series.map(s => `<span><span class="dashkey" style="border-top-style:${s.dash===''?'solid':(s.dash==='5,3'?'dashed':'dotted')};border-color:${s.color}"></span>${s.name}</span>`).join('');
         });
-      } else if (m.chartType === 'dumbbell'){
-        const items = CONDITIONS.map(cond => {
-          const arr = getMetrics(cond)[m.key];
-          return { label: condLabel[cond], color: condColor[cond], from: arr[m.fromRound], to: arr[m.toRound] };
+      } else if (m.chartType === 'toplist'){
+        const subEl = card.querySelector('.metric-sub');
+        CONDITIONS.forEach(cond => {
+          const { agents, rounds } = getAgentsRounds(cond);
+          const roundIdx = Math.min(state.round, rounds.length - 1);
+          const listEl = card.querySelector(`.attn-list[data-cond="${cond}"]`);
+          if (cond === 'control' && subEl){
+            subEl.textContent = `Round ${roundIdx} · cumulative RESPOND/LIKE/DISLIKE/FOLLOW/UNFOLLOW received, top 3`;
+          }
+          if (!rounds[0] || rounds[0].timeline === undefined){
+            listEl.innerHTML = `<span class="attn-empty">Not available in Pooled &mdash; no single timeline to attribute.</span>`;
+            return;
+          }
+          const counts = {};
+          for (let i = 0; i <= roundIdx; i++){
+            (rounds[i].timeline || []).forEach(ev => {
+              if (ATTENTION_TYPES.has(ev.type) && ev.target){
+                counts[ev.target] = (counts[ev.target] || 0) + 1;
+              }
+            });
+          }
+          const ranked = Object.entries(counts).sort((a,b) => b[1]-a[1] || a[0].localeCompare(b[0])).slice(0, 3);
+          if (!ranked.length){
+            listEl.innerHTML = `<span class="attn-empty">No engagement yet.</span>`;
+            return;
+          }
+          const warmth = rounds[roundIdx].warmth || {};
+          listEl.innerHTML = ranked.map(([aid, count]) => {
+            const agent = agents[aid];
+            if (!agent) return '';
+            const color = nodeColor(agent, warmth[aid]);
+            const roleTag = agent.role !== 'organic' ? `<span class="role-chip">${agent.role === 'bad_actor' ? 'bad actor' : 'bridger'}</span>` : '';
+            return `<span class="attn-chip"><span class="dist-dot" style="background:${color}"></span><span class="attn-id">${aid}</span>${roleTag}<span class="attn-count">(${count})</span></span>`;
+          }).join('');
         });
-        dumbbellChart(svg, items);
-        legend.innerHTML = items.map(it => `<span><span class="dist-dot" style="background:${it.color}"></span>${it.label} ${it.from!=null?(it.from*100).toFixed(0)+'%':'—'} → ${it.to!=null?(it.to*100).toFixed(0)+'%':'—'}</span>`).join('');
       } else {
         const series = [
           { data:getMetrics('control')[m.key],   color:condColor.control,   dash:'',        width:2.2, name:'Control' },
