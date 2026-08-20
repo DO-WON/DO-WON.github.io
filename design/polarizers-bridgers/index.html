@@ -185,6 +185,7 @@
     display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap;
     padding:.75rem 1.25rem; border-bottom:1px solid var(--border);
     background:var(--surface);
+    position:sticky; top:var(--masthead-h, 60px); z-index:19;
   }
   .field{ display:flex; flex-direction:column; gap:.25rem; }
   .field-label{
@@ -644,6 +645,10 @@
       <div class="outcomes">
         <div class="outcomes-head">
           <h2>Opinion distributions &mdash; by topic</h2>
+        </div>
+        <div class="field" style="margin-bottom:.75rem;">
+          <span class="field-label">Measure</span>
+          <div class="segmented" id="topic-dist-measure"></div>
         </div>
         <div class="columns" id="topic-dist-panels"></div>
       </div>
@@ -1457,7 +1462,7 @@
     });
   }
 
-  function buildDistPanelsInto(wrapId, measureWrapId, idPrefix, onMeasureChange){
+  function buildDistPanelsInto(wrapId, measureWrapId, idPrefix, onMeasureChange, measureIndices){
     const wrap = document.getElementById(wrapId);
     wrap.innerHTML = '';
     CONDITIONS.forEach(c => {
@@ -1475,9 +1480,12 @@
     });
     const measureWrap = document.getElementById(measureWrapId);
     measureWrap.innerHTML = '';
-    DIST_MEASURES.forEach((m, i) => {
+    const indices = measureIndices || DIST_MEASURES.map((_, i) => i);
+    indices.forEach(i => {
+      const m = DIST_MEASURES[i];
       const btn = document.createElement('button');
       btn.textContent = m.label;
+      btn.dataset.measureIdx = i;
       btn.setAttribute('aria-pressed', i === state.distMeasureIdx ? 'true' : 'false');
       btn.addEventListener('click', () => {
         state.distMeasureIdx = i;
@@ -1489,9 +1497,9 @@
   }
 
   function syncDistMeasureButtons(){
-    [document.getElementById('dist-measure'), document.getElementById('pooled-dist-measure')].forEach(wrap => {
+    [document.getElementById('dist-measure'), document.getElementById('pooled-dist-measure'), document.getElementById('topic-dist-measure')].forEach(wrap => {
       if (!wrap) return;
-      Array.from(wrap.children).forEach((btn, i) => btn.setAttribute('aria-pressed', i === state.distMeasureIdx ? 'true' : 'false'));
+      Array.from(wrap.children).forEach(btn => btn.setAttribute('aria-pressed', Number(btn.dataset.measureIdx) === state.distMeasureIdx ? 'true' : 'false'));
     });
   }
 
@@ -1572,6 +1580,30 @@
     { id:'topic-affective', title:'Affective polarization', subPrefix:'pooled organic agents, 95% CI', ciType:'gapmean', fmt:v=>v.toFixed(1) },
   ];
 
+  const TOPIC_DUAL_METRICS = [
+    { id:'topic-dual-like_follow', title:'Likes & follows', types:new Set(['LIKE','FOLLOW']) },
+    { id:'topic-dual-dislike_unfollow', title:'Dislikes & unfollows', types:new Set(['DISLIKE','UNFOLLOW']) },
+    { id:'topic-dual-respond', title:'Responses', types:new Set(['RESPOND']) },
+  ];
+  // Counts within that single round's timeline only -- NOT the cumulative
+  // metrics arrays the Simulation trend lines use. Seeds land on the same
+  // topic at very different round numbers (e.g. round 1 for one seed,
+  // round 5 for another), so a cumulative-through-round count would mostly
+  // reflect how late the topic happened to fall, not engagement about the
+  // topic itself.
+  function roundEventCounts(seed, cond, idx, types){
+    const { agents, rounds } = DATA.seeds[seed][cond];
+    if (idx < 0 || !rounds[idx]) return null;
+    let same = 0, diff = 0;
+    (rounds[idx].timeline || []).forEach(ev => {
+      if (!types.has(ev.type) || !ev.target) return;
+      const actor = agents[ev.agent_id], target = agents[ev.target];
+      if (!actor || !target || actor.party === 'Neutral' || target.party === 'Neutral') return;
+      if (actor.party === target.party) same++; else diff++;
+    });
+    return { same, diff };
+  }
+
   function buildTopicSkeleton(){
     const chartsWrap = document.getElementById('topic-charts');
     if (!chartsWrap.childElementCount){
@@ -1583,31 +1615,34 @@
         chartsWrap.appendChild(card);
       });
     }
-    const distWrap = document.getElementById('topic-dist-panels');
-    if (!distWrap.childElementCount){
-      CONDITIONS.forEach(c => {
-        const meta = COND_META[c];
-        const panel = document.createElement('div');
-        panel.className = 'col';
-        panel.id = `topic-dist-${c}`;
-        panel.innerHTML = `
-          <div class="col-head cond-${c}">
-            <div><span class="col-title" style="color:${condColorFor(c)}">${meta.label}</span></div>
-          </div>
-          <div class="dist-chart"><svg></svg></div>
-          <div class="dist-means"></div>`;
-        distWrap.appendChild(panel);
-      });
+    if (!document.getElementById('topic-dist-panels').childElementCount){
+      // "All issues (mean)" isn't topic-specific -- pooled by topic-round
+      // it's just each seed's overall political-position average at an
+      // arbitrary round, no different in kind from looking at any other
+      // round. Skip it here; keep it in Replay/Pooled-Simulation.
+      buildDistPanelsInto('topic-dist-panels', 'topic-dist-measure', 'topic-dist', renderTopicView, [0, 2, 3]);
     }
     const behaviorWrap = document.getElementById('topic-behavior-charts');
     if (!behaviorWrap.childElementCount){
+      TOPIC_DUAL_METRICS.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'chart-card';
+        card.id = m.id;
+        card.innerHTML = `<h3>${m.title}</h3><div class="metric-sub">Count within that round, mean across seeds, 95% CI</div>
+          <div class="dual-grid">
+            <div class="dual-cell"><div class="dual-cell-label">Cross-party (count)</div><svg></svg><div class="chart-legend"></div></div>
+            <div class="dual-cell"><div class="dual-cell-label">Within-party (count)</div><svg></svg><div class="chart-legend"></div></div>
+          </div>`;
+        behaviorWrap.appendChild(card);
+      });
+
       const crossCard = document.createElement('div');
       crossCard.className = 'chart-card';
       crossCard.id = 'topic-cross-party';
       crossCard.innerHTML = `<h3>Cross-party edge ratio</h3><div class="metric-sub">Mean across seeds, at each seed's topic round</div><svg></svg><div class="chart-legend"></div>`;
       behaviorWrap.appendChild(crossCard);
 
-      [{ id:'topic-attention', title:'Most attention received', sub:'Cumulative through each seed’s topic round, top 3 per condition' },
+      [{ id:'topic-attention', title:'Most attention received', sub:'Within each seed’s topic round, summed across seeds, top 3 per condition' },
        { id:'topic-positive-attention', title:'Most positive attention received', sub:'LIKE/FOLLOW/agreeing-RESPOND only, top 3 per condition' }].forEach(spec => {
         const card = document.createElement('div');
         card.className = 'chart-card';
@@ -1715,28 +1750,62 @@
       legend.innerHTML = bars.map(b => `<span><span class="dist-dot" style="background:${b.color}"></span>${b.label}${b.mean!=null ? ' '+m.fmt(b.mean) : ''}</span>`).join('');
     });
 
-    // Cross-party edge ratio: mean of each seed's own topic-round value,
-    // no CI (it's a network snapshot ratio, not a sampled agent population).
+    // Each seed contributes exactly one value (its own topic-round reading)
+    // per condition -- n=3 at most, so these CIs are wide, but it's a
+    // genuine pooled sample like the survey-based bars above, not a
+    // single fixed number, so the same ciForMean treatment applies.
+    const seedValsAt = (cond, key) => {
+      const vals = [];
+      seedIds.forEach(seed => {
+        const idx = topicRoundIndex(seed, cond, topicKey);
+        const arr = DATA.seeds[seed][cond].metrics[key];
+        if (idx >= 0 && arr && arr[idx] != null) vals.push(arr[idx]);
+      });
+      return vals;
+    };
+
+    // Cross-party edge ratio: fraction of ties, shown as %.
     {
       const svg = document.querySelector('#topic-cross-party svg');
       const legend = document.querySelector('#topic-cross-party .chart-legend');
       const bars = CONDITIONS.map(cond => {
-        const vals = [];
-        seedIds.forEach(seed => {
-          const idx = topicRoundIndex(seed, cond, topicKey);
-          const arr = DATA.seeds[seed][cond].metrics.cross_party_ratio;
-          if (idx >= 0 && arr && arr[idx] != null) vals.push(arr[idx]);
-        });
-        const mean = vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
-        return { label: condLabel[cond], mean, lo:null, hi:null, color: condColor[cond] };
+        const ci = ciForMean(seedValsAt(cond, 'cross_party_ratio'));
+        return { label: condLabel[cond], mean: ci?ci.mean:null, lo: ci?ci.lo:null, hi: ci?ci.hi:null, color: condColor[cond] };
       });
       barChart(svg, bars);
       legend.innerHTML = bars.map(b => `<span><span class="dist-dot" style="background:${b.color}"></span>${b.label}${b.mean!=null ? ' '+(b.mean*100).toFixed(0)+'%' : ''}</span>`).join('');
     }
 
-    // Attention cards: cumulative through each seed's own topic-round,
-    // categories summed across all three seeds -- same identity-category
-    // ranking as the Pooled/Simulation attention cards.
+    // Likes&follows/Dislikes&unfollows/Responses, cross- vs within-party:
+    // counted from each seed's own topic-round timeline only (not the
+    // cumulative metrics arrays the Simulation trend lines use) -- raw
+    // counts, not shares.
+    TOPIC_DUAL_METRICS.forEach(m => {
+      const card = document.getElementById(m.id);
+      const cells = card.querySelectorAll('.dual-cell');
+      const valsFor = (cond, sameOrDiff) => {
+        const vals = [];
+        seedIds.forEach(seed => {
+          const idx = topicRoundIndex(seed, cond, topicKey);
+          const r = roundEventCounts(seed, cond, idx, m.types);
+          if (r) vals.push(r[sameOrDiff]);
+        });
+        return vals;
+      };
+      [{ key:'diff', cell:cells[0] }, { key:'same', cell:cells[1] }].forEach(({ key, cell }) => {
+        const bars = CONDITIONS.map(cond => {
+          const ci = ciForMean(valsFor(cond, key));
+          return { label: condLabel[cond], mean: ci?ci.mean:null, lo: ci?ci.lo:null, hi: ci?ci.hi:null, color: condColor[cond] };
+        });
+        barChart(cell.querySelector('svg'), bars);
+        cell.querySelector('.chart-legend').innerHTML = bars.map(b => `<span><span class="dist-dot" style="background:${b.color}"></span>${b.label}${b.mean!=null ? ' '+b.mean.toFixed(1) : ''}</span>`).join('');
+      });
+    });
+
+    // Attention cards: counted within each seed's own topic-round only (not
+    // cumulative through it -- same round-position bias as the dual-metric
+    // cards above), categories summed across all three seeds -- same
+    // identity-category ranking as the Pooled/Simulation attention cards.
     [{ id:'topic-attention', positiveOnly:false }, { id:'topic-positive-attention', positiveOnly:true }].forEach(spec => {
       CONDITIONS.forEach(cond => {
         const listEl = document.querySelector(`#${spec.id} .attn-list[data-cond="${cond}"]`);
@@ -1746,16 +1815,14 @@
         seedIds.forEach(seed => {
           const { agents, rounds } = DATA.seeds[seed][cond];
           const idx = topicRoundIndex(seed, cond, topicKey);
-          if (idx < 0) return;
-          for (let i = 0; i <= idx; i++){
-            (rounds[i].timeline || []).forEach(ev => {
-              if (!countsAsAttention(ev, spec.positiveOnly)) return;
-              const agent = agents[ev.target];
-              if (!agent) return;
-              const key = categoryKeyOf(agent);
-              counts[key] = (counts[key] || 0) + 1;
-            });
-          }
+          if (idx < 0 || !rounds[idx]) return;
+          (rounds[idx].timeline || []).forEach(ev => {
+            if (!countsAsAttention(ev, spec.positiveOnly)) return;
+            const agent = agents[ev.target];
+            if (!agent) return;
+            const key = categoryKeyOf(agent);
+            counts[key] = (counts[key] || 0) + 1;
+          });
         });
         const ranked = Object.entries(counts).sort((a,b) => b[1]-a[1]).slice(0, 3);
         listEl.innerHTML = ranked.length
@@ -1768,14 +1835,17 @@
       });
     });
 
-    const measure = DIST_MEASURES[0]; // on-topic issue -- the only topic-specific one
+    // "All issues (mean)" has no button in this tab (see buildTopicSkeleton);
+    // fall back to on-topic issue if that's still the active index from
+    // another tab.
+    const measure = state.distMeasureIdx === 1 ? DIST_MEASURES[0] : DIST_MEASURES[state.distMeasureIdx];
     CONDITIONS.forEach(cond => {
       const baseline = { d:[], r:[] }, current = { d:[], r:[] };
       seedIds.forEach(seed => {
         const { agents, rounds } = DATA.seeds[seed][cond];
         const idx = topicRoundIndex(seed, cond, topicKey);
         if (idx < 0) return;
-        const vals = distValuesFrom(agents, rounds, idx, 'on_topic');
+        const vals = distValuesFrom(agents, rounds, idx, measure.key);
         baseline.d.push(...vals.baseline.d); baseline.r.push(...vals.baseline.r);
         current.d.push(...vals.current.d); current.r.push(...vals.current.r);
       });
@@ -1868,6 +1938,7 @@
   function onDistMeasureChange(){
     renderDistributions();
     renderPooledDistributions();
+    renderTopicView();
   }
   buildColumns();
   buildDistPanelsInto('dist-panels', 'dist-measure', 'dist', onDistMeasureChange);
@@ -1954,6 +2025,16 @@
   });
 
   initSeed(seeds[0]);
+
+  // Toolbars stick just below the masthead (see .toolbar's position:sticky
+  // above); the masthead itself can wrap to two lines on narrow viewports,
+  // so its height is measured rather than assumed.
+  const mastheadEl = document.querySelector('.masthead');
+  function updateMastheadHeight(){
+    document.documentElement.style.setProperty('--masthead-h', `${mastheadEl.offsetHeight}px`);
+  }
+  updateMastheadHeight();
+  window.addEventListener('resize', updateMastheadHeight);
 
   if (!REDUCED_MOTION){
     (function loop(){
