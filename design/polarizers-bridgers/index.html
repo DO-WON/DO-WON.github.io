@@ -353,12 +353,15 @@
   .dist-means .tabular{ color:var(--ink); }
   .dist-dot{ width:.6rem; height:.6rem; border-radius:50%; display:inline-block; margin-right:.4rem; flex-shrink:0; }
 
-  .attn-grid{ display:flex; flex-direction:column; gap:.5rem; margin-top:.3rem; }
-  .attn-cond-name{ font-size:.66rem; font-weight:600; margin-bottom:.25rem; display:inline-flex; align-items:center; }
-  .attn-list{ display:flex; flex-wrap:wrap; align-items:center; gap:.35rem .65rem; }
+  .attn-grid{ display:flex; flex-direction:column; gap:.4rem; margin-top:.3rem; }
+  .attn-row{ display:flex; align-items:baseline; flex-wrap:wrap; column-gap:.4rem; row-gap:.2rem; }
+  .attn-cond-name{ font-size:.66rem; font-weight:700; display:inline-flex; align-items:center; flex-shrink:0; }
+  .attn-cond-name::after{ content:":"; margin-left:.1rem; color:var(--ink-muted); font-weight:400; }
+  .attn-list{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.3rem; padding-left:1.05rem; }
   .attn-chip{ display:inline-flex; align-items:center; gap:.3rem; font-size:.66rem; }
   .attn-id{ font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--ink); }
   .attn-count{ font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; color:var(--ink-muted); }
+  .attn-sep{ color:var(--ink-muted); font-size:.66rem; }
   .attn-empty{ font-size:.66rem; color:var(--ink-muted); font-style:italic; }
 
   [hidden]{ display:none !important; }
@@ -456,15 +459,15 @@
             <li><b>Full-topic issue polarization</b> &mdash; the same distance, but averaged across all six ANES items regardless of that round's topic. This is the quantity closest to the study's actual preregistered H1a DV.</li>
             <li><b>Affective polarization</b> &mdash; each organic agent's in-party feeling-thermometer warmth minus their out-party warmth, averaged across agents &mdash; the H1b proxy.</li>
           </ul>
-          <p>The bottom row repeats the same three, but as a bar per condition at whichever round the scrubber is on, with a 95% confidence interval computed from the agents feeding that round's number (a t-distribution critical value, not the z=1.96 shortcut, since some of these groups are as small as 3&ndash;4 agents). For the two distance bars the interval combines each party group's own uncertainty (their means' standard errors, combined); for affective polarization it's the standard error of the pooled agent-level gap. At round 0, the on-topic bar is empty &mdash; there's no topic yet to compare on.</p>
+          <p>The bottom row repeats the same three, but as a bar per condition &mdash; and unlike everything else on this page, these three bars are <b>static</b>, not round-scrubber-dependent: each pools every organic agent's reading from all six discussion rounds (round 0 excluded &mdash; it has no topic yet), not just whichever round you're on. That trades round-by-round movement for a steadier estimate off a larger effective sample (up to 24&ndash;30 agent-round observations per party per condition instead of 4&ndash;5 agents). The 95% confidence interval is computed the same way as before (a t-distribution critical value, not the z=1.96 shortcut): for the two distance bars it combines each party group's own uncertainty (their means' standard errors, combined); for affective polarization it's the standard error of the pooled agent-level gap. On the Pooled tab, this pooling stacks on top of the existing seed-pooling &mdash; all three matched seeds' agents across all six rounds, combined into one number per condition.</p>
 
           <p><b>Behavior-based</b> &mdash; from what actually happened in the room: replies, likes, dislikes, follows. What agents did, not what they said afterward.</p>
           <ul>
             <li><b>Likes &amp; follows / Dislikes &amp; unfollows / Responses</b> &mdash; each card splits into two small side-by-side charts, cross-party and within-party, each comparing the three conditions the normal way (solid/dashed/dotted by color). Worth knowing going in: LIKE is essentially <i>always</i> same-party across every committed run (a real ceiling effect, not a rendering issue &mdash; the within-party mini-chart moves, the cross-party one barely does), while RESPOND skews the opposite way &mdash; agents mostly reply to rebut people they disagree with, not to agree with people they don't.</li>
             <li><b>Cross-party edge ratio</b> &mdash; the share of <i>all</i> current ties (follow and interaction combined, regardless of which the toggle above the network panel is currently showing) that connect a Democrat to a Republican. A raw count-based ratio, not adjusted for how many D vs. R nodes exist to connect to.</li>
-            <li><b>Most attention received</b> &mdash; per condition, the top 3 agents by incoming <code>RESPOND</code>/<code>LIKE</code>/<code>DISLIKE</code>/<code>FOLLOW</code>/<code>UNFOLLOW</code> count (every action with a real target, i.e. every event type except <code>POST</code> and <code>DO_NOTHING</code>), tallied cumulatively from round 1 through whichever round the scrubber is on. Tracks the scrubber like everything else here, so the ranking can reshuffle as a run plays out. Not available on the Pooled tab &mdash; there's no single timeline to attribute credit to once seeds are combined (see the Pooled tab note below).</li>
+            <li><b>Most attention received</b> &mdash; per condition, the top 3 by incoming <code>RESPOND</code>/<code>LIKE</code>/<code>DISLIKE</code>/<code>FOLLOW</code>/<code>UNFOLLOW</code> count (every action with a real target, i.e. every event type except <code>POST</code> and <code>DO_NOTHING</code>), tallied cumulatively from round 1 through whichever round the scrubber is on. Tracks the scrubber like everything else here, so the ranking can reshuffle as a run plays out. On Replay, ranked by individual agent (<code>A5</code>, <code>A9</code>, &hellip;); on Pooled, individual IDs aren't comparable across seeds, so it's ranked by the same five color&times;shape identity categories used everywhere else on the page instead &mdash; D organic, R organic, D bad actor, R bad actor, Bridger &mdash; summed across all three seeds' timelines (see the Pooled tab note below).</li>
           </ul>
-          <p>The bar chart here is <b>in-group engagement rate</b>, also tracking the round scrubber: each organic agent's share of LIKE/FOLLOW/RESPOND actions so far (not DISLIKE/UNFOLLOW &mdash; a different signal) that landed on their own party, meaned per condition with the same 95%-CI treatment as the survey-based bars.</p>
+          <p>The bar chart here is <b>in-group engagement rate</b>, also tracking the round scrubber: each organic agent's share of LIKE/FOLLOW actions so far (not RESPOND, and not DISLIKE/UNFOLLOW &mdash; different signals) that landed on their own party, meaned per condition with the same 95%-CI treatment as the survey-based bars. RESPOND is excluded deliberately &mdash; per the note above, agents mostly respond to rebut people they disagree with, so folding it in would pull this rate toward cross-party rather than measure the same in-group-preference signal as LIKE/FOLLOW.</p>
 
           <p>All of this is descriptive from these specific demo runs &mdash; the Replay tab is one matched triple per seed, not a confirmatory statistical result. The Pooled tab (below) widens the sample by combining every matched seed, which is where these confidence intervals get more meaningful.</p>
         </div>
@@ -604,6 +607,18 @@
   const DATA = JSON.parse(document.getElementById('sim-data').textContent);
   const CONDITIONS = ['control','bad_actor','bridger'];
   const ATTENTION_TYPES = new Set(['RESPOND','LIKE','DISLIKE','FOLLOW','UNFOLLOW']);
+  const ATTENTION_CATEGORIES = [
+    { key:'organic_D', label:'D organic',   agent:{ party:'D',       role:'organic' } },
+    { key:'organic_R', label:'R organic',   agent:{ party:'R',       role:'organic' } },
+    { key:'bad_D',     label:'D bad actor', agent:{ party:'D',       role:'bad_actor' } },
+    { key:'bad_R',     label:'R bad actor', agent:{ party:'R',       role:'bad_actor' } },
+    { key:'bridger',   label:'Bridger',     agent:{ party:'Neutral', role:'bridger' } },
+  ];
+  function categoryKeyOf(agent){
+    if (agent.role === 'bridger') return 'bridger';
+    if (agent.role === 'bad_actor') return agent.party === 'D' ? 'bad_D' : 'bad_R';
+    return agent.party === 'D' ? 'organic_D' : 'organic_R';
+  }
   const COND_META = {
     control:  { label:'Control',   sub:'No intervention — organic population only' },
     bad_actor:{ label:'Bad Actor', sub:'2 polarizing agents seeded (1 D, 1 R)' },
@@ -946,7 +961,7 @@
     { id:'respond', group:'behavior', chartType:'dual', title:'Responses', sub:'Cross- vs. within-party, cumulative', sameKey:'respond_same', diffKey:'respond_diff' },
     { id:'cross_party', key:'cross_party_ratio', group:'behavior', chartType:'line', title:'Cross-party edge ratio', sub:'Share of ties joining different parties' },
     { id:'top_attention', group:'behavior', chartType:'toplist', title:'Most attention received', sub:'Cumulative RESPOND/LIKE/DISLIKE/FOLLOW/UNFOLLOW received, top 3 per condition' },
-    { id:'homophily_bar', group:'behavior', chartType:'bar', title:'In-group engagement rate', subPrefix:'share of LIKE/FOLLOW/RESPOND at own party, 95% CI', ciType:'ratio', fmt:v=>(v*100).toFixed(0)+'%' },
+    { id:'homophily_bar', group:'behavior', chartType:'bar', title:'In-group engagement rate', subPrefix:'share of LIKE/FOLLOW at own party, 95% CI', ciType:'ratio', fmt:v=>(v*100).toFixed(0)+'%' },
   ];
 
   function lineChart(svg, series){
@@ -1026,6 +1041,29 @@
     const half = tCritical(df) * s.se;
     return { mean:s.mean, lo:s.mean-half, hi:s.mean+half };
   }
+  // Same-party share of LIKE/FOLLOW only (RESPOND excluded), per organic
+  // agent, cumulative through roundIdx -- unlike engage_same/engage_total
+  // (baked into the JSON, LIKE+FOLLOW+RESPOND combined), this reads the raw
+  // timeline directly since no LIKE/FOLLOW-only field is precomputed.
+  function likeFollowRatios(entries, roundIdx){
+    const perAgent = {};
+    entries.forEach(({ agents, rounds }, idx) => {
+      for (let i = 0; i <= roundIdx && i < rounds.length; i++){
+        (rounds[i].timeline || []).forEach(ev => {
+          if (ev.type !== 'LIKE' && ev.type !== 'FOLLOW') return;
+          if (!ev.target) return;
+          const actor = agents[ev.agent_id];
+          const target = agents[ev.target];
+          if (!actor || actor.role !== 'organic' || !target) return;
+          const key = idx + ':' + ev.agent_id;
+          const rec = perAgent[key] || (perAgent[key] = { same:0, total:0 });
+          rec.total++;
+          if (actor.party === target.party) rec.same++;
+        });
+      }
+    });
+    return Object.values(perAgent).filter(rec => rec.total).map(rec => rec.same / rec.total);
+  }
   function ciForDistance(dValues, rValues){
     const sD = groupStats(dValues), sR = groupStats(rValues);
     if (!sD || !sR) return null;
@@ -1104,9 +1142,9 @@
         } else if (m.chartType === 'toplist'){
           card.innerHTML = `<h3>${m.title}</h3><div class="metric-sub">${m.sub}</div>
             <div class="attn-grid">
-              <div class="cond-control"><div class="attn-cond-name"><span class="cond-dot"></span>Control</div><div class="attn-list" data-cond="control"></div></div>
-              <div class="cond-bad_actor"><div class="attn-cond-name"><span class="cond-dot"></span>Bad Actor</div><div class="attn-list" data-cond="bad_actor"></div></div>
-              <div class="cond-bridger"><div class="attn-cond-name"><span class="cond-dot"></span>Bridger</div><div class="attn-list" data-cond="bridger"></div></div>
+              <div class="attn-row cond-control"><div class="attn-cond-name"><span class="cond-dot"></span>Control</div><div class="attn-list" data-cond="control"></div></div>
+              <div class="attn-row cond-bad_actor"><div class="attn-cond-name"><span class="cond-dot"></span>Bad Actor</div><div class="attn-list" data-cond="bad_actor"></div></div>
+              <div class="attn-row cond-bridger"><div class="attn-cond-name"><span class="cond-dot"></span>Bridger</div><div class="attn-list" data-cond="bridger"></div></div>
             </div>`;
         } else {
           card.innerHTML = `<h3>${m.title}</h3><div class="metric-sub">${m.sub || m.subPrefix}</div><svg></svg><div class="chart-legend"></div>`;
@@ -1128,34 +1166,51 @@
       if (m.chartType === 'bar'){
         const { rounds } = getAgentsRounds('control');
         const roundIdx = Math.min(state.round, rounds.length - 1);
+        // Survey-based bars (on-topic/full-topic distance, affective
+        // polarization) are pooled statically across all 6 discussion
+        // rounds -- not round-scrubber-dependent, unlike everything else
+        // on the page. Round 0 (pre-discussion baseline) is excluded, same
+        // as the "6 rounds" framing used everywhere else in this guide.
+        const staticPool = m.group === 'survey' && m.ciType !== 'ratio';
         const subEl = card.querySelector('.metric-sub');
-        if (subEl) subEl.textContent = `Round ${roundIdx} · ${m.subPrefix}`;
+        if (subEl){
+          subEl.textContent = staticPool
+            ? `${m.subPrefix} · pooled across rounds 1–6`
+            : `Round ${roundIdx} · ${m.subPrefix}`;
+        }
         const bars = CONDITIONS.map(cond => {
-          const { agents, rounds: r } = getAgentsRounds(cond);
-          const round = r[roundIdx];
-          const dVals = [], rVals = [], allVals = [], ratioVals = [];
-          for (const aid in (round.values || {})){
-            const agent = agents[aid];
-            if (!agent) continue;
-            const entry = round.values[aid];
-            if (m.ciType === 'gapmean'){
-              if (entry.ft_dem == null) continue;
-              const inP = agent.party === 'D' ? entry.ft_dem : entry.ft_rep;
-              const outP = agent.party === 'D' ? entry.ft_rep : entry.ft_dem;
-              allVals.push(inP - outP);
-            } else if (m.ciType === 'ratio'){
-              if (!entry.engage_total) continue;
-              ratioVals.push(entry.engage_same / entry.engage_total);
-            } else {
-              const v = entry[m.measureField];
-              if (v == null) continue;
-              if (agent.party === 'D') dVals.push(v);
-              else if (agent.party === 'R') rVals.push(v);
-            }
+          let ci;
+          if (m.ciType === 'ratio'){
+            const entries = idPrefix === 'pchart'
+              ? Object.keys(DATA.seeds).map(seed => DATA.seeds[seed][cond])
+              : [getAgentsRounds(cond)];
+            ci = ciForMean(likeFollowRatios(entries, roundIdx));
+          } else {
+            const { agents, rounds: r } = getAgentsRounds(cond);
+            const roundsToPool = staticPool
+              ? r.slice(1).filter(rr => rr && rr.values)
+              : [r[roundIdx]];
+            const dVals = [], rVals = [], allVals = [];
+            roundsToPool.forEach(round => {
+              for (const aid in (round.values || {})){
+                const agent = agents[aid];
+                if (!agent) continue;
+                const entry = round.values[aid];
+                if (m.ciType === 'gapmean'){
+                  if (entry.ft_dem == null) continue;
+                  const inP = agent.party === 'D' ? entry.ft_dem : entry.ft_rep;
+                  const outP = agent.party === 'D' ? entry.ft_rep : entry.ft_dem;
+                  allVals.push(inP - outP);
+                } else {
+                  const v = entry[m.measureField];
+                  if (v == null) continue;
+                  if (agent.party === 'D') dVals.push(v);
+                  else if (agent.party === 'R') rVals.push(v);
+                }
+              }
+            });
+            ci = m.ciType === 'gapmean' ? ciForMean(allVals) : ciForDistance(dVals, rVals);
           }
-          const ci = m.ciType === 'gapmean' ? ciForMean(allVals)
-            : m.ciType === 'ratio' ? ciForMean(ratioVals)
-            : ciForDistance(dVals, rVals);
           return { label: condLabel[cond], mean: ci ? ci.mean : null, lo: ci ? ci.lo : null, hi: ci ? ci.hi : null, color: condColor[cond] };
         });
         barChart(svg, bars);
@@ -1175,16 +1230,43 @@
         });
       } else if (m.chartType === 'toplist'){
         const subEl = card.querySelector('.metric-sub');
+        const pooled = idPrefix === 'pchart';
         CONDITIONS.forEach(cond => {
+          const listEl = card.querySelector(`.attn-list[data-cond="${cond}"]`);
+          if (pooled){
+            const seedIds = Object.keys(DATA.seeds);
+            const roundIdx = Math.min(state.round, DATA.seeds[seedIds[0]][cond].rounds.length - 1);
+            if (cond === 'control' && subEl){
+              subEl.textContent = `Round ${roundIdx} · cumulative RESPOND/LIKE/DISLIKE/FOLLOW/UNFOLLOW received, by category, pooled across seeds`;
+            }
+            const counts = {};
+            seedIds.forEach(seed => {
+              const { agents, rounds } = DATA.seeds[seed][cond];
+              for (let i = 0; i <= roundIdx && i < rounds.length; i++){
+                (rounds[i].timeline || []).forEach(ev => {
+                  if (!ATTENTION_TYPES.has(ev.type) || !ev.target) return;
+                  const agent = agents[ev.target];
+                  if (!agent) return;
+                  const key = categoryKeyOf(agent);
+                  counts[key] = (counts[key] || 0) + 1;
+                });
+              }
+            });
+            const ranked = Object.entries(counts).sort((a,b) => b[1]-a[1]).slice(0, 3);
+            listEl.innerHTML = ranked.length
+              ? ranked.map(([key, count]) => {
+                  const meta = ATTENTION_CATEGORIES.find(c => c.key === key);
+                  const color = nodeColor(meta.agent, 50);
+                  const tri = meta.agent.role !== 'organic';
+                  return `<span class="attn-chip"><span class="swatch${tri ? ' tri' : ''}" style="background:${color}"></span><span class="attn-id">${meta.label}</span><span class="attn-count">(${count})</span></span>`;
+                }).join('<span class="attn-sep">&rsaquo;</span>')
+              : `<span class="attn-empty">No engagement yet.</span>`;
+            return;
+          }
           const { agents, rounds } = getAgentsRounds(cond);
           const roundIdx = Math.min(state.round, rounds.length - 1);
-          const listEl = card.querySelector(`.attn-list[data-cond="${cond}"]`);
           if (cond === 'control' && subEl){
             subEl.textContent = `Round ${roundIdx} · cumulative RESPOND/LIKE/DISLIKE/FOLLOW/UNFOLLOW received, top 3`;
-          }
-          if (!rounds[0] || rounds[0].timeline === undefined){
-            listEl.innerHTML = `<span class="attn-empty">Not available in Pooled &mdash; no single timeline to attribute.</span>`;
-            return;
           }
           const counts = {};
           for (let i = 0; i <= roundIdx; i++){
@@ -1206,7 +1288,7 @@
             const color = nodeColor(agent, warmth[aid]);
             const roleTag = agent.role !== 'organic' ? `<span class="role-chip">${agent.role === 'bad_actor' ? 'bad actor' : 'bridger'}</span>` : '';
             return `<span class="attn-chip"><span class="dist-dot" style="background:${color}"></span><span class="attn-id">${aid}</span>${roleTag}<span class="attn-count">(${count})</span></span>`;
-          }).join('');
+          }).filter(Boolean).join('<span class="attn-sep">&rsaquo;</span>');
         });
       } else {
         const series = [
