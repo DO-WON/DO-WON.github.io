@@ -561,10 +561,21 @@
 <div id="view-pooled" hidden>
   <div class="toolbar">
     <div class="field">
+      <span class="field-label">Pool by</span>
+      <div class="segmented" id="pool-mode">
+        <button data-mode="simulation" aria-pressed="true">Simulation</button>
+        <button data-mode="topic" aria-pressed="false">Topic</button>
+      </div>
+    </div>
+    <div class="field" id="pooled-across-field">
       <span class="field-label">Pooled across</span>
       <div class="round-label">Runs <b>0001</b>, <b>0002</b>, <b>0003</b> &mdash; no single discussion to replay</div>
     </div>
-    <div class="transport">
+    <div class="field" id="topic-select-field" hidden>
+      <span class="field-label">Topic</span>
+      <select id="topic-select"></select>
+    </div>
+    <div class="transport" id="pooled-transport">
       <button id="pooled-btn-prev" title="Previous round" aria-label="Previous round">&#9664;</button>
       <button id="pooled-btn-play" title="Play" aria-label="Play">&#9654;</button>
       <button id="pooled-btn-next" title="Next round" aria-label="Next round">&#9654;&#9654;</button>
@@ -574,32 +585,68 @@
   </div>
 
   <div class="stage">
-    <div class="outcomes">
-      <div class="outcomes-head">
-        <h2>Survey-based outcomes &mdash; pooled</h2>
-        <div class="disclaimer">Same definitions as the Replay tab, but every organic agent from all three matched runs (24&ndash;30 per condition) is pooled at each round index, not just one run's.</div>
+    <div id="pooled-simulation-content">
+      <div class="outcomes">
+        <div class="outcomes-head">
+          <h2>Survey-based outcomes &mdash; pooled</h2>
+          <div class="disclaimer">Same definitions as the Replay tab, but every organic agent from all three matched runs (24&ndash;30 per condition) is pooled at each round index, not just one run's.</div>
+        </div>
+        <div class="charts" id="pooled-charts-survey"></div>
       </div>
-      <div class="charts" id="pooled-charts-survey"></div>
+
+      <div class="outcomes">
+        <div class="outcomes-head">
+          <h2>Behavior-based outcomes &mdash; pooled</h2>
+          <div class="disclaimer">Cross-party ratio pools ties across all three runs' networks; cross/within-party action counts are summed across runs; both attention cards rank by identity category, summed across all three runs' timelines.</div>
+        </div>
+        <div class="charts" id="pooled-charts-behavior"></div>
+      </div>
+
+      <div class="outcomes">
+        <div class="outcomes-head">
+          <h2>Opinion distributions &mdash; pooled</h2>
+          <div class="disclaimer">Same reading as the Replay tab's distributions, over the pooled population &mdash; a less small sample (n=24&ndash;30 per party per condition) than any one run alone.</div>
+        </div>
+        <div class="field" style="margin-bottom:.75rem;">
+          <span class="field-label">Measure</span>
+          <div class="segmented" id="pooled-dist-measure"></div>
+        </div>
+        <div class="columns" id="pooled-dist-panels"></div>
+      </div>
     </div>
 
-    <div class="outcomes">
-      <div class="outcomes-head">
-        <h2>Behavior-based outcomes &mdash; pooled</h2>
-        <div class="disclaimer">Cross-party ratio pools ties across all three runs' networks; cross/within-party action counts are summed across runs; both attention cards rank by identity category, summed across all three runs' timelines.</div>
+    <div id="pooled-topic-content" hidden>
+      <div class="outcomes">
+        <div class="outcomes-head">
+          <h2>Discussions &mdash; by topic</h2>
+        </div>
+        <div class="field" style="margin-bottom:.75rem;">
+          <span class="field-label">Run</span>
+          <div class="segmented" id="topic-run-select"></div>
+        </div>
+        <div id="topic-discussion-grid"></div>
       </div>
-      <div class="charts" id="pooled-charts-behavior"></div>
-    </div>
 
-    <div class="outcomes">
-      <div class="outcomes-head">
-        <h2>Opinion distributions &mdash; pooled</h2>
-        <div class="disclaimer">Same reading as the Replay tab's distributions, over the pooled population &mdash; a less small sample (n=24&ndash;30 per party per condition) than any one run alone.</div>
+      <div class="outcomes">
+        <div class="outcomes-head">
+          <h2>Survey-based outcomes &mdash; by topic</h2>
+        </div>
+        <div class="charts" id="topic-charts"></div>
       </div>
-      <div class="field" style="margin-bottom:.75rem;">
-        <span class="field-label">Measure</span>
-        <div class="segmented" id="pooled-dist-measure"></div>
+
+      <div class="outcomes">
+        <div class="outcomes-head">
+          <h2>Behavior-based outcomes &mdash; by topic</h2>
+        </div>
+        <div class="charts" id="topic-behavior-charts"></div>
       </div>
-      <div class="columns" id="pooled-dist-panels"></div>
+
+      <div class="outcomes">
+        <div class="outcomes-head">
+          <h2>Opinion distributions &mdash; by topic</h2>
+        </div>
+        <div class="columns" id="topic-dist-panels"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -659,7 +706,7 @@
     dark: { demH:212, demS:70, repH:9, repS:72, lLo:32, lHi:70, sLo:35, sHi:75, bridger:'hsl(262,58%,70%)' },
   };
 
-  const state = { seed:null, round:0, edgeModeOverride:null, distMeasureIdx:0 };
+  const state = { seed:null, round:0, edgeModeOverride:null, distMeasureIdx:0, poolMode:'simulation', topicKey:null, topicDiscussionSeed:null };
 
   function effectiveEdgeMode(){
     return state.edgeModeOverride || (state.round === 0 ? 'follow' : 'interaction');
@@ -898,11 +945,16 @@
     const seedData = DATA.seeds[state.seed][cond];
     const round = seedData.rounds[state.round];
     const container = document.querySelector(`#col-${cond} .chat-panel`);
+    const emptyMsg = state.round === 0 ? 'Baseline reading — network seeded, no discussion yet.' : 'No discussion recorded this round.';
+    renderChatInto(container, seedData, round, emptyMsg);
+  }
+
+  function renderChatInto(container, seedData, round, emptyMessage){
     container.innerHTML = '';
-    if (!round.timeline.length){
+    if (!round || !round.timeline.length){
       const div = document.createElement('div');
       div.className = 'empty-note';
-      div.textContent = state.round === 0 ? 'Baseline reading — network seeded, no discussion yet.' : 'No discussion recorded this round.';
+      div.textContent = emptyMessage;
       container.appendChild(div);
       return;
     }
@@ -1443,55 +1495,58 @@
     });
   }
 
-  function renderDistPanelsInto(idPrefix, getAgentsRounds){
-    const measure = DIST_MEASURES[state.distMeasureIdx];
+  function renderDistPanel(idPrefix, cond, baseline, current, measure){
+    const svg = document.querySelector(`#${idPrefix}-${cond} svg`);
+    const meansEl = document.querySelector(`#${idPrefix}-${cond} .dist-means`);
+    if (!svg) return;
     const p = pal();
     const isDark = resolvedIsDark();
     const demColor = `hsl(${p.demH} ${p.demS}% ${isDark ? 62 : 45}%)`;
     const repColor = `hsl(${p.repH} ${p.repS}% ${isDark ? 62 : 45}%)`;
+    const curves = [];
+    function addCurve(vals, color, filled){
+      if (!vals.length) return;
+      const bw = silverman(vals, measure.floor);
+      const pts = kde(vals, measure.domain, bw);
+      curves.push({
+        points: pts, stroke: color, fill: color,
+        fillOpacity: filled ? 0.28 : 0,
+        dash: filled ? '' : '3,2',
+        strokeWidth: filled ? 1.6 : 1.2,
+      });
+    }
+    addCurve(baseline.d, demColor, false);
+    addCurve(current.d, demColor, true);
+    addCurve(baseline.r, repColor, false);
+    addCurve(current.r, repColor, true);
+
+    const bDMean = meanOf(baseline.d), cDMean = meanOf(current.d);
+    const bRMean = meanOf(baseline.r), cRMean = meanOf(current.r);
+    const meanMarkers = [];
+    if (bDMean != null) meanMarkers.push({ x:bDMean, color:demColor, filled:false });
+    if (cDMean != null) meanMarkers.push({ x:cDMean, color:demColor, filled:true });
+    if (bRMean != null) meanMarkers.push({ x:bRMean, color:repColor, filled:false });
+    if (cRMean != null) meanMarkers.push({ x:cRMean, color:repColor, filled:true });
+    distChart(svg, curves, measure.domain, meanMarkers);
+
+    function fmtDelta(b, c){
+      if (b == null && c == null) return '—';
+      if (b == null) return `<span class="tabular">no round-0 topic &rarr; ${measure.fmt(c)}</span>`;
+      if (c == null) return `<span class="tabular">${measure.fmt(b)} &rarr; —</span>`;
+      const delta = c - b;
+      const sign = delta > 0 ? '+' : '';
+      return `<span class="tabular">${measure.fmt(b)} &rarr; ${measure.fmt(c)} (${sign}${measure.fmt(delta)})</span>`;
+    }
+    meansEl.innerHTML = `
+      <div><span class="dist-dot" style="background:${demColor}"></span>Dem: ${fmtDelta(bDMean, cDMean)}</div>
+      <div><span class="dist-dot" style="background:${repColor}"></span>Rep: ${fmtDelta(bRMean, cRMean)}</div>`;
+  }
+  function renderDistPanelsInto(idPrefix, getAgentsRounds){
+    const measure = DIST_MEASURES[state.distMeasureIdx];
     CONDITIONS.forEach(cond => {
-      const svg = document.querySelector(`#${idPrefix}-${cond} svg`);
-      const meansEl = document.querySelector(`#${idPrefix}-${cond} .dist-means`);
-      if (!svg) return;
       const { agents, rounds } = getAgentsRounds(cond);
       const { baseline, current } = distValuesFrom(agents, rounds, state.round, measure.key);
-      const curves = [];
-      function addCurve(vals, color, filled){
-        if (!vals.length) return;
-        const bw = silverman(vals, measure.floor);
-        const pts = kde(vals, measure.domain, bw);
-        curves.push({
-          points: pts, stroke: color, fill: color,
-          fillOpacity: filled ? 0.28 : 0,
-          dash: filled ? '' : '3,2',
-          strokeWidth: filled ? 1.6 : 1.2,
-        });
-      }
-      addCurve(baseline.d, demColor, false);
-      addCurve(current.d, demColor, true);
-      addCurve(baseline.r, repColor, false);
-      addCurve(current.r, repColor, true);
-
-      const bDMean = meanOf(baseline.d), cDMean = meanOf(current.d);
-      const bRMean = meanOf(baseline.r), cRMean = meanOf(current.r);
-      const meanMarkers = [];
-      if (bDMean != null) meanMarkers.push({ x:bDMean, color:demColor, filled:false });
-      if (cDMean != null) meanMarkers.push({ x:cDMean, color:demColor, filled:true });
-      if (bRMean != null) meanMarkers.push({ x:bRMean, color:repColor, filled:false });
-      if (cRMean != null) meanMarkers.push({ x:cRMean, color:repColor, filled:true });
-      distChart(svg, curves, measure.domain, meanMarkers);
-
-      function fmtDelta(b, c){
-        if (b == null && c == null) return '—';
-        if (b == null) return `<span class="tabular">no round-0 topic &rarr; ${measure.fmt(c)}</span>`;
-        if (c == null) return `<span class="tabular">${measure.fmt(b)} &rarr; —</span>`;
-        const delta = c - b;
-        const sign = delta > 0 ? '+' : '';
-        return `<span class="tabular">${measure.fmt(b)} &rarr; ${measure.fmt(c)} (${sign}${measure.fmt(delta)})</span>`;
-      }
-      meansEl.innerHTML = `
-        <div><span class="dist-dot" style="background:${demColor}"></span>Dem: ${fmtDelta(bDMean, cDMean)}</div>
-        <div><span class="dist-dot" style="background:${repColor}"></span>Rep: ${fmtDelta(bRMean, cRMean)}</div>`;
+      renderDistPanel(idPrefix, cond, baseline, current, measure);
     });
   }
 
@@ -1501,6 +1556,231 @@
 
   function renderPooledDistributions(){
     renderDistPanelsInto('pooled-dist', cond => ({ agents: DATA.pooled[cond].agents, rounds: DATA.pooled[cond].rounds }));
+  }
+
+  // Each seed randomizes its own topic order, so "round 3" is a different
+  // issue per seed -- this looks up whichever round *this* seed actually
+  // discussed the given topic in (identical across control/bad_actor/
+  // bridger within one seed, since only population/network/topic order are
+  // shared, not the round itself).
+  function topicRoundIndex(seed, cond, topicKey){
+    return DATA.seeds[seed][cond].rounds.findIndex(r => r.topic === topicKey);
+  }
+
+  const TOPIC_BAR_METRICS = [
+    { id:'topic-on-topic', title:'On-topic issue polarization', subPrefix:'mean R − mean D, 95% CI', ciType:'distance', fmt:v=>v.toFixed(2) },
+    { id:'topic-affective', title:'Affective polarization', subPrefix:'pooled organic agents, 95% CI', ciType:'gapmean', fmt:v=>v.toFixed(1) },
+  ];
+
+  function buildTopicSkeleton(){
+    const chartsWrap = document.getElementById('topic-charts');
+    if (!chartsWrap.childElementCount){
+      TOPIC_BAR_METRICS.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'chart-card';
+        card.id = m.id;
+        card.innerHTML = `<h3>${m.title}</h3><div class="metric-sub">${m.subPrefix}</div><svg></svg><div class="chart-legend"></div>`;
+        chartsWrap.appendChild(card);
+      });
+    }
+    const distWrap = document.getElementById('topic-dist-panels');
+    if (!distWrap.childElementCount){
+      CONDITIONS.forEach(c => {
+        const meta = COND_META[c];
+        const panel = document.createElement('div');
+        panel.className = 'col';
+        panel.id = `topic-dist-${c}`;
+        panel.innerHTML = `
+          <div class="col-head cond-${c}">
+            <div><span class="col-title" style="color:${condColorFor(c)}">${meta.label}</span></div>
+          </div>
+          <div class="dist-chart"><svg></svg></div>
+          <div class="dist-means"></div>`;
+        distWrap.appendChild(panel);
+      });
+    }
+    const behaviorWrap = document.getElementById('topic-behavior-charts');
+    if (!behaviorWrap.childElementCount){
+      const crossCard = document.createElement('div');
+      crossCard.className = 'chart-card';
+      crossCard.id = 'topic-cross-party';
+      crossCard.innerHTML = `<h3>Cross-party edge ratio</h3><div class="metric-sub">Mean across seeds, at each seed's topic round</div><svg></svg><div class="chart-legend"></div>`;
+      behaviorWrap.appendChild(crossCard);
+
+      [{ id:'topic-attention', title:'Most attention received', sub:'Cumulative through each seed’s topic round, top 3 per condition' },
+       { id:'topic-positive-attention', title:'Most positive attention received', sub:'LIKE/FOLLOW/agreeing-RESPOND only, top 3 per condition' }].forEach(spec => {
+        const card = document.createElement('div');
+        card.className = 'chart-card';
+        card.id = spec.id;
+        card.innerHTML = `<h3>${spec.title}</h3><div class="metric-sub">${spec.sub}</div>
+          <div class="attn-grid">
+            <div class="cond-control"><div class="attn-cond-name" data-cond="control">Control</div><div class="attn-list" data-cond="control"></div></div>
+            <div class="cond-bad_actor"><div class="attn-cond-name" data-cond="bad_actor">Polarizers</div><div class="attn-list" data-cond="bad_actor"></div></div>
+            <div class="cond-bridger"><div class="attn-cond-name" data-cond="bridger">Bridger</div><div class="attn-list" data-cond="bridger"></div></div>
+          </div>`;
+        behaviorWrap.appendChild(card);
+      });
+    }
+    const runSelect = document.getElementById('topic-run-select');
+    if (!runSelect.childElementCount){
+      const seedIds = Object.keys(DATA.seeds).sort();
+      if (!state.topicDiscussionSeed) state.topicDiscussionSeed = seedIds[0];
+      seedIds.forEach(seed => {
+        const btn = document.createElement('button');
+        btn.dataset.seed = seed;
+        btn.textContent = `Run ${seed}`;
+        btn.setAttribute('aria-pressed', seed === state.topicDiscussionSeed);
+        btn.addEventListener('click', () => {
+          state.topicDiscussionSeed = seed;
+          runSelect.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.seed === seed));
+          renderTopicDiscussions();
+        });
+        runSelect.appendChild(btn);
+      });
+    }
+    const gridWrap = document.getElementById('topic-discussion-grid');
+    if (!gridWrap.childElementCount){
+      const cols = document.createElement('div');
+      cols.className = 'columns';
+      CONDITIONS.forEach(c => {
+        const meta = COND_META[c];
+        const panel = document.createElement('div');
+        panel.className = 'col';
+        panel.id = `topic-chat-${c}`;
+        panel.innerHTML = `
+          <div class="col-head cond-${c}">
+            <div><span class="col-title" style="color:${condColorFor(c)}">${meta.label}</span></div>
+          </div>
+          <div class="panel-label">Discussion</div>
+          <div class="chat-panel"></div>`;
+        cols.appendChild(panel);
+      });
+      gridWrap.appendChild(cols);
+    }
+  }
+
+  function renderTopicDiscussions(){
+    const topicKey = state.topicKey;
+    const seed = state.topicDiscussionSeed;
+    if (!seed) return;
+    CONDITIONS.forEach(cond => {
+      const seedData = DATA.seeds[seed][cond];
+      const idx = topicRoundIndex(seed, cond, topicKey);
+      const container = document.querySelector(`#topic-chat-${cond} .chat-panel`);
+      if (!container) return;
+      const round = idx >= 0 ? seedData.rounds[idx] : null;
+      renderChatInto(container, seedData, round, 'Topic not found in this seed.');
+    });
+  }
+
+  function renderTopicView(){
+    if (state.poolMode !== 'topic' || !state.topicKey) return;
+    buildTopicSkeleton();
+    renderTopicDiscussions();
+    const topicKey = state.topicKey;
+    const seedIds = Object.keys(DATA.seeds);
+    const condColor = { control:condColorFor('control'), bad_actor:condColorFor('bad_actor'), bridger:condColorFor('bridger') };
+    const condLabel = { control:'Control', bad_actor:'Polarizers', bridger:'Bridger' };
+
+    TOPIC_BAR_METRICS.forEach(m => {
+      const card = document.getElementById(m.id);
+      const svg = card.querySelector('svg');
+      const legend = card.querySelector('.chart-legend');
+      const bars = CONDITIONS.map(cond => {
+        const dVals = [], rVals = [], allVals = [];
+        seedIds.forEach(seed => {
+          const { agents, rounds } = DATA.seeds[seed][cond];
+          const idx = topicRoundIndex(seed, cond, topicKey);
+          if (idx < 0 || !rounds[idx].values) return;
+          for (const aid in rounds[idx].values){
+            const agent = agents[aid];
+            if (!agent) continue;
+            const entry = rounds[idx].values[aid];
+            if (m.ciType === 'gapmean'){
+              if (entry.ft_dem == null) continue;
+              const inP = agent.party === 'D' ? entry.ft_dem : entry.ft_rep;
+              const outP = agent.party === 'D' ? entry.ft_rep : entry.ft_dem;
+              allVals.push(inP - outP);
+            } else {
+              if (entry.on_topic == null) continue;
+              if (agent.party === 'D') dVals.push(entry.on_topic);
+              else if (agent.party === 'R') rVals.push(entry.on_topic);
+            }
+          }
+        });
+        const ci = m.ciType === 'gapmean' ? ciForMean(allVals) : ciForDistance(dVals, rVals);
+        return { label: condLabel[cond], mean: ci ? ci.mean : null, lo: ci ? ci.lo : null, hi: ci ? ci.hi : null, color: condColor[cond] };
+      });
+      barChart(svg, bars);
+      legend.innerHTML = bars.map(b => `<span><span class="dist-dot" style="background:${b.color}"></span>${b.label}${b.mean!=null ? ' '+m.fmt(b.mean) : ''}</span>`).join('');
+    });
+
+    // Cross-party edge ratio: mean of each seed's own topic-round value,
+    // no CI (it's a network snapshot ratio, not a sampled agent population).
+    {
+      const svg = document.querySelector('#topic-cross-party svg');
+      const legend = document.querySelector('#topic-cross-party .chart-legend');
+      const bars = CONDITIONS.map(cond => {
+        const vals = [];
+        seedIds.forEach(seed => {
+          const idx = topicRoundIndex(seed, cond, topicKey);
+          const arr = DATA.seeds[seed][cond].metrics.cross_party_ratio;
+          if (idx >= 0 && arr && arr[idx] != null) vals.push(arr[idx]);
+        });
+        const mean = vals.length ? vals.reduce((a,b)=>a+b,0)/vals.length : null;
+        return { label: condLabel[cond], mean, lo:null, hi:null, color: condColor[cond] };
+      });
+      barChart(svg, bars);
+      legend.innerHTML = bars.map(b => `<span><span class="dist-dot" style="background:${b.color}"></span>${b.label}${b.mean!=null ? ' '+(b.mean*100).toFixed(0)+'%' : ''}</span>`).join('');
+    }
+
+    // Attention cards: cumulative through each seed's own topic-round,
+    // categories summed across all three seeds -- same identity-category
+    // ranking as the Pooled/Simulation attention cards.
+    [{ id:'topic-attention', positiveOnly:false }, { id:'topic-positive-attention', positiveOnly:true }].forEach(spec => {
+      CONDITIONS.forEach(cond => {
+        const listEl = document.querySelector(`#${spec.id} .attn-list[data-cond="${cond}"]`);
+        const nameEl = document.querySelector(`#${spec.id} .attn-cond-name[data-cond="${cond}"]`);
+        if (nameEl) nameEl.style.color = condColor[cond];
+        const counts = {};
+        seedIds.forEach(seed => {
+          const { agents, rounds } = DATA.seeds[seed][cond];
+          const idx = topicRoundIndex(seed, cond, topicKey);
+          if (idx < 0) return;
+          for (let i = 0; i <= idx; i++){
+            (rounds[i].timeline || []).forEach(ev => {
+              if (!countsAsAttention(ev, spec.positiveOnly)) return;
+              const agent = agents[ev.target];
+              if (!agent) return;
+              const key = categoryKeyOf(agent);
+              counts[key] = (counts[key] || 0) + 1;
+            });
+          }
+        });
+        const ranked = Object.entries(counts).sort((a,b) => b[1]-a[1]).slice(0, 3);
+        listEl.innerHTML = ranked.length
+          ? ranked.map(([key, count]) => {
+              const meta = ATTENTION_CATEGORIES.find(c => c.key === key);
+              const color = nodeColor(meta.agent, 50);
+              return `<span class="attn-chip"><span class="attn-id" style="color:${color}">${meta.label}</span><span class="attn-count">(${count})</span></span>`;
+            }).join('<span class="attn-sep">&rsaquo;</span>')
+          : `<span class="attn-empty">No engagement yet.</span>`;
+      });
+    });
+
+    const measure = DIST_MEASURES[0]; // on-topic issue -- the only topic-specific one
+    CONDITIONS.forEach(cond => {
+      const baseline = { d:[], r:[] }, current = { d:[], r:[] };
+      seedIds.forEach(seed => {
+        const { agents, rounds } = DATA.seeds[seed][cond];
+        const idx = topicRoundIndex(seed, cond, topicKey);
+        if (idx < 0) return;
+        const vals = distValuesFrom(agents, rounds, idx, 'on_topic');
+        baseline.d.push(...vals.baseline.d); baseline.r.push(...vals.baseline.r);
+        current.d.push(...vals.current.d); current.r.push(...vals.current.r);
+      });
+      renderDistPanel('topic-dist', cond, baseline, current, measure);
+    });
   }
 
   function updateRoundLabel(){
@@ -1533,6 +1813,7 @@
     renderPooledCharts();
     renderPooledDistributions();
     updatePooledRoundLabel();
+    renderTopicView();
   }
 
   function setRound(r){
@@ -1613,6 +1894,28 @@
   document.getElementById('pooled-btn-next').addEventListener('click', () => { stopPlay(); setRound(state.round+1); });
   document.getElementById('pooled-round-slider').addEventListener('input', e => { stopPlay(); setRound(parseInt(e.target.value,10)); });
   document.getElementById('pooled-btn-play').addEventListener('click', startPlay);
+
+  const topicKeys = Object.keys(DATA.topic_labels);
+  state.topicKey = topicKeys[0];
+  const topicSelect = document.getElementById('topic-select');
+  topicKeys.forEach(k => { const o = document.createElement('option'); o.value = k; o.textContent = DATA.topic_labels[k]; topicSelect.appendChild(o); });
+  topicSelect.addEventListener('change', e => { state.topicKey = e.target.value; renderTopicView(); });
+
+  function setPoolMode(mode){
+    if (state.poolMode === mode) return;
+    stopPlay();
+    state.poolMode = mode;
+    document.querySelectorAll('#pool-mode button').forEach(b => b.setAttribute('aria-pressed', b.dataset.mode === mode));
+    document.getElementById('pooled-across-field').hidden = mode !== 'simulation';
+    document.getElementById('pooled-transport').hidden = mode !== 'simulation';
+    document.getElementById('topic-select-field').hidden = mode !== 'topic';
+    document.getElementById('pooled-simulation-content').hidden = mode !== 'simulation';
+    document.getElementById('pooled-topic-content').hidden = mode !== 'topic';
+    if (mode === 'topic') renderTopicView();
+  }
+  document.querySelectorAll('#pool-mode button').forEach(btn => {
+    btn.addEventListener('click', () => setPoolMode(btn.dataset.mode));
+  });
 
   function switchTab(tab){
     document.getElementById('view-replay').hidden = tab !== 'replay';
