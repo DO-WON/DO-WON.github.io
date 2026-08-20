@@ -444,11 +444,11 @@
 
           <p><b>Survey-based</b> &mdash; from <code>OPINION_UPDATE</code>, i.e. what an agent says when re-asked the ANES questions after the discussion. What agents report, not what they did.</p>
           <ul>
-            <li><b>On-topic issue polarization</b> &mdash; <code>|mean(position | R) &minus; mean(position | D)|</code> on whichever single ANES issue was that round's actual discussion topic, not averaged across all six items (five of which weren't even discussed that round). Absolute value, so a topic where the two parties happen to swap sides doesn't read as apparent depolarization. A demo-only variant showing the direct effect of that round's discussion.</li>
-            <li><b>Full-topic issue polarization</b> &mdash; the same absolute distance, but averaged across all six ANES items regardless of that round's topic. This is the quantity closest to the study's preregistered H1a DV (there operationalized as a signed contrast, not absolute).</li>
+            <li><b>On-topic issue polarization</b> &mdash; <code>mean(position | R) &minus; mean(position | D)</code> on whichever single ANES issue was that round's actual discussion topic, not averaged across all six items (five of which weren't even discussed that round). A demo-only variant showing the direct effect of that round's discussion.</li>
+            <li><b>Full-topic issue polarization</b> &mdash; the same distance, but averaged across all six ANES items regardless of that round's topic. This is the quantity closest to the study's actual preregistered H1a DV.</li>
             <li><b>Affective polarization</b> &mdash; each organic agent's in-party feeling-thermometer warmth minus their out-party warmth, averaged across agents &mdash; the H1b proxy.</li>
           </ul>
-          <p>The bottom row repeats the same three, but as a bar per condition at whichever round the scrubber is on, with a 95% confidence interval computed from the agents feeding that round's number (a t-distribution critical value, not the z=1.96 shortcut, since some of these groups are as small as 3&ndash;4 agents). For the two distance bars the interval combines each party group's own uncertainty (their means' standard errors, combined), then centers on <code>|mean(R) &minus; mean(D)|</code> and floors the lower bound at 0 since a distance can't go negative &mdash; a simple fold, not a full folded-normal correction, which is fine for a descriptive demo but not a confirmatory interval. For affective polarization it's the standard error of the pooled agent-level gap, unchanged. At round 0, the on-topic bar is empty &mdash; there's no topic yet to compare on.</p>
+          <p>The bottom row repeats the same three, but as a bar per condition at whichever round the scrubber is on, with a 95% confidence interval computed from the agents feeding that round's number (a t-distribution critical value, not the z=1.96 shortcut, since some of these groups are as small as 3&ndash;4 agents). For the two distance bars the interval combines each party group's own uncertainty (their means' standard errors, combined); for affective polarization it's the standard error of the pooled agent-level gap. At round 0, the on-topic bar is empty &mdash; there's no topic yet to compare on.</p>
 
           <p><b>Behavior-based</b> &mdash; from what actually happened in the room: replies, likes, dislikes, follows. What agents did, not what they said afterward.</p>
           <ul>
@@ -920,11 +920,11 @@
     // asked. Row 1 (trajectory) and row 2 (final-round comparison) render
     // as a 2x3 grid since they're listed in that order and the CSS grid
     // is 3 columns wide -- see .charts-survey.
-    { id:'on_topic_line',   key:'on_topic_distance',   abs:true, group:'survey', chartType:'line', title:'On-topic issue polarization',   sub:"|mean R − mean D| on that round's own topic" },
-    { id:'full_topic_line', key:'full_topic_distance', abs:true, group:'survey', chartType:'line', title:'Full-topic issue polarization', sub:'|mean R − mean D| across all six ANES items' },
+    { id:'on_topic_line',   key:'on_topic_distance',   group:'survey', chartType:'line', title:'On-topic issue polarization',   sub:"mean R − mean D on that round's own topic" },
+    { id:'full_topic_line', key:'full_topic_distance', group:'survey', chartType:'line', title:'Full-topic issue polarization', sub:'mean R − mean D across all six ANES items' },
     { id:'affective_line',  key:'animosity_gap',       group:'survey', chartType:'line', title:'Affective polarization',        sub:'In-party − out-party warmth, averaged across agents' },
-    { id:'on_topic_bar',   group:'survey', chartType:'bar', title:'On-topic issue polarization',   subPrefix:'|mean R − mean D|, 95% CI', measureField:'on_topic', ciType:'distance', fmt:v=>v.toFixed(2) },
-    { id:'full_topic_bar', group:'survey', chartType:'bar', title:'Full-topic issue polarization', subPrefix:'|mean R − mean D|, 95% CI', measureField:'all_mean', ciType:'distance', fmt:v=>v.toFixed(2) },
+    { id:'on_topic_bar',   group:'survey', chartType:'bar', title:'On-topic issue polarization',   subPrefix:'mean R − mean D, 95% CI', measureField:'on_topic', ciType:'distance', fmt:v=>v.toFixed(2) },
+    { id:'full_topic_bar', group:'survey', chartType:'bar', title:'Full-topic issue polarization', subPrefix:'mean R − mean D, 95% CI', measureField:'all_mean', ciType:'distance', fmt:v=>v.toFixed(2) },
     { id:'affective_bar',  group:'survey', chartType:'bar', title:'Affective polarization',        subPrefix:'pooled organic agents, 95% CI', ciType:'gapmean', fmt:v=>v.toFixed(1) },
     // Behavior-based: from what agents actually did during the discussion.
     // Each "dual" chart is a full-width card holding two side-by-side
@@ -1020,16 +1020,12 @@
   function ciForDistance(dValues, rValues){
     const sD = groupStats(dValues), sR = groupStats(rValues);
     if (!sD || !sR) return null;
-    const mean = Math.abs(sR.mean - sD.mean);
+    const mean = sR.mean - sD.mean;
     const se = Math.sqrt(sD.se*sD.se + sR.se*sR.se);
     const df = Math.max(1, Math.min(sD.n-1, sR.n-1));
     if (se === 0) return { mean, lo:mean, hi:mean };
     const half = tCritical(df) * se;
-    // Distance can't go negative: center the interval on the absolute
-    // point estimate and floor the lower bound at 0, rather than a full
-    // folded-normal correction -- fine for a descriptive demo, not a
-    // confirmatory interval.
-    return { mean, lo:Math.max(0, mean-half), hi:mean+half };
+    return { mean, lo:mean-half, hi:mean+half };
   }
 
   function barChart(svg, bars){
@@ -1219,14 +1215,10 @@
         dumbbellChart(svg, items);
         legend.innerHTML = items.map(it => `<span><span class="dist-dot" style="background:${it.color}"></span>${it.label} ${it.from!=null?(it.from*100).toFixed(0)+'%':'—'} → ${it.to!=null?(it.to*100).toFixed(0)+'%':'—'}</span>`).join('');
       } else {
-        const seriesData = cond => {
-          const raw = getMetrics(cond)[m.key];
-          return m.abs ? raw.map(v => v == null ? null : Math.abs(v)) : raw;
-        };
         const series = [
-          { data:seriesData('control'),   color:condColor.control,   dash:'',        width:2.2, name:'Control' },
-          { data:seriesData('bad_actor'), color:condColor.bad_actor, dash:'5,3',     width:2.2, name:'Bad actor' },
-          { data:seriesData('bridger'),   color:condColor.bridger,   dash:'1.5,2.5', width:2.2, name:'Bridger' },
+          { data:getMetrics('control')[m.key],   color:condColor.control,   dash:'',        width:2.2, name:'Control' },
+          { data:getMetrics('bad_actor')[m.key], color:condColor.bad_actor, dash:'5,3',     width:2.2, name:'Bad actor' },
+          { data:getMetrics('bridger')[m.key],   color:condColor.bridger,   dash:'1.5,2.5', width:2.2, name:'Bridger' },
         ];
         lineChart(svg, series);
         legend.innerHTML = series.map(s => `<span><span class="dashkey" style="border-top-style:${s.dash===''?'solid':(s.dash==='5,3'?'dashed':'dotted')};border-color:${s.color}"></span>${s.name}</span>`).join('');
