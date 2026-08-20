@@ -214,9 +214,17 @@
   .transport input[type="range"]{ flex:1; accent-color:var(--accent); }
   .round-label{
     font-family:"IBM Plex Mono",monospace; font-size:.78rem; color:var(--ink);
-    white-space:nowrap; min-width:11.5rem;
+    white-space:nowrap;
   }
   .round-label b{ color:var(--accent); }
+  .transport .round-label{ flex:0 0 12rem; width:12rem; overflow:hidden; text-overflow:ellipsis; }
+  @media (max-width:640px){
+    .transport{ flex-wrap:wrap; }
+    .transport .round-label{
+      flex:0 0 100%; width:100%; white-space:normal; overflow:visible; text-overflow:clip;
+      order:1; margin-top:.3rem;
+    }
+  }
 
   /* ---------- replay grid ---------- */
   .stage{ padding:1.1rem 1.25rem 2rem; }
@@ -554,7 +562,7 @@
   <div class="toolbar">
     <div class="field">
       <span class="field-label">Pooled across</span>
-      <div class="round-label" style="min-width:0;">Runs <b>0001</b>, <b>0002</b>, <b>0003</b> &mdash; no single discussion to replay</div>
+      <div class="round-label">Runs <b>0001</b>, <b>0002</b>, <b>0003</b> &mdash; no single discussion to replay</div>
     </div>
     <div class="transport">
       <button id="pooled-btn-prev" title="Previous round" aria-label="Previous round">&#9664;</button>
