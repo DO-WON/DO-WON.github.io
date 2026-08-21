@@ -2,7 +2,7 @@
   {
     "year": "2026",
     "items": [
-      { "type": "General", "htmltext": "<strong>Aug.</strong> Having fun at <a href='https://sicss.io/2026/stanford/people' target='_blank'>SICSS-Stanford 2026</a>!" },
+      { "type": "General", "htmltext": "<strong>Aug.</strong> Having fun at <a href='https://sicss.io/2026/stanford/people' target='_blank'>SICSS-Stanford 2026</a>! &mdash; <a href='./design/polarizers-bridgers/index.html' target='_blank'>check out what our team made!</a>" },
       { "type": "Award", "htmltext": "<strong>Jun.</strong> Awarded the MPower Early Scholars Investment Fund 🎉" },
       { "type": "Award", "htmltext": "<strong>Jun.</strong> Awarded the TRAILS mini-grant! 🤩" },
       { "type": "Talk", "htmltext": "<strong>Jun.</strong> Presented our poster, <em>AI Can Reduce Political Polarization by Challenging Partisan Expectations</em>, at the <a href='https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/' target='_blank'>AI and Social Research: Empathic AI, Metascience, and Methodology</a> Conference at Penn State University." },
