@@ -10,7 +10,8 @@
     "title": "Challenging Partisan Expectations Reduces Political Polarization",
     "authors": "Do Won Kim, Ozgur Can Seckin, Saumya Bhadani, Alessandro Flammini, Giovanni Luca Ciampaglia, Bao Tran Truong",
     "status": "Dissertation Chapter 2 — survey experiment with LLM-powered chatbots",
-    "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity and conversational stance. Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views."
+    "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity and conversational stance. Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views.",
+    "url" : "https://arxiv.org/abs/2606.15901"
   },
   {
     "title": "Can AI Strengthen Democracy? Improving Public Trust in Elections with a Civic Chatbot",
