@@ -1,11 +1,10 @@
 {
   "name": "Do Won Kim",
-  "photoPath": "./assets/images/picture.jpeg",
   "bio": [
-    "I am a PhD candidate in Information at the University of Maryland, advised by <a href=\"https://glciampaglia.com/\">Giovanni Luca Ciampaglia</a> and <a href=\"https://cody.bunta.in\">Cody Buntain</a>. I am also a student affiliate at <a href=\"https://www.trails.umd.edu/\">TRAILS</a> (The Institute for Trustworthy AI in Law and Society).",
-    "I study how information environments can be redesigned to support decision-making and behavior. My work spans computational social science and human-AI interaction.",
-    "In my <a href=\"./dissertation.html\">dissertation</a>, I test interventions in digital information environments to strengthen democracy—from reducing harmful behavior and bridging partisan divides to building trust.",
-    "My broader research agenda includes work on the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using LLMs to better align news feed recommendations with users' stated values. I am also interested in how AI is reshaping the production of scientific knowledge itself."
+    "I am a computational social scientist and a PhD candidate in Information at the University of Maryland, advised by <a href=\"https://glciampaglia.com/\">Giovanni Luca Ciampaglia</a> and <a href=\"https://cody.bunta.in/\">Cody Buntain</a>. I am also a student affiliate at <a href=\"https://www.trails.umd.edu/\">TRAILS</a>, the Institute for Trustworthy AI in Law and Society.",
+    "I study how AI and digital information environments shape people’s beliefs and behavior—and how we can redesign these environments to support informed decision-making and strengthen democracy.",
+    "In my <a href=\"./dissertation.html\">dissertation</a>, I combine experiments with computational methods to design and test interventions to reduce engagement with unreliable sources, bridge partisan divides, and build trust in elections. These projects span social media interventions and AI-powered civic tools.",
+    "My work on news-feed design and human–AI interaction includes the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using large language models to align recommendations with users’ stated values. Beyond political information, I am also interested in how AI is reshaping the production of scientific knowledge."
   ],
   "links": [
     { "label": "CV", "url": "./docs/cv.pdf" },
@@ -14,6 +13,7 @@
     { "label": "GitHub", "url": "https://github.com/DO-WON" },
     { "label": "LinkedIn", "url": "https://www.linkedin.com/in/do-won-kim-336a9a16a/" },
     { "label": "Twitter", "url": "https://twitter.com/DoWonKim13" },
+    { "label": "Bluesky", "url": "https://bsky.app/profile/dowonkim.bsky.social" },
     { "label": "ORCID", "url": "https://orcid.org/0000-0001-7011-2911" }
   ]
 }

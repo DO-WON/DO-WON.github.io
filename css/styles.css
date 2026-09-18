@@ -194,12 +194,6 @@ main {
   min-width: 15rem;
 }
 
-.profile-body h1 {
-  margin: 0 0 0.2rem;
-  font-size: 1.8rem;
-  font-weight: 700;
-}
-
 .profile-role {
   color: var(--color-text-muted);
   margin: 0 0 0.75rem;

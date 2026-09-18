@@ -8,7 +8,7 @@ Schemas and examples for every file under `data/`. Optional fields are marked; e
 
 ## data/profile.json — name, bio, links
 
-Object. Rendered by `js/profile.js` (also sets the page title, nav name, and footer).
+Object. Rendered by `js/profile.js` (also sets the page title, nav name, and footer). `name` is **not** rendered as a heading inside the About section — it already appears in the site header — so the About section starts directly with the bio paragraphs.
 
 ```json
 {
@@ -28,7 +28,7 @@ Object. Rendered by `js/profile.js` (also sets the page title, nav name, and foo
 ```
 
 - `bio` is an array of paragraphs. Each paragraph is rendered via `innerHTML` (trusted site-owner content, same convention as `news.json`'s `htmltext`), so it may contain inline HTML like `<a href="...">links</a>` — e.g. linking out to `./dissertation.html`.
-- Optional: `photoPath` (omit to render without a photo), `title`/`affiliation` (rendered as a byline under the name — omit both if that line would just repeat what the first bio paragraph already says).
+- Optional: `photoPath` (omit to render without a photo — the live site omits it), `title`/`affiliation` (rendered as a byline under the name — omit both if that line would just repeat what the first bio paragraph already says).
 
 ## data/publications.json — published papers
 
