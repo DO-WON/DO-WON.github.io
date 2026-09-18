@@ -19,8 +19,7 @@ const PROFILE_ICONS = {
 const DEFAULT_ICON =
   '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg>';
 
-/** Renders data/profile.json into the About section, nav, title, and footer.
- *  `name` is used for the nav/title/footer (and author highlighting) only. */
+/** Renders data/profile.json into the About section, nav, title, and footer. */
 Site.load("./data/profile.json", "profile-container", (container, profile) => {
   if (profile.name) {
     document.title = profile.name;
@@ -32,31 +31,40 @@ Site.load("./data/profile.json", "profile-container", (container, profile) => {
     }
   }
 
+  // Two-column layout: a narrow side column with the name (plus optional
+  // pronunciation), role/affiliation lines and link badges, next to the bio
+  // paragraphs. Collapses to a single stacked column on narrow screens (CSS).
   const wrapper = Site.el("div", "profile");
+  const side = Site.el("aside", "profile-side");
 
-  // Optional photo. The current site omits `photoPath` so the bio starts
-  // immediately; the name itself is only shown in the site header (nav),
-  // never repeated as an <h1> here.
   if (profile.photoPath) {
     const img = Site.el("img", "profile-photo");
     img.src = profile.photoPath;
     img.alt = profile.name || "Profile photo";
-    wrapper.appendChild(img);
+    side.appendChild(img);
   }
 
-  const body = Site.el("div", "profile-body");
+  const heading = Site.el("h1", "profile-name", profile.name || "");
+  if (profile.pronunciation) {
+    heading.appendChild(document.createTextNode(" "));
+    heading.appendChild(Site.el("span", "profile-pron", `(${profile.pronunciation})`));
+  }
+  side.appendChild(heading);
 
-  const role = [profile.title, profile.affiliation].filter(Boolean).join(", ");
-  if (role) body.appendChild(Site.el("p", "profile-role", role));
-
-  (profile.bio || []).forEach((paragraph) => {
-    const p = Site.el("p", "profile-bio");
-    // paragraph is trusted site-owner content from data/profile.json and may
-    // contain inline links (e.g. to ./dissertation.html), same convention as
-    // news.js's htmltext.
-    p.innerHTML = paragraph;
-    body.appendChild(p);
-  });
+  // `roles` is an array of lines (trusted HTML, may contain links). Older
+  // data files may use `title`/`affiliation` instead; fall back to those.
+  const roles = Array.isArray(profile.roles) && profile.roles.length
+    ? profile.roles
+    : [[profile.title, profile.affiliation].filter(Boolean).join(", ")].filter(Boolean);
+  if (roles.length) {
+    const roleBlock = Site.el("div", "profile-roles");
+    roles.forEach((line) => {
+      const p = Site.el("p", "profile-role");
+      p.innerHTML = line;
+      roleBlock.appendChild(p);
+    });
+    side.appendChild(roleBlock);
+  }
 
   if (profile.links && profile.links.length) {
     const list = Site.el("ul", "profile-links");
@@ -70,8 +78,20 @@ Site.load("./data/profile.json", "profile-container", (container, profile) => {
       li.appendChild(badge);
       list.appendChild(li);
     });
-    body.appendChild(list);
+    side.appendChild(list);
   }
+
+  wrapper.appendChild(side);
+
+  const body = Site.el("div", "profile-body");
+  (profile.bio || []).forEach((paragraph) => {
+    const p = Site.el("p", "profile-bio");
+    // paragraph is trusted site-owner content from data/profile.json and may
+    // contain inline links (e.g. to ./dissertation.html), same convention as
+    // news.js's htmltext.
+    p.innerHTML = paragraph;
+    body.appendChild(p);
+  });
 
   wrapper.appendChild(body);
   container.appendChild(wrapper);

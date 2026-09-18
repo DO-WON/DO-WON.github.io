@@ -6,15 +6,19 @@ Schemas and examples for every file under `data/`. Optional fields are marked; e
 
 > **Note:** Most homepage sections only show their most recent few entries (`data-limit` on the container in `index.html`), with a "See all →" link to a full listing page at the repo root (e.g. `news.html`). Adding entries to a `data/*.json` file works the same regardless — the homepage and the full listing page both read the same file, just with different truncation. See "Homepage previews + See all pages" in `CLAUDE.md`.
 
-## data/profile.json — name, bio, links
+## data/profile.json — name, roles, bio, links
 
-Object. Rendered by `js/profile.js` (also sets the page title, nav name, and footer). `name` is **not** rendered as a heading inside the About section — it already appears in the site header — so the About section starts directly with the bio paragraphs.
+Object. Rendered by `js/profile.js` (also sets the page title, nav name, and footer). The About section is a two-column layout: a narrow side column with the name (plus optional pronunciation), the `roles` lines and the link badges, next to the `bio` paragraphs. It stacks into one column on screens narrower than 700px.
 
 ```json
 {
   "name": "Dr. Jane Placeholder",
-  "title": "Assistant Professor of Something Interesting",
-  "affiliation": "University of Somewhere",
+  "pronunciation": "Jāne",
+  "roles": [
+    "PhD Candidate, <a href=\"https://ischool.example.edu/\">Information</a>",
+    "University of Somewhere",
+    "Advised by <a href=\"https://example.edu/adv\">Advisor Name</a>"
+  ],
   "photoPath": "./assets/images/headshot.svg",
   "bio": [
     "First paragraph of the bio.",
@@ -27,8 +31,12 @@ Object. Rendered by `js/profile.js` (also sets the page title, nav name, and foo
 }
 ```
 
-- `bio` is an array of paragraphs. Each paragraph is rendered via `innerHTML` (trusted site-owner content, same convention as `news.json`'s `htmltext`), so it may contain inline HTML like `<a href="...">links</a>` — e.g. linking out to `./dissertation.html`.
-- Optional: `photoPath` (omit to render without a photo — the live site omits it), `title`/`affiliation` (rendered as a byline under the name — omit both if that line would just repeat what the first bio paragraph already says).
+- `name` is rendered as the heading of the side column and also drives the nav name, page title, footer, and author highlighting in paper lists.
+- `pronunciation` (optional) is shown in muted text in parentheses after the name.
+- `roles` is an array of short lines shown under the name (position, department, affiliation, advisors…). Each line is rendered via `innerHTML`, so it may contain inline links. Legacy `title`/`affiliation` fields are still accepted as a single-line fallback when `roles` is absent.
+- `bio` is an array of paragraphs. Each paragraph is rendered via `innerHTML` (trusted site-owner content, same convention as `news.json`'s `htmltext`), so it may contain inline HTML like `<a href="...">links</a>` — e.g. linking out to `./dissertation.html`. Don't repeat the position/affiliation here; that belongs in `roles`.
+- `links` render as icon badges under the roles. Icons are keyed by `label` (case-insensitive) in `PROFILE_ICONS` in `js/profile.js`; unknown labels get a generic external-link icon.
+- Optional: `photoPath` (omit to render without a photo — the live site omits it).
 
 ## data/publications.json — published papers
 
