@@ -32,7 +32,10 @@
     </nav>
   </header>
 
-  <main id="top">
+  <!-- No id="top" here on purpose: with no matching element, a #top link
+       scrolls to the very top of the document (HTML spec), rather than to the
+       top of <main>, which sits just under the sticky header. -->
+  <main>
     <!-- Every section below is rendered from a data/*.json file by its js/*.js module.
          Do not hardcode content here: edit the JSON files instead.
          A section with no data (missing/empty JSON) hides itself automatically. -->
