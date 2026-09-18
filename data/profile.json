@@ -9,7 +9,7 @@
   "bio": [
     "I am a computational social scientist studying how AI and digital information environments shape people’s beliefs and behavior—and how we can redesign these environments to support informed decision-making and strengthen democracy.",
     "In my <a href=\"./dissertation.html\">dissertation</a>, I combine experiments with computational methods to design and test interventions to reduce engagement with unreliable sources, bridge partisan divides, and build trust in elections.",
-    "I also study the ranking and recommendation algorithms that shape online information environments, through the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using large language models to align news-feed recommendations with users’ stated values. Beyond political information, I am also interested in how AI is reshaping the production of scientific knowledge."
+    "I also study the ranking and recommendation algorithms that shape online information environments, in projects such as the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using large language models to align news-feed recommendations with users’ stated values. Beyond political information, I am also interested in how AI is reshaping the production of scientific knowledge."
   ],
   "links": [
     { "label": "CV", "url": "./docs/cv.pdf" },
