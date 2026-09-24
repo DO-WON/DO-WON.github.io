@@ -1,9 +1,11 @@
 [
   {
-    "title": "Understanding the Gap Between Stated and Revealed Preferences in News Curation: A Study of Young Adult Social Media Users",
+    "title": "Understanding the Gap Between Stated and Revealed Preferences in Social Media News Feeds",
     "authors": "Do Won Kim, Cody Buntain, Giovanni Luca Ciampaglia",
-    "publication": "ACM Conference on Computer-Supported Cooperative Work and Social Computing (CSCW '26), To appear",
-    "year": "2026"
+    "publication": "Proceedings of the ACM on Human-Computer Interaction (CSCW '26)",
+    "year": "2026",
+    "url": "https://doi.org/10.1145/3817029",
+    "bibPath": "./docs/publications/2026_Kim_StatedRevealed/cite.bib"
   },
   {
     "title": "Smile to Win: How Do Candidates’ Smiles Affect Election Results?",
