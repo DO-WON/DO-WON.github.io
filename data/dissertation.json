@@ -1,23 +1,50 @@
-[
-  {
-    "title": "Muting Durably Reduces Engagement with Untrustworthy Online Sources; Media Literacy Doesn't",
-    "authors": "Do Won Kim, Brendan Nyhan, Ro'ee Levy, Filippo Menczer, Maria Elizabeth (Betsi) Grabe, Giovanni Luca Ciampaglia",
-    "status": "Dissertation Chapter 1 — field experiment on X (Twitter)",
-    "summary": "A digital field experiment testing whether muting untrustworthy accounts changes engagement more durably than a media-literacy intervention. Muting produced substantial, lasting reductions in engagement with targeted sources with no compensatory shift elsewhere; media literacy only temporarily improved discernment without changing behavior.",
-    "url": "https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/"
-  },
-  {
-    "title": "Challenging Partisan Expectations Reduces Political Polarization",
-    "authors": "Do Won Kim, Ozgur Can Seckin, Saumya Bhadani, Alessandro Flammini, Giovanni Luca Ciampaglia, Bao Tran Truong",
-    "status": "Dissertation Chapter 2 — survey experiment with LLM-powered chatbots",
-    "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity and conversational stance. Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views.",
-    "url" : "https://arxiv.org/abs/2606.15901"
-  },
-  {
-    "title": "Can AI Strengthen Democracy? Improving Public Trust in Elections with a Civic Chatbot",
-    "authors": "Do Won Kim, Giovanni Luca Ciampaglia, Cody Buntain, Riley Lankes, Patrick Wu",
-    "status": "Dissertation Chapter 3 — planned 3-arm RCT, Nov. 2026 midterms, Montgomery County, MD",
-    "summary": "VIOLETS, a RAG chatbot grounded exclusively in official election information, tested for its effect on voter knowledge, trust in election administration, and civic engagement.",
-    "url": "./design/violets/index.html"
-  }
-]
+{
+  "title": "Leveraging AI-Mediated Information Environment for Democracy",
+  "intro": [
+    "AI systems have become central intermediaries in modern democracy. Social media algorithms curate what political content people see and whom they connect with, large language models retrieve and interpret political information, and public institutions increasingly use AI to communicate with their constituents.",
+    "This shift introduces a fundamental tension. Commercial platforms optimize AI systems for engagement, time-on-platform, and revenue—goals that often favor sensational, polarizing, or emotionally charged content. Democracy, by contrast, needs information environments that value accuracy, foster exposure to diverse perspectives, and support reasoned deliberation and informed decision-making."
+  ],
+  "question": "How can AI-mediated information systems be leveraged to better support democratic processes?",
+  "outline": "Through three empirical studies, my dissertation examines a different dimension of the information environment that AI systems can either distort or enhance.",
+  "chapters": [
+    {
+      "dimension": "Exposure to Information Sources",
+      "question": "Can reshaping users’ feeds—rather than their judgment—durably reduce engagement with low-quality information sources?",
+      "title": "Muting Durably Reduces Engagement with Untrustworthy Online Sources; Media Literacy Doesn't",
+      "authors": "Do Won Kim, Brendan Nyhan, Ro'ee Levy, Filippo Menczer, Maria Elizabeth (Betsi) Grabe, Giovanni Luca Ciampaglia",
+      "status": "Dissertation Chapter 1 — field experiment on X (Twitter)",
+      "summary": "A digital field experiment testing whether muting untrustworthy accounts changes engagement more durably than a media-literacy intervention. Muting produced substantial, lasting reductions in engagement with targeted sources with no compensatory shift elsewhere; media literacy only temporarily improved discernment without changing behavior.",
+      "url": "https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/",
+      "links": [
+        {
+          "label": "code",
+          "url": "https://github.com/CSDL-UMD/Mercury"
+        }
+      ]
+    },
+    {
+      "dimension": "Encounters with Political Others",
+      "question": "Can AI-mediated conversations that feature unexpected agreement across party lines, or disagreement within them, correct distorted perceptions of partisan boundaries and reduce polarization?",
+      "title": "Challenging Partisan Expectations Reduces Political Polarization",
+      "authors": "Do Won Kim, Ozgur Can Seckin, Saumya Bhadani, Alessandro Flammini, Giovanni Luca Ciampaglia, Bao Tran Truong",
+      "status": "Dissertation Chapter 2 — survey experiment with LLM-powered chatbots",
+      "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity and conversational stance. Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views.",
+      "url": "https://arxiv.org/abs/2606.15901"
+    },
+    {
+      "dimension": "Access to Civic Information",
+      "question": "Moving from commercial platforms to the public domain: can a civic-oriented AI chatbot improve access to official election information—and, in turn, procedural knowledge and trust in elections?",
+      "title": "Can AI Strengthen Democracy? Improving Public Trust in Elections with a Civic Chatbot",
+      "authors": "Do Won Kim, Giovanni Luca Ciampaglia, Cody Buntain, Riley Lankes, Patrick Wu",
+      "status": "Dissertation Chapter 3 — planned 3-arm RCT, Nov. 2026 midterms, Montgomery County, MD",
+      "summary": "VIOLETS, a RAG chatbot grounded exclusively in official election information, tested for its effect on voter knowledge, trust in election administration, and civic engagement.",
+      "url": "./design/violets/index.html",
+      "links": [
+        {
+          "label": "code",
+          "url": "https://github.com/CSDL-UMD/VIOLETS"
+        }
+      ]
+    }
+  ]
+}

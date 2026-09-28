@@ -77,21 +77,69 @@ Array, newest first. Rendered by `js/working_papers.js`.
 - `id` is a unique identifier: `modal_[lowercase_short_identifier]` (author name + key title word).
 - Optional: `pdfPath`, `bibPath`, `publication` (status note, e.g. `"Under review at Journal X"`).
 
-## data/dissertation.json — dissertation chapters
+## data/dissertation.json — dissertation overview and chapters
 
-Local addition (not part of the upstream template's 8 default sections). Array, in chapter order. Rendered by `js/dissertation.js` using the same card style as papers. Page-only: this section has no preview on `index.html` (see "Page-only sections" in `CLAUDE.md`) — it's rendered in full on `dissertation.html`, reachable via an inline link in the bio paragraph, not the nav.
+Local addition (not part of the upstream template's 8 default sections). An object rendered by `js/dissertation.js` on `dissertation.html`: the dissertation title, framing paragraphs, the central research question (shown as a callout), then one "Study N: <dimension>" section per chapter with a guiding question and a chapter card (`Site.chapterCard`). Page-only: no preview on `index.html` (see "Page-only sections" in `CLAUDE.md`). `data/research.json` also references chapters by position (`dissertationChapter: N`), so keep chapter order stable.
 
 ```json
 {
-  "title": "Chapter title",
-  "authors": "Co-author One, Co-author Two",
-  "status": "Field experiment; manuscript in preparation",
-  "summary": "One or two sentences on the research question and findings so far.",
-  "url": "https://example.org/project-page"
+  "title": "Dissertation title",
+  "intro": ["Framing paragraph 1.", "Framing paragraph 2."],
+  "question": "Central research question?",
+  "outline": "One sentence introducing the studies.",
+  "chapters": [
+    {
+      "dimension": "Exposure to Information Sources",
+      "question": "Guiding question for this study?",
+      "title": "Chapter title",
+      "authors": "Co-author One, Co-author Two",
+      "status": "Dissertation Chapter 1 — field experiment",
+      "summary": "One or two sentences on the design and findings.",
+      "url": "https://example.org/project-page",
+      "links": [{ "label": "code", "url": "https://github.com/..." }]
+    }
+  ]
 }
 ```
 
-- Optional: `authors`, `status` (shown in place of a venue line), `summary`, `url` (title links out when present).
+- All fields optional except each chapter's `title`. `intro`, `question`, and `outline` are plain text. `status` is shown in place of a venue line; `links` render as `[label]`.
+
+## data/research.json — Research page themes
+
+Local addition. Object rendered by `js/research.js` on `research.html` (page-only; linked from the nav). Structure modeled on cbudak.com/research.html, styled like the rest of the site (plain text, hairline rules, no filled cards): an intro, then per theme an `h2`, an overview paragraph (how the theme connects to the others), and a grid of sub-theme columns, each listing selected work as title + year.
+
+```json
+{
+  "intro": "Intro paragraph (HTML allowed, e.g. a link to ./docs/cv.pdf).",
+  "themes": [
+    {
+      "id": "algorithms",
+      "title": "Algorithms & Recommender Systems",
+      "description": "Theme overview paragraph (HTML allowed).",
+      "subthemes": [
+        {
+          "title": "Stated vs. Revealed Preferences",
+          "description": "Guiding question for this card.",
+          "items": [
+            {
+              "title": "Paper title",
+              "authors": "Do Won Kim, Co-author",
+              "url": "https://doi.org/...",
+              "year": "2026"
+            },
+            { "dissertationChapter": 1, "year": "2026" }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+- `id` is the anchor (`research.html#algorithms`).
+- Items are compact: `title` (linked when `url` is set) and `year` on the right. `authors` is optional and shown only as a hover tooltip; the full citation lives in the CV.
+- `dissertationChapter: N` pulls the title/url from the Nth entry of `data/dissertation.json` and shows "Ch. N" instead of the year, so chapters aren't duplicated.
+- The grid width follows the card count: 1 card spans full width, 3 cards get three columns, 2 or 4 cards get two (all collapse to one column on mobile). Order items by importance.
 
 ## data/news.json — news items
 

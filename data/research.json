@@ -1,0 +1,186 @@
+{
+  "intro": "I am a computational social scientist studying how AI and algorithmic systems shape the information environments people encounter and how these environments can be redesigned to support better decision-making. For a complete list of papers and presentations, see my <a href=\"./docs/cv.pdf\">CV</a>.",
+  "themes": [
+    {
+      "id": "interventions",
+      "title": "Interventions for Healthier Information Environments",
+      "description": "Rather than only documenting the harms of platforms and AI, I build and rigorously test interventions that change what people encounter, and measure what they actually do. In my <a href=\"./dissertation.html\">dissertation</a> project, I apply this approach to three goals: reducing engagement with untrustworthy sources, bridging partisan divides, and building trust in elections.",
+      "subthemes": [
+        {
+          "title": "Digital Field Experiments",
+          "description": "Intervening directly in people’s real online information environments—and developing the methods and infrastructure that make such platform experiments possible.",
+          "items": [
+            {
+              "dissertationChapter": 1,
+              "year": "2026"
+            },
+            {
+              "title": "Agentic sockpuppet experiment framework",
+              "authors": "Do Won Kim, William Bradshaw",
+              "url": "https://github.com/wjbradshawTerp/ScraperSky",
+              "year": "2026"
+            },
+            {
+              "title": "Mercury: data-collection and intervention pipeline for the muting field experiment",
+              "url": "https://github.com/CSDL-UMD/Mercury",
+              "year": "2023–26"
+            }
+          ]
+        },
+        {
+          "title": "AI as Intervention",
+          "description": "Using AI chatbots to mitigate partisan divides and build trust in elections.",
+          "items": [
+            {
+              "dissertationChapter": 2,
+              "year": "2026"
+            },
+            {
+              "dissertationChapter": 3,
+              "year": "2026"
+            },
+            {
+              "title": "Evaluating Accuracy and Safety of Election Chatbot",
+              "authors": "Megan Lu, Vashawn Robinson, Ryan Yu, Lina Romero-Fabian, Johnny Zhu, Do Won Kim, Giovanni Luca Ciampaglia, Cody Buntain",
+              "year": "2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "algorithms",
+      "title": "Algorithms & Recommender Systems",
+      "description": "Ranking and recommendation algorithms are core infrastructure of the information environment: they decide what people see, and when. I study how these systems can be designed to be more prosocial and pro-democratic.",
+      "subthemes": [
+        {
+          "title": "Alternatives to Engagement Maximization",
+          "description": "Engagement-optimized ranking rewards what people click, not what they value. Through user studies, LLM-based recommenders, and open ranking competitions, I design and evaluate user-centered alternatives.",
+          "items": [
+            {
+              "title": "Understanding the Gap Between Stated and Revealed Preferences in Social Media News Feeds",
+              "authors": "Do Won Kim, Cody Buntain, Giovanni Luca Ciampaglia",
+              "url": "https://doi.org/10.1145/3817029",
+              "year": "2026"
+            },
+            {
+              "title": "Testing Alternative Algorithms for Social Media News Feeds: Audience Diversity and Stated Preferences-Based Recommender Systems",
+              "authors": "Do Won Kim, Saumya Bhadani",
+              "year": "2025"
+            },
+            {
+              "title": "Predicting Constructive Conflict in Social Media Discussions",
+              "authors": "Ozgur Can Seckin, Bao Tran Truong, Do Won Kim, Saumya Bhadani",
+              "year": "2025"
+            },
+            {
+              "title": "Bridging news-feed ranking algorithm (Prosocial Ranking Challenge finalist)",
+              "authors": "Bao Tran Truong, Saumya Bhadani, Ozgur Can Seckin, Do Won Kim",
+              "url": "https://github.com/btrantruong/dante-prosocial-ranking",
+              "year": "2024"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "science-of-science",
+      "title": "Science of Science: Knowledge Infrastructure",
+      "description": "Science has its own information environment. The same questions—what gets seen, by whom, and through which systems—apply to scholarly knowledge: publication languages, search and indexing systems, data archives, and AI tools shape which research gets produced and how it is found and built upon.",
+      "subthemes": [
+        {
+          "title": "Infrastructural Barriers to Knowledge",
+          "description": "How language divides and discovery systems keep non-English scholarship out of view.",
+          "items": [
+            {
+              "title": "Two Spheres of Korean Politics: Knowledge Production and Dissemination across Linguistic Divides",
+              "authors": "Do Won Kim, Hyowon Kim, Won-ho Park",
+              "year": "2026"
+            },
+            {
+              "title": "Discovery Bottleneck: Infrastructural Barriers to Local Scholarship",
+              "authors": "Hyowon Kim, Do Won Kim, Won-ho Park",
+              "year": "2026"
+            }
+          ]
+        },
+        {
+          "title": "Data & AI in Research Practice",
+          "description": "How data archives and AI tools shape the way social scientists do research.",
+          "items": [
+            {
+              "title": "Understanding Motivations and Future Needs for Data Deposits at Korea Social Science Data Archive (KOSSDA)",
+              "authors": "Hyowon Kim, Do Won Kim, Jungwon Yang",
+              "url": "https://doi.org/10.29173/iq1110",
+              "year": "2024"
+            },
+            {
+              "title": "Tutorial on Large Language Model (LLM) Applications for Political Science Research",
+              "authors": "Do Won Kim",
+              "year": "2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "political-behavior",
+      "title": "Political Communication, Political Behavior & Public Opinion",
+      "description": "Underlying all of this is how citizens themselves learn about politics, respond to political information, and make electoral choices—the behavior that information environments ultimately shape.",
+      "subthemes": [
+        {
+          "title": "Political Learning & Informed Citizenship",
+          "description": "How do citizens learn about politics, and how does it shape their beliefs and attitudes?",
+          "items": [
+            {
+              "title": "Learning Politics with AI: Political Knowledge, Institutional Trust, and Attitudes Toward Interbranch Conflict",
+              "authors": "Do Won Kim, Hyawong Shin",
+              "year": "2026"
+            }
+          ]
+        },
+        {
+          "title": "Emotion in Political Communication",
+          "description": "How do emotional appeals drive engagement with political information, from conspiracy campaigns online to televised debates?",
+          "items": [
+            {
+              "title": "Emotional Appeals in the 2020 #SaveTheChildren Campaign: A Multi-Platform Study of Online Engagement in QAnon Messaging",
+              "authors": "Do Won Kim, Cody Buntain",
+              "url": "https://doi.org/10.1145/3720554.3733843",
+              "year": "2025"
+            },
+            {
+              "title": "Emotion in Presidential TV Debate: Real-time Responses and Political Information Processing",
+              "authors": "Soyoen Jeon, Do Won Kim",
+              "year": "2022"
+            }
+          ]
+        },
+        {
+          "title": "Voting Behavior",
+          "description": "How do candidates’ traits, voters’ personalities, campaign spending, and government performance shape vote choice and electoral success?",
+          "items": [
+            {
+              "title": "Smile to Win: How Do Candidates’ Smiles Affect Election Results?",
+              "authors": "Woo Chang Kang, Do Won Kim, Joonmo Kang",
+              "url": "https://doi.org/10.18854/kpsr.2022.56.4.003",
+              "year": "2022"
+            },
+            {
+              "title": "Voting against in the 2017 French presidential election",
+              "authors": "Do Won Kim",
+              "url": "https://doi.org/10.1057/s41253-021-00165-7",
+              "year": "2022"
+            },
+            {
+              "title": "Strategic Allocation of Political Fund and Re-election of Incumbents in South Korea",
+              "authors": "Do Won Kim, Hyowon Kim",
+              "url": "https://doi.org/10.35656/JKP.31.2.3",
+              "year": "2022"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -106,7 +106,40 @@ const Site = {
     const links = this.el("p", "paper-links");
     if (paper.pdfPath) links.appendChild(this.link(paper.pdfPath, "[pdf]"));
     if (paper.bibPath) links.appendChild(this.link(paper.bibPath, "[bib]"));
+    (paper.links || []).forEach(({ label, url }) =>
+      links.appendChild(this.link(url, `[${label}]`))
+    );
     if (links.childNodes.length) card.appendChild(links);
+
+    return card;
+  },
+
+  /**
+   * Render one dissertation chapter card (shared by dissertation.html and
+   * the Research page). Fields used: title, url, authors, status, summary,
+   * links.
+   */
+  chapterCard({ title, authors, status, summary, url, links = [] }) {
+    const card = this.el("article", "paper");
+
+    const heading = this.el("p", "paper-title");
+    if (url) heading.appendChild(this.link(url, title));
+    else heading.textContent = title;
+    card.appendChild(heading);
+
+    if (authors) {
+      const authorsEl = this.el("p", "paper-authors");
+      authorsEl.appendChild(this.formatAuthors(authors));
+      card.appendChild(authorsEl);
+    }
+    if (status) card.appendChild(this.el("p", "paper-venue", status));
+    if (summary) card.appendChild(this.el("p", "item-description", summary));
+
+    if (links.length) {
+      const linksEl = this.el("p", "paper-links");
+      links.forEach(({ label, url }) => linksEl.appendChild(this.link(url, `[${label}]`)));
+      card.appendChild(linksEl);
+    }
 
     return card;
   },

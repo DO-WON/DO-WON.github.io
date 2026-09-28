@@ -1,17 +1,18 @@
 /* ==========================================================================
-   Design tokens: a warm cream page with a flat, minimal editorial layout
-   (hairline dividers instead of card boxes) and a teal accent. Restyle via
+   Design tokens: a white page with a flat, minimal editorial layout
+   (hairline dividers, light gray panels) and a burgundy accent in the
+   University of Maryland red family. Restyle via
    /setup-site if you want a different direction later.
    ========================================================================== */
 
 :root {
   --color-text: #1e1e1e;
   --color-text-muted: #767676;
-  --color-accent: #1f7a7a;
-  --color-accent-light: #a8d4d4;
-  --color-bg: #fafaf7;
-  --color-bg-subtle: #f3f1e9;
-  --color-border: #e2ddd0;
+  --color-accent: #8f1b2d;
+  --color-accent-light: #f0c7ce;
+  --color-bg: #ffffff;
+  --color-bg-subtle: #f5f5f7;
+  --color-border: #e4e4e7;
   --max-width: 60rem;
   --font-body: "Red Hat Text", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Helvetica Neue", Arial, sans-serif;
@@ -25,8 +26,8 @@
 html.dark {
   --color-text: #e6edf3;
   --color-text-muted: #9198a1;
-  --color-accent: #3aacac;
-  --color-accent-light: #1f7a7a;
+  --color-accent: #d9485b;
+  --color-accent-light: #6b1824;
   --color-bg: #0d1117;
   --color-bg-subtle: #161b22;
   --color-border: #30363d;
@@ -366,6 +367,108 @@ main {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
+}
+
+/* --- Research page (research.html, rendered by js/research.js) ---------- */
+
+.research-intro {
+  margin: 0 0 2.5rem;
+}
+
+.research-theme {
+  margin-bottom: 2.75rem;
+  scroll-margin-top: 4rem;
+}
+
+.theme-description {
+  margin: 0 0 1.25rem;
+}
+
+/* Sub-themes laid out as plain text columns; column count follows the
+   number of sub-themes (set by js/research.js). */
+.subtheme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.subtheme-grid.cols-1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.subtheme-grid.cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 800px) {
+  .subtheme-grid.cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .subtheme-grid,
+  .subtheme-grid.cols-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Sub-theme columns sit on a subtle background tint; no border or shadow. */
+.subtheme {
+  padding: 1rem 1.15rem;
+  background: var(--color-bg-subtle);
+  border-radius: 4px;
+}
+
+.subtheme-title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.subtheme-description {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+.work-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.work-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.work-year {
+  flex-shrink: 0;
+  color: var(--color-text-muted);
+}
+
+/* --- Dissertation page (dissertation.html, rendered by js/dissertation.js) */
+
+.dissertation-title {
+  margin: -0.5rem 0 1.25rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.dissertation-question {
+  margin: 1.25rem 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.dissertation-study {
+  margin-top: 2.5rem;
 }
 
 /* --- Generic item lists (talks, software, projects, teaching, blog) ------ */

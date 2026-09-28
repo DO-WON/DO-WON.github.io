@@ -17,8 +17,9 @@ A JSON-driven personal academic website: vanilla HTML/CSS/JS, no build step, dep
 | Teaching | `data/teaching.json` | `js/teaching.js` |
 | Software | `data/software.json` | `js/software.js` |
 | Contact | `data/contact.json` | `js/contact.js` |
+| Research | `data/research.json` (+ `data/dissertation.json`) | `js/research.js` |
 
-`dissertation`, `blog`, and `contact` are local additions on top of the upstream `cc-academic-website` template (which ships the other 8 sections only) — they follow the identical `Site.load` pattern, so treat them the same way when redesigning or adding data. `dissertation` and `blog` aren't rendered on the homepage at all (see "Page-only sections" below) — their data files and renderers are used only by `dissertation.html`/`blog.html`, not `index.html`.
+`research`, `dissertation`, `blog`, and `contact` are local additions on top of the upstream `cc-academic-website` template (which ships the other 8 sections only) — they follow the identical `Site.load` pattern, so treat them the same way when redesigning or adding data. `dissertation` and `blog` aren't rendered on the homepage at all (see "Page-only sections" below) — their data files and renderers are used only by `dissertation.html`/`blog.html`, not `index.html`.
 
 Schemas are documented in `.claude/skills/update-site-data/references/schemas.md`. If you change a schema or renderer, update that file in the same session.
 
@@ -36,10 +37,13 @@ The full listing pages (`news.html`, `papers.html`, `projects.html`, `talks.html
 
 `papers.html` is a special case: it's the shared "see all" page for **both** the Publications and Working papers homepage sections, which are visually merged into one `#papers` section (heading "Papers", with "Working Papers" and "Published Papers" `<h3>` subheadings) even though `data/publications.json`/`js/publications.js` and `data/working_papers.json`/`js/working_papers.js` remain separate data files and renderers. Both containers' `data-see-all` point at `./papers.html`, and `papers.html` loads both renderer scripts into the same `#papers` section markup as the homepage.
 
+The homepage shows only About, News, and Contact (plus Projects/Software, which are hidden while their data is empty). Papers and Talks were removed from the homepage and nav because they duplicate the CV; `papers.html`/`talks.html` still exist but are unlinked.
+
 ### Page-only sections (no homepage presence)
 
-`dissertation` and `blog` have a full listing page but **no section on `index.html` at all** — not even a truncated preview. This differs from the pattern above (which always shows a homepage preview).
+`research`, `dissertation`, and `blog` have a full listing page but **no section on `index.html` at all** — not even a truncated preview. This differs from the pattern above (which always shows a homepage preview).
 
+- **Research** (`research.html`) is in the nav (`About · News · Research · Teaching · Blog` on every page). It renders `data/research.json` — an intro, then per research theme an overview paragraph and a grid of sub-theme columns (Budak-style structure, plain site styling; 1, 2, or 3 columns depending on sub-theme count), each listing selected work as title + year. An item with `"dissertationChapter": N` pulls its title/url from `data/dissertation.json`, so chapters live in one file shared with `dissertation.html`. `dissertation.html` itself presents the dissertation by its framing: intro, central question, and one block per study organized by the dimension of the information environment it targets (all from `data/dissertation.json`).
 - **Blog** stays in the nav (`<li><a href="./blog.html">Blog</a></li>` on every page, including `index.html`), linking straight to `blog.html` since there's no homepage anchor to scroll to.
 - **Dissertation** has no nav entry at all. It's reachable only via an inline link in the bio paragraph in `data/profile.json` (`For more details, see my <a href="./dissertation.html">dissertation</a>.`). This means `js/profile.js` renders bio paragraphs via `innerHTML`, not `textContent` — bio text is trusted site-owner content and may contain inline HTML links, same convention as `news.js`'s `htmltext` field.
 
