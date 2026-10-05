@@ -93,16 +93,18 @@ Local addition (not part of the upstream template's 8 default sections). An obje
       "question": "Guiding question for this study?",
       "title": "Chapter title",
       "authors": "Co-author One, Co-author Two",
-      "status": "Dissertation Chapter 1 — field experiment",
+      "status": "Dissertation Chapter 1: field experiment",
       "summary": "One or two sentences on the design and findings.",
-      "url": "https://example.org/project-page",
-      "links": [{ "label": "code", "url": "https://github.com/..." }]
+      "links": [
+        { "label": "Website", "url": "https://example.org/project-page" },
+        { "label": "GitHub", "url": "https://github.com/..." }
+      ]
     }
   ]
 }
 ```
 
-- All fields optional except each chapter's `title`. `intro`, `question`, and `outline` are plain text. `status` is shown in place of a venue line; `links` render as `[label]`.
+- All fields optional except each chapter's `title`. `intro`, `question`, and `outline` are plain text. `status` is shown in place of a venue line. The title is never linked; `links` render as bracketed text links (`[Website] [GitHub]`) below the summary. Labels: `Paper` (DOI/published version), `Preprint` (arXiv etc.), `GitHub`, `Website` (project or design page).
 
 ## data/research.json — Research page themes
 
@@ -122,12 +124,13 @@ Local addition. Object rendered by `js/research.js` on `research.html` (page-onl
           "description": "Guiding question for this card.",
           "items": [
             {
+              "type": "Journal",
               "title": "Paper title",
               "authors": "Do Won Kim, Co-author",
               "url": "https://doi.org/...",
               "year": "2026"
             },
-            { "dissertationChapter": 1, "year": "2026" }
+            { "type": "Working Paper", "dissertationChapter": 1, "year": "2026" }
           ]
         }
       ]
@@ -137,8 +140,9 @@ Local addition. Object rendered by `js/research.js` on `research.html` (page-onl
 ```
 
 - `id` is the anchor (`research.html#algorithms`).
-- Items are compact: `title` (linked when `url` is set) and `year` on the right. `authors` is optional and shown only as a hover tooltip; the full citation lives in the CV.
-- `dissertationChapter: N` pulls the title/url from the Nth entry of `data/dissertation.json` and shows "Ch. N" instead of the year, so chapters aren't duplicated.
+- Items are compact: `title` (linked when `url` is set; opens in a new tab) and `year` on the right. `authors` is optional and shown only as a hover tooltip; the full citation lives in the CV.
+- `type` is shown as a small tag before the title. Use the CV's section headings, picking the most advanced output for each work: `Journal`, `Conference` (refereed proceedings), `Working Paper`, `Talk`, `Poster`, `Tutorial`, `Software`.
+- `dissertationChapter: N` pulls the title from the Nth entry of `data/dissertation.json` (linked to that chapter's first `links` entry), so chapters aren't duplicated; it shows `year` like any other item.
 - The grid width follows the card count: 1 card spans full width, 3 cards get three columns, 2 or 4 cards get two (all collapse to one column on mobile). Order items by importance.
 
 ## data/news.json — news items

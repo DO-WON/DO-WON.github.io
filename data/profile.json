@@ -3,21 +3,19 @@
   "pronunciation": "doh·one",
   "roles": [
     "PhD Candidate in <a href=\"https://ischool.umd.edu/\">Information</a>, University of Maryland",
-    "Student Affiliate, <a href=\"https://www.trails.umd.edu/\">TRAILS</a>",
+    "Student Affiliate, Institute for Trustworthy AI in Law & Society (<a href=\"https://www.trails.umd.edu/\">TRAILS</a>)",
     "Advised by <a href=\"https://glciampaglia.com/\">Giovanni Luca Ciampaglia</a> and <a href=\"https://cody.bunta.in/\">Cody Buntain</a>"
   ],
   "bio": [
     "I am a computational social scientist studying how AI and digital information environments shape people’s beliefs and behavior—and how we can redesign these environments to support informed decision-making and strengthen democracy.",
-    "In my <a href=\"./dissertation.html\">dissertation</a>, I combine experiments with computational methods to design and test interventions to reduce engagement with unreliable sources, bridge partisan divides, and build trust in elections.",
-    "I also study the ranking and recommendation algorithms that shape online information environments, in projects such as the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using large language models to align news-feed recommendations with users’ stated values. Beyond political information, I am also interested in how AI is reshaping the production of scientific knowledge."
+    "In my <a href=\"./dissertation.html\">dissertation</a>, I use experiments and computational methods to design and test interventions that reduce engagement with unreliable sources, bridge partisan divides, and build trust in elections.",
+    "I also study ranking and recommendation algorithms, in projects such as the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using large language models to align news-feed recommendations with users’ stated values. I am also interested in how AI is reshaping the production and dissemination of scientific knowledge."
   ],
   "links": [
     { "label": "CV", "url": "./docs/cv.pdf" },
     { "label": "Email", "url": "mailto:dowonkim@umd.edu" },
     { "label": "Google Scholar", "url": "https://scholar.google.com/citations?hl=ko&authuser=4&user=TMUG38cAAAAJ" },
     { "label": "GitHub", "url": "https://github.com/DO-WON" },
-    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/do-won-kim-336a9a16a/" },
-    { "label": "Twitter", "url": "https://twitter.com/DoWonKim13" },
     { "label": "Bluesky", "url": "https://bsky.app/profile/dowonkim.bsky.social" },
     { "label": "ORCID", "url": "https://orcid.org/0000-0001-7011-2911" }
   ]

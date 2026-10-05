@@ -119,13 +119,12 @@ const Site = {
    * the Research page). Fields used: title, url, authors, status, summary,
    * links.
    */
-  chapterCard({ title, authors, status, summary, url, links = [] }) {
+  chapterCard({ title, authors, status, summary, links = [] }) {
     const card = this.el("article", "paper");
 
-    const heading = this.el("p", "paper-title");
-    if (url) heading.appendChild(this.link(url, title));
-    else heading.textContent = title;
-    card.appendChild(heading);
+    // The title stays plain text; links (Website, Preprint, GitHub, ...)
+    // render as tags below the summary.
+    card.appendChild(this.el("p", "paper-title", title));
 
     if (authors) {
       const authorsEl = this.el("p", "paper-authors");
@@ -136,12 +135,24 @@ const Site = {
     if (summary) card.appendChild(this.el("p", "item-description", summary));
 
     if (links.length) {
-      const linksEl = this.el("p", "paper-links");
-      links.forEach(({ label, url }) => linksEl.appendChild(this.link(url, `[${label}]`)));
+      const linksEl = this.el("p", "link-tags");
+      linksEl.appendChild(this.linkTags(links));
       card.appendChild(linksEl);
     }
 
     return card;
+  },
+
+  /** Render `[{ label, url }]` as a row of bracketed text links: [Paper] [GitHub]. */
+  linkTags(links = []) {
+    const frag = document.createDocumentFragment();
+    links.forEach(({ label, url }) => {
+      if (!url) return;
+      const a = this.link(url, `[${label || "Link"}]`);
+      a.className = "link-tag";
+      frag.appendChild(a);
+    });
+    return frag;
   },
 
   /** Create an external link (opens in a new tab). */

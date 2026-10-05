@@ -1,11 +1,11 @@
 /**
  * Renders data/research.json on research.html: an intro, then one block per
  * theme with an overview paragraph and a grid of sub-theme columns, each
- * listing selected work (title + year).
+ * listing selected work (type tag + title + year).
  *
- * An item with `dissertationChapter: N` pulls its title/url from the Nth
+ * An item with `dissertationChapter: N` pulls its title from the Nth
  * entry of data/dissertation.json, so chapters live in one file shared with
- * dissertation.html.
+ * dissertation.html; its title links to that chapter's first link.
  */
 Site.load("./data/research.json", "research-container", async (container, { intro, themes = [] }) => {
   const needsChapters = themes.some((t) =>
@@ -22,18 +22,25 @@ Site.load("./data/research.json", "research-container", async (container, { intr
 
   const renderItem = (item) => {
     const chapter = item.dissertationChapter ? chapters[item.dissertationChapter - 1] : null;
-    const { title, url } = chapter || item;
+    const title = (chapter || item).title;
+    const url = chapter ? (chapter.links || [])[0]?.url : item.url;
     if (!title) return null;
 
     const li = Site.el("li", "work-item");
     const titleEl = Site.el("span", "work-title");
+    // `type` (Journal, Conference, Working Paper, Poster, Talk, ...) follows
+    // the CV's section headings.
+    if (item.type) {
+      titleEl.appendChild(Site.el("span", "work-type", item.type));
+      titleEl.appendChild(document.createTextNode(" "));
+    }
+    // Site.link opens in a new tab.
     if (url) titleEl.appendChild(Site.link(url, title));
-    else titleEl.textContent = title;
+    else titleEl.appendChild(document.createTextNode(title));
     if (item.authors) titleEl.title = item.authors;
     li.appendChild(titleEl);
 
-    const meta = chapter ? `Ch. ${item.dissertationChapter}` : item.year;
-    if (meta) li.appendChild(Site.el("span", "work-year", meta));
+    if (item.year) li.appendChild(Site.el("span", "work-year", item.year));
     return li;
   };
 

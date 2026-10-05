@@ -37,6 +37,13 @@ html.dark {
   box-sizing: border-box;
 }
 
+/* Stop mobile browsers from inflating text: same font sizes as desktop,
+   only the line wrapping changes. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -178,7 +185,7 @@ main {
 /* Side column (name, roles, links) next to the bio; stacks on small screens. */
 .profile {
   display: grid;
-  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 16rem) minmax(0, 1fr);
   gap: 1.5rem 3rem;
   align-items: start;
 }
@@ -237,12 +244,12 @@ main {
   }
 }
 
-/* Fixed 4-per-row grid of badges (8 links -> 2 rows) instead of free wrapping. */
+/* All badges on a single row (6 links). */
 .profile-links {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 2.25rem);
-  gap: 0.6rem;
+  grid-template-columns: repeat(6, 2.25rem);
+  gap: 0.45rem;
   margin: 1.25rem 0 0;
   padding: 0;
 }
@@ -450,6 +457,34 @@ main {
 .work-year {
   flex-shrink: 0;
   color: var(--color-text-muted);
+}
+
+/* Output-type tag (Journal, Poster, ...); outlined since cards are tinted. */
+.work-type {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0 0.45rem;
+  margin-right: 0.15rem;
+  vertical-align: 0.08em;
+  white-space: nowrap;
+}
+
+/* Link tags ([Paper] [Preprint] [GitHub] [Website]) after a title, in place
+   of linking the title itself. Plain bracketed text in the accent color. */
+.link-tag {
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-right: 0.4rem;
+  white-space: nowrap;
+}
+
+.link-tags {
+  margin: 0.5rem 0 0;
 }
 
 /* --- Dissertation page (dissertation.html, rendered by js/dissertation.js) */
