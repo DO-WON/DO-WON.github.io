@@ -2,6 +2,7 @@
   {
     "year": "2026",
     "items": [
+      { "type": "Talk", "htmltext": "<strong>Oct.</strong> Presented our paper, <em>Understanding the Gap Between Stated and Revealed Preferences in Social Media News Feeds</em>, at CSCW 2026! &mdash; <a href='https://bsky.app/profile/glciampaglia.com/post/3mxor4jpqhc2o' target='_blank'>see the post</a>" },
       { "type": "General", "htmltext": "<strong>Aug.</strong> Having fun at <a href='https://sicss.io/2026/stanford/people' target='_blank'>SICSS-Stanford 2026</a>! &mdash; <a href='./design/polarizers-bridgers/index.html' target='_blank'>check out what our team made!</a>" },
       { "type": "Award", "htmltext": "<strong>Jun.</strong> Awarded the MPower Early Scholars Investment Fund 🎉" },
       { "type": "Award", "htmltext": "<strong>Jun.</strong> Awarded the TRAILS mini-grant! 🤩" },
