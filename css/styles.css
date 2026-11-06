@@ -1022,32 +1022,33 @@ main {
 
 /* --- Back-to-top button (js/back-to-top.js, on every page) -------------- */
 
+/* Styled like the nav's theme toggle (small outlined circle, no shadow).
+   On wide screens it sits in the gutter just right of the content column;
+   when there's no room, it falls back to the screen's corner. */
 .back-to-top {
   position: fixed;
-  right: 1.25rem;
-  bottom: 1.25rem;
+  right: max(1rem, calc(50vw - var(--max-width) / 2 - 3.25rem));
+  bottom: 1.5rem;
   z-index: 50;
-  display: grid;
-  place-items: center;
-  width: 2.75rem;
-  height: 2.75rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
-  color: var(--color-text);
+  color: var(--color-text-muted);
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
   cursor: pointer;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(8px);
-  transition: opacity 0.2s, transform 0.2s, visibility 0.2s, color 0.15s, border-color 0.15s;
+  transition: opacity 0.2s, visibility 0.2s, color 0.15s, border-color 0.15s;
 }
 
 .back-to-top.is-visible {
   opacity: 1;
   visibility: visible;
-  transform: none;
 }
 
 .back-to-top:hover {
@@ -1061,15 +1062,8 @@ main {
 }
 
 .back-to-top svg {
-  width: 1.2rem;
-  height: 1.2rem;
-}
-
-@media (max-width: 600px) {
-  .back-to-top {
-    right: 1rem;
-    bottom: 1rem;
-  }
+  width: 1rem;
+  height: 1rem;
 }
 
 @media (prefers-reduced-motion: reduce) {
