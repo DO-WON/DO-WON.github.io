@@ -1,29 +1,103 @@
 {
-  "title": "Leveraging AI-Mediated Information Environment for Democracy",
-  "intro": [
-    "AI systems have become central intermediaries in modern democracy. Social media algorithms curate what political content people see and whom they connect with, large language models retrieve and interpret political information, and public institutions increasingly use AI to communicate with their constituents.",
-    "This shift introduces a fundamental tension. Commercial platforms optimize AI systems for engagement, time-on-platform, and revenue, goals that often favor sensational, polarizing, or emotionally charged content. Democracy, by contrast, needs information environments that value accuracy, expose people to diverse perspectives, and support informed decision-making."
-  ],
-  "question": "How can AI-mediated information systems better support democratic processes?",
-  "outline": "My dissertation consists of three empirical studies, each examining a different dimension of the information environment that AI systems can either distort or enhance.",
+  "title": "Leveraging AI-Mediated Information Environments for Democracy",
+  "contribution": {
+    "heading": "The Big Picture",
+    "paragraphs": [
+      "As AI technologies increasingly mediate how people find and engage with political information, concerns about their threats to democracy have grown. Yet whether these risks hold up empirically, and what can be done about them, remain open questions.",
+      "How can AI-mediated information systems better support democratic processes? I answer this question through three randomized experiments, each testing a way to make harmful information easier to avoid, constructive encounters more likely, or trustworthy information easier to reach. In each, I design an intervention, test its causal effects, and translate the findings into actionable design and policy insights."
+    ],
+    "logic": [
+      {
+        "study": 1,
+        "icon": "mute",
+        "label": "Reduce exposure to untrustworthy sources",
+        "problem": "A minority of social media users with low-quality information diets account for most consumption of untrustworthy sources, yet they are underrepresented in research. How can we durably improve what they consume?",
+        "intervention": "Mute untrustworthy sources, changing the information environment itself, and compare this with a cognitive approach: media literacy tips.",
+        "outcome": "Muting reduced engagement with muted sources for more than six months after incentives ended. Media literacy briefly improved discernment but did not change engagement.",
+        "outcomeLabel": "Finding"
+      },
+      {
+        "study": 2,
+        "icon": "encounter",
+        "label": "Create unexpected political encounters",
+        "problem": "Partisans expect co-partisans to be like them and opponents to be different, a distorted view of both sides that fuels polarization.",
+        "intervention": "Converse with an AI that defies these expectations: a disagreeing ingroup AI or an agreeing outgroup AI.",
+        "outcome": "Expectation-challenging conversations reduced affective and perceived issue polarization without changing participants' issue positions, though the effects largely faded within a month.",
+        "outcomeLabel": "Finding"
+      },
+      {
+        "study": 3,
+        "icon": "civic",
+        "label": "Facilitate access to trusted information",
+        "problem": "Citizens trust local election officials more than any other source. Yet as governments deploy AI to provide official information, little is known about its effects on the voters who use it.",
+        "intervention": "During the 2026 midterms, give voters conversational access to official election information through a chatbot (VIOLETS), and compare it with self-directed search over the same official sources and with no access.",
+        "outcome": "Access to official information should improve voters' knowledge, trust, and beliefs about elections and ease their concerns. Comparing the chatbot with search shows whether talking to AI adds benefits beyond what voters could find on their own."
+      }
+    ],
+    "closing": "Ultimately, my dissertation seeks to reimagine how AI can be harnessed to strengthen democracy by sustaining its epistemic and communicative foundations."
+  },
   "chapters": [
     {
       "dimension": "Exposure to Information Sources",
-      "question": "Can reducing exposure to untrustworthy sources durably reduce engagement with them?",
+      "question": "How can we durably improve the information consumption behaviors of users with low-quality information diets?",
       "title": "Muting Durably Reduces Engagement with Untrustworthy Online Sources; Media Literacy Doesn't",
       "authors": "Do Won Kim, Brendan Nyhan, Ro'ee Levy, Filippo Menczer, Maria Elizabeth (Betsi) Grabe, Giovanni Luca Ciampaglia",
       "status": "Dissertation Chapter 1: field experiment on X (Twitter)",
       "summary": "A digital field experiment comparing muting untrustworthy accounts with a media literacy intervention. Muting produced substantial, lasting reductions in engagement with targeted sources with no compensatory shift elsewhere; media literacy only temporarily improved discernment without changing behavior.",
-      "links": [
+      "links": [],
+      "tool": {
+        "name": "Mercury",
+        "description": "Data-collection and intervention pipeline for the muting field experiment on X (Twitter).",
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/CSDL-UMD/Mercury"
+          }
+        ]
+      },
+      "presentations": [
         {
-          "label": "Website",
-          "url": "https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/"
+          "kind": "Poster",
+          "venue": "Conference on Digital Experimentation at MIT (CODE@MIT)",
+          "location": "Cambridge, MA, USA",
+          "date": "Nov. 2026",
+          "links": [
+            {
+              "label": "Extended abstract",
+              "url": "./docs/dissertation/Kim_Muting_CODE2026_Abstract.pdf"
+            }
+          ]
         },
         {
-          "label": "GitHub",
-          "url": "https://github.com/CSDL-UMD/Mercury"
+          "kind": "Talk",
+          "venue": "APSA Preconference in Political Communication",
+          "location": "Boston, USA",
+          "date": "Sept. 2026",
+          "links": [
+            {
+              "label": "Slides",
+              "url": "./docs/dissertation/Kim_Muting_APSA2026_Preconference_Slides.pdf"
+            }
+          ]
+        },
+        {
+          "kind": "Poster",
+          "venue": "International Conference on Computational Social Science (IC2S2)",
+          "location": "Philadelphia, PA, USA",
+          "date": "July 2024"
         }
-      ]
+      ],
+      "funding": [
+        {
+          "name": "Mercury Project grant",
+          "org": "Social Science Research Council",
+          "role": "Research Assistant",
+          "date": "2023–25",
+          "url": "https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/"
+        }
+      ],
+      "resources": [],
+      "coverage": []
     },
     {
       "dimension": "Encounters with Political Others",
@@ -32,28 +106,181 @@
       "authors": "Do Won Kim, Ozgur Can Seckin, Saumya Bhadani, Alessandro Flammini, Giovanni Luca Ciampaglia, Bao Tran Truong",
       "status": "Dissertation Chapter 2: survey experiment with LLM chatbots",
       "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity and conversational stance. Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views.",
-      "links": [
+      "links": [],
+      "tool": {
+        "name": "Replication repository",
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/DO-WON/AI_Conv"
+          }
+        ]
+      },
+      "presentations": [
         {
-          "label": "Preprint",
+          "kind": "Talk",
+          "venue": "Nordic Conference on Computational Social Science (CS2Nordics)",
+          "location": "Copenhagen, Denmark",
+          "date": "Sept. 2026"
+        },
+        {
+          "kind": "Poster",
+          "venue": "AI and Social Research: Empathic AI, Metascience, and Methodology",
+          "location": "University Park, PA, USA",
+          "date": "June 2026",
+          "links": [
+            {
+              "label": "Event",
+              "url": "https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/"
+            }
+          ]
+        },
+        {
+          "kind": "Talk",
+          "venue": "PolNet-PaCSS",
+          "location": "Boston, USA",
+          "date": "Aug. 2025"
+        },
+        {
+          "kind": "Talk",
+          "venue": "International Conference on Computational Social Science (IC2S2)",
+          "location": "Norrköping, Sweden",
+          "date": "July 2025"
+        }
+      ],
+      "funding": [
+        {
+          "name": "Presenter Honorarium",
+          "org": "AI and Social Research Conference, Penn State University",
+          "date": "2026"
+        },
+        {
+          "name": "PolNet-PaCSS 2025 Graduate Student Fellowship",
+          "org": "Harvard University & Northeastern University",
+          "date": "2025"
+        },
+        {
+          "name": "Jacob K. Goldhaber Travel Grant",
+          "org": "University of Maryland",
+          "date": "2025"
+        },
+        {
+          "name": "Dr. Dana Rotman Doctoral Student Travel Award",
+          "org": "University of Maryland",
+          "date": "2025"
+        },
+        {
+          "name": "International Conference Student Support Award",
+          "org": "University of Maryland",
+          "date": "2025"
+        }
+      ],
+      "resources": [
+        {
+          "label": "Working paper",
+          "venue": "arXiv",
           "url": "https://arxiv.org/abs/2606.15901"
         }
-      ]
+      ],
+      "coverage": []
     },
     {
       "dimension": "Access to Civic Information",
       "question": "Can a civic AI chatbot improve access to official election information, and in turn, knowledge of voting procedures and trust in elections?",
-      "title": "Can AI Strengthen Democracy? Improving Public Trust in Elections with a Civic Chatbot",
+      "title": "Conversational AI and Voter Trust: Experiment on Delivering Official Election Information",
       "authors": "Do Won Kim, Giovanni Luca Ciampaglia, Cody Buntain, Riley Lankes, Patrick Wu",
       "status": "Dissertation Chapter 3: planned 3-arm RCT, Nov. 2026 midterms, Montgomery County, MD",
-      "summary": "A randomized experiment testing whether a RAG chatbot that answers only from official election information improves voter knowledge, trust in election administration, and civic engagement.",
-      "links": [
+      "summary": "A three-arm randomized experiment during the 2026 midterms in Montgomery County, Maryland, comparing conversational access to official election information through a chatbot with self-directed search over the same official sources and with no access, on voters' knowledge, trust, concerns, and beliefs about elections.",
+      "links": [],
+      "toolFirst": true,
+      "tool": {
+        "name": "VIOLETS (Voter Information from Official Local Election Trusted Sources)",
+        "links": [
+          {
+            "label": "GitHub",
+            "url": "https://github.com/CSDL-UMD/VIOLETS"
+          }
+        ]
+      },
+      "presentations": [
         {
-          "label": "Website",
-          "url": "./design/violets/index.html"
+          "kind": "Poster",
+          "venue": "International Conference on Computational Social Science (IC2S2)",
+          "location": "Burlington, VT, USA",
+          "date": "July 2026"
         },
         {
-          "label": "GitHub",
-          "url": "https://github.com/CSDL-UMD/VIOLETS"
+          "kind": "Poster",
+          "venue": "43rd Annual Symposium of the Human-Computer Interaction Lab (HCIL), University of Maryland",
+          "location": "College Park, MD, USA",
+          "date": "May 2026",
+          "links": [
+            {
+              "label": "Event",
+              "url": "https://hcil.umd.edu/hcil-symposium-2026/"
+            }
+          ]
+        },
+        {
+          "kind": "Poster",
+          "venue": "Inaugural Research & Learning Symposium, Artificial Intelligence Interdisciplinary Institute at Maryland (AIM)",
+          "location": "College Park, MD, USA",
+          "date": "May 2026",
+          "links": [
+            {
+              "label": "Event",
+              "url": "https://aim.umd.edu/news-events/events/research-learning-symposium"
+            }
+          ]
+        }
+      ],
+      "funding": [
+        {
+          "name": "Mini-Grant",
+          "org": "NSF–NIST Institute for Trustworthy AI in Law & Society (TRAILS)",
+          "date": "2026"
+        },
+        {
+          "name": "Humane Studies Fellowship",
+          "org": "Institute for Humane Studies",
+          "date": "2026"
+        },
+        {
+          "name": "Doctoral Students Research Award",
+          "org": "University of Maryland",
+          "date": "2026"
+        },
+        {
+          "name": "Graduate Assistantship, Undergraduate Research Opportunities Program",
+          "org": "University of Maryland",
+          "date": "2025–26"
+        }
+      ],
+      "resources": [
+        {
+          "label": "Project page",
+          "venue": "Global Elections and Information Security (GEIS) Lab, University of Maryland",
+          "url": "https://geis.info.umd.edu/violets/"
+        },
+        {
+          "label": "Architecture",
+          "venue": "VIOLETS system diagram",
+          "url": "./design/violets/index.html"
+        }
+      ],
+      "coverage": [
+        {
+          "outlet": "Maryland Today",
+          "title": "Before the Ballot Box, a Ballot Bot?",
+          "date": "Oct. 28, 2026",
+          "url": "https://today.umd.edu/before-the-ballot-box-a-ballot-bot"
+        },
+        {
+          "outlet": "WMUC Radio",
+          "title": "Weekly News Roundup",
+          "date": "Sept. 28, 2026",
+          "note": "segment at 0:25–1:11",
+          "url": "https://wmuc.umd.edu/ghost-site/wmuc-news-09-28-26/"
         }
       ]
     }

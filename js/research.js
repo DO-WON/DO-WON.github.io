@@ -23,7 +23,13 @@ Site.load("./data/research.json", "research-container", async (container, { intr
   const renderItem = (item) => {
     const chapter = item.dissertationChapter ? chapters[item.dissertationChapter - 1] : null;
     const title = (chapter || item).title;
-    const url = chapter ? (chapter.links || [])[0]?.url : item.url;
+    // A chapter links to its first paper link, else its first resource
+    // (e.g. the arXiv preprint), else its own section on the dissertation page.
+    const url = chapter
+      ? (chapter.links || [])[0]?.url ||
+        (chapter.resources || [])[0]?.url ||
+        `./dissertation.html#study-${item.dissertationChapter}`
+      : item.url;
     if (!title) return null;
 
     const li = Site.el("li", "work-item");

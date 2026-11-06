@@ -7,9 +7,8 @@
     "Advised by <a href=\"https://glciampaglia.com/\">Giovanni Luca Ciampaglia</a> and <a href=\"https://cody.bunta.in/\">Cody Buntain</a>"
   ],
   "bio": [
-    "I am a computational social scientist studying how AI and digital information environments shape people’s beliefs and behavior—and how we can redesign these environments to support informed decision-making and strengthen democracy.",
-    "In my <a href=\"./dissertation.html\">dissertation</a>, I use experiments and computational methods to design and test interventions that reduce engagement with unreliable sources, bridge partisan divides, and build trust in elections.",
-    "I also study ranking and recommendation algorithms, in projects such as the <a href=\"https://rankingchallenge.substack.com/\">Prosocial Ranking Challenge</a> and research on using large language models to align news-feed recommendations with users’ stated values. I am also interested in how AI is reshaping the production and dissemination of scientific knowledge."
+    "I am a computational social scientist studying how the design of digital information environments shapes access to information, interactions with others, and political beliefs and behavior. Using computational methods and experiments, I aim to inform the design of platforms and AI systems that support informed decision-making, constructive engagement across differences, and democratic participation.",
+    "To learn more, see my <a href=\"./research.html\">Research</a> page for current projects and publications, or read about my <a href=\"./dissertation.html\">dissertation</a> on how AI can strengthen democracy."
   ],
   "links": [
     { "label": "CV", "url": "./docs/cv.pdf" },
