@@ -34,9 +34,9 @@ Object. Rendered by `js/profile.js` (also sets the page title, nav name, and foo
 - `name` is rendered as the heading of the side column and also drives the nav name, page title, footer, and author highlighting in paper lists.
 - `pronunciation` (optional) is shown in muted text in parentheses after the name.
 - `roles` is an array of short lines shown under the name (position, department, affiliation, advisors…). Each line is rendered via `innerHTML`, so it may contain inline links. Legacy `title`/`affiliation` fields are still accepted as a single-line fallback when `roles` is absent.
-- `bio` is an array of paragraphs. Each paragraph is rendered via `innerHTML` (trusted site-owner content, same convention as `news.json`'s `htmltext`), so it may contain inline HTML like `<a href="...">links</a>` — e.g. linking out to `./dissertation.html`. Don't repeat the position/affiliation here; that belongs in `roles`.
+- `bio` is an array of paragraphs. Each paragraph is rendered via `innerHTML` (trusted site-owner content, same convention as `news.json`'s `htmltext`), so it may contain inline HTML like `<a href="...">links</a>` (e.g. a link to another page of the site). Don't repeat the position/affiliation here; that belongs in `roles`.
 - `links` render as icon badges under the roles. Icons are keyed by `label` (case-insensitive) in `PROFILE_ICONS` in `js/profile.js`; unknown labels get a generic external-link icon.
-- Optional: `photoPath` (omit to render without a photo — the live site omits it).
+- Optional: `photoPath` (omit to render without a photo).
 
 ## data/publications.json — published papers
 
@@ -79,54 +79,73 @@ Array, newest first. Rendered by `js/working_papers.js`.
 
 ## data/dissertation.json — dissertation overview and chapters
 
-Local addition (not part of the upstream template's 8 default sections). An object rendered by `js/dissertation.js` on `dissertation.html`: the dissertation title, framing paragraphs, the central research question (shown as a callout), then one "Study N: <dimension>" section per chapter with a guiding question and a chapter card (`Site.chapterCard`). Page-only: no preview on `index.html` (see "Page-only sections" in `CLAUDE.md`). `data/research.json` also references chapters by position (`dissertationChapter: N`), so keep chapter order stable.
+Local addition (not part of the upstream template's default sections). An object rendered by `js/dissertation.js` on `dissertation.html` (page-only: no preview on `index.html`). `data/research.json` references chapters by position (`dissertationChapter: N`), so keep chapter order stable.
 
 ```json
 {
   "title": "Dissertation title",
-  "intro": ["Framing paragraph 1.", "Framing paragraph 2."],
-  "question": "Central research question?",
-  "outline": "One sentence introducing the studies.",
+  "contribution": {
+    "heading": "The Big Picture",
+    "paragraphs": ["Plain-text paragraph."],
+    "logic": [
+      { "study": 1, "icon": "mute", "label": "Short tile label",
+        "problem": "The concern this study addresses.",
+        "intervention": "What the study does.",
+        "outcomeLabel": "Finding",
+        "outcome": "Result, or the expected effect." }
+    ],
+    "closing": "Closing paragraph."
+  },
   "chapters": [
     {
-      "dimension": "Exposure to Information Sources",
-      "question": "Guiding question for this study?",
-      "title": "Chapter title",
-      "authors": "Co-author One, Co-author Two",
-      "status": "Dissertation Chapter 1: field experiment",
+      "title": "Chapter / paper title",
+      "authors": "Jane Placeholder, Co-author One",
       "summary": "One or two sentences on the design and findings.",
-      "links": [
-        { "label": "Website", "url": "https://example.org/project-page" },
-        { "label": "GitHub", "url": "https://github.com/..." }
-      ]
+      "links": [{ "label": "Paper", "url": "https://doi.org/..." }],
+      "resources": [{ "label": "Working paper", "venue": "arXiv", "url": "https://arxiv.org/abs/..." }],
+      "tool": { "name": "Tool name", "description": "Optional one line.", "links": [{ "label": "GitHub", "url": "https://github.com/..." }] },
+      "presentations": [
+        { "kind": "Talk", "venue": "Conference name", "location": "City, Country", "date": "Sept. 2026",
+          "links": [{ "label": "Slides", "url": "./docs/dissertation/..." }] }
+      ],
+      "funding": [{ "name": "Grant name", "org": "Funder", "date": "2026", "url": "https://..." }],
+      "coverage": [{ "outlet": "Outlet", "title": "Headline", "date": "Oct. 2026", "note": "optional, e.g. segment time", "url": "https://..." }]
     }
   ]
 }
 ```
 
-- All fields optional except each chapter's `title`. `intro`, `question`, and `outline` are plain text. `status` is shown in place of a venue line. The title is never linked; `links` render as bracketed text links (`[Website] [GitHub]`) below the summary. Labels: `Paper` (DOI/published version), `Preprint` (arXiv etc.), `GitHub`, `Website` (project or design page).
+- `title` becomes the page `<h1>`, with a small "Dissertation" label above it.
+- `contribution` (optional) renders the paragraphs, then `logic` as an interactive diagram: one tile per study (`icon`: `mute` | `encounter` | `civic`, from `DISSERTATION_ICONS` in `js/dissertation.js`), and selecting a tile shows its concern → intervention → outcome card linking to `#study-N`. `outcomeLabel` defaults to "Expected effect"; set it to `"Finding"` once a study has results.
+- Each chapter renders as a collapsible card (`<details>`, open by default) headed `Study N: <title>` (also used in the table of contents), with `authors` always visible and everything else inside.
+- Each study gets a stable anchor `#study-N` (1-based chapter position) that may be printed in QR codes, so don't reorder chapters. A `#study-N` URL opens and scrolls to that card.
+- All fields are optional except each chapter's `title`; empty arrays hide their block.
+- `links` render as bracketed link tags below the summary; a `GitHub` label renders as the GitHub logo (`Site.icons.github`, via `Site.linkTags`).
+- `resources` and `tool` render as plain "Label: value" lines with no heading, resources first (set `"toolFirst": true` on a chapter to put the tool first). `presentations` (newest first; `kind` is a tag like Talk/Poster; optional `title` and `presenter`), `funding` (optional `role`, `url`), and `coverage` render as lists under their own headings.
+- `research.json` items with `dissertationChapter` link to the chapter's first `links` entry, falling back to its first `resources` entry, then `#study-N`.
+- Legacy fields `dimension`, `question`, `status`, `intro`, and `outline` are accepted but not rendered.
 
 ## data/research.json — Research page themes
 
-Local addition. Object rendered by `js/research.js` on `research.html` (page-only; linked from the nav). Structure modeled on cbudak.com/research.html, styled like the rest of the site (plain text, hairline rules, no filled cards): an intro, then per theme an `h2`, an overview paragraph (how the theme connects to the others), and a grid of sub-theme columns, each listing selected work as title + year.
+Local addition. Object rendered by `js/research.js` on `research.html` (page-only; linked from the nav), styled like the rest of the site (plain text, hairline rules): an intro, then per theme an `h2`, an overview paragraph (how the theme connects to the others), and a grid of sub-theme columns, each listing selected work as title + year.
 
 ```json
 {
   "intro": "Intro paragraph (HTML allowed, e.g. a link to ./docs/cv.pdf).",
   "themes": [
     {
-      "id": "algorithms",
-      "title": "Algorithms & Recommender Systems",
+      "id": "theme-one",
+      "title": "Theme Title",
       "description": "Theme overview paragraph (HTML allowed).",
       "subthemes": [
         {
-          "title": "Stated vs. Revealed Preferences",
+          "title": "Sub-theme Title",
           "description": "Guiding question for this card.",
           "items": [
             {
               "type": "Journal",
               "title": "Paper title",
-              "authors": "Do Won Kim, Co-author",
+              "authors": "Jane Placeholder, Co-author",
               "url": "https://doi.org/...",
               "year": "2026"
             },
@@ -139,10 +158,10 @@ Local addition. Object rendered by `js/research.js` on `research.html` (page-onl
 }
 ```
 
-- `id` is the anchor (`research.html#algorithms`).
+- `id` is the anchor (`research.html#theme-one`).
 - Items are compact: `title` (linked when `url` is set; opens in a new tab) and `year` on the right. `authors` is optional and shown only as a hover tooltip; the full citation lives in the CV.
 - `type` is shown as a small tag before the title. Use the CV's section headings, picking the most advanced output for each work: `Journal`, `Conference` (refereed proceedings), `Working Paper`, `Talk`, `Poster`, `Tutorial`, `Software`.
-- `dissertationChapter: N` pulls the title from the Nth entry of `data/dissertation.json` (linked to that chapter's first `links` entry), so chapters aren't duplicated; it shows `year` like any other item.
+- `dissertationChapter: N` pulls the title (and link) from the Nth entry of `data/dissertation.json`, so chapters aren't duplicated; it shows `year` like any other item.
 - The grid width follows the card count: 1 card spans full width, 3 cards get three columns, 2 or 4 cards get two (all collapse to one column on mobile). Order items by importance.
 
 ## data/news.json — news items
@@ -229,7 +248,7 @@ Array, newest first. Rendered by `js/teaching.js`.
 
 ## data/blog.json — long-form posts
 
-Local addition (not part of the upstream template's 8 default sections). Array, newest first. Rendered by `js/blog.js` as a linked list; each entry points at a hand-authored static page under `blog/<slug>/index.html` (there's no markdown engine in a no-build site, so post bodies are plain HTML, not JSON). Page-only: this section has no preview on `index.html` (see "Page-only sections" in `CLAUDE.md`) — it's rendered in full on `blog.html`, which stays in the nav on every page.
+Local addition (not part of the upstream template's 8 default sections). Array, newest first. Rendered by `js/blog.js` as a linked list; each entry points at a hand-authored static page under `blog/<slug>/index.html` (there's no markdown engine in a no-build site, so post bodies are plain HTML, not JSON). Page-only: no preview on `index.html`; rendered in full on `blog.html`.
 
 ```json
 {
