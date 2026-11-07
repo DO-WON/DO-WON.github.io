@@ -229,22 +229,38 @@ Array. Rendered by `js/ongoing_projects.js`.
 }
 ```
 
-## data/teaching.json — courses taught
+## data/teaching.json — teaching, mentoring, and TA work
 
-Array, newest first. Rendered by `js/teaching.js`.
+Object. Rendered by `js/teaching.js` on `teaching.html` (no homepage preview).
 
 ```json
 {
-  "title": "Introduction to Interesting Things",
-  "role": "Instructor",
-  "institution": "University of Somewhere",
-  "term": "Spring 2026",
-  "description": "An undergraduate introduction to the field.",
-  "link": "./docs/teaching/syllabus.pdf"
+  "intro": "One or two sentences on teaching goals (string, or array of paragraphs; HTML allowed).",
+  "interests": [
+    { "label": "Methods", "text": "Research design, quantitative methods, causal inference" }
+  ],
+  "groups": [
+    {
+      "label": "Instructor",
+      "items": [
+        {
+          "title": "COURSE101: Course title",
+          "institution": "University of Somewhere",
+          "term": "Fall 2026",
+          "detail": "Optional third line: format, topic, or who was mentored.",
+          "links": [{ "label": "Syllabus", "url": "./docs/teaching/syllabus.pdf" }]
+        }
+      ]
+    }
+  ]
 }
 ```
 
-- Optional: `description`, `link` (e.g. a syllabus URL or PDF — local addition on top of the upstream schema; when present, the title links to it).
+- Groups in use: `Instructor`, `Workshops & Tutorials`, `Mentoring`, `Teaching Assistant`. Items newest first within a group; empty groups hide.
+- Each item renders as: title with `term` on the right (a string, or an array of lines, e.g. `["Fall 2021, Spring 2022", "Fall 2022, Summer 2023"]`); then `institution · Instructor: <instructor> · links` (`instructor` optional, used for TA roles); then `detail` in italics. Links show as text ("Syllabus (PDF)" for PDFs, otherwise the label); add `"lang": "Korean"` to a link for non-English material ("Slides (Korean)"); GitHub links render as the GitHub icon.
+- `interests` renders as a small key–value list under "Teaching Interests".
+- Optional `evaluation` on an item: `{ "summary": "...", "quotes": ["..."], "note": "Translated from Korean by the author." }`. Renders as a highlighted line under the row, with the quotes in a collapsible "Student comments (N)". Publish summaries and short TA-related quotes only, not full institutional evaluation reports (they may include other instructors' scores).
+- Keep entries consistent with the CV's Teaching & Mentoring section.
 
 ## data/blog.json — long-form posts
 

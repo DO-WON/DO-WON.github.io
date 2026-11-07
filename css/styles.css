@@ -1136,6 +1136,85 @@ main {
   height: 1.05em;
 }
 
+/* --- Teaching page (teaching.html, rendered by js/teaching.js) ---------- */
+/* Reuses the dissertation page's .study-sublist / .resource-list rows and
+   .study-facts key–value list. */
+
+.teaching-intro {
+  margin: 0 0 0.5rem;
+}
+
+/* Teaching page: section headers (Teaching Interests, Instructor, …) read
+   as real headings: larger, full-strength color, with a rule beneath. */
+#teaching-container .study-sublist h3 {
+  margin: 2.25rem 0 0.6rem;
+  padding-bottom: 0.35rem;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+}
+
+#teaching-container .study-sublist:first-of-type h3 {
+  margin-top: 1.5rem;
+}
+
+#teaching-container .study-facts dt {
+  min-width: 7.5rem;
+}
+
+/* Multi-semester terms ("Fall 2021, Spring 2022, …") may wrap on narrow
+   screens instead of pushing the row wider than the page. */
+#teaching-container .row-date {
+  max-width: 16rem;
+  white-space: normal;
+}
+
+/* Student-evaluation block under a teaching row. */
+.row-eval {
+  grid-column: 1 / -1;
+  margin-top: 0.4rem;
+  padding: 0.6rem 0.85rem;
+  border-left: 3px solid var(--color-accent);
+  background: var(--color-bg-subtle);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.9rem;
+}
+
+.eval-summary {
+  margin: 0;
+}
+
+.eval-quotes {
+  margin-top: 0.35rem;
+}
+
+.eval-quotes summary {
+  cursor: pointer;
+  color: var(--color-accent);
+}
+
+.eval-quotes blockquote {
+  margin: 0.5rem 0 0;
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.eval-note {
+  margin: 0.5rem 0 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Third line of a teaching row: what the course was / who was mentored. */
+.row-sub.row-note {
+  grid-row: auto;
+  margin-top: 0;
+  font-style: italic;
+}
+
 /* --- Generic item lists (talks, software, projects, teaching, blog) ------ */
 
 .item {
