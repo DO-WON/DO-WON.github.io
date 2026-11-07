@@ -1,25 +1,28 @@
 {
-  "intro": "I am a computational social scientist studying how AI and algorithmic systems shape the information environments people encounter and how these environments can be redesigned to support better decision-making. For a complete list of papers and presentations, see my <a href=\"./docs/cv.pdf\">CV</a>.",
+  "intro": [
+    "I am a computational social scientist studying how AI and algorithmic systems shape the information environments people encounter. I ask how these environments can be redesigned to expand access to trustworthy information while limiting exposure to untrustworthy sources, to represent a broader range of information and perspectives, and to support an informed citizenry.",
+    "My work is organized around three themes:"
+  ],
+  "callout": {
+    "label": "Dissertation",
+    "text": "Leveraging AI-Mediated Information Environments for Democracy",
+    "url": "./dissertation.html",
+    "note": "Spans all three themes"
+  },
   "themes": [
     {
-      "id": "interventions",
-      "title": "Interventions for Healthier Information Environments",
-      "description": "I build and test interventions that change what people encounter online, and measure how their attitudes and behavior change. In my <a href=\"./dissertation.html\">dissertation</a>, I apply this approach to three goals: reducing engagement with untrustworthy sources, bridging partisan divides, and building trust in elections.",
+      "id": "access",
+      "title": "Access: Changing the Costs of Information",
+      "summary": "Making untrustworthy sources harder to reach and trustworthy sources easier to reach.",
+      "description": "Do democratic outcomes improve when information environments make untrustworthy sources harder to reach and trustworthy sources easier to reach?",
       "subthemes": [
         {
-          "title": "Digital Field Experiments",
-          "description": "Intervening directly in people’s real online information environments, and developing the methods and infrastructure that make such platform experiments possible.",
+          "title": "Limiting Exposure to Untrustworthy Sources",
+          "description": "Testing environmental changes, such as muting, against cognitive ones, such as media literacy, for the users who engage most with untrustworthy sources.",
           "items": [
             {
               "type": "Working Paper",
               "dissertationChapter": 1,
-              "year": "2026"
-            },
-            {
-              "type": "Software",
-              "title": "Agentic sockpuppet experiment framework",
-              "authors": "Do Won Kim, William Bradshaw",
-              "url": "https://github.com/wjbradshawTerp/ScraperSky",
               "year": "2026"
             },
             {
@@ -31,14 +34,9 @@
           ]
         },
         {
-          "title": "AI as Intervention",
-          "description": "Using AI chatbots to mitigate partisan divides and build trust in elections.",
+          "title": "Facilitating Access to Trusted Information",
+          "description": "Testing whether conversational access to official election information improves voter trust, knowledge, and beliefs about elections.",
           "items": [
-            {
-              "type": "Working Paper",
-              "dissertationChapter": 2,
-              "year": "2026"
-            },
             {
               "type": "Poster",
               "dissertationChapter": 3,
@@ -55,13 +53,32 @@
       ]
     },
     {
-      "id": "algorithms",
-      "title": "Algorithms & Recommender Systems",
-      "description": "Ranking and recommendation algorithms are core infrastructure of the information environment: they decide what people see, and when. I study how these systems can be designed to be more prosocial and pro-democratic.",
+      "id": "representation",
+      "title": "Representation: Broadening Information and Political Encounters",
+      "summary": "Broadening the information and political encounters available to citizens.",
+      "description": "Can information environments broaden the information and encounters available to citizens, so that their views of the world and of one another are less narrow or distorted? I focus on information, perspectives, and encounters that existing environments omit or underrepresent.",
       "subthemes": [
         {
-          "title": "Alternatives to Engagement Maximization",
-          "description": "Engagement-optimized ranking rewards what people click, not what they value. I design and evaluate user-centered alternatives.",
+          "title": "Creating Unexpected Partisan Encounters",
+          "description": "Using AI conversations that challenge partisan expectations to reduce polarization without persuasion.",
+          "items": [
+            {
+              "type": "Working Paper",
+              "dissertationChapter": 2,
+              "year": "2026"
+            },
+            {
+              "type": "Software",
+              "title": "Agentic sockpuppet experiment framework",
+              "authors": "Do Won Kim, William Bradshaw",
+              "url": "https://github.com/wjbradshawTerp/ScraperSky",
+              "year": "2026"
+            }
+          ]
+        },
+        {
+          "title": "Designing Feeds Beyond Engagement",
+          "description": "What drives engagement often diverges from what users value. I design feeds that better align with the stated preferences of users and foster civil engagement across divides.",
           "items": [
             {
               "type": "Conference",
@@ -74,12 +91,14 @@
               "type": "Poster",
               "title": "Testing Alternative Algorithms for Social Media News Feeds: Audience Diversity and Stated Preferences-Based Recommender Systems",
               "authors": "Do Won Kim, Saumya Bhadani",
+              "url": "./docs/talks/IC2S2_2025_Poster.pdf",
               "year": "2025"
             },
             {
-              "type": "Poster",
-              "title": "Predicting Constructive Conflict in Social Media Discussions",
-              "authors": "Ozgur Can Seckin, Bao Tran Truong, Do Won Kim, Saumya Bhadani",
+              "type": "Conference",
+              "title": "Emotional Appeals in the 2020 #SaveTheChildren Campaign: A Multi-Platform Study of Online Engagement in QAnon Messaging",
+              "authors": "Do Won Kim, Cody Buntain",
+              "url": "https://doi.org/10.1145/3720554.3733843",
               "year": "2025"
             },
             {
@@ -90,48 +109,55 @@
               "year": "2024"
             }
           ]
+        },
+        {
+          "title": "Scholarly Information Environments",
+          "description": "Science has its own information environment, where the same questions apply: what gets seen, by whom, and through which systems. I study whose knowledge becomes visible across linguistic divides, and which infrastructures shape how research is found and shared.",
+          "items": [
+            {
+              "type": "Journal",
+              "title": "Two Spheres of Korean Politics: Knowledge Production and Dissemination across Linguistic Divides",
+              "authors": "Do Won Kim, Hyowon Kim, Won-ho Park",
+              "year": "2026"
+            },
+            {
+              "type": "Talk",
+              "title": "Discovery Bottleneck: Infrastructural Barriers to Local Scholarship",
+              "authors": "Hyowon Kim, Do Won Kim, Won-ho Park",
+              "year": "2026"
+            },
+            {
+              "type": "Journal",
+              "title": "Understanding Motivations and Future Needs for Data Deposits at Korea Social Science Data Archive (KOSSDA)",
+              "authors": "Hyowon Kim, Do Won Kim, Jungwon Yang",
+              "url": "https://doi.org/10.29173/iq1110",
+              "year": "2024"
+            }
+          ]
         }
       ]
     },
     {
-      "id": "political-behavior",
-      "title": "Political Communication, Political Behavior & Public Opinion",
-      "description": "I study how citizens learn about politics, respond to political information, and make electoral choices, the behaviors that information environments ultimately shape.",
+      "id": "civic-capabilities",
+      "title": "Informed Citizenry: Supporting Political Learning and Participation",
+      "summary": "Helping citizens learn about politics and make informed electoral choices.",
+      "description": "How do citizens learn about politics, process political information, and make electoral choices? And how can information environments, including AI, support more informed participation?",
       "subthemes": [
         {
-          "title": "Political Learning & Informed Citizenship",
-          "description": "How do citizens learn about politics, and how does that learning shape their beliefs and attitudes?",
+          "title": "Political Learning with AI",
+          "description": "Comparing direct exposure to political information, AI-generated summaries, and conversational AI assistance to test whether different forms of AI mediation improve how citizens understand a complex policy issue.",
           "items": [
             {
               "type": "Talk",
               "title": "Learning Politics with AI: Political Knowledge, Institutional Trust, and Attitudes Toward Interbranch Conflict",
-              "authors": "Do Won Kim, Hyawong Shin",
+              "authors": "Do Won Kim, Hwayong Shin",
               "year": "2026"
             }
           ]
         },
         {
-          "title": "Emotion in Political Communication",
-          "description": "How do emotional appeals drive engagement with political information, from conspiracy campaigns online to televised debates?",
-          "items": [
-            {
-              "type": "Conference",
-              "title": "Emotional Appeals in the 2020 #SaveTheChildren Campaign: A Multi-Platform Study of Online Engagement in QAnon Messaging",
-              "authors": "Do Won Kim, Cody Buntain",
-              "url": "https://doi.org/10.1145/3720554.3733843",
-              "year": "2025"
-            },
-            {
-              "type": "Poster",
-              "title": "Emotion in Presidential TV Debate: Real-time Responses and Political Information Processing",
-              "authors": "Soyoen Jeon, Do Won Kim",
-              "year": "2022"
-            }
-          ]
-        },
-        {
-          "title": "Voting Behavior",
-          "description": "How do candidates’ traits, voters’ personalities, campaign spending, and government performance shape vote choice and electoral success?",
+          "title": "Voting Behavior & Political Communication",
+          "description": "How candidate traits, voter strategies, campaign spending, and emotional responses to political information shape electoral choices.",
           "items": [
             {
               "type": "Journal",
@@ -153,50 +179,12 @@
               "authors": "Do Won Kim, Hyowon Kim",
               "url": "https://doi.org/10.35656/JKP.31.2.3",
               "year": "2022"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "science-of-science",
-      "title": "Science of Science: Knowledge Infrastructure",
-      "description": "Science has its own information environment. The same questions—what gets seen, by whom, and through which systems—apply to scholarly knowledge: publication languages, search and indexing systems, data archives, and AI tools shape which research gets produced and how it is found and built upon.",
-      "subthemes": [
-        {
-          "title": "Infrastructural Barriers to Knowledge",
-          "description": "How language divides and discovery systems keep non-English scholarship out of view.",
-          "items": [
-            {
-              "type": "Working Paper",
-              "title": "Two Spheres of Korean Politics: Knowledge Production and Dissemination across Linguistic Divides",
-              "authors": "Do Won Kim, Hyowon Kim, Won-ho Park",
-              "year": "2026"
             },
             {
-              "type": "Talk",
-              "title": "Discovery Bottleneck: Infrastructural Barriers to Local Scholarship",
-              "authors": "Hyowon Kim, Do Won Kim, Won-ho Park",
-              "year": "2026"
-            }
-          ]
-        },
-        {
-          "title": "Data & AI in Research Practice",
-          "description": "How data archives and AI tools shape the way social scientists do research.",
-          "items": [
-            {
-              "type": "Journal",
-              "title": "Understanding Motivations and Future Needs for Data Deposits at Korea Social Science Data Archive (KOSSDA)",
-              "authors": "Hyowon Kim, Do Won Kim, Jungwon Yang",
-              "url": "https://doi.org/10.29173/iq1110",
-              "year": "2024"
-            },
-            {
-              "type": "Tutorial",
-              "title": "Tutorial on Large Language Model (LLM) Applications for Political Science Research",
-              "authors": "Do Won Kim",
-              "year": "2026"
+              "type": "Poster",
+              "title": "Emotion in Presidential TV Debate: Real-time Responses and Political Information Processing",
+              "authors": "Soyoen Jeon, Do Won Kim",
+              "year": "2022"
             }
           ]
         }

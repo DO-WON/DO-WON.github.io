@@ -1,23 +1,59 @@
 /**
  * Renders data/research.json on research.html: an intro, then one block per
- * theme with an overview paragraph and a grid of sub-theme columns, each
- * listing selected work (type tag + title + year).
+ * theme with an overview paragraph and full-width sub-theme cards, each
+ * listing selected work (type tag + title + link icon + year).
  *
  * An item with `dissertationChapter: N` pulls its title from the Nth
  * entry of data/dissertation.json, so chapters live in one file shared with
  * dissertation.html; its title links to that chapter's first link.
  */
-Site.load("./data/research.json", "research-container", async (container, { intro, themes = [] }) => {
+Site.load("./data/research.json", "research-container", async (container, { intro, callout, themes = [] }) => {
   const needsChapters = themes.some((t) =>
     (t.subthemes || []).some((s) => (s.items || []).some((i) => i.dissertationChapter))
   );
   const dissertation = needsChapters ? await Site.fetchJSON("./data/dissertation.json") : null;
   const chapters = (dissertation && dissertation.chapters) || [];
 
-  if (intro) {
+  // `intro` is a string or an array of paragraphs (trusted site-owner HTML).
+  (Array.isArray(intro) ? intro : intro ? [intro] : []).forEach((html) => {
     const p = Site.el("p", "research-intro");
-    p.innerHTML = intro; // trusted site-owner content; may contain links
+    p.innerHTML = html;
     container.appendChild(p);
+  });
+
+  // At-a-glance overview: one tile per theme that has a `summary`,
+  // linking to the theme's section below.
+  const overviewThemes = themes.filter((t) => t.summary);
+  if (overviewThemes.length) {
+    const ol = Site.el("ol", "research-overview");
+    overviewThemes.forEach((theme) => {
+      const li = Site.el("li");
+      const a = document.createElement("a");
+      a.href = `#${theme.id}`;
+      a.className = "overview-tile";
+      // Short name = the part of the title before the colon ("Access").
+      a.appendChild(Site.el("span", "overview-name", theme.title.split(":")[0]));
+      a.appendChild(Site.el("span", "overview-summary", theme.summary));
+      li.appendChild(a);
+      ol.appendChild(li);
+    });
+    container.appendChild(ol);
+  }
+
+  // Optional one-line callout under the overview (e.g. the dissertation),
+  // linking to a page on this site in the same tab.
+  if (callout && callout.url) {
+    const a = document.createElement("a");
+    a.href = callout.url;
+    a.className = "research-callout";
+    if (callout.label) a.appendChild(Site.el("span", "callout-label", callout.label));
+    // Title plus an optional muted note tying it back to the themes above.
+    const body = Site.el("span", "callout-body");
+    if (callout.text) body.appendChild(Site.el("span", "callout-text", callout.text));
+    if (callout.note) body.appendChild(Site.el("span", "callout-note", callout.note));
+    a.appendChild(body);
+    a.appendChild(Site.el("span", "callout-arrow", "→"));
+    container.appendChild(a);
   }
 
   const renderItem = (item) => {
@@ -32,19 +68,25 @@ Site.load("./data/research.json", "research-container", async (container, { intr
       : item.url;
     if (!title) return null;
 
+    // Three aligned columns: type tag | title | year.
     const li = Site.el("li", "work-item");
-    const titleEl = Site.el("span", "work-title");
+    const typeCell = Site.el("span", "work-type-cell");
     // `type` (Journal, Conference, Working Paper, Poster, Talk, ...) follows
     // the CV's section headings.
-    if (item.type) {
-      titleEl.appendChild(Site.el("span", "work-type", item.type));
-      titleEl.appendChild(document.createTextNode(" "));
-    }
-    // Site.link opens in a new tab.
-    if (url) titleEl.appendChild(Site.link(url, title));
-    else titleEl.appendChild(document.createTextNode(title));
+    if (item.type) typeCell.appendChild(Site.el("span", "work-type", item.type));
+    li.appendChild(typeCell);
+
+    // Titles are plain text; the link is an icon in its own column
+    // (GitHub / PDF / external page), opening in a new tab.
+    const titleEl = Site.el("span", "work-title", title);
     if (item.authors) titleEl.title = item.authors;
     li.appendChild(titleEl);
+
+    const linkCell = Site.el("span", "work-link");
+    // A poster's PDF gets the poster icon rather than the document icon.
+    const isPosterPdf = item.type === "Poster" && /\.pdf($|[?#])/i.test(url || "");
+    if (url) linkCell.appendChild(Site.iconLink(url, isPosterPdf ? `Poster (PDF): ${title}` : `Open: ${title}`, isPosterPdf ? "poster" : undefined));
+    li.appendChild(linkCell);
 
     if (item.year) li.appendChild(Site.el("span", "work-year", item.year));
     return li;
@@ -60,12 +102,13 @@ Site.load("./data/research.json", "research-container", async (container, { intr
       block.appendChild(desc);
     }
 
-    // Column count follows the card count: 1 → full width, 3 → three
-    // columns, otherwise two (so 2 and 4 cards stay even).
+    // Sub-themes stack as full-width cards (one per row) so long paper
+    // titles stay on one or two lines and the years line up on the right.
     const subthemes = theme.subthemes || [];
-    const cols = subthemes.length === 1 ? 1 : subthemes.length === 3 ? 3 : 2;
-    const grid = Site.el("div", `subtheme-grid cols-${cols}`);
+    const grid = Site.el("div", "subtheme-grid");
     subthemes.forEach((sub) => {
+      // Optional `lead`: a bridging sentence shown just above the card.
+      if (sub.lead) grid.appendChild(Site.el("p", "subtheme-lead", sub.lead));
       const card = Site.el("div", "subtheme");
       card.appendChild(Site.el("h3", "subtheme-title", sub.title));
       if (sub.description) card.appendChild(Site.el("p", "subtheme-description", sub.description));

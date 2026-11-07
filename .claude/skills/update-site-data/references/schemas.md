@@ -85,7 +85,7 @@ Local addition (not part of the upstream template's default sections). An object
 {
   "title": "Dissertation title",
   "contribution": {
-    "heading": "The Big Picture",
+    "heading": "Optional section heading (omit for none)",
     "paragraphs": ["Plain-text paragraph."],
     "logic": [
       { "study": 1, "icon": "mute", "label": "Short tile label",
@@ -105,8 +105,8 @@ Local addition (not part of the upstream template's default sections). An object
       "resources": [{ "label": "Working paper", "venue": "arXiv", "url": "https://arxiv.org/abs/..." }],
       "tool": { "name": "Tool name", "description": "Optional one line.", "links": [{ "label": "GitHub", "url": "https://github.com/..." }] },
       "presentations": [
-        { "kind": "Talk", "venue": "Conference name", "location": "City, Country", "date": "Sept. 2026",
-          "links": [{ "label": "Slides", "url": "./docs/dissertation/..." }] }
+        { "kind": "Poster", "venue": "Conference name", "url": "https://event-page...", "location": "City, Country", "date": "Sept. 2026",
+          "links": [{ "label": "Poster", "url": "./docs/dissertation/..." }] }
       ],
       "funding": [{ "name": "Grant name", "org": "Funder", "date": "2026", "url": "https://..." }],
       "coverage": [{ "outlet": "Outlet", "title": "Headline", "date": "Oct. 2026", "note": "optional, e.g. segment time", "url": "https://..." }]
@@ -117,11 +117,11 @@ Local addition (not part of the upstream template's default sections). An object
 
 - `title` becomes the page `<h1>`, with a small "Dissertation" label above it.
 - `contribution` (optional) renders the paragraphs, then `logic` as an interactive diagram: one tile per study (`icon`: `mute` | `encounter` | `civic`, from `DISSERTATION_ICONS` in `js/dissertation.js`), and selecting a tile shows its concern → intervention → outcome card linking to `#study-N`. `outcomeLabel` defaults to "Expected effect"; set it to `"Finding"` once a study has results.
-- Each chapter renders as a collapsible card (`<details>`, open by default) headed `Study N: <title>` (also used in the table of contents), with `authors` always visible and everything else inside.
+- Each chapter renders as a collapsible card (`<details>`, open by default) headed by a small "Study N" label and the chapter `title`, with `authors` always visible and everything else inside.
 - Each study gets a stable anchor `#study-N` (1-based chapter position) that may be printed in QR codes, so don't reorder chapters. A `#study-N` URL opens and scrolls to that card.
 - All fields are optional except each chapter's `title`; empty arrays hide their block.
 - `links` render as bracketed link tags below the summary; a `GitHub` label renders as the GitHub logo (`Site.icons.github`, via `Site.linkTags`).
-- `resources` and `tool` render as plain "Label: value" lines with no heading, resources first (set `"toolFirst": true` on a chapter to put the tool first). `presentations` (newest first; `kind` is a tag like Talk/Poster; optional `title` and `presenter`), `funding` (optional `role`, `url`), and `coverage` render as lists under their own headings.
+- `resources` and `tool` render as a small key–value list (label → linked value), resources first (set `"toolFirst": true` on a chapter to put the tool first). `presentations` (newest first; `kind` is a tag like Talk/Poster; `url` links the venue name to the event page; `links` hold materials such as `Slides`/`Poster`/`Extended abstract` PDFs, shown as "Label (PDF)" links; a link whose label equals `kind` replaces the kind tag; optional `title` and `presenter`), `funding` (optional `role`, `url`), and `coverage` render as lists under their own headings.
 - `research.json` items with `dissertationChapter` link to the chapter's first `links` entry, falling back to its first `resources` entry, then `#study-N`.
 - Legacy fields `dimension`, `question`, `status`, `intro`, and `outline` are accepted but not rendered.
 

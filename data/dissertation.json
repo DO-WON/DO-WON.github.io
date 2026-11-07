@@ -1,17 +1,16 @@
 {
   "title": "Leveraging AI-Mediated Information Environments for Democracy",
   "contribution": {
-    "heading": "The Big Picture",
     "paragraphs": [
       "As AI technologies increasingly mediate how people find and engage with political information, concerns about their threats to democracy have grown. Yet whether these risks hold up empirically, and what can be done about them, remain open questions.",
-      "How can AI-mediated information systems better support democratic processes? I answer this question through three randomized experiments, each testing a way to make harmful information easier to avoid, constructive encounters more likely, or trustworthy information easier to reach. In each, I design an intervention, test its causal effects, and translate the findings into actionable design and policy insights."
+      "How can AI-mediated information systems better support democratic processes? I answer this question through randomized experiments that test ways to make harmful information easier to avoid, constructive encounters more likely, and trustworthy information easier to reach, translating the findings into actionable design and policy insights."
     ],
     "logic": [
       {
         "study": 1,
         "icon": "mute",
         "label": "Reduce exposure to untrustworthy sources",
-        "problem": "A minority of social media users with low-quality information diets account for most consumption of untrustworthy sources, yet they are underrepresented in research. How can we durably improve what they consume?",
+        "problem": "A minority of social media users account for most consumption of untrustworthy sources, yet they are underrepresented in research. How can we durably improve what they consume?",
         "intervention": "Mute untrustworthy sources, changing the information environment itself, and compare this with a cognitive approach: media literacy tips.",
         "outcome": "Muting reduced engagement with muted sources for more than six months after incentives ended. Media literacy briefly improved discernment but did not change engagement.",
         "outcomeLabel": "Finding"
@@ -21,20 +20,19 @@
         "icon": "encounter",
         "label": "Create unexpected political encounters",
         "problem": "Partisans expect co-partisans to be like them and opponents to be different, a distorted view of both sides that fuels polarization.",
-        "intervention": "Converse with an AI that defies these expectations: a disagreeing ingroup AI or an agreeing outgroup AI.",
-        "outcome": "Expectation-challenging conversations reduced affective and perceived issue polarization without changing participants' issue positions, though the effects largely faded within a month.",
+        "intervention": "Converse with an AI that challenges these expectations: a disagreeing ingroup AI or an agreeing outgroup AI.",
+        "outcome": "Expectation-challenging conversations reduced affective and perceived issue polarization without changing the issue positions of participants, though the effects largely faded within a month.",
         "outcomeLabel": "Finding"
       },
       {
         "study": 3,
         "icon": "civic",
         "label": "Facilitate access to trusted information",
-        "problem": "Citizens trust local election officials more than any other source. Yet as governments deploy AI to provide official information, little is known about its effects on the voters who use it.",
-        "intervention": "During the 2026 midterms, give voters conversational access to official election information through a chatbot (VIOLETS), and compare it with self-directed search over the same official sources and with no access.",
-        "outcome": "Access to official information should improve voters' knowledge, trust, and beliefs about elections and ease their concerns. Comparing the chatbot with search shows whether talking to AI adds benefits beyond what voters could find on their own."
+        "problem": "Citizens trust local election officials more than any other source of election information. Yet the reach of these officials is limited, and little is known about how AI tools that extend it affect the voters who use them.",
+        "intervention": "Give voters conversational access to official election information through a chatbot, and compare it with self-directed search over the same official sources and with no access.",
+        "outcome": "Access to official information should improve voter knowledge, trust, and beliefs about elections and ease their concerns. Comparing the chatbot with search shows whether talking to AI adds benefits beyond what voters could find on their own."
       }
-    ],
-    "closing": "Ultimately, my dissertation seeks to reimagine how AI can be harnessed to strengthen democracy by sustaining its epistemic and communicative foundations."
+    ]
   },
   "chapters": [
     {
@@ -63,6 +61,10 @@
           "date": "Nov. 2026",
           "links": [
             {
+              "label": "Poster",
+              "url": "./docs/dissertation/Kim_Muting_CODE2026_Poster.pdf"
+            },
+            {
               "label": "Extended abstract",
               "url": "./docs/dissertation/Kim_Muting_CODE2026_Abstract.pdf"
             }
@@ -84,14 +86,19 @@
           "kind": "Poster",
           "venue": "International Conference on Computational Social Science (IC2S2)",
           "location": "Philadelphia, PA, USA",
-          "date": "July 2024"
+          "date": "July 2024",
+          "links": [
+            {
+              "label": "Poster",
+              "url": "./docs/talks/IC2S2_Poster.pdf"
+            }
+          ]
         }
       ],
       "funding": [
         {
           "name": "Mercury Project grant",
           "org": "Social Science Research Council",
-          "role": "Research Assistant",
           "date": "2023–25",
           "url": "https://www.ssrc.org/grantees/a-field-experiment-to-mitigate-the-harm-of-online-misinformation/"
         }
@@ -105,7 +112,7 @@
       "title": "Challenging Partisan Expectations Reduces Political Polarization",
       "authors": "Do Won Kim, Ozgur Can Seckin, Saumya Bhadani, Alessandro Flammini, Giovanni Luca Ciampaglia, Bao Tran Truong",
       "status": "Dissertation Chapter 2: survey experiment with LLM chatbots",
-      "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity and conversational stance. Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views.",
+      "summary": "A 2x2 survey experiment varying an LLM chatbot's partisan identity (ingroup vs. outgroup) and conversational stance (agreement vs. disagreement). Ingroup disagreement and outgroup agreement both reduced polarization by updating perceptions of group diversity and extremity, not by persuading participants on policy views.",
       "links": [],
       "tool": {
         "name": "Replication repository",
@@ -126,12 +133,13 @@
         {
           "kind": "Poster",
           "venue": "AI and Social Research: Empathic AI, Metascience, and Methodology",
+          "url": "https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/",
           "location": "University Park, PA, USA",
           "date": "June 2026",
           "links": [
             {
-              "label": "Event",
-              "url": "https://moralconsortium.psu.edu/events/ai-and-social-research-empathic-ai-metascience-and-methodology/"
+              "label": "Poster",
+              "url": "./docs/dissertation/Kim_Polarization_PennState2026_Poster.pdf"
             }
           ]
         },
@@ -190,7 +198,7 @@
       "title": "Conversational AI and Voter Trust: Experiment on Delivering Official Election Information",
       "authors": "Do Won Kim, Giovanni Luca Ciampaglia, Cody Buntain, Riley Lankes, Patrick Wu",
       "status": "Dissertation Chapter 3: planned 3-arm RCT, Nov. 2026 midterms, Montgomery County, MD",
-      "summary": "A three-arm randomized experiment during the 2026 midterms in Montgomery County, Maryland, comparing conversational access to official election information through a chatbot with self-directed search over the same official sources and with no access, on voters' knowledge, trust, concerns, and beliefs about elections.",
+      "summary": "A three-arm randomized experiment during the 2026 midterms in Montgomery County, Maryland, comparing conversational access to official election information through a chatbot with self-directed search over the same official sources and with no access, on voter knowledge, trust, concerns, and beliefs about elections.",
       "links": [],
       "toolFirst": true,
       "tool": {
@@ -210,26 +218,22 @@
           "date": "July 2026"
         },
         {
-          "kind": "Poster",
+          "kind": "Talk",
           "venue": "43rd Annual Symposium of the Human-Computer Interaction Lab (HCIL), University of Maryland",
+          "url": "https://hcil.umd.edu/hcil-symposium-2026/",
           "location": "College Park, MD, USA",
-          "date": "May 2026",
-          "links": [
-            {
-              "label": "Event",
-              "url": "https://hcil.umd.edu/hcil-symposium-2026/"
-            }
-          ]
+          "date": "May 2026"
         },
         {
           "kind": "Poster",
           "venue": "Inaugural Research & Learning Symposium, Artificial Intelligence Interdisciplinary Institute at Maryland (AIM)",
+          "url": "https://aim.umd.edu/news-events/events/research-learning-symposium",
           "location": "College Park, MD, USA",
           "date": "May 2026",
           "links": [
             {
-              "label": "Event",
-              "url": "https://aim.umd.edu/news-events/events/research-learning-symposium"
+              "label": "Poster",
+              "url": "./docs/dissertation/VIOLETS_AIM2026_Poster.pdf"
             }
           ]
         }

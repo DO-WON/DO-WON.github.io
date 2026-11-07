@@ -2,7 +2,9 @@
   {
     "year": "2026",
     "items": [
+      { "type": "Media", "htmltext": "<strong>Oct.</strong> Interviewed by <a href='https://today.umd.edu/before-the-ballot-box-a-ballot-bot' target='_blank'>Maryland Today</a> about our election chatbot, VIOLETS: <em>Before the Ballot Box, a Ballot Bot?</em>" },
       { "type": "Talk", "htmltext": "<strong>Oct.</strong> Presented our paper, <em>Understanding the Gap Between Stated and Revealed Preferences in Social Media News Feeds</em>, at CSCW 2026! &mdash; <a href='https://bsky.app/profile/glciampaglia.com/post/3mxor4jpqhc2o' target='_blank'>see the post</a>" },
+      { "type": "Media", "htmltext": "<strong>Sep.</strong> Interviewed about VIOLETS for WMUC radio, featured on the <a href='https://wmuc.umd.edu/ghost-site/wmuc-news-09-28-26/' target='_blank'>Weekly News Roundup</a> (0:25&ndash;1:11)." },
       { "type": "General", "htmltext": "<strong>Aug.</strong> Having fun at <a href='https://sicss.io/2026/stanford/people' target='_blank'>SICSS-Stanford 2026</a>! &mdash; <a href='./design/polarizers-bridgers/index.html' target='_blank'>check out what our team made!</a>" },
       { "type": "Award", "htmltext": "<strong>Jun.</strong> Awarded the MPower Early Scholars Investment Fund 🎉" },
       { "type": "Award", "htmltext": "<strong>Jun.</strong> Awarded the TRAILS mini-grant! 🤩" },

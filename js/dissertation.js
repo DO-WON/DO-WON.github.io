@@ -2,11 +2,10 @@
  * Renders data/dissertation.json on dissertation.html:
  *   1. the dissertation title as the page heading (with a small
  *      "Dissertation" label above it), the central question, and outline
- *   2. a table of contents (Big Picture + one entry per study)
- *   3. the "big picture" block: paragraphs, then an interactive diagram
+ *   2. the "big picture" block: paragraphs, then an interactive diagram
  *      (one tile per study; hovering, focusing, or clicking a tile shows its
- *      concern → intervention → effect card), then a closing line
- *   4. one card per study (id="study-N", a stable anchor for QR codes),
+ *      concern → intervention → effect card), then an optional closing line
+ *   3. one card per study (id="study-N", a stable anchor for QR codes),
  *      headed "Study N: <paper title>", with authors, summary, and links,
  *      plus optional tool, presentations, funding, resources, and coverage.
  * Every optional piece hides itself when its data is missing or empty.
@@ -26,11 +25,6 @@ Site.load("./data/dissertation.json", "dissertation-container", async (container
   const { title, intro = [], question, outline, contribution, chapters = [] } = data;
   await Site.getOwnerName();
 
-  // Each study is headed by its paper title; the dimension, guiding
-  // question, and status are covered by the Big Picture diagram instead.
-  const studyLabel = (chapter, i) =>
-    chapter.title ? `Study ${i + 1}: ${chapter.title}` : `Study ${i + 1}`;
-
   /** Anchor link to a section on this page. */
   const anchor = (id, text) => {
     const a = document.createElement("a");
@@ -39,26 +33,64 @@ Site.load("./data/dissertation.json", "dissertation-container", async (container
     return a;
   };
 
-  /** "Label" heading + <ul> of items, or nothing when `items` is empty. */
+  /**
+   * "Label" heading + a list of two-line rows, or nothing when `items` is
+   * empty. `renderItem(item)` returns `{ main, sub, date, place }`: `main`
+   * and `sub` are arrays of nodes/strings for the first line and the muted
+   * second line; `date` and `place` are right-aligned on lines one and two.
+   */
   const subList = (heading, items, renderItem) => {
     if (!items.length) return null;
     const wrap = Site.el("div", "study-sublist");
     wrap.appendChild(Site.el("h3", null, heading));
     const ul = Site.el("ul", "resource-list");
     items.forEach((item) => {
+      const { main = [], sub = [], date, place } = renderItem(item);
       const li = Site.el("li");
-      renderItem(li, item);
+      const mainEl = Site.el("div", "row-main");
+      mainEl.append(...main.filter(Boolean));
+      li.appendChild(mainEl);
+      const subParts = sub.filter(Boolean);
+      if (subParts.length) {
+        const subEl = Site.el("div", "row-sub");
+        subEl.append(...subParts);
+        li.appendChild(subEl);
+      }
+      // Date and place stack in the right column, top-aligned with line one.
+      if (date || place) {
+        const right = Site.el("div", "row-right");
+        if (date) right.appendChild(Site.el("span", "row-date", date));
+        if (place) right.appendChild(Site.el("span", "row-place", place));
+        li.appendChild(right);
+      }
       ul.appendChild(li);
     });
     wrap.appendChild(ul);
     return wrap;
   };
 
-  /** Appends " · meta · meta" in muted text for the non-empty parts. */
-  const appendMeta = (li, parts) => {
-    const text = parts.filter(Boolean).join(" · ");
-    if (text) li.appendChild(Site.el("span", "resource-meta", ` · ${text}`));
+  /**
+   * Material links for a presentation as plain accent links, with "(PDF)"
+   * spelled out for PDF files: "Poster (PDF)", "Slides (PDF)". If one of them has the same label as
+   * the presentation's `kind`, it stands in for the kind tag; otherwise the
+   * kind is shown first as muted text.
+   */
+  const materials = (kind, links = []) => {
+    const out = [];
+    const hasKindLink = links.some((l) => l.label === kind);
+    if (kind && !hasKindLink) out.push(Site.el("span", "row-kind", kind));
+    links.forEach(({ label, url }) => {
+      if (!url) return;
+      const a = Site.link(url, /\.pdf($|[?#])/i.test(url) ? `${label} (PDF)` : label);
+      a.className = "material-link";
+      out.push(a);
+    });
+    return out;
   };
+
+  /** Joins parts with " · " separators (strings or nodes), skipping blanks. */
+  const dotJoin = (parts) =>
+    parts.filter(Boolean).flatMap((p, i) => (i ? [" · ", p] : [p]));
 
   // --- 1. Heading + framing ---------------------------------------------
   // The static <h1>Dissertation</h1> in dissertation.html becomes the
@@ -72,29 +104,11 @@ Site.load("./data/dissertation.json", "dissertation-container", async (container
   if (question) container.appendChild(Site.el("p", "dissertation-question", question));
   if (outline) container.appendChild(Site.el("p", null, outline));
 
-  // --- 2. Table of contents ----------------------------------------------
-  const toc = Site.el("nav", "dissertation-toc");
-  toc.setAttribute("aria-label", "Contents");
-  toc.appendChild(Site.el("p", "toc-label", "Contents"));
-  const tocList = Site.el("ol");
-  if (contribution) {
-    const li = Site.el("li");
-    li.appendChild(anchor("big-picture", contribution.heading || "The Big Picture"));
-    tocList.appendChild(li);
-  }
-  chapters.forEach((chapter, i) => {
-    const li = Site.el("li");
-    li.appendChild(anchor(`study-${i + 1}`, studyLabel(chapter, i)));
-    tocList.appendChild(li);
-  });
-  toc.appendChild(tocList);
-  container.appendChild(toc);
-
-  // --- 3. Big picture ----------------------------------------------------
+  // --- 2. Big picture ----------------------------------------------------
   if (contribution) {
     const block = Site.el("div", "dissertation-block");
     block.id = "big-picture";
-    block.appendChild(Site.el("h2", null, contribution.heading || "The Big Picture"));
+    if (contribution.heading) block.appendChild(Site.el("h2", null, contribution.heading));
     (contribution.paragraphs || []).forEach((text) => block.appendChild(Site.el("p", null, text)));
 
     const logic = contribution.logic || [];
@@ -104,7 +118,7 @@ Site.load("./data/dissertation.json", "dissertation-container", async (container
     container.appendChild(block);
   }
 
-  // --- 4. Studies --------------------------------------------------------
+  // --- 3. Studies --------------------------------------------------------
   chapters.forEach((chapter, i) => {
     // Collapsible card: the <summary> (title + authors) is always visible;
     // the rest starts open and collapses on click. Opened automatically when the URL
@@ -114,7 +128,8 @@ Site.load("./data/dissertation.json", "dissertation-container", async (container
     const details = Site.el("details");
     details.open = true; // open by default; click the title to collapse
     const head = Site.el("summary");
-    head.appendChild(Site.el("h2", null, studyLabel(chapter, i)));
+    head.appendChild(Site.el("p", "study-eyebrow", `Study ${i + 1}`));
+    head.appendChild(Site.el("h2", null, chapter.title || `Study ${i + 1}`));
     if (chapter.authors) {
       const authorsEl = Site.el("p", "paper-authors");
       authorsEl.appendChild(Site.formatAuthors(chapter.authors));
@@ -138,58 +153,61 @@ Site.load("./data/dissertation.json", "dissertation-container", async (container
     }
 
     const { tool, presentations = [], funding = [], resources = [], coverage = [] } = chapter;
-    // Resources (e.g. "Working paper: arXiv") and the tool render as plain
-    // "Label: value" lines with no heading. Resources come first unless the
-    // chapter sets `toolFirst` (e.g. VIOLETS, where the tool is the project).
-    const resourceLines = resources.map(({ label, url, venue }) => {
-      const p = Site.el("p", "study-tool");
-      p.appendChild(Site.el("strong", null, `${label}: `));
+    // Resources (e.g. Working paper → arXiv) and the tool render as a small
+    // key–value list whose labels match the section labels below. Resources
+    // come first unless the chapter sets `toolFirst` (e.g. when the tool is
+    // the project itself).
+    const facts = resources.map(({ label, url, venue }) => {
       const text = venue || url;
-      p.appendChild(url ? Site.link(url, text) : document.createTextNode(text));
-      return p;
+      return [label, [url ? Site.link(url, text) : text]];
     });
-
-    let toolLine = null;
     if (tool && tool.name) {
-      toolLine = Site.el("p", "study-tool");
-      toolLine.appendChild(Site.el("strong", null, "Tool: "));
-      toolLine.appendChild(document.createTextNode(tool.name));
-      if (tool.description) toolLine.appendChild(Site.el("span", "resource-meta", `. ${tool.description}`));
-      if ((tool.links || []).length) {
-        toolLine.appendChild(document.createTextNode(" "));
-        toolLine.appendChild(Site.linkTags(tool.links));
-      }
+      const value = [tool.name];
+      if ((tool.links || []).length) value.push(" ", Site.linkTags(tool.links));
+      if (tool.description) value.push(Site.el("span", "fact-note", tool.description));
+      facts[chapter.toolFirst ? "unshift" : "push"](["Tool", value]);
+    }
+    if (facts.length) {
+      const dl = Site.el("dl", "study-facts");
+      facts.forEach(([label, value]) => {
+        dl.appendChild(Site.el("dt", null, label));
+        const dd = Site.el("dd");
+        dd.append(...value);
+        dl.appendChild(dd);
+      });
+      block.appendChild(dl);
     }
 
-    const lines = chapter.toolFirst ? [toolLine, ...resourceLines] : [...resourceLines, toolLine];
-    lines.filter(Boolean).forEach((line) => block.appendChild(line));
-
-    // [Talk] Venue, Location · date · presented by X  [Slides]
-    //   "Earlier title" (only when the talk used a different title)
-    const pres = subList("Presentations", presentations, (li, { kind, title: t, venue, location, date, presenter, links = [] }) => {
-      if (kind) li.appendChild(Site.el("span", "work-type", kind));
-      li.appendChild(document.createTextNode(` ${[venue, location].filter(Boolean).join(", ")}`));
-      appendMeta(li, [date, presenter && `presented by ${presenter}`]);
-      if (links.length) {
-        li.appendChild(document.createTextNode(" "));
-        li.appendChild(Site.linkTags(links));
-      }
-      if (t) li.appendChild(Site.el("span", "resource-alt-title", `“${t}”`));
-    });
+    // Row: Venue (linked to the event page)                  Sept. 2026
+    //      Talk · Slides (PDF) · presented by X               Boston, USA
+    //      "Earlier title" (only when the talk used a different title)
+    const pres = subList("Presentations", presentations, ({ kind, title: t, venue, url, location, date, presenter, links = [] }) => ({
+      main: [venue && (url ? Site.link(url, venue) : venue)],
+      date,
+      place: location,
+      sub: [
+        ...dotJoin([...materials(kind, links), presenter && `presented by ${presenter}`]),
+        t && Site.el("span", "resource-alt-title", `“${t}”`),
+      ],
+    }));
     if (pres) block.appendChild(pres);
 
-    const fund = subList("Funding & Awards", funding, (li, { name, org, role, date, url }) => {
-      const text = [name, org].filter(Boolean).join(", ");
-      li.appendChild(url ? Site.link(url, text) : document.createTextNode(text));
-      appendMeta(li, [role && `Role: ${role}`, date]);
-    });
+    // Row: Grant name (linked if `url`)                         2026
+    //      Funder · Role: X
+    const fund = subList("Funding & Awards", funding, ({ name, org, role, date, url }) => ({
+      main: [name && (url ? Site.link(url, name) : name)],
+      date,
+      sub: dotJoin([org, role && `Role: ${role}`]),
+    }));
     if (fund) block.appendChild(fund);
 
-    const cov = subList("In the News", coverage, (li, { outlet, title: t, url, date, note }) => {
-      if (outlet) li.appendChild(Site.el("strong", null, `${outlet}: `));
-      li.appendChild(url ? Site.link(url, t || outlet) : document.createTextNode(t || ""));
-      appendMeta(li, [date, note]);
-    });
+    // Row: Headline (linked)                               Oct. 28, 2026
+    //      Outlet · note
+    const cov = subList("Media Coverage", coverage, ({ outlet, title: t, url, date, note }) => ({
+      main: [url ? Site.link(url, t || outlet) : t || outlet],
+      date,
+      sub: dotJoin([outlet, note]),
+    }));
     if (cov) block.appendChild(cov);
 
     container.appendChild(card);
