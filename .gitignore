@@ -2,3 +2,6 @@
 .RDataFiles/
 .agents/*
 .claude/*
+
+# Private drafts and idea notes (not published)
+drafts/
