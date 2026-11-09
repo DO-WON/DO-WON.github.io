@@ -1,6 +1,6 @@
 {
   "intro": [
-    "I am a computational social scientist studying how AI and algorithmic systems shape the information environments people encounter. I ask how these environments can be redesigned to expand access to trustworthy information while limiting exposure to untrustworthy sources, to represent a broader range of information and perspectives, and to support an informed citizenry.",
+    "What people believe and decide depends on the information they encounter, and AI and platforms increasingly shape it. I am a computational social scientist working to build healthier information environments for democratic societies. Using AI and information systems, I design and test ways to expand access to trustworthy information while limiting exposure to untrustworthy sources, to represent a broader range of information and perspectives, and to support an informed citizenry.",
     "My work is organized around three themes:"
   ],
   "callout": {
@@ -12,13 +12,12 @@
   "themes": [
     {
       "id": "access",
-      "title": "Access: Changing the Costs of Information",
-      "summary": "Making untrustworthy sources harder to reach and trustworthy sources easier to reach.",
-      "description": "Do democratic outcomes improve when information environments make untrustworthy sources harder to reach and trustworthy sources easier to reach?",
+      "title": "Access: Shaping What Information Is Easy to Reach",
+      "summary": "Making trustworthy information easier to reach and untrustworthy sources harder to reach.",
       "subthemes": [
         {
           "title": "Limiting Exposure to Untrustworthy Sources",
-          "description": "Testing environmental changes, such as muting, against cognitive ones, such as media literacy, for the users who engage most with untrustworthy sources.",
+          "description": "A small share of users account for most engagement with untrustworthy sources. I test two ways to durably improve their information consumption: muting those sources for them, or giving them media literacy tips.",
           "items": [
             {
               "type": "Working Paper",
@@ -35,7 +34,7 @@
         },
         {
           "title": "Facilitating Access to Trusted Information",
-          "description": "Testing whether conversational access to official election information improves voter trust, knowledge, and beliefs about elections.",
+          "description": "Voters trust local election officials most, but their reach is limited. I test whether a chatbot that delivers official information improves voter knowledge, trust, and beliefs about elections.",
           "items": [
             {
               "type": "Poster",
@@ -54,13 +53,12 @@
     },
     {
       "id": "representation",
-      "title": "Representation: Broadening Information and Political Encounters",
-      "summary": "Broadening the information and political encounters available to citizens.",
-      "description": "Can information environments broaden the information and encounters available to citizens, so that their views of the world and of one another are less narrow or distorted? I focus on information, perspectives, and encounters that existing environments omit or underrepresent.",
+      "title": "Representation: Broadening the Information and Perspectives People Encounter",
+      "summary": "Broadening the information and perspectives available to people.",
       "subthemes": [
         {
           "title": "Creating Unexpected Partisan Encounters",
-          "description": "Using AI conversations that challenge partisan expectations to reduce polarization without persuasion.",
+          "description": "Partisans expect co-partisans to be like them and opponents to be different, a distorted view that fuels polarization. I test whether AI conversations that defy these expectations reduce polarization without persuading anyone on the issues.",
           "items": [
             {
               "type": "Working Paper",
@@ -78,10 +76,10 @@
         },
         {
           "title": "Designing Feeds Beyond Engagement",
-          "description": "What drives engagement often diverges from what users value. I design feeds that better align with the stated preferences of users and foster civil engagement across divides.",
+          "description": "What drives engagement often diverges from what users say they value. I design and test feeds that better reflect the stated preferences of users and encourage civil engagement across divides.",
           "items": [
             {
-              "type": "Conference",
+              "type": "Publication",
               "title": "Understanding the Gap Between Stated and Revealed Preferences in Social Media News Feeds",
               "authors": "Do Won Kim, Cody Buntain, Giovanni Luca Ciampaglia",
               "url": "https://doi.org/10.1145/3817029",
@@ -95,13 +93,6 @@
               "year": "2025"
             },
             {
-              "type": "Conference",
-              "title": "Emotional Appeals in the 2020 #SaveTheChildren Campaign: A Multi-Platform Study of Online Engagement in QAnon Messaging",
-              "authors": "Do Won Kim, Cody Buntain",
-              "url": "https://doi.org/10.1145/3720554.3733843",
-              "year": "2025"
-            },
-            {
               "type": "Software",
               "title": "Bridging news-feed ranking algorithm (Prosocial Ranking Challenge finalist)",
               "authors": "Bao Tran Truong, Saumya Bhadani, Ozgur Can Seckin, Do Won Kim",
@@ -112,13 +103,13 @@
         },
         {
           "title": "Scholarly Information Environments",
-          "description": "Science has its own information environment, where the same questions apply: what gets seen, by whom, and through which systems. I study whose knowledge becomes visible across linguistic divides, and which infrastructures shape how research is found and shared.",
+          "description": "Science is an information environment too, with the same questions: what gets seen, by whom, and through which systems. I study whose knowledge becomes visible across languages, and which infrastructures shape how research is found and shared.",
           "items": [
             {
-              "type": "Journal",
+              "type": "Publication",
               "title": "Two Spheres of Korean Politics: Knowledge Production and Dissemination across Linguistic Divides",
               "authors": "Do Won Kim, Hyowon Kim, Won-ho Park",
-              "year": "2026"
+              "year": "To appear"
             },
             {
               "type": "Talk",
@@ -127,7 +118,7 @@
               "year": "2026"
             },
             {
-              "type": "Journal",
+              "type": "Publication",
               "title": "Understanding Motivations and Future Needs for Data Deposits at Korea Social Science Data Archive (KOSSDA)",
               "authors": "Hyowon Kim, Do Won Kim, Jungwon Yang",
               "url": "https://doi.org/10.29173/iq1110",
@@ -138,14 +129,13 @@
       ]
     },
     {
-      "id": "civic-capabilities",
+      "id": "informed-citizenry",
       "title": "Informed Citizenry: Supporting Political Learning and Participation",
-      "summary": "Helping citizens learn about politics and make informed electoral choices.",
-      "description": "How do citizens learn about politics, process political information, and make electoral choices? And how can information environments, including AI, support more informed participation?",
+      "summary": "Helping citizens learn about politics and make informed political decisions.",
       "subthemes": [
         {
           "title": "Political Learning with AI",
-          "description": "Comparing direct exposure to political information, AI-generated summaries, and conversational AI assistance to test whether different forms of AI mediation improve how citizens understand a complex policy issue.",
+          "description": "More people now learn about politics through AI. I compare direct exposure to political information, AI-generated summaries, and conversational AI assistance to test whether AI mediation improves how people understand a complex policy issue.",
           "items": [
             {
               "type": "Talk",
@@ -156,25 +146,32 @@
           ]
         },
         {
-          "title": "Voting Behavior & Political Communication",
-          "description": "How candidate traits, voter strategies, campaign spending, and emotional responses to political information shape electoral choices.",
+          "title": "Political Behavior & Communication",
+          "description": "How candidates, campaigns, and emotional appeals in political messaging shape how people vote, engage online, and respond to politics.",
           "items": [
             {
-              "type": "Journal",
+              "type": "Publication",
+              "title": "Emotional Appeals in the 2020 #SaveTheChildren Campaign: A Multi-Platform Study of Online Engagement in QAnon Messaging",
+              "authors": "Do Won Kim, Cody Buntain",
+              "url": "https://doi.org/10.1145/3720554.3733843",
+              "year": "2025"
+            },
+            {
+              "type": "Publication",
               "title": "Smile to Win: How Do Candidates’ Smiles Affect Election Results?",
               "authors": "Woo Chang Kang, Do Won Kim, Joonmo Kang",
               "url": "https://doi.org/10.18854/kpsr.2022.56.4.003",
               "year": "2022"
             },
             {
-              "type": "Journal",
+              "type": "Publication",
               "title": "Voting against in the 2017 French presidential election",
               "authors": "Do Won Kim",
               "url": "https://doi.org/10.1057/s41253-021-00165-7",
               "year": "2022"
             },
             {
-              "type": "Journal",
+              "type": "Publication",
               "title": "Strategic Allocation of Political Fund and Re-election of Incumbents in South Korea",
               "authors": "Do Won Kim, Hyowon Kim",
               "url": "https://doi.org/10.35656/JKP.31.2.3",

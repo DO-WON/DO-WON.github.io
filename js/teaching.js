@@ -10,7 +10,7 @@
  *       Detail (what the course was, or who was mentored)
  *
  * Material links are text ("Syllabus (PDF)", "Slides (Korean)"), matching
- * the dissertation page; GitHub links show the GitHub icon. Empty groups
+ * the dissertation page; GitHub links show the GitHub icon; a link labelled "Poster" shows the poster icon. Empty groups
  * hide themselves.
  */
 Site.load("./data/teaching.json", "teaching-container", (container, { intro, interests = [], groups = [] }) => {
@@ -37,6 +37,8 @@ Site.load("./data/teaching.json", "teaching-container", (container, { intro, int
   // "Syllabus (PDF)".
   const materialLink = ({ label, url, lang }) => {
     if (/github\.com/i.test(url)) return Site.iconLink(url, label || "GitHub");
+    // A poster (image or PDF) gets the poster icon, like on the Research page.
+    if (/^poster$/i.test(label || "")) return Site.iconLink(url, "Poster", "poster");
     const notes = [/\.pdf($|[?#])/i.test(url) && "PDF", lang].filter(Boolean);
     const a = Site.link(url, notes.length ? `${label} (${notes.join(", ")})` : label);
     a.className = "material-link";

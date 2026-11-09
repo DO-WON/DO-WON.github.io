@@ -59,19 +59,23 @@ Site.load("./data/research.json", "research-container", async (container, { intr
   const renderItem = (item) => {
     const chapter = item.dissertationChapter ? chapters[item.dissertationChapter - 1] : null;
     const title = (chapter || item).title;
-    // A chapter links to its first paper link, else its first resource
-    // (e.g. the arXiv preprint), else its own section on the dissertation page.
-    const url = chapter
+    // A chapter links to its first paper link, else a resource that is the
+    // paper itself (e.g. the arXiv preprint), else its own section on the
+    // dissertation page. Only the paper links get the "external" icon; the
+    // dissertation-page fallback gets the "page" icon so it doesn't read as a PDF.
+    const chapterPage = chapter ? `./dissertation.html#study-${item.dissertationChapter}` : null;
+    const paperLink = chapter
       ? (chapter.links || [])[0]?.url ||
-        (chapter.resources || [])[0]?.url ||
-        `./dissertation.html#study-${item.dissertationChapter}`
-      : item.url;
+        (chapter.resources || []).find((r) => /paper|preprint/i.test(r.label || ""))?.url
+      : null;
+    const url = chapter ? paperLink || chapterPage : item.url;
+    const isChapterPage = chapter && !paperLink;
     if (!title) return null;
 
     // Three aligned columns: type tag | title | year.
     const li = Site.el("li", "work-item");
     const typeCell = Site.el("span", "work-type-cell");
-    // `type` (Journal, Conference, Working Paper, Poster, Talk, ...) follows
+    // `type` (Publication, Conference, Working Paper, Poster, Talk, ...) follows
     // the CV's section headings.
     if (item.type) typeCell.appendChild(Site.el("span", "work-type", item.type));
     li.appendChild(typeCell);
@@ -85,7 +89,12 @@ Site.load("./data/research.json", "research-container", async (container, { intr
     const linkCell = Site.el("span", "work-link");
     // A poster's PDF gets the poster icon rather than the document icon.
     const isPosterPdf = item.type === "Poster" && /\.pdf($|[?#])/i.test(url || "");
-    if (url) linkCell.appendChild(Site.iconLink(url, isPosterPdf ? `Poster (PDF): ${title}` : `Open: ${title}`, isPosterPdf ? "poster" : undefined));
+    if (url) {
+      const label = isChapterPage
+        ? `Dissertation chapter ${item.dissertationChapter} (page): ${title}`
+        : isPosterPdf ? `Poster (PDF): ${title}` : `Open: ${title}`;
+      linkCell.appendChild(Site.iconLink(url, label, isChapterPage ? "page" : isPosterPdf ? "poster" : undefined));
+    }
     li.appendChild(linkCell);
 
     if (item.year) li.appendChild(Site.el("span", "work-year", item.year));

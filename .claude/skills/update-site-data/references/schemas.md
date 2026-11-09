@@ -122,7 +122,7 @@ Local addition (not part of the upstream template's default sections). An object
 - All fields are optional except each chapter's `title`; empty arrays hide their block.
 - `links` render as bracketed link tags below the summary; a `GitHub` label renders as the GitHub logo (`Site.icons.github`, via `Site.linkTags`).
 - `resources` and `tool` render as a small key–value list (label → linked value), resources first (set `"toolFirst": true` on a chapter to put the tool first). `presentations` (newest first; `kind` is a tag like Talk/Poster; `url` links the venue name to the event page; `links` hold materials such as `Slides`/`Poster`/`Extended abstract` PDFs, shown as "Label (PDF)" links; a link whose label equals `kind` replaces the kind tag; optional `title` and `presenter`), `funding` (optional `role`, `url`), and `coverage` render as lists under their own headings.
-- `research.json` items with `dissertationChapter` link to the chapter's first `links` entry, falling back to its first `resources` entry, then `#study-N`.
+- `research.json` items with `dissertationChapter` link to the chapter's first `links` entry, falling back to a `resources` entry whose label contains "paper" or "preprint" (e.g. the arXiv working paper), then `#study-N` on the dissertation page (shown with the "page" icon, not the external-link icon).
 - Legacy fields `dimension`, `question`, `status`, `intro`, and `outline` are accepted but not rendered.
 
 ## data/research.json — Research page themes
@@ -136,14 +136,15 @@ Local addition. Object rendered by `js/research.js` on `research.html` (page-onl
     {
       "id": "theme-one",
       "title": "Theme Title",
-      "description": "Theme overview paragraph (HTML allowed).",
+      "summary": "One line shown in the overview tile.",
+      "description": "Optional theme paragraph (HTML allowed); omit to go straight to the cards.",
       "subthemes": [
         {
           "title": "Sub-theme Title",
           "description": "Guiding question for this card.",
           "items": [
             {
-              "type": "Journal",
+              "type": "Publication",
               "title": "Paper title",
               "authors": "Jane Placeholder, Co-author",
               "url": "https://doi.org/...",
@@ -160,8 +161,8 @@ Local addition. Object rendered by `js/research.js` on `research.html` (page-onl
 
 - `id` is the anchor (`research.html#theme-one`).
 - Items are compact: `title` (linked when `url` is set; opens in a new tab) and `year` on the right. `authors` is optional and shown only as a hover tooltip; the full citation lives in the CV.
-- `type` is shown as a small tag before the title. Use the CV's section headings, picking the most advanced output for each work: `Journal`, `Conference` (refereed proceedings), `Working Paper`, `Talk`, `Poster`, `Tutorial`, `Software`.
-- `dissertationChapter: N` pulls the title (and link) from the Nth entry of `data/dissertation.json`, so chapters aren't duplicated; it shows `year` like any other item.
+- `type` is shown as a small tag before the title. Use the CV's section headings, picking the most advanced output for each work: `Publication` (journal articles and other published papers), `Conference` (refereed proceedings), `Working Paper`, `Talk`, `Poster`, `Tutorial`, `Software`.
+- `dissertationChapter: N` pulls the title (and link) from the Nth entry of `data/dissertation.json`, so chapters aren't duplicated; it shows `year` like any other item. The link goes to the paper if the chapter has one, otherwise to the chapter's page ("page" icon).
 - The grid width follows the card count: 1 card spans full width, 3 cards get three columns, 2 or 4 cards get two (all collapse to one column on mobile). Order items by importance.
 
 ## data/news.json — news items
@@ -257,7 +258,7 @@ Object. Rendered by `js/teaching.js` on `teaching.html` (no homepage preview).
 ```
 
 - Groups in use: `Instructor`, `Workshops & Tutorials`, `Mentoring`, `Teaching Assistant`. Items newest first within a group; empty groups hide.
-- Each item renders as: title with `term` on the right (a string, or an array of lines, e.g. `["Fall 2021, Spring 2022", "Fall 2022, Summer 2023"]`); then `institution · Instructor: <instructor> · links` (`instructor` optional, used for TA roles); then `detail` in italics. Links show as text ("Syllabus (PDF)" for PDFs, otherwise the label); add `"lang": "Korean"` to a link for non-English material ("Slides (Korean)"); GitHub links render as the GitHub icon.
+- Each item renders as: title with `term` on the right (a string, or an array of lines, e.g. `["Fall 2021, Spring 2022", "Fall 2022, Summer 2023"]`); then `institution · Instructor: <instructor> · links` (`instructor` optional, used for TA roles); then `detail` in italics. Links show as text ("Syllabus (PDF)" for PDFs, otherwise the label); add `"lang": "Korean"` to a link for non-English material ("Slides (Korean)"); GitHub links render as the GitHub icon, and a link labelled `Poster` as the poster icon.
 - `interests` renders as a small key–value list under "Teaching Interests".
 - Optional `evaluation` on an item: `{ "summary": "...", "quotes": ["..."], "note": "Translated from Korean by the author." }`. Renders as a highlighted line under the row, with the quotes in a collapsible "Student comments (N)". Publish summaries and short TA-related quotes only, not full institutional evaluation reports (they may include other instructors' scores).
 - Keep entries consistent with the CV's Teaching & Mentoring section.

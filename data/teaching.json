@@ -1,5 +1,5 @@
 {
-  "intro": "My teaching prepares students to use computational and social-scientific methods to study consequential problems in information, technology, and democracy. I aim to help students formulate answerable research questions, evaluate evidence rigorously, and think critically about the social consequences of technical systems.",
+  "intro": "My teaching starts with substantive questions and equips students with the computational tools to investigate them. Through hands-on practice and accessible materials, I help students of any technical background build practical skills and the confidence to pursue their own questions. My goal is for students to leave with resources they can return to and methods they can adapt to new problems.",
   "interests": [
     {
       "label": "Substantive",
@@ -112,9 +112,15 @@
         },
         {
           "title": "Krishnan Tholkappian, BSc in Computer Science",
-          "detail": "Value-aligned ranking algorithms",
-          "institution": "Computational Sociodynamics Lab, University of Maryland",
-          "term": "2024–25"
+          "detail": "Internship supervisor. LLM-based re-ranking of social media feeds to align with the stated preferences of users",
+          "institution": "UMD Global Fellows Program · Computational Sociodynamics Lab, University of Maryland",
+          "term": "2024–25",
+          "links": [
+            {
+              "label": "Poster",
+              "url": "./docs/teaching/Tholkappian_GlobalFellows_Poster.jpg"
+            }
+          ]
         }
       ]
     },

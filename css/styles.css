@@ -642,7 +642,7 @@ main {
   }
 }
 
-/* Output-type tag (Journal, Poster, ...); outlined since cards are tinted. */
+/* Output-type tag (Publication, Poster, ...); outlined since cards are tinted. */
 .work-type {
   display: inline-block;
   font-size: 0.8rem;
@@ -1170,6 +1170,70 @@ main {
 #teaching-container .row-date {
   max-width: 16rem;
   white-space: normal;
+}
+
+/* Resource rows on phones (teaching page, dissertation presentations/funding):
+   the two-column layout (title | date) squeezes the title and details into a
+   narrow left column. Stack everything in one column instead: title, date
+   (and place), then the muted details. `order` lifts the date block above
+   the detail lines whatever the DOM order. */
+@media (max-width: 640px) {
+  .resource-list li {
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .resource-list li:first-child {
+    border-top: none;
+  }
+
+  .resource-list .row-main {
+    order: 1;
+  }
+
+  .resource-list .row-right {
+    order: 2;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 0.35rem;
+    margin-top: 0.1rem;
+    text-align: left;
+  }
+
+  .resource-list .row-sub {
+    order: 3;
+    margin-top: 0.25rem;
+  }
+
+  .resource-list .row-sub.row-note {
+    order: 4;
+    margin-top: 0.15rem;
+  }
+
+  .resource-list .row-eval {
+    order: 5;
+    margin-top: 0.6rem;
+  }
+
+  #teaching-container .row-date,
+  .resource-list .row-date {
+    max-width: none;
+  }
+
+  .resource-list .row-date:not(:last-child)::after {
+    content: " ·";
+  }
+
+  .resource-list .row-place {
+    margin-top: 0;
+  }
+
+  #teaching-container .row-main {
+    font-weight: 600;
+  }
 }
 
 /* Student-evaluation block under a teaching row. */
